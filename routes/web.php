@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EducationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +16,8 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-// Bagian Admin - Dashboard
+// Dashboard Page
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+// Education Page
+Route::resource('education', EducationController::class);

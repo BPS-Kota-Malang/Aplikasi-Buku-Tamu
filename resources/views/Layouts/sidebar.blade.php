@@ -38,7 +38,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Daftar Menu</h6>
                     <a class="collapse-item" href="#">Customer</a>
-                    <a class="collapse-item" href="#">Pendidikan</a>
+                    <a class="collapse-item" href="{{route('education.index')}}">Pendidikan</a>
                     <a class="collapse-item" href="#">Pekerjaan</a>
                     <a class="collapse-item" href="#">Media Pelayanan</a>
                     <a class="collapse-item" href="#">Jenis Pelayanan</a>

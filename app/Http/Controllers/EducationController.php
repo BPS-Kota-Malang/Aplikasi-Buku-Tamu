@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Education;
 
 class EducationController extends Controller
 {
@@ -13,7 +14,8 @@ class EducationController extends Controller
      */
     public function index()
     {
-        //
+        $education = Education::all();
+        return view('Education.index', compact('education'));
     }
 
     /**
@@ -23,7 +25,8 @@ class EducationController extends Controller
      */
     public function create()
     {
-        //
+        $education = Education::all();
+        return view('Education.addForm', compact('education'));
     }
 
     /**
@@ -34,7 +37,12 @@ class EducationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $education = new Education();
+
+        $education->education_type=$request->education;
+        $education->save();
+
+        return redirect()->route('education.index')->with('status', 'Data Jenis Pendidikan Berhasil Disimpan');
     }
 
     /**
@@ -45,7 +53,8 @@ class EducationController extends Controller
      */
     public function show($id)
     {
-        //
+        $education = Education::find($id);
+        return view('Education.detailForm', compact('education'));
     }
 
     /**
@@ -56,7 +65,8 @@ class EducationController extends Controller
      */
     public function edit($id)
     {
-        //
+        $education = Education::find($id);
+        return view('Education.editForm', compact('education'));
     }
 
     /**
@@ -68,7 +78,11 @@ class EducationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $education = Education::find($id);
+        $education->education_type=$request->education;
+        $education->save();
+
+        return redirect()->route('education.index')->with('status', 'Data Jenis Pendidikan Berhasil Diupdate');
     }
 
     /**
@@ -79,6 +93,9 @@ class EducationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $education = Education::find($id);
+        $education->delete();
+
+        return redirect()->route('education.index')->with('status', 'Data Jenis Pendidikan Berhasil Dihapus');
     }
 }
