@@ -6,7 +6,15 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\MediaController;
+<<<<<<< HEAD
 use App\Http\Controllers\CustomerController;
+=======
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SocialPopulationController;
+use App\Http\Controllers\EconomyTradeController;
+use App\Http\Controllers\AgricultureMiningController;
+use App\Http\Controllers\FeedbackController;
+>>>>>>> 4a2e2e36fbb94a2f38a8e450dc1293cda7aa5325
 
 /*
 |--------------------------------------------------------------------------
@@ -34,5 +42,21 @@ Route::resource('education', EducationController::class);
 // Job Page
 Route::resource('job', JobController::class);
 
-// Service Page
+// Media Page
 Route::resource('media', MediaController::class);
+
+// Service Page
+Route::resource('service', ServiceController::class);
+
+// Social & Population Page
+Route::resource('socpul', SocialPopulationController::class);
+
+// Economy & Trade Page
+Route::resource('ecotra', EconomyTradeController::class);
+
+// Agriculture & Mining Page
+Route::resource('agrimin', AgricultureMiningController::class);
+
+//Feedback
+Route::resource('feedback', FeedbackController::class);
+

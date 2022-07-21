@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\AgricultureMining;
 
 class AgricultureMiningController extends Controller
 {
@@ -13,7 +14,8 @@ class AgricultureMiningController extends Controller
      */
     public function index()
     {
-        //
+        $agrimin = AgricultureMining::all();
+        return view('Agriculture_mining.index', compact('agrimin'));
     }
 
     /**
@@ -23,7 +25,8 @@ class AgricultureMiningController extends Controller
      */
     public function create()
     {
-        //
+        $agrimin = AgricultureMining::all();
+        return view('Agriculture_mining.addForm', compact('agrimin'));
     }
 
     /**
@@ -34,7 +37,12 @@ class AgricultureMiningController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $agrimin = new AgricultureMining();
+
+        $agrimin->agrimin_type=$request->type;
+        $agrimin->save();
+
+        return redirect()->route('agrimin.index')->with('status', 'Data Jenis Ekonomi dan Perdagangan Berhasil Disimpan');
     }
 
     /**
@@ -45,7 +53,8 @@ class AgricultureMiningController extends Controller
      */
     public function show($id)
     {
-        //
+        $agrimin = AgricultureMining::find($id);
+        return view('Agriculture_mining.detailForm', compact('agrimin'));
     }
 
     /**
@@ -56,7 +65,8 @@ class AgricultureMiningController extends Controller
      */
     public function edit($id)
     {
-        //
+        $agrimin = AgricultureMining::find($id);
+        return view('Agriculture_mining.editForm', compact('agrimin'));
     }
 
     /**
@@ -68,7 +78,11 @@ class AgricultureMiningController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $agrimin = AgricultureMining::find($id);
+        $agrimin->agrimin_type=$request->type;
+        $agrimin->save();
+
+        return redirect()->route('agrimin.index')->with('status', 'Data Jenis Ekonomi dan Perdagangan Berhasil Diupdate');
     }
 
     /**
@@ -79,6 +93,9 @@ class AgricultureMiningController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $agrimin = AgricultureMining::find($id);
+        $agrimin->delete();
+
+        return redirect()->route('agrimin.index')->with('status', 'Data Jenis Ekonomi dan Perdagangan Berhasil Dihapus');
     }
 }
