@@ -10,24 +10,29 @@
   
   body {
     font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
+    margin: 1;
     display: grid;
     place-items: center;
     min-height: 100vh;
+    background-image: url('../formTamuStyle/backgroudForm.png');
   }
   /* Global Stylings */
   label {
     display: block;
     margin-bottom: 0.5rem;
+    color: #ffffff;
   }
   
-  input {
+  input,select {
     display: block;
     width: 100%;
     padding: 0.75rem;
     border: 1px solid #ccc;
     border-radius: 0.25rem;
+    
   }
+  
+
   
   .width-50 {
     width: 50%;
@@ -39,6 +44,7 @@
   
   .text-center {
     text-align: center;
+    color: #ffffff;
   }
   
   /* Progressbar */
@@ -60,6 +66,7 @@
     width: 100%;
     background-color: #dcdcdc;
     z-index: -1;
+    color: #ffffff;
   }
   
   .progress {
@@ -71,11 +78,12 @@
   .progress-step {
     width: 2.1875rem;
     height: 2.1875rem;
-    background-color: #dcdcdc;
+    background-color: #ffffff;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #ffffff;
   }
   
   .progress-step::before {
@@ -88,7 +96,7 @@
     position: absolute;
     top: calc(100% + 0.5rem);
     font-size: 0.85rem;
-    color: #666;
+    color: rgb(255, 255, 255);
   }
   
   .progress-step-active {

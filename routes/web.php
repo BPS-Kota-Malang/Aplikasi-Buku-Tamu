@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\MediaController;
+use App\Http\Controllers\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,12 @@ use App\Http\Controllers\MediaController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Bagian Pengunjung
+Route::get('/', [CustomerController::class, 'index'])->name('index');
+Route::resource('formTamu', CustomerController::class);
+
+// Bagian User
+Route::post('simpan-bukutamu', [TamuController::class, 'saveGuest'])->name('simpan-bukutamu');
 
 // Dashboard Page
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
