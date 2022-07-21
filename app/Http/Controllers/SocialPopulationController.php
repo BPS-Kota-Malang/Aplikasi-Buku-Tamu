@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\SocialPopulation;
 
 class SocialPopulationController extends Controller
 {
@@ -13,7 +14,8 @@ class SocialPopulationController extends Controller
      */
     public function index()
     {
-        //
+        $socpul = SocialPopulation::all();
+        return view('Social_population.index', compact('socpul'));
     }
 
     /**
@@ -23,7 +25,8 @@ class SocialPopulationController extends Controller
      */
     public function create()
     {
-        //
+        $socpul = SocialPopulation::all();
+        return view('Social_population.addForm', compact('socpul'));
     }
 
     /**
@@ -34,7 +37,12 @@ class SocialPopulationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $socpul = new SocialPopulation();
+
+        $socpul->sospol_type=$request->type;
+        $socpul->save();
+
+        return redirect()->route('socpul.index')->with('status', 'Data Jenis Sosial dan Kependudukan Berhasil Disimpan');
     }
 
     /**
@@ -45,7 +53,8 @@ class SocialPopulationController extends Controller
      */
     public function show($id)
     {
-        //
+        $socpul = SocialPopulation::find($id);
+        return view('Social_population.detailForm', compact('socpul')); 
     }
 
     /**
@@ -56,7 +65,8 @@ class SocialPopulationController extends Controller
      */
     public function edit($id)
     {
-        //
+        $socpul = SocialPopulation::find($id);
+        return view('Social_population.editForm', compact('socpul'));
     }
 
     /**
@@ -68,7 +78,11 @@ class SocialPopulationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $socpul = SocialPopulation::find($id);
+        $socpul->sospol_type=$request->type;
+        $socpul->save();
+
+        return redirect()->route('socpul.index')->with('status', 'Data Jenis Sosial dan Kependudukan Berhasil Diupdate');
     }
 
     /**
@@ -79,6 +93,9 @@ class SocialPopulationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $socpul = SocialPopulation::find($id);
+        $socpul->delete();
+
+        return redirect()->route('socpul.index')->with('status', 'Data Jenis Sosial dan Kependudukan Berhasil Dihapus');
     }
 }

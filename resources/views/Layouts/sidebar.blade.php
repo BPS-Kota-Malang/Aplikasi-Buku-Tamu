@@ -45,8 +45,8 @@
                     {{-- <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar"> --}}
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Kebutuhan Data</h6>
-                            <a class="collapse-item" href="#">Sosial & Kependudukan</a>
-                            <a class="collapse-item" href="#">Ekonomi & Perdagangan</a>
+                            <a class="collapse-item" href="{{route('socpul.index')}}">Sosial & Kependudukan</a>
+                            <a class="collapse-item" href="{{route('ecotra.index')}}">Ekonomi & Perdagangan</a>
                             <a class="collapse-item" href="#">Pertanian & Pertambangan</a>
                         </div>
                     {{-- </div> --}}
