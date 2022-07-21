@@ -13,6 +13,35 @@
 
     </div>
 
+    {{-- Filtering --}}
+
+    <form action="{{ route('transaction.index') }}" method="GET">
+        @csrf
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="container-fluid">
+                    <div class="form-group row">
+                        <label type="date" class="col-form-label col-sm-2">Mulai Tanggal</label>
+                        <div class="col-sm-3">
+                            <input type="date" class="form-control input-sm" id="fromdate" name="date" required/>
+                        </div>
+                    </div>
+                     <div class="form-group row">
+                        <label type="date" class="col-form-label col-sm-2">Sampai Tanggal</label>
+                        <div class="col-sm-3">
+                            <input type="date" class="form-control input-sm" id="todate" name="todate" required/>
+                        </div>
+                        <div class="col-sm-2">
+                            <button type="submit" class="btn" name="search" title=Search><img src="https://img.icons8.com/material-outlined/24/000000/search--v1.png"/>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <br>
+    </form>
+
     <div class="card-body">
         <table class="table" id="myTable">
             <thead class="thead-dark text-center">
