@@ -17,5 +17,6 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('/backend/css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/backend/css/dataTable.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('/frontend/css/feedback.css') }}" rel="stylesheet">
 
 </head>

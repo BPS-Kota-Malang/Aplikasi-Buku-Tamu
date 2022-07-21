@@ -10,6 +10,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SocialPopulationController;
 use App\Http\Controllers\EconomyTradeController;
 use App\Http\Controllers\AgricultureMiningController;
+use App\Http\Controllers\FeedbackController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,3 +46,7 @@ Route::resource('ecotra', EconomyTradeController::class);
 
 // Agriculture & Mining Page
 Route::resource('agrimin', AgricultureMiningController::class);
+
+//Feedback
+Route::resource('feedback', FeedbackController::class);
+
