@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\MediaController;
+use App\Http\Controllers\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +28,8 @@ Route::resource('education', EducationController::class);
 // Job Page
 Route::resource('job', JobController::class);
 
-// Service Page
+// Media Page
 Route::resource('media', MediaController::class);
+
+// Service Page
+Route::resource('service', ServiceController::class);

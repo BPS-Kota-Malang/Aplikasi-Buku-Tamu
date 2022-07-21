@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Service;
 
 class ServiceController extends Controller
 {
@@ -13,7 +14,8 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        $service = Service::all();
+        return view('Service.index', compact('service'));
     }
 
     /**
@@ -23,7 +25,8 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        $service = Service::all();
+        return view('Service.addForm', compact('service'));
     }
 
     /**
@@ -34,7 +37,12 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $service = new Service();
+
+        $service->service_type=$request->service;
+        $service->save();
+
+        return redirect()->route('service.index')->with('status', 'Data Jenis Layanan Berhasil Disimpan');
     }
 
     /**
@@ -45,7 +53,8 @@ class ServiceController extends Controller
      */
     public function show($id)
     {
-        //
+        $service = Service::find($id);
+        return view('Service.detailForm', compact('service'));  
     }
 
     /**
@@ -56,7 +65,8 @@ class ServiceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $service = Service::find($id);
+        return view('Service.editForm', compact('service'));
     }
 
     /**
@@ -68,7 +78,11 @@ class ServiceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $service = Service::find($id);
+        $service->service_type=$request->service;
+        $service->save();
+
+        return redirect()->route('service.index')->with('status', 'Data Jenis Layanan Berhasil Diupdate');
     }
 
     /**
@@ -79,6 +93,9 @@ class ServiceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $service = Service::find($id);
+        $service->delete();
+
+        return redirect()->route('service.index')->with('status', 'Data Jenis Layanan Berhasil Dihapus');
     }
 }
