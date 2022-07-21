@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Transaction;
 
 class TransactionController extends Controller
 {
@@ -13,7 +14,8 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        //
+        $transaction = Transaction::all();
+        return view('transaction.index', compact('transaction'));
     }
 
     /**
@@ -34,7 +36,7 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       //
     }
 
     /**
@@ -45,7 +47,8 @@ class TransactionController extends Controller
      */
     public function show($id)
     {
-        //
+        $transaction = Transaction::all();
+        return view('Transaction.detailForm', compact('transaction'));
     }
 
     /**
@@ -56,7 +59,8 @@ class TransactionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $transaction = Transaction::all();
+        return view('Transaction.editForm', compact('transaction'));
     }
 
     /**
@@ -68,7 +72,19 @@ class TransactionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $transaction = Transaction::find($id);
+        $transaction->id_customer=$request->customer;
+        $transaction->id_media=$request->id_media;
+        $transaction->id_service=$request->id_service;
+        $transaction->tujuan=$request->tujuan;
+        $transaction->data=$request->data;
+        $transaction->id_social_population=$request->id_social_population;
+        $transaction->id_economy_trade=$request->id_economy_trade;
+        $transaction->id_agriculture_mining=$request->id_agriculture_mining;
+
+        $transaction->save();
+
+        return redirect()->route('transaction.index')->with('status', 'Data Transaksi Berhasil Diupdate');
     }
 
     /**
@@ -79,6 +95,9 @@ class TransactionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $transaction= Transaction::find($id);
+        $transaction->delete();
+
+        return redirect()->route('transaction.index')->with('status', 'Data Transaksi Berhasil Dihapus');
     }
 }

@@ -6,15 +6,14 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\MediaController;
-<<<<<<< HEAD
 use App\Http\Controllers\CustomerController;
-=======
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SocialPopulationController;
 use App\Http\Controllers\EconomyTradeController;
 use App\Http\Controllers\AgricultureMiningController;
 use App\Http\Controllers\FeedbackController;
->>>>>>> 4a2e2e36fbb94a2f38a8e450dc1293cda7aa5325
+use App\Http\Controllers\TransactionController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -59,4 +58,7 @@ Route::resource('agrimin', AgricultureMiningController::class);
 
 //Feedback
 Route::resource('feedback', FeedbackController::class);
+
+//Transaksi
+Route::resource('transaction', TransactionController::class);
 
