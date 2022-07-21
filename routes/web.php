@@ -9,6 +9,7 @@ use App\Http\Controllers\MediaController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SocialPopulationController;
 use App\Http\Controllers\EconomyTradeController;
+use App\Http\Controllers\AgricultureMiningController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,3 +42,6 @@ Route::resource('socpul', SocialPopulationController::class);
 
 // Economy & Trade Page
 Route::resource('ecotra', EconomyTradeController::class);
+
+// Agriculture & Mining Page
+Route::resource('agrimin', AgricultureMiningController::class);

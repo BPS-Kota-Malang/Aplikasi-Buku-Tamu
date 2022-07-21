@@ -47,7 +47,7 @@
                             <h6 class="collapse-header">Kebutuhan Data</h6>
                             <a class="collapse-item" href="{{route('socpul.index')}}">Sosial & Kependudukan</a>
                             <a class="collapse-item" href="{{route('ecotra.index')}}">Ekonomi & Perdagangan</a>
-                            <a class="collapse-item" href="#">Pertanian & Pertambangan</a>
+                            <a class="collapse-item" href="{{route('agrimin.index')}}">Pertanian & Pertambangan</a>
                         </div>
                     {{-- </div> --}}
                 </div>
