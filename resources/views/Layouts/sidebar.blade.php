@@ -54,8 +54,8 @@
             </div>
         </li>
 
-        <li class="nav-item">
-             <a class="nav-link" href="#">
+       <li class="nav-item">
+             <a class="nav-link" href="{{route('transaction.index')}}">
                 <i class="fas fa-sync-alt"></i>
                 <span>Menu Transaksi</span></a>
         </li>

@@ -12,6 +12,8 @@ use App\Http\Controllers\SocialPopulationController;
 use App\Http\Controllers\EconomyTradeController;
 use App\Http\Controllers\AgricultureMiningController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\TransactionController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -66,4 +68,7 @@ Route::resource('agrimin', AgricultureMiningController::class);
 
 //Feedback
 Route::resource('feedback', FeedbackController::class);
+
+//Transaksi
+Route::resource('transaction', TransactionController::class);
 
