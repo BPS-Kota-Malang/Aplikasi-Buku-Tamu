@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\EconomyTrade;
 
 class EconomyTradeController extends Controller
 {
@@ -13,7 +14,8 @@ class EconomyTradeController extends Controller
      */
     public function index()
     {
-        //
+        $ecotra = EconomyTrade::all();
+        return view('Economy_trade.index', compact('ecotra'));
     }
 
     /**
@@ -23,7 +25,8 @@ class EconomyTradeController extends Controller
      */
     public function create()
     {
-        //
+        $ecotra = EconomyTrade::all();
+        return view('Economy_trade.addForm', compact('ecotra'));
     }
 
     /**
@@ -34,7 +37,12 @@ class EconomyTradeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ecotra = new EconomyTrade();
+
+        $ecotra->ecotra_type=$request->type;
+        $ecotra->save();
+
+        return redirect()->route('ecotra.index')->with('status', 'Data Jenis Ekonomi dan Perdagangan Berhasil Disimpan');
     }
 
     /**
@@ -45,7 +53,8 @@ class EconomyTradeController extends Controller
      */
     public function show($id)
     {
-        //
+        $ecotra = EconomyTrade::find($id);
+        return view('Economy_trade.detailForm', compact('ecotra'));
     }
 
     /**
@@ -56,7 +65,8 @@ class EconomyTradeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ecotra = EconomyTrade::find($id);
+        return view('Economy_trade.editForm', compact('ecotra'));
     }
 
     /**
@@ -68,7 +78,11 @@ class EconomyTradeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $ecotra = EconomyTrade::find($id);
+        $ecotra->ecotra_type=$request->type;
+        $ecotra->save();
+
+        return redirect()->route('ecotra.index')->with('status', 'Data Jenis Ekonomi dan Perdagangan Berhasil Diupdate');
     }
 
     /**
@@ -79,6 +93,9 @@ class EconomyTradeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ecotra = EconomyTrade::find($id);
+        $ecotra->delete();
+
+        return redirect()->route('ecotra.index')->with('status', 'Data Jenis Ekonomi dan Perdagangan Berhasil Dihapus');
     }
 }

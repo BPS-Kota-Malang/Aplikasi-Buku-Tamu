@@ -8,7 +8,7 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SocialPopulationController;
-
+use App\Http\Controllers\EconomyTradeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +38,6 @@ Route::resource('service', ServiceController::class);
 
 // Social & Population Page
 Route::resource('socpul', SocialPopulationController::class);
+
+// Economy & Trade Page
+Route::resource('ecotra', EconomyTradeController::class);
