@@ -2,19 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\MediaController;
-<<<<<<< HEAD
-use App\Http\Controllers\CustomerController;
-=======
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SocialPopulationController;
 use App\Http\Controllers\EconomyTradeController;
 use App\Http\Controllers\AgricultureMiningController;
 use App\Http\Controllers\FeedbackController;
->>>>>>> 4a2e2e36fbb94a2f38a8e450dc1293cda7aa5325
 
 /*
 |--------------------------------------------------------------------------
@@ -26,11 +23,21 @@ use App\Http\Controllers\FeedbackController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Bagian Pengunjung
+// Customer Page - User
 Route::get('/', [CustomerController::class, 'index'])->name('index');
 Route::resource('formTamu', CustomerController::class);
 
-// Bagian User
+// Customer Page - Admin
+Route::get('admin/tamu', [CustomerController::class, 'index'])->name('admin-tamu');
+Route::get('admin/form-tambah', [CustomerController::class, 'formTambah'])->name('admin-form-tambah');
+Route::post('admin/simpan-data',[CustomerController::class, 'simpanData'])->name('admin-simpan-data');
+Route::get('admin/form-edit/{id}',[CustomerController::class, 'formEdit'])->name('admin-form-edit');
+Route::post('admin/update-data/{id}', [CustomerController::class, 'updateTamu'])->name('admin-update-data');
+Route::get('admin/show/{id}', [CustomerController::class, 'show'])->name('admin-show');
+Route::post('admin/hapus-data', [CustomerController::class, 'hapusTamu'])->name('admin-hapus-data');
+Route::post('/register', [CustomerController::class, 'register'])->name('register-admin');
+
+// User Page
 Route::post('simpan-bukutamu', [TamuController::class, 'saveGuest'])->name('simpan-bukutamu');
 
 // Dashboard Page

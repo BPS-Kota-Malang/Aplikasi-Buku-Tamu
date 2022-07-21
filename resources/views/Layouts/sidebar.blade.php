@@ -37,7 +37,7 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Daftar Menu</h6>
-                    <a class="collapse-item" href="#">Customer</a>
+                    <a class="collapse-item" href="{{route('admin-tamu')}}">Customer</a>
                     <a class="collapse-item" href="{{route('education.index')}}">Pendidikan</a>
                     <a class="collapse-item" href="{{route('job.index')}}">Pekerjaan</a>
                     <a class="collapse-item" href="{{route('media.index')}}">Media Pelayanan</a>

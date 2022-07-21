@@ -15,9 +15,9 @@ class DashboardController extends Controller
     public function index()
     {
         $customer = Customer::count();
-        $asn = Customer::where('id_job', '=', 1)->count();
-        $student= Customer::where('id_job', '=', 2)->count();
-        $lecturer = Customer::where('id_job', '=', 3)->count();
+        $asn = Customer::where('id_job', '=', 2)->count();
+        $student= Customer::where('id_job', '=', 3)->count();
+        $lecturer = Customer::where('id_job', '=', 4)->count();
         return view('dashboard', compact('customer','asn','student','lecturer'));
     }
 
