@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Job;
 
 class JobController extends Controller
 {
@@ -13,7 +14,8 @@ class JobController extends Controller
      */
     public function index()
     {
-        //
+        $job = Job::all();
+        return view('job.index', compact('job'));
     }
 
     /**
@@ -23,7 +25,8 @@ class JobController extends Controller
      */
     public function create()
     {
-        //
+        $job = Job::all();
+        return view('Job.addForm', compact('job'));
     }
 
     /**
@@ -34,7 +37,12 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $job = new Job();
+
+        $job->job_type=$request->type;
+        $job->save();
+
+        return redirect()->route('job.index')->with('status', 'Data Jenis Pekerjaan Berhasil Disimpan');
     }
 
     /**
@@ -45,7 +53,8 @@ class JobController extends Controller
      */
     public function show($id)
     {
-        //
+        $job = Job::find($id);
+        return view('Job.detailForm', compact('job'));
     }
 
     /**
@@ -56,7 +65,8 @@ class JobController extends Controller
      */
     public function edit($id)
     {
-        //
+        $job = Job::find($id);
+        return view('Job.editForm', compact('job'));
     }
 
     /**
@@ -68,7 +78,11 @@ class JobController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $job = Job::find($id);
+        $job->job_type=$request->type;
+        $job->save();
+
+        return redirect()->route('job.index')->with('status', 'Data Jenis Pekerjaan Berhasil Diupdate');
     }
 
     /**
@@ -79,6 +93,9 @@ class JobController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $job = Job::find($id);
+        $job->delete();
+
+        return redirect()->route('job.index')->with('status', 'Data Jenis Pekerjaan Berhasil Dihapus'); 
     }
 }

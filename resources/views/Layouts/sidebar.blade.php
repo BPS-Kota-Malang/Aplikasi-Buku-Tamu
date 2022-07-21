@@ -39,7 +39,7 @@
                     <h6 class="collapse-header">Daftar Menu</h6>
                     <a class="collapse-item" href="#">Customer</a>
                     <a class="collapse-item" href="{{route('education.index')}}">Pendidikan</a>
-                    <a class="collapse-item" href="#">Pekerjaan</a>
+                    <a class="collapse-item" href="{{route('job.index')}}">Pekerjaan</a>
                     <a class="collapse-item" href="#">Media Pelayanan</a>
                     <a class="collapse-item" href="#">Jenis Pelayanan</a>
                     {{-- <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar"> --}}
