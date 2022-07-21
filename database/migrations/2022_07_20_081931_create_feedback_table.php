@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_transaction');
             $table->foreign('id_transaction')->references('id')->on('transactions');
-            $table->string('service');
-            $table->string('facility');
-            $table->string('dataqualities');
+            $table->integer('service');
+            $table->integer('facility');
+            $table->integer('dataqualities');
             $table->timestamps();
         });
     }
