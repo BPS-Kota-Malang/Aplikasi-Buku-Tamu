@@ -7,7 +7,7 @@
     </div>
     @endif
     <div class="card-header">
-        Data Pendidikan <br><br> <a href="{{route('education.create')}}" class="btn btn-success">Tambah Data</a>
+        Data Pendidikan <br><br> <a href="{{route('education.create')}}" class="btn btn-success">Add Data</a>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">
 
@@ -33,14 +33,14 @@
                                     <a href="{{ route('education.edit', $item->id)}}" class="btn btn-warning">Edit</a>
                                 </div>
                                 <div class="col-4">
-                                    <a href="{{ route('education.show', $item->id)}}" class="btn btn-info">Detail</a>
+                                    <a href="{{ route('education.show', $item->id)}}" class="btn btn-info">Show</a>
                                 </div>
                                 <div class="col-4">
                                     <form action="{{route('education.destroy', $item->id)}}" method="post">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger"
-                                            onclick="return confirm('Apakah anda yakin ingin menghapus Jenis Pendidikan ini ?')">Hapus</button>
+                                            onclick="return confirm('Apakah anda yakin ingin menghapus Jenis Pendidikan ini ?')">Delete</button>
                                     </form>
                                 </div>
                         </div>
