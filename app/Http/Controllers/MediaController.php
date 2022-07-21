@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Media;
 
 class MediaController extends Controller
 {
@@ -13,7 +14,8 @@ class MediaController extends Controller
      */
     public function index()
     {
-        //
+        $media = Media::all();
+        return view('Media.index', compact('media'));
     }
 
     /**
@@ -23,7 +25,8 @@ class MediaController extends Controller
      */
     public function create()
     {
-        //
+        $media = Media::all();
+        return view('Media.addForm', compact('media'));
     }
 
     /**
@@ -34,7 +37,12 @@ class MediaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $media = new Media();
+
+        $media->media_type=$request->media;
+        $media->save();
+
+        return redirect()->route('media.index')->with('status', 'Data Media Pelayanan Berhasil Disimpan');
     }
 
     /**
@@ -45,7 +53,8 @@ class MediaController extends Controller
      */
     public function show($id)
     {
-        //
+        $media = Media::find($id);
+        return view('Media.detailForm', compact('media'));
     }
 
     /**
@@ -56,7 +65,8 @@ class MediaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $media = Media::find($id);
+        return view('Media.editForm', compact('media'));
     }
 
     /**
@@ -68,7 +78,11 @@ class MediaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $media = Media::find($id);
+        $media->media_type=$request->media;
+        $media->save();
+
+        return redirect()->route('media.index')->with('status', 'Data Media Pelayanan Berhasil Diupdate');
     }
 
     /**
@@ -79,6 +93,9 @@ class MediaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $media = Media::find($id);
+        $media->delete();
+
+        return redirect()->route('media.index')->with('status', 'Data Media Pelayanan Berhasil Dihapus');
     }
 }

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\MediaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,6 @@ Route::resource('education', EducationController::class);
 
 // Job Page
 Route::resource('job', JobController::class);
+
+// Service Page
+Route::resource('media', MediaController::class);
