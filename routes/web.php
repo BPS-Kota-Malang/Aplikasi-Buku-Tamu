@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\CustomerController;
+use App\Http\Controllers\User\GuestController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\JobController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\EconomyTradeController;
 use App\Http\Controllers\AgricultureMiningController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\TransactionController;
+
 
 
 /*
@@ -26,8 +28,11 @@ use App\Http\Controllers\TransactionController;
 |
 */
 // Customer Page - User
-Route::get('/', [CustomerController::class, 'index'])->name('index');
-Route::resource('formTamu', CustomerController::class);
+Route::get('/', [GuestController::class, 'formTamu'])->name('/');
+Route::resource('formTamu', GuestController::class);
+
+// User Page
+Route::post('simpan-bukutamu', [GuestController::class, 'saveGuest'])->name('simpan-bukutamu');
 
 // Customer Page - Admin
 Route::get('admin/tamu', [CustomerController::class, 'index'])->name('admin-tamu');
@@ -39,8 +44,7 @@ Route::get('admin/show/{id}', [CustomerController::class, 'show'])->name('admin-
 Route::post('admin/hapus-data', [CustomerController::class, 'hapusTamu'])->name('admin-hapus-data');
 Route::post('/register', [CustomerController::class, 'register'])->name('register-admin');
 
-// User Page
-Route::post('simpan-bukutamu', [TamuController::class, 'saveGuest'])->name('simpan-bukutamu');
+
 
 // Dashboard Page
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
