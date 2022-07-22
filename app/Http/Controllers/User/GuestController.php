@@ -7,13 +7,16 @@ use App\Models\User;
 use App\Models\Job;
 use App\Models\Education;
 use App\Models\Media;
+use App\Models\Service;
 use App\Models\SocialPopulation;
 use App\Models\EconomyTrade;
 use App\Models\AgricultureMining;
-use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Customer;
+use App\Models\Transaction;
+use App\Http\Controllers\Controllers\TransactionController;
+
 
 class GuestController extends Controller
 {
@@ -21,14 +24,17 @@ class GuestController extends Controller
         $job = Job::all();
         $education = Education::all();
         $media = Media::all();
-        $needs1 = SocialPopulation::all();
-        $needs2 = EconomyTrade::all();
-        $needs3 = AgricultureMining::all();
         $service = Service::all();
-        return view('/index', compact('job','education','media','needs1','needs2','needs3','service'));
+        $social_population = SocialPopulation::all();
+        $economy_trade = EconomyTrade::all();
+        $agriculture_mining= AgricultureMining::all();
+        return view('/index', compact('job','education','media','service','social_population','economy_trade','agriculture_mining'));
     }
 
     public function saveGuest(Request $request){
+        // dd ($request->all());
+
+        // Tahap 1 - 2
         $name   = $request->name;
         $hp = $request->hp;
         $email   = $request->email;
@@ -39,7 +45,6 @@ class GuestController extends Controller
         $nipnim= $request->nipnim;
         $institute= $request->institute;
         $education = $request->education;
-
 
         $data = new Customer();
         $data->name = $name;
@@ -52,9 +57,33 @@ class GuestController extends Controller
         $data->address = $address;
         $data->id_job = $job;
         $data->id_education = $education;
+
         $data->save();
 
-        return redirect('/')->with('status', 'Data Tamu Berhasil Disimpan');
+       /**
+         * Get ID Customer
+         */
+        $idcustomer = Customer::where('name', $name)
+                    ->value('id');
+
+        /**
+         * Fetch request to data transaction
+         */
+        $transaction = new Transaction();
+        $transaction->id_customer =$idcustomer;
+        $transaction->id_media=$request->media;
+        $transaction->id_service=$request->service;
+        $transaction->purpose=$request->purpose;
+        $transaction->data=$request->data;
+        $transaction->id_social_population=$request->social_population;
+        $transaction->id_economy_trade=$request->economy_trade;
+        $transaction->id_agriculture_mining=$request->agriculture_mining;
+        $transaction->save();
+        $datat->id_agriculture_mining = $agriculture_mining;
+
+        // $datat->save();
+
+        // return redirect('/')->with('status', 'Data Tamu Berhasil Disimpan');
 
     }
 }

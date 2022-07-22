@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -23,7 +23,7 @@
     <div class="progress-step" data-title="Pelayanan"></div>
     <div class="progress-step" data-title="Tujuan"></div>
   </div>
-  
+
   <!-- Steps 1-->
   <div class="form-step form-step-active">
       <div class="input-group">
@@ -110,20 +110,20 @@
     </div>
     <div class="input-group">
       <label for="needs">Kebutuhan Data</label>
-      <select name="needs" id="needs"  >
+      <select id="needs"  >
         <option selected="true" disabled="disabled">Pilih Kebutuhan Data</option>
-        <optgroup label="Sosial dan Kependudukan">
-          @foreach ($needs1 as $p)
-          <option value="{{ $p->id }}">{{$p->sospol_type}}</option>
+        <optgroup label="Sosial dan Kependudukan" name="social_population">
+          @foreach ($social_population as $p)
+        <option value="{{ $p->id }}">{{$p->sosol_type}}</option>
           @endforeach
         </optgroup>
-        <optgroup label="Ekonomi dan Perdagangan">
-          @foreach ($needs2 as $q)
+        <optgroup label="Ekonomi dan Perdagangan" name="economy_trade">
+          @foreach ($economy_trade as $q)
           <option value="{{ $q->id }}">{{$q->ecotra_type}}</option>
           @endforeach
         </optgroup>
-        <optgroup label="Pertanian dan Pertambangan">
-          @foreach ($needs3 as $r)
+        <optgroup label="Pertanian dan Pertambangan" name="agriculture_mining">
+          @foreach ($agriculture_mining as $r)
           <option value="{{ $r->id }}">{{$r->agrimin_type}}</option>
           @endforeach
         </optgroup>
@@ -161,7 +161,7 @@
       <a href="#" class="btn btn-prev">Previous</a>
       <input type="submit" value="Submit" class="btn" />
     </div>
-  </form>
+
   </div>
 
 </body>

@@ -45,43 +45,34 @@
     <div class="card-body">
         <table class="table" id="myTable">
             <thead class="thead-dark text-center">
-                <tr align="center">
+                <tr text-align="center">
                     <th scope="col" >No</th>
                     <th scope="col">Tanggal</th>
                     <th scope="col">Id Cust </th>
                     <th scope="col">Id Media</th>
                     <th scope="col">Id Pelayanan</th>
-                    <th scope="col">Tujuan</th>
-                    <th scope="col">Data</th>
-                    <th scope="col">Id Sosial & Pendudukan</th>
-                    <th scope="col">Id Ekonomi & Perdagangan</th>
-                    <th scope="col">Id Pertanian & Pertambangan</th>
                     <th scope="col">Aksi</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($transaction as $item)
                 <tr>
-                    <td>{{ $loop->iteration}}
+                    <th scope="row">{{$key+ 1}}</th>
                     <td>{{ $item->created_at }}</td>
                     <td>{{ $item->id_customer }}</td>
                     <td>{{ $item->id_media }}</td>
                     <td>{{ $item->id_service }}</td>
-                    <td>{{ $item->tujuan }}</td>
-                    <td>{{ $item->data }}</td>
-                    <td>{{ $item->id_social_population }}</td>
-                    <td>{{ $item->id_economy_trade }}</td>
-                    <td>{{ $item->id_agriculture_mining}}</td>
+
                     <td>
                         <div class="row">
                                 <div class="col-4">
-                                    <a href="{{ route('education.edit', $item->id)}}" class="btn btn-warning">Edit</a>
+                                    <a href="{{ route('transaction.edit', $item->id)}}" class="btn btn-warning">Edit</a>
                                 </div>
                                 <div class="col-4">
-                                    <a href="{{ route('education.show', $item->id)}}" class="btn btn-info">Show</a>
+                                    <a href="{{ route('transaction.show', $item->id)}}" class="btn btn-info">Show</a>
                                 </div>
                                 <div class="col-4">
-                                    <form action="{{route('education.destroy', $item->id)}}" method="post">
+                                    <form action="{{route('transaction.destroy', $item->id)}}" method="post">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger"
