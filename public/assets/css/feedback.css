@@ -10,12 +10,12 @@ html,body{
   height: 100%;
   place-items: center;
   text-align: center;
-  background: #000;
+  background: paleturquoise;
 }
 .container{
   position: relative;
   width: 400px;
-  background: #111;
+  background: #43C8BA;
   padding: 20px 30px;
   border: 1px solid #444;
   border-radius: 5px;
@@ -29,7 +29,7 @@ html,body{
 }
 .container .text{
   font-size: 25px;
-  color: #666;
+  color: #fff;
   font-weight: 500;
 }
 .container .edit{
@@ -44,10 +44,30 @@ html,body{
 .container .edit:hover{
   text-decoration: underline;
 }
-.container .star-widget input{
+.container .star-pelayanan input{
   display: none;
 }
-.star-widget label{
+.container .star-sarana input{
+  display: none;
+}
+.container .star-kualitas input{
+  display: none;
+}
+.star-pelayanan label{
+  font-size: 40px;
+  color: #444;
+  padding: 10px;
+  float: right;
+  transition: all 0.2s ease;
+}
+.star-sarana label{
+  font-size: 40px;
+  color: #444;
+  padding: 10px;
+  float: right;
+  transition: all 0.2s ease;
+}
+.star-kualitas label{
   font-size: 40px;
   color: #444;
   padding: 10px;
