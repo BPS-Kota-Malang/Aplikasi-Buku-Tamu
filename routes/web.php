@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\User\GuestController;
@@ -76,3 +77,13 @@ Route::resource('feedback', FeedbackController::class);
 //Transaksi
 Route::resource('transaction', TransactionController::class);
 
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
+
+Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
