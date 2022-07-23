@@ -16,7 +16,13 @@ use Illuminate\Support\Facades\Hash;
 
 class CustomerController extends Controller
 {
-    public function index() {     
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function index() {
         $customer = Customer::all();
         $education = Education::all();
         $job = Job::all();
@@ -79,7 +85,7 @@ class CustomerController extends Controller
     public function show($id)
     {
         $customer = Customer::find($id);
-        return view('Admin.Tamu.detailForm', compact('customer'));     
+        return view('Admin.Tamu.detailForm', compact('customer'));
     }
 
     public function hapusTamu(Request $request){
