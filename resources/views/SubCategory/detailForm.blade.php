@@ -14,7 +14,7 @@
                     <tr>
                         <td>Jenis Kategori</td>
                         <td>:</td>
-                        <td>{{ $categories->categories_type }}</td>
+                        <td>{{ $sub_categories->guestCategory->categories_type }}</td>
                     </tr>
                 </tbody>
             </table>

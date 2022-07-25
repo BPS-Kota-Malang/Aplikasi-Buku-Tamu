@@ -55,9 +55,9 @@ class SubCategoryController extends Controller
      */
     public function show($id)
     {
-        $sub_categories = SubCategory::with('guestCategory');
-        // $categories= new Category($id);
-        return view('SubCategory.detailForm', compact('sub_categories'));
+        $sub_categories = SubCategory::find($id);
+        $categories= Category::find($id);
+        return view('SubCategory.detailForm', compact('categories','sub_categories'));
     }
 
     /**
@@ -82,13 +82,11 @@ class SubCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $sub_categories = SubCategory::find($id);
+        $sub_categories= SubCategory::with('guestCategory')->find($id);
         $sub_categories->sub_categories_type=$request->sub_categories_type;
-   
+        $sub_categories->id_categories=$request->id_categories;
 
-        $categories= Category::all();
-        $categories->id_categories=$request->id_categories;
-        $categories->save();
+        $sub_categories->save();
 
         return redirect()->route('subcategory.index')->with('status', 'Data Sub Kategori Berhasil Diupdate');
     }
