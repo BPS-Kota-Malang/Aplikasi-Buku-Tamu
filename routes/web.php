@@ -88,13 +88,17 @@ Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index
 
 Auth::routes();
 
-<<<<<<< HEAD
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//index
 Route::get('/pelanggan', function() {
     return view('Pengguna/index');
 });
-=======
-
-
->>>>>>> 64c054ec9603b8ad14ee7152d337d47ad1aea3e7
+//about
+route::get('/about', function() {
+    return view('Pengguna/about');
+});
+//Contact
+route::get('/contact', function() {
+    return view('pengguna/contact');
+});
