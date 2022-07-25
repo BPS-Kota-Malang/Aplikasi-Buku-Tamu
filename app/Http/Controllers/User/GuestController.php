@@ -32,6 +32,18 @@ class GuestController extends Controller
     }
 
     public function saveGuest(Request $request){
+
+        $this->validate($request,[
+            'hp' => 'required|min:10',
+            'name' => 'required|min:5',
+            'email' => 'required|email|max:255|unique:users',
+            'address' => 'required|min:5',
+            'age' => 'required|min:1|max:2|unique',
+            'institute' => 'required|min:10',
+            'nipnim' => 'required|min:9',
+            'purpose' => 'required|min:8',
+            'data' => 'required|min:5'
+        ]);
         // dd ($request->all());
 
         // Tahap 1 - 2
@@ -60,26 +72,26 @@ class GuestController extends Controller
 
         $data->save();
 
-       /**
-         * Get ID Customer
-         */
-        $idcustomer = Customer::where('name', $name)
-                    ->value('id');
+    //    /**
+    //      * Get ID Customer
+    //      */
+    //     $idcustomer = Customer::where('name', $name)
+    //                 ->value('id');
 
-        /**
-         * Fetch request to data transaction
-         */
-        $transaction = new Transaction();
-        $transaction->id_customer =$idcustomer;
-        $transaction->id_media=$request->media;
-        $transaction->id_service=$request->service;
-        $transaction->purpose=$request->purpose;
-        $transaction->data=$request->data;
-        $transaction->id_social_population=$request->social_population;
-        $transaction->id_economy_trade=$request->economy_trade;
-        $transaction->id_agriculture_mining=$request->agriculture_mining;
-        $transaction->save();
-        $datat->id_agriculture_mining = $agriculture_mining;
+    //     /**
+    //      * Fetch request to data transaction
+    //      */
+    //     $transaction = new Transaction();
+    //     $transaction->id_customer =$idcustomer;
+    //     $transaction->id_media=$request->media;
+    //     $transaction->id_service=$request->service;
+    //     $transaction->purpose=$request->purpose;
+    //     $transaction->data=$request->data;
+    //     $transaction->id_social_population=$request->social_population;
+    //     $transaction->id_economy_trade=$request->economy_trade;
+    //     $transaction->id_agriculture_mining=$request->agriculture_mining;
+    //     $transaction->save();
+    //     $datat->id_agriculture_mining = $agriculture_mining;
 
         // $datat->save();
 

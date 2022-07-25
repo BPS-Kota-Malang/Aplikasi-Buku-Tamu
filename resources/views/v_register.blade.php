@@ -50,7 +50,7 @@
 
                         <img src="{{ ('assets/img/icon.png') }}" alt="wrapkit">
 
-                        <h2 class="mt-3 text-center">Sign Up for Free</h2>
+                        <h2 class="mt-3 text-center">Registrasi</h2>
 
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
@@ -60,7 +60,7 @@
                                 <div class="col-lg-12">
 
                                     <div class="form-group">
-                                        <input name="name" class="form-control @error('name') is-invalid @enderror" type="text" placeholder="your name">
+                                        <input name="name" class="form-control @error('name') is-invalid @enderror" type="text" placeholder="Silahkan Masukkan Nama">
 
                                         @error('name')
                                         <span class="invalid-feedback" role="alert">
@@ -73,7 +73,7 @@
 
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <input name="email" class="form-control @error('email') is-invalid @enderror" type="email" placeholder="email address">
+                                        <input name="email" class="form-control @error('email') is-invalid @enderror" type="email" placeholder="Silahkan Masukkan email">
 
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -86,7 +86,7 @@
                                 <div class="col-lg-12">
 
                                     <div class="form-group">
-                                        <input name="password" class="form-control @error('password') is-invalid @enderror" type="password" placeholder="password">
+                                        <input name="password" class="form-control @error('password') is-invalid @enderror" type="password" placeholder="Silahkan Masukkan Password">
 
                                         @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -97,7 +97,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <input name="password_confirmation" class="form-control" type="password" placeholder="konfirmasi password">
+                                        <input name="password_confirmation" class="form-control" type="password" placeholder="Konfirmasi Password">
 
                                         {{-- @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -109,10 +109,10 @@
 
                                 </div>
                                 <div class="col-lg-12 text-center">
-                                    <button type="submit" class="btn btn-block btn-dark">Sign Up</button>
+                                    <button type="submit" class="btn btn-block btn-dark">Registrasi</button>
                                 </div>
                                 <div class="col-lg-12 text-center mt-5">
-                                    Already have an account? <a href="{{ route('login') }}" class="text-danger">Sign In</a>
+                                    Apakah Anda Sudah Memiliki Akun? <a href="{{ route('login') }}" class="text-danger">Login</a>
                                 </div>
                             </div>
                         </form>

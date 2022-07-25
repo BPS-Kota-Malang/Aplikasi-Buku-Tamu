@@ -77,6 +77,7 @@ Route::resource('feedback', FeedbackController::class);
 //Transaksi
 Route::resource('transaction', TransactionController::class);
 
+//login
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
 
