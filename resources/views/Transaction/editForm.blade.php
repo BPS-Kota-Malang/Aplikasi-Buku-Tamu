@@ -29,18 +29,7 @@
                   <label for="data">Data</label>
                   <input type="text" class="form-control" name="data" id="data" aria-describedby="data" value="{{$transaction->data}}">
                 </div>
-                <div class="form-group">
-                  <label for="id_social_population">Id Sosial & Pendudukan</label>
-                  <input  class="form-control" name="id_social_population" id="id_social_population" aria-describedby="id_social_population" value="{{$transaction->id_social_population}}">
-                </div>
-                <div class="form-group">
-                    <label for="id_economy_trade">Id Ekonomi & Perdagangan</label>
-                    <input class="form-control" name="id_economy_trade" id="id_economy_trade" aria-describedby="id_economy_trade" value="{{$transaction->id_economy_trade}}">
-                </div>
-                 <div class="form-group">
-                    <label for="id_agriculture_mining">Id Pertanian & Pertambangan</label>
-                    <input class="form-control" name="id_agriculture_mining" id="id_agriculture_mining" aria-describedby="id_agriculture_mining" value="{{$transaction->id_agriculture_mining}}">
-                </div>
+                
                 <button type="submit" class="btn btn-success">Simpan</button>
               </form>
               <br>

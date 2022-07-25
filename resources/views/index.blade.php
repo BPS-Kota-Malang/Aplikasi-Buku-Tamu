@@ -143,7 +143,7 @@
         </select>
       </div>
     </div>
-    <div class="input-group">
+    {{-- <div class="input-group">
       <label for="needs">Kebutuhan Data</label>
       <select id="needs"  >
         <option selected="true" disabled="disabled">Pilih Kebutuhan Data</option>
@@ -163,7 +163,7 @@
           @endforeach
         </optgroup>
       </select>
-    </div>
+    </div> --}}
     <div class="input-group">
       <div class="form-group mb-3">
         <label class="label" for="service">Jenis Pelayanan</label>
@@ -174,7 +174,7 @@
           @endforeach
         </select>
       </div>
-    </div> 
+    </div>
     <div class="btns-group">
       <a href="#" class="btn btn-prev">Previous</a>
       <a href="#" class="btn btn-next">Next</a>

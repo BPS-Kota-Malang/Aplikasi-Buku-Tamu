@@ -23,12 +23,6 @@ return new class extends Migration
             $table->foreign('id_service')->references('id')->on('service');
             $table->string('purpose');
             $table->string('data');
-            $table->unsignedBigInteger('id_social_population');
-            $table->foreign('id_social_population')->references('id')->on('social_population');
-            $table->unsignedBigInteger('id_economy_trade');
-            $table->foreign('id_economy_trade')->references('id')->on('economy_trade');
-            $table->unsignedBigInteger('id_agriculture_mining');
-            $table->foreign('id_agriculture_mining')->references('id')->on('agriculture_mining');
             $table->timestamps();
         });
     }

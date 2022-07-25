@@ -31,21 +31,7 @@
                         <td>:</td>
                         <td>{{ $transaction->data }}</td>
                     </tr>
-                    <tr>
-                        <td>Id Sosial & Pendudukan</td>
-                        <td>:</td>
-                        <td>{{ $transaction->id_social_population }}</td>
-                    </tr>
-                    <tr>
-                        <td>Id Ekonomi & Perdagangan</td>
-                        <td>:</td>
-                        <td>{{ $transaction->id_economy_trade}}</td>
-                    </tr>
-                    <tr>
-                        <td>Id Pertanian & Pertambangan</td>
-                        <td>:</td>
-                        <td>{{ $transaction->id_agriculture_mining }}</td>
-                    </tr>
+
 
                 </tbody>
             </table>

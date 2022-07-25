@@ -8,9 +8,6 @@ use App\Models\Job;
 use App\Models\Education;
 use App\Models\Media;
 use App\Models\Service;
-use App\Models\SocialPopulation;
-use App\Models\EconomyTrade;
-use App\Models\AgricultureMining;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Customer;
@@ -25,10 +22,8 @@ class GuestController extends Controller
         $education = Education::all();
         $media = Media::all();
         $service = Service::all();
-        $social_population = SocialPopulation::all();
-        $economy_trade = EconomyTrade::all();
-        $agriculture_mining= AgricultureMining::all();
-        return view('/index', compact('job','education','media','service','social_population','economy_trade','agriculture_mining'));
+
+        return view('/index', compact('job','education','media','service'));
     }
 
     public function saveGuest(Request $request){

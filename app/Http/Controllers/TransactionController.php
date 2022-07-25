@@ -7,9 +7,6 @@ use App\Models\Transaction;
 use App\Models\Customer;
 use App\Models\Media;
 use App\Models\Service;
-use App\Models\SocialPopulation;
-use App\Models\EconomyTrade;
-use App\Models\AgricultureMining;
 
 class TransactionController extends Controller
 {
@@ -24,10 +21,8 @@ class TransactionController extends Controller
         $customer = Customer::all();
         $media= Media::all();
         $service= Service::all();
-        $social_population= SocialPopulation::all();
-        $economy_trade= EconomyTrade::all();
-        $agriculture_mining= AgricultureMining::all();
-        return view('Transaction.index', compact('transaction','customer','media','service','social_population','economy_trade','agriculture_mining'));
+
+        return view('Transaction.index', compact('transaction','customer','media','service'));
     }
 
     public function simpanData(Request $request){
@@ -60,9 +55,6 @@ class TransactionController extends Controller
         $transaction->id_service=$request->service;
         $transaction->purpose=$request->purpose;
         $transaction->data=$request->data;
-        $transaction->id_social_population=$request->social_population;
-        $transaction->id_economy_trade=$request->economy_trade;
-        $transaction->id_agriculture_mining=$request->agriculture_mining;
         $transaction->save();
 
         return redirect('transaction')->with('status', 'Data Tamu Berhasil Disimpan');
@@ -74,10 +66,8 @@ class TransactionController extends Controller
         $customer = Customer::all();
         $media= Media::all();
         $service= Service::all();
-        $social_population= SocialPopulation::all();
-        $economy_trade= EconomyTrade::all();
-        $agriculture_mining= AgricultureMining::all();
-        return view('Transacation.editForm', compact('transaction','customer','media','service','social_population','economy_trade','agriculture_mining'));
+
+        return view('Transacation.editForm', compact('transaction','customer','media','service'));
     }
 
     public function updateTransaksi(Request $request,$id){
@@ -85,18 +75,12 @@ class TransactionController extends Controller
         $transaction=Transaction::with('guestCustomer')->find($id);
         $transaction=Transaction::with('guestMedia')->find($id);
         $transaction=Transaction::with('guestService')->find($id);
-        $transaction=Transaction::with('guestSocialPopulation')->find($id);
-        $transaction=Transaction::with('guestEconomyTrade')->find($id);
-        $transaction=Transaction::with('guestAgricultureMining')->find($id);
 
         $transaction->id_customer=$request->customer;
         $transaction->id_media=$request->media;
         $transaction->id_service=$request->service;
         $transaction->purpose=$request->purpose;
         $transaction->data=$request->data;
-        $transaction->id_social_population=$request->social_population;
-        $transaction->id_economy_trade=$request->economy_trade;
-        $transaction->id_agriculture_mining=$request->agriculture_mining;
 
         $transaction->save();
 
