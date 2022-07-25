@@ -3,8 +3,8 @@
 @section('content')
 
 <!-- Content Row -->
+<h4 class="mb-0 text-center">Data Customer - Berdasarkan Pekerjaan</h4><br>
 <div class="row">
-
     <!-- Data Pengunjung -->
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-primary shadow h-100 py-2">
@@ -87,6 +87,40 @@
         </div>
     </div>
 </div>
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<h4 class="mb-0 text-center">Data Customer - Berdasarkan Pendidikan</h4><br>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script type="text/javascript">
+
+window.onload = function () {
+	var chart = new CanvasJS.Chart("chartContainer", {
+		data: [              
+		{
+			// Change type to "doughnut", "line", "splineArea", etc.
+			type: "column",
+			dataPoints: [
+				{ label: "SMP/Dibawahnya",  y: {{$smp}}  },
+				{ label: "SMA", y: {{$sma}}  },
+				{ label: "Diploma (D1/D2/D3)", y: {{$diploma}}  },
+                { label: "Sarjana (S1)",  y: {{$sarjana}} },
+				{ label: "Magister (S2)",  y: {{$magister}}  },
+                { label: "Doktor (D3)",  y: {{$doktor}}  }
+			]
+		}
+		]
+	});
+	chart.render();
+}
+</script>
+</head>
+<body>
+<div id="chartContainer" style="height: 340px; width: 100%;"></div>
+</body>
+</html>
 
 @endsection
 

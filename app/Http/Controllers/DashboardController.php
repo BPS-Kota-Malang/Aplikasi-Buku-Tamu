@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Customer;
+use App\Models\Education;
 
 class DashboardController extends Controller
 {
@@ -23,7 +24,15 @@ class DashboardController extends Controller
         $asn = Customer::where('id_job', '=', 2)->count();
         $student= Customer::where('id_job', '=', 3)->count();
         $lecturer = Customer::where('id_job', '=', 4)->count();
-        return view('dashboard', compact('customer','asn','student','lecturer'));
+
+        $education = Education::count();
+        $smp = Customer::where('id_education', '=', 2)->count();
+        $sma = Customer::where('id_education', '=', 3)->count();
+        $diploma = Customer::where('id_education', '=', 4)->count();
+        $sarjana = Customer::where('id_education', '=', 5)->count();
+        $magister = Customer::where('id_education', '=', 6)->count();
+        $doktor = Customer::where('id_education', '=', 7)->count();
+        return view('dashboard', compact('customer','asn','student','lecturer','education','smp','sma','diploma','sarjana','magister','doktor'));
     }
 
     /**

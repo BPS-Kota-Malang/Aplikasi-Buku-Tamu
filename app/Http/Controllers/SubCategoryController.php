@@ -85,10 +85,9 @@ class SubCategoryController extends Controller
         $sub_categories = SubCategory::find($id);
         $sub_categories->sub_categories_type=$request->sub_categories_type;
    
-
-        $categories= Category::all();
-        $categories->id_categories=$request->id_categories;
-        $categories->save();
+        // $categories= Category::all();
+        // $categories->id_categories=$request->id_categories;
+        $sub_categories->save();
 
         return redirect()->route('subcategory.index')->with('status', 'Data Sub Kategori Berhasil Diupdate');
     }
