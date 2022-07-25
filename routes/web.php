@@ -15,6 +15,8 @@ use App\Http\Controllers\EconomyTradeController;
 use App\Http\Controllers\AgricultureMiningController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SubCategoryController;
 
 
 
@@ -77,6 +79,12 @@ Route::resource('feedback', FeedbackController::class);
 //Transaksi
 Route::resource('transaction', TransactionController::class);
 
+//Category
+Route::resource('category', CategoryController::class);
+
+//SubCategory
+Route::resource('subcategory', SubCategoryController::class);
+
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
 
@@ -87,13 +95,9 @@ Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index
 
 Auth::routes();
 
-<<<<<<< HEAD
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/pelanggan', function() {
     return view('Pengguna/index');
 });
-=======
-
-
->>>>>>> 64c054ec9603b8ad14ee7152d337d47ad1aea3e7
