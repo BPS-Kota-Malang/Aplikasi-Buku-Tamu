@@ -87,3 +87,7 @@ Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('acti
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/pelanggan', function() {
+    return view('Pengguna/index');
+});
