@@ -40,7 +40,7 @@
         <!-- Login box.scss -->
         <!-- ============================================================== -->
         <div class="auth-wrapper d-flex no-block justify-content-center align-items-center position-relative"
-            style="background:url(assets/images/big/auth-bg.jpg) no-repeat center center;">
+            style="background:url('{{  asset('assets/img/auth-bg.jpg')}}') no-repeat center center;">
             <div class="auth-box row">
                 <div class="col-lg-7 col-md-5 modal-bg-img" style="background-image: url('{{ asset('assets/img/3.png')}}');">
                 </div>

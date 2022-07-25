@@ -83,11 +83,17 @@ Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actio
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
 
+Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 
 Auth::routes();
 
+<<<<<<< HEAD
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/pelanggan', function() {
     return view('Pengguna/index');
 });
+=======
+
+
+>>>>>>> 64c054ec9603b8ad14ee7152d337d47ad1aea3e7
