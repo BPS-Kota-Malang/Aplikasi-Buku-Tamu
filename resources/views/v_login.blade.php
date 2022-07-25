@@ -51,8 +51,8 @@
                             <img src="{{ ('assets/img/icon.png') }}"  alt="wrapkit">
 
                         </div>
-                        <h2 class="mt-3 text-center">Sign In</h2>
-                        <p class="text-center">Enter your email address and password to access admin panel.</p>
+                        <h2 class="mt-3 text-center">Login</h2>
+                        <p class="text-center">Silahkan Masukkan Email dan Password Anda</p>
 
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
@@ -61,8 +61,8 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <label class="text-dark" for="uname" >Username</label>
-                                        <input type="email"  name="email" class="form-control @error('email') is-invalid @enderror"  placeholder="enter your username">
+                                        <label class="text-dark" for="uname" >Email</label>
+                                        <input type="email"  name="email" class="form-control @error('email') is-invalid @enderror"  placeholder="Masukkan Email Anda">
 
                                             @error('email')
                                             <span class="invalid-feedback" role="alert">
@@ -76,7 +76,7 @@
                                     <div class="form-group">
                                         <label class="text-dark" for="pwd">Password</label>
                                         <input type="password" name="password" class="form-control @error('password') is-invalid @enderror"
-                                            placeholder="enter your password">
+                                            placeholder="Masukkan Password Adna">
 
                                             @error('password')
                                             <span class="invalid-feedback" role="alert">
@@ -87,10 +87,10 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 text-center">
-                                    <button type="submit" class="btn btn-block btn-dark">Sign In</button>
+                                    <button type="submit" class="btn btn-block btn-dark">Login</button>
                                 </div>
                                 <div class="col-lg-12 text-center mt-5">
-                                    Don't have an account? <a href="{{ route('register') }}" class="text-danger">Sign Up</a>
+                                    Apakah Anda Sudah Memiliki Akun? <a href="{{ route('register') }}" class="text-danger">Registrasi</a>
                                 </div>
                             </div>
                         </form>
