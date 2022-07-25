@@ -28,31 +28,56 @@
   <div class="form-step form-step-active">
       <div class="input-group">
         <label for="hp">No Handphone</label>
-        <input type="text" name="hp" id="hp" placeholder="Silahkan isi no handphone anda" />
+        <input type="text" name="hp" id="hp" class="form-control @error('hp') is-invalid @enderror" placeholder="Silahkan isi no handphone anda" />
+        @error('hp')
+          <span class="invalid-feedback" role="alert">
+            <p style="color: rgb(249, 133, 133)">Harap mengisi password minimal 10 karakter</p>
+          </span>
+        @enderror
       </div>
       <div class="input-group">
         <label for="name">Nama Lengkap</label>
-        <input type="text" name="name" id="name" placeholder="Silahkan isi nama anda" />
+        <input type="text" name="name" id="name" class="form-control @error('hp') is-invalid @enderror" placeholder="Silahkan isi nama anda" />
+        @error('name')
+          <span class="invalid-feedback" role="alert">
+            <p style="color: rgb(249, 133, 133)">Harap Mengisi Nama Lengkap</p>
+          </span>
+        @enderror
       </div>
       <div class="form-group mb-3">
         <label class="gender" for="gender">Jenis Kelamin</label>
         <select class="custom-select my-1 mr-sm-2" name="gender" id="inlineFormCustomSelectPref">
           <option selected="true" disabled="disabled" >Pilih Jenis Kelamin</option>
-          <option value="lakilaki">L</option>
-          <option value="perempuan">P</option>
+          <option value="lakilaki">Pria</option>
+          <option value="perempuan">Wanita</option>
         </select>
       </div>
       <div class="input-group">
         <label for="email">Email</label>
-        <input type="text" name="email" id="email" placeholder="Silahkan isi email anda" />
+        <input type="text" name="email" id="email" class="form-control @error('email') is-invalid @enderror" placeholder="Silahkan isi email anda" />
+        @error('email')
+          <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+          </span>
+        @enderror
       </div>
       <div class="input-group">
         <label for="address">Alamat</label>
-        <input type="text" name="address" id="address" placeholder="Silahkan isi alamat anda" />
+        <input type="text" name="address" id="address" class="form-control @error('email') is-invalid @enderror" placeholder="Silahkan isi alamat anda" />
+        @error('name')
+          <span class="invalid-feedback" role="alert">
+            <p style="color: rgb(249, 133, 133)">Harap Mengisi Alamat</p>
+          </span>
+        @enderror
       </div>
       <div class="input-group">
         <label for="age">Usia</label>
-        <input type="text" name="age" id="age" placeholder="Silahkan isi umur anda (contoh: 27)" />
+        <input type="text" name="age" id="age" class="form-control @error('email') is-invalid @enderror" placeholder="Silahkan isi umur anda (contoh: 27)" />
+        @error('name')
+          <span class="invalid-feedback" role="alert">
+            <p style="color: rgb(249, 133, 133)">Harap Mengisi Usia</p>
+          </span>
+        @enderror
       </div>
       <div class="">
         <a href="#" class="btn btn-next width-50 ml-auto">Next</a>
@@ -64,11 +89,21 @@
   <div class="form-step">
     <div class="input-group">
       <label for="institute">Nama instansi</label>
-      <input type="text" name="institute" id="institute" placeholder="Silahkan isi nama instansi anda"/>
+      <input type="text" name="institute" id="institute" class="form-control @error('email') is-invalid @enderror" placeholder="Silahkan isi nama instansi anda"/>
+      @error('institute')
+          <span class="invalid-feedback" role="alert">
+            <p style="color: rgb(249, 133, 133)">Harap Mengisi Instansi</p>
+          </span>
+        @enderror
     </div>
     <div class="input-group">
       <label for="nipnim">NIP/NIM</label>
-      <input type="text" name="nipnim" id="nipnim" placeholder="Silahkan isi nip/nim anda"/>
+      <input type="text" name="nipnim" id="nipnim" class="form-control @error('email') is-invalid @enderror" placeholder="Silahkan isi nip/nim anda"/>
+      @error('institute')
+      <span class="invalid-feedback" role="alert">
+        <p style="color: rgb(249, 133, 133)">Harap Mengisi NIP/NIM</p>
+      </span>
+      @enderror
     </div>
     <div class="form-group mb-3">
       <label class="label" for="job">Pekerjaan</label>
@@ -139,7 +174,7 @@
           @endforeach
         </select>
       </div>
-    </div>
+    </div> 
     <div class="btns-group">
       <a href="#" class="btn btn-prev">Previous</a>
       <a href="#" class="btn btn-next">Next</a>
@@ -151,11 +186,21 @@
   <div class="form-step">
     <div class="input-group">
       <label for="purpose">Tujuan</label>
-      <input type="text" name="purpose" id="purpose" placeholder="Silahkan isi tujuan anda" />
+      <input type="text" name="purpose" id="purpose" class="form-control @error('email') is-invalid @enderror" placeholder="Silahkan isi tujuan anda" />
+      @error('institute')
+      <span class="invalid-feedback" role="alert">
+        <p style="color: rgb(249, 133, 133)">Harap Mengisi Tujuan</p>
+      </span>
+      @enderror
     </div>
     <div class="input-group">
       <label for="data">Data</label>
-      <input type="text" name="data" id="data" placeholder="Silahkan isi data spesifik yang anda perlukan" />
+      <input type="text" name="data" id="data" class="form-control @error('email') is-invalid @enderror" placeholder="Silahkan isi data spesifik yang anda perlukan" />
+      @error('data')
+      <span class="invalid-feedback" role="alert">
+        <p style="color: rgb(249, 133, 133)">Harap Mengisi Data</p>
+      </span>
+      @enderror
     </div>
     <div class="btns-group">
       <a href="#" class="btn btn-prev">Previous</a>

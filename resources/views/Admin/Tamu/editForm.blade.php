@@ -23,8 +23,8 @@
                   <select class="form-control" name="gender" >
                     <option disabled value>Pilih Jenis Kelamin</option>
                     <option value ="{{$customer->gender}}">{{$customer->gender}}</option>
-                    <option value ="L">L</option>
-                    <option value ="P">P</option>
+                    <option value ="Pria">Pria</option>
+                    <option value ="Wanita">Wanita</option>
                   </select>
                 </div>
 

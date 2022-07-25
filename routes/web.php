@@ -79,12 +79,15 @@ Route::resource('feedback', FeedbackController::class);
 //Transaksi
 Route::resource('transaction', TransactionController::class);
 
+
 //Category
 Route::resource('category', CategoryController::class);
 
 //SubCategory
 Route::resource('subcategory', SubCategoryController::class);
 
+
+//login
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
 
@@ -98,6 +101,16 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//index
 Route::get('/pelanggan', function() {
     return view('Pengguna/index');
+});
+
+//about
+route::get('/about', function() {
+    return view('Pengguna/about');
+});
+//Contact
+route::get('/contact', function() {
+    return view('pengguna/contact');
 });

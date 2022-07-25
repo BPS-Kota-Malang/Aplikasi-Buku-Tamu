@@ -18,8 +18,9 @@
                     <th scope="col">No</th>
                     <th scope="col">Nama</th>
                     <th scope="col">Telepon</th>
-                    <th scope="col">Alamat</th>
-                    <th scope="col">Email</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Pendidikan</th>
+                    <th scope="col">Pekerjaan</th>
                     <th scope="col" width="25%">Aksi</th>
                 </tr>
             </thead>
@@ -29,15 +30,16 @@
                     <th scope="row">{{$key+ 1}}</th>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->hp }}</td>
-                    <td>{{ $item->address }}</td>
-                    <td>{{ $item->email}}</td>            
+                    <td>{{ $item->gender }}</td>
+                    <td>{{ $item->guestEducation->education_type}}</td>        
+                    <td>{{ $item->guestJob->job_type}}</td>        
                     <td>
                         <div class="row">
                             <div class="col-4">
                                 <a href="{{url('admin/form-edit', $item->id)}}" class="btn btn-warning">Edit</a>
                             </div>
                             <div class="col-4">
-                                <a href="{{ url('admin/show', $item->id)}}" class="btn btn-info">Detail</a>
+                                <a href="{{ url('admin/show', $item->id)}}" class="btn btn-info">Show</a>
                             </div>
                             <div class="col-3">
                                 <form action="{{url('admin/hapus-data')}}" method="post">
