@@ -7,6 +7,7 @@ use App\Models\Transaction;
 use App\Models\Customer;
 use App\Models\Media;
 use App\Models\Service;
+use App\Models\SubCategory;
 
 class TransactionController extends Controller
 {
@@ -18,27 +19,14 @@ class TransactionController extends Controller
     public function index()
     {
         $transaction = Transaction::all();
-        $customer = Customer::all();
-        $media= Media::all();
-        $service= Service::all();
+        // $customer = $transaction->customer->name;
 
-        return view('Transaction.index', compact('transaction','customer','media','service'));
+        // $transaction ->dd();
+        // dd($customer);
+        return view('Transaction.index', compact('transaction'));
     }
 
     public function simpanData(Request $request){
-        // $transaction = new Transaction();
-
-        // $transaction->id_customer=$request->customer;
-        // $transaction->id_media=$request->media;
-        // $transaction->id_service=$request->service;
-        // $transaction->purpose=$request->purpose;
-        // $transaction->data=$request->data;
-        // $transaction->id_social_population=$request->social_population;
-        // $transaction->id_economy_trade=$request->economy_trade;
-        // $transaction->id_agriculture_mining=$request->agriculture_mining;
-
-
-
         /**
          * Get ID Customer
          */
@@ -55,22 +43,23 @@ class TransactionController extends Controller
         $transaction->id_service=$request->service;
         $transaction->purpose=$request->purpose;
         $transaction->data=$request->data;
+        $transaction->id_sub_categories=$request->sub_categories;
         $transaction->save();
 
-        return redirect('transaction')->with('status', 'Data Tamu Berhasil Disimpan');
+        return redirect('transaction')->with('status', 'Data Transaksi Berhasil Disimpan');
     }
 
-     public function formEdit($id){
+    public function edit($id){
 
         $transaction = Transaction::find($id);
         $customer = Customer::all();
         $media= Media::all();
         $service= Service::all();
 
-        return view('Transacation.editForm', compact('transaction','customer','media','service'));
+        return view('Transaction.editForm', compact('transaction','customer','media','service'));
     }
 
-    public function updateTransaksi(Request $request,$id){
+    public function update(Request $request,$id){
 
         $transaction=Transaction::with('guestCustomer')->find($id);
         $transaction=Transaction::with('guestMedia')->find($id);
@@ -84,7 +73,7 @@ class TransactionController extends Controller
 
         $transaction->save();
 
-        return redirect('transaction.index')->with('status', 'Data Tamu Berhasil Diupdate');
+        return redirect('transaction.index')->with('status', 'Data Transaksi Berhasil Diupdate');
     }
 
     public function show($id)
@@ -93,35 +82,10 @@ class TransactionController extends Controller
         return view('Transaction.detailForm', compact('transaction'));
     }
 
-    public function hapusTransaksi(Request $request){
-        $id = $request->id;
-        $transaction = Transaction::find($id);
-        $transaction->delete();
-        return redirect('transaction.index')->with('status', 'Data Tamu Berhasil Dihapus');
+    public function destroy($id){
+        $transaction  = Transaction::find($id);
+        $transaction ->delete();
+
+        return redirect()->route('transaction.index')->with('status', 'Data Transaksi Berhasil Dihapus');
     }
-
-    // public function saveTransaction(Request $request){
-    //     $customer = $request->customer;
-    //     $media = $request->media;
-    //     $service   = $request->service;
-    //     $purpose = $request->purpose;
-    //     $data = $request->data;
-    //     $social_population= $request->social_population;
-    //     $economy_trade = $request->economy_trade;
-    //     $agriculture_mining= $request->agriculture_mining;
-
-    //     $data = new Transaction();
-    //     $data->id_customer = $customer;
-    //     $data->id_media = $media;
-    //     $data->id_service = $service;
-    //     $data->purpose = $purpose;
-    //     $data->data =  $data;
-    //     $data->id_social_population = $social_population;
-    //     $data->id_economy_trade = $economy_trade;
-    //     $data->id_agriculture_mining = $agriculture_mining;
-    //     $data->save();
-
-    //     return redirect('transaction.index')->with('status', 'Data Tamu Berhasil Disimpan');
-
-    // }
 }
