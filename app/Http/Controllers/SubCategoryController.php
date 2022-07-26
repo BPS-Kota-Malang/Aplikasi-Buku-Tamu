@@ -84,14 +84,8 @@ class SubCategoryController extends Controller
     {
         $sub_categories= SubCategory::with('guestCategory')->find($id);
         $sub_categories->sub_categories_type=$request->sub_categories_type;
-<<<<<<< HEAD
-   
-        // $categories= Category::all();
-        // $categories->id_categories=$request->id_categories;
-=======
         $sub_categories->id_categories=$request->id_categories;
 
->>>>>>> 0ff82d3ec980af24c346258d182ca4a5fefd9e94
         $sub_categories->save();
 
         return redirect()->route('subcategory.index')->with('status', 'Data Sub Kategori Berhasil Diupdate');

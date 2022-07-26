@@ -88,7 +88,6 @@
     </div>
 </div>
 
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -114,11 +113,82 @@ window.onload = function () {
 		]
 	});
 	chart.render();
+
+    var charta = new CanvasJS.Chart("chartaContainer", {
+	exportEnabled: true,
+	animationEnabled: true,
+	title:{
+		text: ""
+	},
+	legend:{
+		cursor: "pointer",
+		itemclick: explodePie
+	},
+	data: [{
+		type: "pie",
+		showInLegend: true,
+		toolTipContent: "{name}: <strong>{y}%</strong>",
+		indexLabel: "{name} - {y}%",
+		dataPoints: [
+			{ y: 35, name: "Permintaan Data", exploded: true },
+			{ y: 25, name: "Konsultasi Data" },
+			{ y: 40, name: "Rekomendasi Data Sektoral", exploded: true },
+		]
+	}]
+});
+charta.render();
+
+
+var chartb = new CanvasJS.Chart("chartbContainer", {
+	animationEnabled: true,
+	title: {
+	},
+	axisX: {
+		interval: 1
+	},
+	axisY: {
+		title: "Jumlah Pengunjung BPS Kota Malang",
+		includeZero: true,
+		scaleBreaks: {
+			type: "wavy",
+			customBreaks: [{
+				startValue: 80,
+				endValue: 210
+				}
+		]}
+	},
+	data: [{
+		type: "bar",
+		toolTipContent: "<b>{label}</b><br>Jumlah: {y} orang",
+		dataPoints: [
+			{ label: "Add-Stat-Whatsapp", y: 10},
+			{ label: "Email", y: 15},
+			{ label: "Social Media - Facebook", y: 20},
+			{ label: "Social Media - Instagram", y: 25},
+			{ label: "Pelayanan Statistik Terpadu", y: 30}
+		]
+	}]
+});
+chartb.render();
 }
+
+function explodePie (e) {
+	if(typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
+		e.dataSeries.dataPoints[e.dataPointIndex].exploded = true;
+	} else {
+		e.dataSeries.dataPoints[e.dataPointIndex].exploded = false;
+	}
+	e.charta.render();
+}
+
 </script>
 </head>
 <body>
 <div id="chartContainer" style="height: 340px; width: 100%;"></div>
+<h4 class="mb-0 text-center"><br>Data Customer - Berdasarkan Jenis Pelayanan</h4><br>
+<div id="chartaContainer" style="height: 340px; width: 100%;"></div>
+<h4 class="mb-0 text-center"><br>Data Customer - Berdasarkan Media Pelayanan</h4><br>
+<div id="chartbContainer" style="height: 300px; width: 100%;"></div>
 </body>
 </html>
 
