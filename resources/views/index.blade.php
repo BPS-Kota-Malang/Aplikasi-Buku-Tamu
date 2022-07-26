@@ -190,7 +190,7 @@
     </div>
     <div class="input-group">
       <label for="data">Data</label>
-      <input type="text" name="data" id="data" class="form-control @error('email') is-invalid @enderror" placeholder="Silahkan isi data spesifik yang anda perlukan" />
+      <textarea type="text" name="data" id="data" placeholder="Silahkan isi data spesifik yang anda perlukan"class="form-control @error('email') is-invalid @enderror" rows="10" cols="55"></textarea>
       @error('data')
       <span class="invalid-feedback" role="alert">
         <p style="color: rgb(249, 133, 133)">Harap Mengisi Data</p>
