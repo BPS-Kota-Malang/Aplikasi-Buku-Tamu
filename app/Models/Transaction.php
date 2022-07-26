@@ -10,8 +10,11 @@ class Transaction extends Model
     use HasFactory;
     protected $guarded=['id'];
     protected $table = "transactions";
-    protected $fillable = ['id_customer','id_media','id_service','purpose','data'];
+    protected $fillable = ['id_customer','id_media','id_service','purpose','data','id_sub_categories'];
 
+    // public function Customer(){
+    //     return $this->belongsTo(Customer::class);
+    // }
     public function guestCustomer(){
         return $this->belongsTo(Customer::class, 'id_customer');
     }
@@ -22,6 +25,10 @@ class Transaction extends Model
 
     public function guestService(){
         return $this->belongsTo(Service::class, 'id_service');
+    }
+
+    public function guestSubCategory(){
+        return $this->belongsTo(SubCategory::class, 'id_sub_categories');
     }
 
 }

@@ -143,27 +143,20 @@
         </select>
       </div>
     </div>
-    {{-- <div class="input-group">
-      <label for="needs">Kebutuhan Data</label>
-      <select id="needs"  >
-        <option selected="true" disabled="disabled">Pilih Kebutuhan Data</option>
-        <optgroup label="Sosial dan Kependudukan" name="social_population">
-          @foreach ($social_population as $p)
-        <option value="{{ $p->id }}">{{$p->sosol_type}}</option>
-          @endforeach
-        </optgroup>
-        <optgroup label="Ekonomi dan Perdagangan" name="economy_trade">
-          @foreach ($economy_trade as $q)
-          <option value="{{ $q->id }}">{{$q->ecotra_type}}</option>
-          @endforeach
-        </optgroup>
-        <optgroup label="Pertanian dan Pertambangan" name="agriculture_mining">
-          @foreach ($agriculture_mining as $r)
-          <option value="{{ $r->id }}">{{$r->agrimin_type}}</option>
-          @endforeach
-        </optgroup>
-      </select>
-    </div> --}}
+    <div class="input-group">
+      <div class="form-group mb-3">
+        <label class="label" for="media">Kebutuhan Data</label>
+        <select class="custom-select my-1 mr-sm-2" name="sub_categories" id="inlineFormCustomSelectPref">
+            <option selected="true" disabled="disabled">Pilih Kebutuhan Data</option>
+
+                @foreach ($sub_categories as $s)
+                <option value="{{ $s->id}}">{{$s->sub_categories_type}}</option>
+                @endforeach
+
+        </select>
+      </div>
+    </div>
+
     <div class="input-group">
       <div class="form-group mb-3">
         <label class="label" for="service">Jenis Pelayanan</label>

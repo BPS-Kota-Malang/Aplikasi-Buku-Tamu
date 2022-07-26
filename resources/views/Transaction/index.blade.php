@@ -51,17 +51,19 @@
                     <th scope="col">Id Cust </th>
                     <th scope="col">Id Media</th>
                     <th scope="col">Id Pelayanan</th>
+                    <th scope="col">Kebutuhan Data</th>
                     <th scope="col">Aksi</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($transaction as $item)
                 <tr>
-                    <th scope="row">{{$key+ 1}}</th>
+                    <td>{{ $loop->iteration}}</td>
                     <td>{{ $item->created_at }}</td>
                     <td>{{ $item->id_customer }}</td>
-                    <td>{{ $item->id_media }}</td>
+                    <td>{{ $item->id_media}}</td>
                     <td>{{ $item->id_service }}</td>
+                    <td>{{ $item->id_sub_categories}}</td>
 
                     <td>
                         <div class="row">

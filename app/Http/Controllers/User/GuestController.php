@@ -8,6 +8,8 @@ use App\Models\Job;
 use App\Models\Education;
 use App\Models\Media;
 use App\Models\Service;
+use App\Models\SubCategory;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Customer;
@@ -22,23 +24,25 @@ class GuestController extends Controller
         $education = Education::all();
         $media = Media::all();
         $service = Service::all();
+        $sub_categories = SubCategory::all();
 
-        return view('/index', compact('job','education','media','service'));
+        return view('/index', compact('job','education','media','service','sub_categories'));
     }
 
     public function saveGuest(Request $request){
 
-        $this->validate($request,[
-            'hp' => 'required|min:10',
-            'name' => 'required|min:5',
-            'email' => 'required|email|max:255|unique:users',
-            'address' => 'required|min:5',
-            'age' => 'required|min:1|max:2|unique',
-            'institute' => 'required|min:10',
-            'nipnim' => 'required|min:9',
-            'purpose' => 'required|min:8',
-            'data' => 'required|min:5'
-        ]);
+        // $this->validate($request,[
+        //     'hp' => 'required|min:10',
+        //     'name' => 'required|min:5',
+        //     'email' => 'required|email|max:255|unique:users',
+        //     'address' => 'required|min:5',
+        //     'age' => 'required|min:1|max:2|unique',
+        //     'institute' => 'required|min:10',
+        //     'nipnim' => 'required|min:9',
+        //     'purpose' => 'required|min:8',
+        //     'data' => 'required|min:5',
+        //     'sub_categories'  => 'required|unique:users'
+        // ]);
         // dd ($request->all());
 
         // Tahap 1 - 2
@@ -52,6 +56,7 @@ class GuestController extends Controller
         $nipnim= $request->nipnim;
         $institute= $request->institute;
         $education = $request->education;
+        $sub_categories =$request->sub_categories;
 
         $data = new Customer();
         $data->name = $name;
@@ -64,33 +69,30 @@ class GuestController extends Controller
         $data->address = $address;
         $data->id_job = $job;
         $data->id_education = $education;
-
         $data->save();
 
-    //    /**
-    //      * Get ID Customer
-    //      */
-    //     $idcustomer = Customer::where('name', $name)
-    //                 ->value('id');
 
-    //     /**
-    //      * Fetch request to data transaction
-    //      */
-    //     $transaction = new Transaction();
-    //     $transaction->id_customer =$idcustomer;
-    //     $transaction->id_media=$request->media;
-    //     $transaction->id_service=$request->service;
-    //     $transaction->purpose=$request->purpose;
-    //     $transaction->data=$request->data;
-    //     $transaction->id_social_population=$request->social_population;
-    //     $transaction->id_economy_trade=$request->economy_trade;
-    //     $transaction->id_agriculture_mining=$request->agriculture_mining;
-    //     $transaction->save();
-    //     $datat->id_agriculture_mining = $agriculture_mining;
+       /**
+         * Get ID Customer
+         */
+        $idcustomer = Customer::where('name', $name)
+                    ->value('id');
+        /**
+         * Fetch request to data transaction
+         */
 
-        // $datat->save();
+        // $sub_categories = $request->sub_categories;
 
-        // return redirect('/')->with('status', 'Data Tamu Berhasil Disimpan');
+        $transaction = new Transaction();
+        $transaction->id_customer =$idcustomer;
+        $transaction->id_media=$request->media;
+        $transaction->id_service=$request->service;
+        $transaction->purpose=$request->purpose;
+        $transaction->data=$request->data;
+        $transaction->id_sub_categories=$request->sub_categories;
+        $transaction->save();
+
+        return redirect('/')->with('status', 'Data Tamu Berhasil Disimpan');
 
     }
 }

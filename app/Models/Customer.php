@@ -19,4 +19,9 @@ class Customer extends Model
         return $this->belongsTo(Job::class, 'id_job');
     }
 
+    public function guestTransaction() {
+        return $this->hasMany(Transaction::class);
+    }
+
+
 }

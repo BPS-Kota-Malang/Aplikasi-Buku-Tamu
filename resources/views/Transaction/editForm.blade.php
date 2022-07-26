@@ -11,25 +11,29 @@
                 <input type="hidden" name="_method" value="patch">
                 <div class="form-group">
                     <label for="id_customer">Id Cust</label>
-                    <input class="form-control" name="id_customer" id="id_customer" aria-describedby="id_customer" value="{{$transaction->id_customer}}">
+                    <input class="form-control" name="customer" id="id_customer" aria-describedby="id_customer" value="{{$transaction->id_customer}}">
                 </div>
                 <div class="form-group">
                     <label for="id_media">Id Media</label>
-                    <input class="form-control" name="id_media" id="id_media" aria-describedby="id_media" value="{{$transaction->id_media}}">
+                    <input class="form-control" name="media" id="id_media" aria-describedby="id_media" value="{{$transaction->id_media}}">
                 </div>
                 <div class="form-group">
                     <label for="id_service">Id Pelayanan</label>
-                    <input class="form-control" name="id_service" id="id_service" aria-describedby="id_service" value="{{$transaction->id_service}}">
+                    <input class="form-control" name="service" id="id_service" aria-describedby="id_service" value="{{$transaction->id_service}}">
                 </div>
                 <div class="form-group">
-                  <label for="tujuan">Tujuan</label>
-                  <input type="text" class="form-control" name="tujuan" id="tujuan" aria-describedby="tujuan" value="{{$transaction->tujuan}}">
+                  <label for="purpose">Tujuan</label>
+                  <input type="text" class="form-control" name="purpose" id="purpose" aria-describedby="purpose" value="{{$transaction->purpose}}">
                 </div>
                 <div class="form-group">
                   <label for="data">Data</label>
                   <input type="text" class="form-control" name="data" id="data" aria-describedby="data" value="{{$transaction->data}}">
                 </div>
-                
+                <div class="form-group">
+                  <label for="data">Kebutuhan Data</label>
+                  <input type="text" class="form-control" name="id_sub_categories" id="id_sub_categories" aria-describedby="id_sub_categories" value="{{$transaction->id_sub_categories}}">
+                </div>
+
                 <button type="submit" class="btn btn-success">Simpan</button>
               </form>
               <br>

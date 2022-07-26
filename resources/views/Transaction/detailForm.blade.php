@@ -24,12 +24,17 @@
                     <tr>
                         <td>Tujuan</td>
                         <td>:</td>
-                        <td>{{ $transaction->tujuan }}</td>
+                        <td>{{ $transaction->purpose }}</td>
                     </tr>
                     <tr>
                         <td>Data</td>
                         <td>:</td>
                         <td>{{ $transaction->data }}</td>
+                    </tr>
+                    <tr>
+                        <td>Kebutuhan Data</td>
+                        <td>:</td>
+                        <td>{{ $transaction->id_sub_categories }}</td>
                     </tr>
 
 

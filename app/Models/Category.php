@@ -13,7 +13,7 @@ class Category extends Model
     protected $fillable = ['categories_type'];
 
     public function guestSubCategory() {
-        return $this->hasMany(SubCategory::class);
+        return $this->hasMany(SubCategory::class, 'id_sub_categories');
     }
 
 }
