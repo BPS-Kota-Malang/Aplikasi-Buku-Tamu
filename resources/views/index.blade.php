@@ -28,7 +28,7 @@
   <div class="form-step form-step-active">
       <div class="input-group">
         <label for="hp">No Handphone</label>
-        <input type="text" name="hp" id="hp" class="form-control @error('hp') is-invalid @enderror" placeholder="Silahkan isi no handphone anda" />
+        <input type="text" name="hp" id="hp" onkeypress="return event.charCode >= 48 && event.charCode <=57" class="form-control @error('hp') is-invalid @enderror" placeholder="Silahkan isi no handphone anda" />
         @error('hp')
           <span class="invalid-feedback" role="alert">
             <p style="color: rgb(249, 133, 133)">Harap mengisi password minimal 10 karakter</p>
@@ -37,7 +37,7 @@
       </div>
       <div class="input-group">
         <label for="name">Nama Lengkap</label>
-        <input type="text" name="name" id="name" class="form-control @error('hp') is-invalid @enderror" placeholder="Silahkan isi nama anda" />
+        <input type="text" name="name" id="name" onkeypress="return event.charCode < 48 || event.charCode  >57" class="form-control @error('hp') is-invalid @enderror" placeholder="Silahkan isi nama anda" />
         @error('name')
           <span class="invalid-feedback" role="alert">
             <p style="color: rgb(249, 133, 133)">Harap Mengisi Nama Lengkap</p>
@@ -72,7 +72,7 @@
       </div>
       <div class="input-group">
         <label for="age">Usia</label>
-        <input type="text" name="age" id="age" class="form-control @error('email') is-invalid @enderror" placeholder="Silahkan isi umur anda (contoh: 27)" />
+        <input type="text" name="age" id="age" onkeypress="return event.charCode >= 48 && event.charCode <=57" class="form-control @error('email') is-invalid @enderror" placeholder="Silahkan isi umur anda (contoh: 27)" />
         @error('name')
           <span class="invalid-feedback" role="alert">
             <p style="color: rgb(249, 133, 133)">Harap Mengisi Usia</p>
@@ -89,7 +89,7 @@
   <div class="form-step">
     <div class="input-group">
       <label for="institute">Nama instansi</label>
-      <input type="text" name="institute" id="institute" class="form-control @error('email') is-invalid @enderror" placeholder="Silahkan isi nama instansi anda"/>
+      <input type="text" name="institute" id="institute" onkeypress="return event.charCode < 48 || event.charCode  >57" class="form-control @error('email') is-invalid @enderror" placeholder="Silahkan isi nama instansi anda"/>
       @error('institute')
           <span class="invalid-feedback" role="alert">
             <p style="color: rgb(249, 133, 133)">Harap Mengisi Instansi</p>
@@ -98,7 +98,7 @@
     </div>
     <div class="input-group">
       <label for="nipnim">NIP/NIM</label>
-      <input type="text" name="nipnim" id="nipnim" class="form-control @error('email') is-invalid @enderror" placeholder="Silahkan isi nip/nim anda"/>
+      <input type="text" name="nipnim" id="nipnim" onkeypress="return event.charCode >= 48 && event.charCode <=57" class="form-control @error('email') is-invalid @enderror" placeholder="Silahkan isi nip/nim anda"/>
       @error('institute')
       <span class="invalid-feedback" role="alert">
         <p style="color: rgb(249, 133, 133)">Harap Mengisi NIP/NIM</p>
@@ -190,7 +190,7 @@
     </div>
     <div class="input-group">
       <label for="data">Data</label>
-      <textarea type="text" name="data" id="data" placeholder="Silahkan isi data spesifik yang anda perlukan"class="form-control @error('email') is-invalid @enderror" rows="10" cols="55"></textarea>
+      <textarea type="text" name="data" id="data" onkeypress="return event.charCode < 48 || event.charCode  >57" placeholder="Silahkan isi data spesifik yang anda perlukan"class="form-control @error('email') is-invalid @enderror" rows="10" cols="55"></textarea>
       @error('data')
       <span class="invalid-feedback" role="alert">
         <p style="color: rgb(249, 133, 133)">Harap Mengisi Data</p>
