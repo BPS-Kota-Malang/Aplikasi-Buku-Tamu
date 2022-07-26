@@ -177,14 +177,16 @@
 
   <!-- Steps 4-->
   <div class="form-step">
-    <div class="input-group">
-      <label for="purpose">Tujuan</label>
-      <input type="text" name="purpose" id="purpose" class="form-control @error('email') is-invalid @enderror" placeholder="Silahkan isi tujuan anda" />
-      @error('institute')
-      <span class="invalid-feedback" role="alert">
-        <p style="color: rgb(249, 133, 133)">Harap Mengisi Tujuan</p>
-      </span>
-      @enderror
+    <div class="form-group mb-3">
+      <label class="gender" for="gender">Tujuan</label>
+      <select class="custom-select my-1 mr-sm-2" name="gender" id="inlineFormCustomSelectPref">
+        <option selected="true" disabled="disabled" >Pilih</option>
+        <option value="tugas">Tugas Sekolah/Universitas</option>
+        <option value="skripsi">Skripsi</option>
+        <option value="tesis">Tesis</option>
+        <option value="perumusan-kebijakan">Perumusan Kebijakan</option>
+        <option value="lainnya">Yang Lainnya</option>
+      </select>
     </div>
     <div class="input-group">
       <label for="data">Data</label>
