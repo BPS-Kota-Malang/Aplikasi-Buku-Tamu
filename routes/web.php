@@ -63,6 +63,8 @@ Route::resource('service', ServiceController::class);
 
 //Feedback
 Route::resource('feedback', FeedbackController::class);
+Route::post('showtransaction', [FeedbackController::class, 'showTransaction'])->name('showtransaction');
+
 
 //Transaksi
 Route::resource('transaction', TransactionController::class);

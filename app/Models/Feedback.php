@@ -15,4 +15,7 @@ class Feedback extends Model
     public function guestTransaction(){
         return $this->belongsTo(Transaction::class, 'id_transaction');
     }
+    public function guestCustomer() {
+        return $this->belongsTo(Customer::class, 'id_customer');
+    }
 }

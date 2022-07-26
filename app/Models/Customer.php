@@ -20,7 +20,7 @@ class Customer extends Model
     }
 
     public function guestTransaction() {
-        return $this->hasMany(Transaction::class);
+    return $this->hasMany(Transaction::clas);
     }
 
 
