@@ -62,7 +62,7 @@
                     <td>{{ $item->created_at }}</td>
                     <td>{{ $item->customer->name }}</td>
                     <td>{{ $item->media->media_type}}</td>
-                    <td>{{ $item->id_service }}</td>
+                    <td>{{ $item->service->service_type }}</td>
                     <td>{{ $item->id_sub_categories}}</td>
 
                     <td>

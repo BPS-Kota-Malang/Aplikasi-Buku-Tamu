@@ -12,9 +12,6 @@ class Transaction extends Model
     protected $table = "transactions";
     protected $fillable = ['id_customer','id_media','id_service','purpose','data','id_sub_categories'];
 
-    // public function Customer(){
-    //     return $this->belongsTo(Customer::class);
-    // }
     public function Customer(){
         return $this->belongsTo(Customer::class, 'id_customer');
     }

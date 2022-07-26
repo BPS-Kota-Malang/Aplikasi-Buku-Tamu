@@ -7,7 +7,7 @@
         </div>
         <div class="card-body">
             <form action="{{url('admin/update-data/'.$customer->id)}}" method="post" enctype="multipart/form-data">
-                @csrf  
+                @csrf
                 <div class="form-group">
                     <label for="name">Nama</label>
                     <input type="text" class="form-control" name="name" id="nama" aria-describedby="nama" value="{{$customer->name}}">
@@ -53,7 +53,7 @@
                     @endforeach
                   </select>
                 </div>
-        
+
                 <div class="form-group mb-3">
                   <label class="label" for="job">Pekerjaan</label>
                   <select class="custom-select my-1 mr-sm-2" name="job" >
@@ -64,7 +64,7 @@
                     @endforeach
                   </select>
                 </div>
-              
+
                 <div class="form-group">
                   <label for="nipnim">NIP/NIM</label>
                   <input type="text" class="form-control" name="nipnim" id="nipnim" aria-describedby="nipnim" value="{{$customer->nipnim}}">

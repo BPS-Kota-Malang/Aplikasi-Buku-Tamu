@@ -13,13 +13,25 @@
                     <label for="id_customer">Id Cust</label>
                     <input class="form-control" name="customer" id="id_customer" aria-describedby="id_customer" value="{{$transaction->id_customer}}">
                 </div>
-                <div class="form-group">
-                    <label for="id_media">Id Media</label>
-                    <input class="form-control" name="media" id="id_media" aria-describedby="id_media" value="{{$transaction->id_media}}">
+               <div class="form-group mb-3">
+                  <label class="label" for="media">Id Media</label>
+                  <select class="custom-select my-1 mr-sm-2" name="media" >
+                    <option disabled value>Pilih Media</option>
+                    <option value="{{$transaction->id_media}}">{{$transaction->media->media_type}}</option>
+                    @foreach ($media as $e)
+                    <option value="{{ $e->id }}">{{$e->media_type}}</option>
+                    @endforeach
+                  </select>
                 </div>
-                <div class="form-group">
-                    <label for="id_service">Id Pelayanan</label>
-                    <input class="form-control" name="service" id="id_service" aria-describedby="id_service" value="{{$transaction->id_service}}">
+               <div class="form-group mb-3">
+                  <label class="label" for="media">Id Pelayanan</label>
+                  <select class="custom-select my-1 mr-sm-2" name="service" >
+                    <option disabled value>Pilih Pelayanan</option>
+                    <option value="{{$transaction->id_service}}">{{$transaction->service->service_type}}</option>
+                    @foreach ($service as $e)
+                    <option value="{{ $e->id }}">{{$e->service_type}}</option>
+                    @endforeach
+                  </select>
                 </div>
                 <div class="form-group">
                   <label for="purpose">Tujuan</label>

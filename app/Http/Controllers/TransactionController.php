@@ -61,9 +61,9 @@ class TransactionController extends Controller
 
     public function update(Request $request,$id){
 
-        $transaction=Transaction::with('guestCustomer')->find($id);
-        $transaction=Transaction::with('guestMedia')->find($id);
-        $transaction=Transaction::with('guestService')->find($id);
+        $transaction=Transaction::with('Customer')->find($id);
+        $transaction=Transaction::with('Media')->find($id);
+        $transaction=Transaction::with('Service')->find($id);
 
         $transaction->id_customer=$request->customer;
         $transaction->id_media=$request->media;
@@ -73,7 +73,7 @@ class TransactionController extends Controller
 
         $transaction->save();
 
-        return redirect('transaction.index')->with('status', 'Data Transaksi Berhasil Diupdate');
+        return redirect()->route('transaction.index')->with('status', 'Data Transaksi Berhasil Diupdate');
     }
 
     public function show($id)
