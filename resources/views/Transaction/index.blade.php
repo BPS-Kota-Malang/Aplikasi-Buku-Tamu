@@ -60,8 +60,8 @@
                 <tr>
                     <td>{{ $loop->iteration}}</td>
                     <td>{{ $item->created_at }}</td>
-                    <td>{{ $item->id_customer }}</td>
-                    <td>{{ $item->id_media}}</td>
+                    <td>{{ $item->customer->name }}</td>
+                    <td>{{ $item->media->media_type}}</td>
                     <td>{{ $item->id_service }}</td>
                     <td>{{ $item->id_sub_categories}}</td>
 

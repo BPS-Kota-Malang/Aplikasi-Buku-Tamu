@@ -15,19 +15,19 @@ class Transaction extends Model
     // public function Customer(){
     //     return $this->belongsTo(Customer::class);
     // }
-    public function guestCustomer(){
+    public function Customer(){
         return $this->belongsTo(Customer::class, 'id_customer');
     }
 
-    public function guestMedia(){
+    public function Media(){
         return $this->belongsTo(Media::class, 'id_media');
     }
 
-    public function guestService(){
+    public function Service(){
         return $this->belongsTo(Service::class, 'id_service');
     }
 
-    public function guestSubCategory(){
+    public function SubCategory(){
         return $this->belongsTo(SubCategory::class, 'id_sub_categories');
     }
 

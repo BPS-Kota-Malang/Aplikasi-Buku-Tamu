@@ -18,12 +18,12 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        $transaction = Transaction::all()->get();
+        $transaction = Transaction::all();
         // $customer = $transaction->customer->name;
 
-        dd ($transaction);
-
-        // return view('Transaction.index', compact('transaction'));
+        // $transaction ->dd();
+        // dd($customer);
+        return view('Transaction.index', compact('transaction'));
     }
 
     public function simpanData(Request $request){
