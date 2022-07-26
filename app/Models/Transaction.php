@@ -14,7 +14,7 @@ class Transaction extends Model
 
     // public function Customer(){
     //     return $this->belongsTo(Customer::class);
-    // }
+    // }s
     public function Customer(){
         return $this->belongsTo(Customer::class, 'id_customer');
     }

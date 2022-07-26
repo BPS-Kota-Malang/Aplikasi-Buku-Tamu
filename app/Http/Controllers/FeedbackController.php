@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Customer;
+use App\Models\Transaction;
 
 class FeedbackController extends Controller
 {
@@ -34,7 +36,24 @@ class FeedbackController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+    }
+
+    public function showTransaction(Request $request)
+    {
+        // $customer = new Customer();
+
+        $customer_id = Customer::where('hp', $request->hp)
+                                ->take(1)
+                                // ->get();
+                                ->value('id');
+
+        
+        $transaction = Transaction::where('id_customer', $customer_id)
+                                    ->get();
+
+        return view ('feedback.index', compact('transaction'));    
+        // return $transaction;
     }
 
     /**

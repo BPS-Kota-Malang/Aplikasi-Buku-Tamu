@@ -11,11 +11,11 @@
 
 <body>
     <div class="form-step form-step-active">
-        <form action="{{('feedback')}}" method="post" class="sigin-form">
+        <form action="{{'showtransaction'}}" method="post" class="sigin-form">
           @csrf
           <div class="mb-3">
             <label for="hp" class="form-label">No Handphone</label>
-            <input type="text" class="form-control" id="hp" placeholder="Silahkan isi no handphone anda">
+            <input type="text" class="form-control" name ='hp' id="hp" placeholder="Silahkan isi no handphone anda">
             <input class="btn btn-primary" type="submit" value="Submit">
           </div>
 
@@ -38,23 +38,16 @@
               </tr>
             </thead>
             <tbody>
+              @foreach ($transaction as $tran)
               <tr>
-                <th scope="row">1</th>
-                <td>{{ $transaction->guestTransaction->id_transaction }}</td>
-                <td>Otto</td>
+                <th scope="row">{{ $tran->id }}</th>
+                <td>{{ $tran->customer->name }}</td>
+                <td>{{ $tran->media->media_type }}</td>
                 <td>@mdo</td>
               </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
+                  
+              @endforeach
+              
             </tbody>
           </table> --}}
 </body>
