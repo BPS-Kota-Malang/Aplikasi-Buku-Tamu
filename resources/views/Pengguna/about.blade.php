@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programming di RumahRafif.</title>
+    <title>Buku Tamu Badan Pusat Statistik Kota Malang</title>
     <link rel="stylesheet" href="{{ asset('pengguna/assets/css/style.css') }}">
 </head>
 <body>
@@ -34,19 +34,22 @@
                     <div class="row justify-content-center">
                         <div class="col-12 col-md-4 image-wrapper">
                             <img class="w-100" src="{{ asset('pengguna/assets/images/bps-1076x1053.jpg') }}" style="float: left; width: 500px;
-                            height: 500px; margin: 10px auto;"  >
+                            height: 520px; margin-right: 40px; margin-left: 140px; width:500px; justify-content: space-ground;"  >
                         </div>
                         <div class="col-12 col-md">
                             <div class="text-wrapper text-center">
 
-                                <p class="mbr-text mbr-fonts-style display-7" style="text-align: justify; margin: 10px auto;
-                                width: 1150px;">
-                                    <strong>- VISI</strong>
-                                    <br>Pelopor data statistik terpecaya untuk semua<br>
-                                    <strong>- MISI</strong>
-                                    <br>Menyiapkan data statistik berkualitas melalui kegiatan statistik yang terintegrasi dan berstandar nasional maupun internasional<br>Memperkuat Sistem Statistik Nasional yang berkesinambungan melalui pembinaan dan koordinasi di bidang statistik<br>Membangun insan statistik yang profesional, integritas, dan amanah untuk kemajuan perstatistikan<br>
-                                    <strong>- TUJUAN</strong>
-                                    <br>Peningkatkan kualitas data statistik melalui kerangka penjaminan kualitas<br>Peningkatan kualitas pelayanan prima hasil kegiatan statistik<br>Penguatan Sistem Statistik Nasional melalui koordinasi dan pembinaan yang efektif di bidang statistik<br>Peningkatan birokrasi yang akuntabel<br>
+                                <p class="mbr-text mbr-fonts-style display-7" style="font-size:20px; font-family:nunito; line-height: 30px; text-align: justify; margin: 10px auto;
+                                width: 1000px; justify-content: space-between;">
+                                    <img src="{{ asset('pengguna/assets/images/right-arrow-angle.png') }}" style="width:15px; height:15px;">
+                                    <strong>VISI</strong>
+                                    <br>Pelopor data statistik terpecaya untuk semua<br><br>
+                                    <img src="{{ asset('pengguna/assets/images/right-arrow-angle.png') }}" style="width:15px; height:15px;">
+                                    <strong>MISI</strong>
+                                    <br>Menyiapkan data statistik berkualitas melalui kegiatan statistik yang terintegrasi dan berstandar nasional maupun internasional Memperkuat Sistem Statistik Nasional yang berkesinambungan melalui pembinaan dan koordinasi di bidang statistik Membangun insan statistik yang profesional, integritas, dan amanah untuk kemajuan perstatistikan<br><br>
+                                    <img src="{{ asset('pengguna/assets/images/right-arrow-angle.png') }}" style="width:15px; height:15px;">
+                                    <strong>TUJUAN</strong>
+                                    <br>Peningkatkan kualitas data statistik melalui kerangka penjaminan kualitas Peningkatan kualitas pelayanan prima hasil kegiatan statistik Penguatan Sistem Statistik Nasional melalui koordinasi dan pembinaan yang efektif di bidang statistik Peningkatan birokrasi yang akuntabel<br>
                                 </p>
 
                             </div>
