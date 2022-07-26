@@ -13,7 +13,7 @@ class FeedbackController extends Controller
      */
     public function index()
     {
-        return view ('feedback.feee');
+        return view ('feedback.in');
     }
 
     /**
