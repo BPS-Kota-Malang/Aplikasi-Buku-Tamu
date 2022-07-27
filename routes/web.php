@@ -15,6 +15,7 @@ use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CustController;
 
 /*
 |--------------------------------------------------------------------------
@@ -102,4 +103,8 @@ route::get('/contact', function() {
 
 //Admin List Page
 Route::resource('data-admin', UserController::class);
+
+// Customer - PDF
+Route::get('/get-all-customer',[CustController::class, 'getAllCustomer']);
+Route::get('/download-pdf',[CustController::class, 'downloadPDF']);
 
