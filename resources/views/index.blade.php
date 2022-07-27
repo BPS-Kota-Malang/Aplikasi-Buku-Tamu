@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="{{url('/frontend/css/formTamuStyle/style.css')}}" />
-  <script src="{{url('/frontend/css/formTamuStyle/script.js')}}" defer></script>
+  <link rel="stylesheet" href="{{url('/user/css/formTamuStyle/style.css')}}" />
+  <script src="{{url('/user/css/formTamuStyle/script.js')}}" defer></script>
   <title>Form Buku Tamu</title>
 </head>
 <body>
