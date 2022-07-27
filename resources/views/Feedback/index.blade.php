@@ -18,8 +18,8 @@
             <thead>
               <tr>
                 <th scope="col">no</th>
-                <th scope="col">transaksi</th>
-                <th scope="col">tanggal</th>
+                <th scope="col">nama</th>
+                <th scope="col">data layanan</th>
                 <th scope="col">action</th>
               </tr>
             </thead>
@@ -28,11 +28,11 @@
               <tr>
                 <th scope="row">{{ $tran->id }}</th>
                 <td>{{ $tran->customer->name }}</td>
-                <td>{{ $tran->media->media_type }}</td>
+                <td>{{ $tran->data}}</td>
                 <td>
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                  Launch static backdrop modal
+                  feedback
                 </button>
 
                 <!-- Modal -->
@@ -40,34 +40,94 @@
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                        <h5 class="modal-title" id="staticBackdropLabel">feedback</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                          <label class="form-check-label" for="inlineRadio1">1</label>
+                        <form method="post" action="{{url('feedback')}}"  class="sigin-form">
+                          @csrf
+                          
+                        <col-md-10>
+                        <div class="col-md-8">
+                          <label>pelayanan</label>
                         </div>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                          <label class="form-check-label" for="inlineRadio2">2</label>
+                          <input class="form-check-input" type="radio" name="service" id="1" value="1">
+                          <label class="form-check-label" for="1">1</label>
                         </div>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" disabled>
-                          <label class="form-check-label" for="inlineRadio3">3</label>
+                          <input class="form-check-input" type="radio" name="service" id="2" value="2">
+                          <label class="form-check-label" for="2">2</label>
                         </div>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4" disabled>
-                          <label class="form-check-label" for="inlineRadio4">4</label>
+                          <input class="form-check-input" type="radio" name="service" id="3" value="3">
+                          <label class="form-check-label" for="3">3</label>
                         </div>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5" disabled>
-                          <label class="form-check-label" for="inlineRadio5">5</label>
+                          <input class="form-check-input" type="radio" name="service" id="4" value="4">
+                          <label class="form-check-label" for="4">4</label>
                         </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="service" id="5" value="5">
+                          <label class="form-check-label" for="5">5</label>
+                        </div>
+                        </col-md-10>
+                        <col-md-10>
+                        <div class="col-md-8">
+                          <label>sarana dan prasarana</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="facility" id="1" value="1">
+                          <label class="form-check-label" for="1">1</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="fasility" id="2" value="2">
+                          <label class="form-check-label" for="2">2</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="facility" id="3" value="3">
+                          <label class="form-check-label" for="3">3</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="facility" id="4" value="4">
+                          <label class="form-check-label" for="4">4</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="facility" id="5" value="5">
+                          <label class="form-check-label" for="5">5</label>
+                        </div>
+                        </col-md-10>
+                        <col-md-10>
+                        <div class="col-md-8">
+                          <label>kualitas data</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="dataqualities" id="1" value="1">
+                          <label class="form-check-label" for="1">1</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="dataqualities" id="2" value="2">
+                          <label class="form-check-label" for="2">2</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="dataqualities" id="3" value="3">
+                          <label class="form-check-label" for="3">3</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="dataqualities" id="4" value="4">
+                          <label class="form-check-label" for="4">4</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="dataqualities" id="5" value="5">
+                          <label class="form-check-label" for="5">5</label>
+                        </div>
+                        </col-md-10>
+
+                        
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Understood</button>
+                        <input class="btn btn-primary" type="submit" value="Submit">
                       </div>
                     </div>
                   </div>
