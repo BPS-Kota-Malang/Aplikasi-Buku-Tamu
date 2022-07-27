@@ -29,6 +29,12 @@
     <!-- Nav Item - Pages Collapse Menu -->
         <!-- Nav Item - Charts -->
         <li class="nav-item">
+            <a class="nav-link" href="#">
+               <i class="fa fa-user-circle"></i>
+               <span>Menu Admin</span></a>
+       </li>
+
+        <li class="nav-item">
             <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
                 aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-fw fa-cog"></i>
