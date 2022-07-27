@@ -29,7 +29,7 @@
     <!-- Nav Item - Pages Collapse Menu -->
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{route('list.index')}}">
                <i class="fa fa-user-circle"></i>
                <span>Menu Admin</span></a>
        </li>
