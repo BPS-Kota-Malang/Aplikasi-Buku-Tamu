@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- Icon Page -->
+<link rel="icon" href="{{ url('assets/img/logo.png') }}">
+
 @include('Layouts.css')
 
 <body id="page-top">
