@@ -14,8 +14,7 @@ use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCategoryController;
-
-
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,8 +43,6 @@ Route::get('admin/show/{id}', [CustomerController::class, 'show'])->name('admin-
 Route::post('admin/hapus-data', [CustomerController::class, 'hapusTamu'])->name('admin-hapus-data');
 Route::post('/register', [CustomerController::class, 'register'])->name('register-admin');
 
-
-
 // Dashboard Page
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
@@ -61,46 +58,48 @@ Route::resource('media', MediaController::class);
 // Service Page
 Route::resource('service', ServiceController::class);
 
-//Feedback
+//Feedback Page
 Route::resource('feedback', FeedbackController::class);
 Route::post('showtransaction', [FeedbackController::class, 'showTransaction'])->name('showtransaction');
 
-
-//Transaksi
+//Transaction Page
 Route::resource('transaction', TransactionController::class);
 
-
-//Category
+//Category Page
 Route::resource('category', CategoryController::class);
 
-//SubCategory
+//SubCategory Page
 Route::resource('subcategory', SubCategoryController::class);
 
-
-//login
+//Login Page
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
-
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
-
 Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 
+// Autentikasi Page
 Auth::routes();
 
-
+// Home Page
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//index
+// Home Page
 Route::get('/pelanggan', function() {
     return view('Pengguna/index');
 });
 
-//about
+// About Page
 route::get('/about', function() {
     return view('Pengguna/about');
 });
-//Contact
+
+// Contact Page
 route::get('/contact', function() {
     return view('pengguna/contact');
 });
+
+
+//Admin List Page
+Route::resource('data-admin', UserController::class);
+
