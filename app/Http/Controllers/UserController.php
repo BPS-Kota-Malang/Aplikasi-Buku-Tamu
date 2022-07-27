@@ -43,7 +43,7 @@ class UserController extends Controller
         // $pengguna->email=$request->email;
         // $pengguna->save();
 
-        // return redirect()->route('list.index')->with('status', 'Data Admin Berhasil Disimpan');
+        // return redirect()->route('data-admin.index')->with('status', 'Data Admin Berhasil Disimpan');
     }
 
     /**
@@ -85,7 +85,7 @@ class UserController extends Controller
         // $pengguna->email=$request->email;
         // $pengguna->save();
 
-        // return redirect()->route('list.index')->with('status', 'Data Admin Berhasil Diupdate');
+        // return redirect()->route('data-admin.index')->with('status', 'Data Admin Berhasil Diupdate');
     }
 
     /**
@@ -99,6 +99,6 @@ class UserController extends Controller
         $pengguna = User::find($id);
         $pengguna->delete();
 
-        return redirect()->route('list.index')->with('status', 'Data Admin Berhasil Dihapus');
+        return redirect()->route('data-admin.index')->with('status', 'Data Admin Berhasil Dihapus');
     }
 }

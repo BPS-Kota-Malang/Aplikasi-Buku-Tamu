@@ -101,5 +101,5 @@ route::get('/contact', function() {
 
 
 //Admin List Page
-Route::resource('list', UserController::class);
+Route::resource('data-admin', UserController::class);
 

@@ -31,7 +31,7 @@
                     <td>
                         <div class="row">
                                 <div class="col-4">
-                                    <form action="{{route('list.destroy', $item->id)}}" method="post">
+                                    <form action="{{route('data-admin.destroy', $item->id)}}" method="post">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger"
