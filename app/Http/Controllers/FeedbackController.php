@@ -26,24 +26,11 @@ class FeedbackController extends Controller
      */
     public function create()
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-
         
     }
-
     public function showTransaction(Request $request)
     {
-        // $customer = new Customer();
+        
 
         $customer_id = Customer::where('hp', $request->hp)
                                 ->take(1)
@@ -55,15 +42,28 @@ class FeedbackController extends Controller
                                     ->get();
 
         return view ('feedback.index', compact('transaction'));    
-        // return $transaction;
-
-        $hp = new Customer();
-        $hp->hp=$request->hp;
-        $hp->save();
-
-        return redirect()->route('feedback.in')->with('status', 'Data  Pelayanan Berhasil Disimpan');
+        
 
     }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {    
+        $feedback = new feedback;
+        $feedback -> service = $request->service;
+        $feedback -> facility = $request->facility;
+        $feedback -> dataqualities = $request->dataqualities;
+        // $feedback -> id_transaction = $transaction;
+        $feedback -> save();
+        
+        return redirect('feedback');
+    }
+
+    
 
     /**
      * Display the specified resource.
@@ -78,10 +78,10 @@ class FeedbackController extends Controller
     }
 
     public function formFeedback() {
-        $feedback = Feedback::all();
+        
         $customer = Customer::all();
         $transaction = Transaction::all();
-        return view('in', compact('feedback' , 'customer', 'transaction'));
+        return view('in', compact( 'customer', 'transaction'));
     }
 
     public function saveFeedback(Request $request)
@@ -90,7 +90,7 @@ class FeedbackController extends Controller
         $facility = $request->facility;
         $dataqualities = $request->dataqualities;
         
-        // $customer->hp=$request->hp;
+        
 
         $idcustomer = Customer::find(1)
                     ->where('hp', $request->customer)
