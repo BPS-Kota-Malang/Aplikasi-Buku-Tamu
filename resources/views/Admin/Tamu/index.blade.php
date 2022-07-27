@@ -7,7 +7,7 @@
     </div>
     @endif
     <div class="card-header">
-        Data Buku Tamu<br>
+        <h5 class="mb-0 text-center">Data Tamu</h5>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     </div>
     <div class="card-body">

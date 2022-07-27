@@ -7,10 +7,11 @@
     </div>
     @endif
     <div class="card-header">
-        Data Pendidikan <br><br> <a href="{{route('education.create')}}" class="btn btn-success">Add Data</a>
+        <h5 class="mb-0 text-center">Data Pendidikan</h5>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     </div>
     <div class="card-body">
+        <a href="{{route('education.create')}}" class="btn btn-success">Add Data</a>
         <table class="table" id="myTable">
             <thead class="thead-dark">
                 <tr>
