@@ -21,6 +21,7 @@ Aplikasi Buku Tamu - Badan Pusat Statistik (Malang)
   * Sub Menu Media Pelayanan - Admin
   * Sub Menu Jenis Pelayanan - Admin
   * Sub Menu Kebutuhan Data (Sosial&Kependudukan, Ekonomi&Perdagangan, Pertanian&Pertambangan)
+  * Sub Menu Tujuan
   
 ## Progress - Mutiara Rahmanda Tri Rizkia
    * CRUD Transaksi - Admin
