@@ -14,5 +14,8 @@
         "sass": "^1.32.11",
         "sass-loader": "^11.0.1",
         "vite": "^3.0.0"
+    },
+    "dependencies": {
+        "bootstrap-icons": "^1.9.1"
     }
 }

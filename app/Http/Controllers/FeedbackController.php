@@ -53,14 +53,7 @@ class FeedbackController extends Controller
      */
     public function store(Request $request)
     {    
-        $feedback = new feedback;
-        $feedback -> service = $request->service;
-        $feedback -> facility = $request->facility;
-        $feedback -> dataqualities = $request->dataqualities;
-        // $feedback -> id_transaction = $transaction;
-        $feedback -> save();
-        
-        return redirect('feedback');
+       
     }
 
     
@@ -71,10 +64,21 @@ class FeedbackController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, Request $request)
     {
         $transaction= Transaction::find($id);
         return view('Transaction.detailForm', compact('transaction'));
+
+
+        $feedback = new feedback;
+        $feedback -> service = $request->service;
+        $feedback -> facility = $request->facility;
+        $feedback -> dataqualities = $request->dataqualities;
+        $feedback -> id_transaction = $transaction;
+        $feedback -> save();
+        
+        return redirect('feedback');
+
     }
 
     public function formFeedback() {

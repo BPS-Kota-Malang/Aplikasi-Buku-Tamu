@@ -148,11 +148,15 @@
         <label class="label" for="media">Kebutuhan Data</label>
         <select class="custom-select my-1 mr-sm-2" name="sub_categories" id="inlineFormCustomSelectPref">
             <option selected="true" disabled="disabled">Pilih Kebutuhan Data</option>
-
-                @foreach ($sub_categories as $s)
-                <option value="{{ $s->id}}">{{$s->sub_categories_type}}</option>
-                @endforeach
-
+            @foreach($categories as $group)
+                <optgroup label="{{$group->categories_type }}">
+                    @foreach ($sub_categories as $s)
+                    @if($s->id_categories == $group->id)
+                        <option value="{{ $s->id}}">{{$s->sub_categories_type}}</option>
+                    @endif
+                    @endforeach
+                </optgroup>
+            @endforeach
         </select>
       </div>
     </div>

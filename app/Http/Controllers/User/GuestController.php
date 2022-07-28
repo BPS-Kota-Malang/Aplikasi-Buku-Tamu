@@ -15,7 +15,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Customer;
 use App\Models\Transaction;
-use App\Http\Controllers\Controllers\TransactionController;
 
 
 class GuestController extends Controller
@@ -26,9 +25,15 @@ class GuestController extends Controller
         $media = Media::all();
         $service = Service::all();
         $sub_categories = SubCategory::all();
+<<<<<<< HEAD
+        $categories = Category::all();
+
+        return view('/index', compact('job','education','media','service','sub_categories','categories'));
+=======
         $purpose = Purpose::all();
 
         return view('/index', compact('job','education','media','service','sub_categories','purpose'));
+>>>>>>> 1b0bd8504e72ca6de033d8fd0ea271dbb68721a2
     }
 
     public function saveGuest(Request $request){

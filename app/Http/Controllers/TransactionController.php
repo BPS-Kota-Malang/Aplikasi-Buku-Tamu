@@ -19,11 +19,19 @@ class TransactionController extends Controller
     public function index()
     {
         $transaction = Transaction::all();
-        // $customer = $transaction->customer->name;
 
         // $transaction ->dd();
         // dd($customer);
         return view('Transaction.index', compact('transaction'));
+    }
+
+    public function filter(Request $request){
+            $dari = $request->dari;
+            $sampai = $request->sampai;
+
+            $transaction = Transaction::whereDate('created_at' ,'>=', $dari)->whereDate('created_at','<=', $sampai)->orderBy('created_at','desc')->get();
+
+            return view('Transaction.index', compact('transaction'));
     }
 
     public function simpanData(Request $request){
