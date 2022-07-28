@@ -9,6 +9,8 @@
     <div class="card-header">
         <h5 class="mb-0 text-center">Data Transaksi</h5>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+        <a href="{{ route('transaction.index')}}" class="btn btn-warning btn-refresh"><i class="fa fa-retweet"></i>Refresh</a>
+
         <a href="#" class="btn btn-success  btn-filter" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <i class="fa fa-filter"></i> Filter Tanggal</a>
             <!-- Modal -->
@@ -107,6 +109,7 @@
 <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+<script src="extensions/auto-refresh/bootstrap-table-auto-refresh.js"></script>
 
 <script type="text/javascript">
     $(document).ready( function () {
