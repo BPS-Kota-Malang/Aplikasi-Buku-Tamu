@@ -10,12 +10,13 @@ use App\Models\Media;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Exports\CustomerExport;
+use Excel;
 
 class CustomerController extends Controller
 {
 
-    public function __construct()
-    {
+    public function __construct(){
         $this->middleware('auth');
     }
 
@@ -79,8 +80,7 @@ class CustomerController extends Controller
         return redirect('admin/tamu')->with('status', 'Data Tamu Berhasil Diupdate');
     }
 
-    public function show($id)
-    {
+    public function show($id){
         $customer = Customer::find($id);
         return view('Admin.Tamu.detailForm', compact('customer'));
     }
@@ -90,6 +90,14 @@ class CustomerController extends Controller
         $customer = Customer::find($id);
         $customer->delete();
         return redirect('admin/tamu')->with('status', 'Data Tamu Berhasil Dihapus');
+    }
+
+    public function exportIntoExcel(){
+        return Excel::download(new CustomerExport, 'customer.xlsx');
+    }
+
+    public function exportIntoCSV(){
+        return Excel::download(new CustomerExport, 'customer.csv');
     }
 
 }
