@@ -9,6 +9,7 @@ use App\Models\Education;
 use App\Models\Media;
 use App\Models\Service;
 use App\Models\SubCategory;
+use App\Models\Purpose;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -24,9 +25,15 @@ class GuestController extends Controller
         $media = Media::all();
         $service = Service::all();
         $sub_categories = SubCategory::all();
+<<<<<<< HEAD
         $categories = Category::all();
 
         return view('/index', compact('job','education','media','service','sub_categories','categories'));
+=======
+        $purpose = Purpose::all();
+
+        return view('/index', compact('job','education','media','service','sub_categories','purpose'));
+>>>>>>> 1b0bd8504e72ca6de033d8fd0ea271dbb68721a2
     }
 
     public function saveGuest(Request $request){
@@ -87,7 +94,7 @@ class GuestController extends Controller
         $transaction->id_customer =$idcustomer;
         $transaction->id_media=$request->media;
         $transaction->id_service=$request->service;
-        $transaction->purpose=$request->purpose;
+        $transaction->id_purpose=$request->purpose;
         $transaction->data=$request->data;
         $transaction->id_sub_categories=$request->sub_categories;
         $transaction->save();

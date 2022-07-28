@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Purpose;
 
-class UserController extends Controller
+class PurposeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $pengguna = User::all();
-        return view('Auth.index', compact('pengguna'));
+        $purpose = Purpose::all();
+        return view('Purpose.index', compact('purpose'));
     }
 
     /**
@@ -25,8 +25,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        $pengguna = User::all();
-        return view('Auth.addForm', compact('pengguna'));
+        $purpose = Purpose::all();
+        return view('Purpose.addForm', compact('purpose'));
     }
 
     /**
@@ -37,14 +37,12 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $pengguna = new User();
+        $purpose = new Purpose();
 
-        $pengguna->name=$request->name;
-        $pengguna->email=$request->email;
-        $pengguna->password=$request->password;
-        $pengguna->save();
+        $purpose->purpose_type=$request->purpose;
+        $purpose->save();
 
-        return redirect()->route('data-admin.index')->with('status', 'Data Admin Berhasil Disimpan');
+        return redirect()->route('purpose.index')->with('status', 'Data Jenis Tujuan Berhasil Disimpan');
     }
 
     /**
@@ -55,8 +53,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $pengguna = User::find($id);
-        return view('Auth.detailForm', compact('pengguna')); 
+        $purpose = Purpose::find($id);
+        return view('Purpose.detailForm', compact('purpose'));
     }
 
     /**
@@ -67,8 +65,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $pengguna = User::find($id);
-        return view('Auth.editForm', compact('pengguna'));
+        $purpose = Purpose::find($id);
+        return view('Purpose.editForm', compact('purpose'));
     }
 
     /**
@@ -80,14 +78,11 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pengguna = User::find($id);
+        $purpose = Purpose::find($id);
+        $purpose->purpose_type=$request->purpose;
+        $purpose->save();
 
-        $pengguna->name=$request->name;
-        $pengguna->email=$request->email;
-        $pengguna->password=$request->password;
-        $pengguna->save();
-
-        return redirect()->route('data-admin.index')->with('status', 'Data Admin Berhasil Diupdate');
+        return redirect()->route('purpose.index')->with('status', 'Data Jenis Tujuan Berhasil Diupdate');
     }
 
     /**
@@ -98,9 +93,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $pengguna = User::find($id);
-        $pengguna->delete();
+        $purpose = Purpose::find($id);
+        $purpose->delete();
 
-        return redirect()->route('data-admin.index')->with('status', 'Data Admin Berhasil Dihapus');
+        return redirect()->route('purpose.index')->with('status', 'Data Jenis Tujuan Berhasil Dihapus');
     }
 }

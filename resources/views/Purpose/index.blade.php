@@ -7,37 +7,35 @@
     </div>
     @endif
     <div class="card-header">
-        <h5 class="mb-0 text-center">Data Admin</h5>
+        <h5 class="mb-0 text-center">Data Tujuan</h5>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     </div>
     <div class="card-body">
-        <a href="{{route('data-admin.create')}}" class="btn btn-success">Add Data</a>
+        <a href="{{route('purpose.create')}}" class="btn btn-success">Add Data</a>
         <table class="table" id="myTable">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">No</th>
-                    <th scope="col">Nama</th>
-                    <th scope="col">Email</th>
+                    <th scope="col">Jenis Tujuan</th>
                     <th scope="col" width="20%">Aksi</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($pengguna as $item)
+                @foreach ($purpose as $item)
                 <tr>
 
                     <td>{{ $loop->iteration}}
-                    <td>{{ $item->name}}
-                    <td>{{ $item->email}}
+                    <td>{{ $item->purpose_type}}
                     <td>
                         <div class="row">
                                 <div class="col-4">
-                                    <a href="{{ route('data-admin.edit', $item->id)}}" class="btn btn-warning">Edit</a>
+                                    <a href="{{ route('purpose.edit', $item->id)}}" class="btn btn-warning">Edit</a>
                                 </div>
                                 <div class="col-4">
-                                    <a href="{{ route('data-admin.show', $item->id)}}" class="btn btn-info">Show</a>
+                                    <a href="{{ route('purpose.show', $item->id)}}" class="btn btn-info">Show</a>
                                 </div>
                                 <div class="col-4">
-                                    <form action="{{route('data-admin.destroy', $item->id)}}" method="post">
+                                    <form action="{{route('purpose.destroy', $item->id)}}" method="post">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger"

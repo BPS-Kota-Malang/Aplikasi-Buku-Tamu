@@ -14,6 +14,7 @@ use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\PurposeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CustController;
 
@@ -73,6 +74,9 @@ Route::resource('category', CategoryController::class);
 //SubCategory Page
 Route::resource('subcategory', SubCategoryController::class);
 
+//Purpose Page
+Route::resource('purpose', PurposeController::class);
+
 //Login Page
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
@@ -101,11 +105,14 @@ route::get('/contact', function() {
     return view('pengguna/contact');
 });
 
-
 //Admin List Page
 Route::resource('data-admin', UserController::class);
 
 // Customer - PDF
 Route::get('/get-all-customer',[CustController::class, 'getAllCustomer']);
 Route::get('/download-pdf',[CustController::class, 'downloadPDF']);
+
+// Customer - Excel dan CSV
+Route::get('/export-excel',[CustomerController::class, 'exportIntoExcel']);
+Route::get('/export-csv',[CustomerController::class, 'exportIntoCSV']);
 
