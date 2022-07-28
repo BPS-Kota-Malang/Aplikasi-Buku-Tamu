@@ -25,8 +25,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        // $pengguna = User::all();
-        // return view('Auth.addForm', compact('pengguna'));
+        $pengguna = User::all();
+        return view('Auth.addForm', compact('pengguna'));
     }
 
     /**
@@ -37,13 +37,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        // $pengguna = new User();
+        $pengguna = new User();
 
-        // $pengguna->name=$request->name;
-        // $pengguna->email=$request->email;
-        // $pengguna->save();
+        $pengguna->name=$request->name;
+        $pengguna->email=$request->email;
+        $pengguna->password=$request->password;
+        $pengguna->save();
 
-        // return redirect()->route('data-admin.index')->with('status', 'Data Admin Berhasil Disimpan');
+        return redirect()->route('data-admin.index')->with('status', 'Data Admin Berhasil Disimpan');
     }
 
     /**
@@ -54,8 +55,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        // $pengguna = User::find($id);
-        // return view('Auth.detailForm', compact('pengguna')); 
+        $pengguna = User::find($id);
+        return view('Auth.detailForm', compact('pengguna')); 
     }
 
     /**
@@ -66,8 +67,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        // $pengguna = User::find($id);
-        // return view('Auth.editForm', compact('pengguna'));
+        $pengguna = User::find($id);
+        return view('Auth.editForm', compact('pengguna'));
     }
 
     /**
@@ -79,13 +80,14 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $pengguna = User::find($id);
+        $pengguna = User::find($id);
 
-        // $pengguna->name=$request->name;
-        // $pengguna->email=$request->email;
-        // $pengguna->save();
+        $pengguna->name=$request->name;
+        $pengguna->email=$request->email;
+        $pengguna->password=$request->password;
+        $pengguna->save();
 
-        // return redirect()->route('data-admin.index')->with('status', 'Data Admin Berhasil Diupdate');
+        return redirect()->route('data-admin.index')->with('status', 'Data Admin Berhasil Diupdate');
     }
 
     /**
