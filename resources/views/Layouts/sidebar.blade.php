@@ -53,6 +53,7 @@
                             <h6 class="collapse-header">Kebutuhan Data</h6>
                             <a class="collapse-item" href="{{route('category.index')}}">Kategori</a>
                             <a class="collapse-item" href="{{route('subcategory.index')}}">Sub Kategori</a>
+                            <a class="collapse-item" href="{{route('purpose.index')}}">Tujuan</a>
                         </div>
                     {{-- </div> --}}
                 </div>

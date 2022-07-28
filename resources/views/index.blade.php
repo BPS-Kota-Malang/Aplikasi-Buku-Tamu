@@ -177,16 +177,16 @@
 
   <!-- Steps 4-->
   <div class="form-step">
-    <div class="form-group mb-3">
-      <label class="gender" for="gender">Tujuan</label>
-      <select class="custom-select my-1 mr-sm-2" name="gender" id="inlineFormCustomSelectPref">
-        <option selected="true" disabled="disabled" >Pilih</option>
-        <option value="tugas">Tugas Sekolah/Universitas</option>
-        <option value="skripsi">Skripsi</option>
-        <option value="tesis">Tesis</option>
-        <option value="perumusan-kebijakan">Perumusan Kebijakan</option>
-        <option value="lainnya">Yang Lainnya</option>
-      </select>
+    <div class="input-group">
+      <div class="form-group mb-3">
+        <label class="label" for="purpose">Tujuan</label>
+        <select class="custom-select my-1 mr-sm-2" name="purpose" id="inlineFormCustomSelectPref">
+          <option selected="true" disabled="disabled">Pilih Tujuan</option>
+          @foreach ($purpose as $p)
+          <option value="{{ $p->id }}">{{$p->purpose_type}}</option>
+          @endforeach
+        </select>
+      </div>
     </div>
     <div class="input-group">
       <label for="data">Data</label>
