@@ -11,8 +11,10 @@
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     </div>
     <div class="card-body">
-        <a href="{{url('admin/form-tambah')}}" class="btn btn-success">Add Data</a>
-        <a href="{{('/download-pdf')}}" class="btn btn-info">Print Data</a>
+        <a href="{{url('admin/form-tambah')}}" class="btn btn-success border">Add Data</a>
+        <a href="{{('/download-pdf')}}" class="btn btn-danger border">PDF Data</a>
+        <a href="{{('/export-excel')}}" class="btn btn-dark border">Excel Data</a>
+        <a href="{{('/export-csv')}}" class="btn btn-info border">CSV Data</a>
         <table class="table" id="myTable">
             <thead class="thead-dark text-center">
                 <tr>

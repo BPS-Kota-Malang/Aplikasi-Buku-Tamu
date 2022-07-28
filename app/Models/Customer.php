@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Customer extends Model
 {
@@ -20,8 +21,17 @@ class Customer extends Model
     }
 
     public function guestTransaction() {
-    return $this->hasMany(Transaction::clas);
+    return $this->hasMany(Transaction::class);
     }
 
+    public static function getCustomer(){
+        $records = DB::table('customer')->select(
+            'name',
+            'hp',
+            'gender',
+            'id_education',
+            'id_job')->get()->toArray();
+        return $records;
+    } 
+    }
 
-}
