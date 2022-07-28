@@ -24,8 +24,13 @@ Aplikasi Buku Tamu - Badan Pusat Statistik (Malang)
   * Sub Menu Tujuan
   
 ## Progress - Mutiara Rahmanda Tri Rizkia
-   * CRUD Transaksi - Admin
-
+   1) Menu Utama - Admin
+        - Sub Menu Kategori Kebutuhan Data
+        - Sub Menu Sub Kategori Kebutuhan Data
+   2) Menu Transaksi - Admin
+        - CRUD Transaksi
+        - Filtering Transaksi
+   
 ## Progress - Qorina Anindhita Prameswari
 
 ## Progress - Moch Abizar Daffa Wijdan			
