@@ -24,16 +24,16 @@ class GuestController extends Controller
         $education = Education::all();
         $media = Media::all();
         $service = Service::all();
+        $purpose = Purpose::all();
         $sub_categories = SubCategory::all();
-<<<<<<< HEAD
         $categories = Category::all();
 
-        return view('/index', compact('job','education','media','service','sub_categories','categories'));
-=======
-        $purpose = Purpose::all();
+        return view('/index', compact('job','education','media','service','sub_categories','categories','purpose'));
 
-        return view('/index', compact('job','education','media','service','sub_categories','purpose'));
->>>>>>> 1b0bd8504e72ca6de033d8fd0ea271dbb68721a2
+        // $purpose = Purpose::all();
+
+        // return view('/index', compact('job','education','media','service','sub_categories','purpose'));
+
     }
 
     public function saveGuest(Request $request){
