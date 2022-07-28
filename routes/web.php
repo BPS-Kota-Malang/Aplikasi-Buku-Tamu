@@ -65,6 +65,7 @@ Route::post('showtransaction', [FeedbackController::class, 'showTransaction'])->
 
 //Transaction Page
 Route::resource('transaction', TransactionController::class);
+Route::post('filter', [TransactionController::class, 'filter'])->name('filter');
 
 //Category Page
 Route::resource('category', CategoryController::class);

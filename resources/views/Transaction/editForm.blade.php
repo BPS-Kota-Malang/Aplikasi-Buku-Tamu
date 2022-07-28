@@ -11,7 +11,7 @@
                 <input type="hidden" name="_method" value="patch">
                 <div class="form-group">
                     <label for="id_customer">Id Cust</label>
-                    <input class="form-control" name="customer" id="id_customer" aria-describedby="id_customer" value="{{$transaction->id_customer}}">
+                    <input class="form-control" name="customer" id="id_customer" aria-describedby="id_customer" value="{{$transaction->id_customer}}" readonly>
                 </div>
                <div class="form-group mb-3">
                   <label class="label" for="media">Id Media</label>
