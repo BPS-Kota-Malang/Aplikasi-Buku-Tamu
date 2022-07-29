@@ -9,7 +9,7 @@
         <div class="form-group">
           <form action="{{route('purpose.store')}}" method="post">
             @csrf
-          <label for="purpose">Pendidikan</label>
+          <label for="purpose">Tujuan</label>
           <input type="text" class="form-control" name="purpose" id="purpose" aria-describedby="nama">
         </div>
         <button type="submit" class="btn btn-success">Simpan</button>

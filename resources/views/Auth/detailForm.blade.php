@@ -17,7 +17,7 @@
                         <td>{{ $pengguna->email }}</td>
                     </tr>
                     <tr>
-                        <td>Keterangan</td>
+                        <td>Password</td>
                         <td>:</td>
                         <td>{{ $pengguna->password }}</td>
                     </tr>
