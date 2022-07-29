@@ -11,6 +11,7 @@
 </head>
 <body>
   <form action="{{ url ('/simpan-bukutamu')}}" method="POST" class="sigin-form">
+    @include('sweetalert::alert')
     @csrf
         <h1 class="text-center">BUKU TAMU</h1>
         <h2 class="text-center">Badan Pusat Statistik  Kota Malang</h2>

@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Customer;
 use App\Models\Transaction;
+use Alert;
 
 
 class GuestController extends Controller
@@ -100,6 +101,7 @@ class GuestController extends Controller
         $transaction->id_sub_categories=$request->sub_categories;
         $transaction->save();
 
+        Alert::success('Success', 'Terimakasih Telah Mengisi Data');
         return redirect('/')->with('status', 'Data Tamu Berhasil Disimpan');
 
     }
