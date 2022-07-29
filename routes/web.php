@@ -112,6 +112,10 @@ Route::resource('data-admin', UserController::class);
 Route::get('/get-all-customer',[CustController::class, 'getAllCustomer']);
 Route::get('/download-pdf',[CustController::class, 'downloadPDF']);
 
+// Dashboard - PDF
+Route::get('/get-all-report',[CustController::class, 'getAllReport']);
+Route::get('/download-pdf-report',[CustController::class, 'downloadPDFReport']);
+
 // Customer - Excel dan CSV
 Route::get('/export-excel',[CustomerController::class, 'exportIntoExcel']);
 Route::get('/export-csv',[CustomerController::class, 'exportIntoCSV']);
