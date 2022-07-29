@@ -79,6 +79,8 @@ class FeedbackController extends Controller
         
         return redirect('feedback');
 
+        
+        dd($feedback);
     }
 
     public function formFeedback() {
