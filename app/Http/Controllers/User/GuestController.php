@@ -101,7 +101,7 @@ class GuestController extends Controller
         $transaction->id_sub_categories=$request->sub_categories;
         $transaction->save();
 
-        Alert::success('Success', 'Terimakasih Telah Mengisi Data');
+        Alert::success("Success", "Terimakasih  $name  Telah Mengisi Data");
         return redirect('/')->with('status', 'Data Tamu Berhasil Disimpan');
 
     }
