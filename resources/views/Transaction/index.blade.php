@@ -61,7 +61,7 @@
                     <th scope="col">Id Media</th>
                     <th scope="col">Id <br> Pelayanan</th>
                     <th scope="col">Tujuan</th>
-                     <th scope="col">Kebutuhan Data</th>
+                    <th scope="col">Kebutuhan Data</th>
                     <th scope="col">Tanggal</th>
                     <th scope="col">Aksi</th>
                 </tr>
@@ -74,7 +74,7 @@
                     <td>{{ $item->media->media_type}}</td>
                     <td>{{ $item->service->service_type }}</td>
                     <td>{{ $item->purpose->purpose_type}}</td>
-                    <td>{{ $item->id_sub_categories}}</td>
+                    <td>{{ $item->subcategory->sub_categories_type}}</td>
                     <td>{{ $item->created_at }}</td>
 
                     <td>

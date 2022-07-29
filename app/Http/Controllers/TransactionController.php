@@ -69,8 +69,9 @@ class TransactionController extends Controller
         $service= Service::all();
         $sub_categories= SubCategory::all();
         $purpose= Purpose::all();
+        $categories= Category::all();
 
-        return view('Transaction.editForm', compact('transaction','customer','media','service','sub_categories','purpose'));
+        return view('Transaction.editForm', compact('transaction','customer','media','service','sub_categories','purpose','categories'));
     }
 
     public function update(Request $request,$id){

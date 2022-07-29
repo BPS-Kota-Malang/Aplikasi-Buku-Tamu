@@ -51,11 +51,15 @@
                   <label class="label" for="media">Kebutuhan Data</label>
                   <select class="custom-select my-1 mr-sm-2" name="sub_categories" >
                     <option disabled value>Pilih Kebutuhan Data</option>
-                    <option value="{{$transaction->id_sub_categories}}">{{$transaction->id_sub_categories}}</option>
-                    @foreach ($sub_categories as $c)
-                    <option value="{{ $c->id }}">{{$c->sub_categories_type}}</option>
-                    @endforeach
-                  </select>
+                     @foreach($categories as $group)
+                            <optgroup label="{{$group->categories_type }}">
+                                @foreach ($sub_categories as $s)
+                                @if($s->id_categories == $group->id)
+                                    <option value="{{ $s->id}}">{{$s->sub_categories_type}}</option>
+                                @endif
+                                @endforeach
+                            </optgroup>
+                        @endforeach
                   </select>
                 </div>
 
