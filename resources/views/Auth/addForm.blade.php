@@ -3,7 +3,7 @@
 <div class="d-flex justify-content-center">
   <div class="card" style="width: 40%">
     <div class="card-header">
-      Form Tambah Jenis Tujuan
+      Form Tambah Data Admin
     </div>
     <div class="card-body">
         <div class="form-group">

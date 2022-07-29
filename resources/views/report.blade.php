@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,7 +34,6 @@
         }
     </style>
 </head>
-
 <table>
     <tr>
     <td><img src="{{public_path('/assets/img/logo.png')}}" style="width: 100px; height: 100px"></td>
@@ -46,39 +44,29 @@
     </td>
     </tr>
     <tr>
-        <td colspan="10"><hr> </td>
+        <td colspan="10"><hr></td>
     </tr>
 </table>
-<br>
 <body>
     <div class="card-header">
-        <h2>Data Buku Tamu</h2><br>
+        <h2>Ringkasan - Data Buku Tamu</h2>
+        <p style="text-align: justify">Buku tamu <strong>BPS - Kota Malang</strong> merupakan buku yang berisi daftar pelanggan yang bertujuan dalam pemenuhan kebutuhan data. 
+            Buku tamu ini bisa menjadi patokan dalam evaluasi BPS Kota Malang dalam melayani masyarakat. Berikut ini ringkasan data buku tamu:</p>
     </div>
-    <table id="emp">
-        <title>Customer - BPS</title>
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>Nama</th>
-                <th>Telepon</th>
-                <th>Gender</th>
-                <th>Pendidikan</th>
-                <th>Pekerjaan</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($pelanggan as $emp)
-            <tr>
-                <td>{{$loop->iteration}}</td>
-                <td>{{$emp->name}}</td>
-                <td>{{$emp->hp}}</td>
-                <td>{{$emp->gender}}</td>
-                <td>{{$emp->guestEducation->education_type}}</td>
-                <td>{{$emp->guestJob->job_type}}</td>
-            </tr> 
-            @endforeach
-        </tbody>
-    </table>
-</body>
 
+    <p style="text-align: center">Total Pengunjung : <strong>{{$customer}}</strong></p>
+
+    <h4>1. Data Customer - Berdasarkan Pekerjaan</h4> 
+    <p>a. ASN (Aparatur Sipil Negara) : <strong>{{$asn}}</strong> pengunjung</p> 
+    <p>b. Pelajar/Mahasiswa           : <strong>{{$student}}</strong> pengunjung</p> 
+    <p>c. Dosen/Peneliti              : <strong>{{$lecturer}}</strong> pengunjung</p> 
+
+    <h4>2. Data Customer - Berdasarkan Pendidikan</h4> 
+    <p>a. SMP/Dibawahnya : <strong>{{$smp}}</strong> pengunjung</p> 
+    <p>b. SMA/SMK : <strong>{{$sma}}</strong> pengunjung</p>
+    <p>c. Diploma (D1/D2/D3) : <strong>{{$diploma}}</strong> pengunjung</p>
+    <p>d. Sarjana (S1) : <strong>{{$sarjana}}</strong> pengunjung</p>
+    <p>e. Magister (S2) : <strong>{{$magister}}</strong> pengunjung</p>
+    <p>f. Doktor (D3) : <strong>{{$doktor}}</strong> pengunjung</p>
+</body>
 </html>

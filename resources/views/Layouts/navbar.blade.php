@@ -9,7 +9,7 @@
     <div
         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                 <div class="col-15" type="text">
-                    <a class="btn btn-primary">Buku Tamu - BPS Kota Malang</a>
+                    <a class="btn btn-primary" href="{{url('dashboard')}}">Buku Tamu - BPS Kota Malang</a>
                 </div>
     </div>
 
