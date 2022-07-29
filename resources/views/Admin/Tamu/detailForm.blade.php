@@ -56,6 +56,16 @@
                         <td>:</td>
                         <td>{{ $customer->institute }}</td>
                     </tr>
+                    <tr>
+                        <td>Dibuat Tanggal</td>
+                        <td>:</td>
+                        <td>{{ $customer->created_at }}</td>
+                    </tr>
+                    <tr>
+                        <td>Diupdate Tanggal</td>
+                        <td>:</td>
+                        <td>{{ $customer->updated_at }}</td>
+                    </tr>
                 </tbody>
             </table>
             <div class="col-4">
