@@ -38,18 +38,18 @@ class GuestController extends Controller
 
     public function saveGuest(Request $request){
 
-        $this->validate($request,[
-            'hp' => 'required|min:10',
-            'name' => 'required|min:5',
-            'email' => 'required|email|max:255|unique:users',
-            'address' => 'required|min:5',
-            'age' => 'required|min:1|max:2',
-            'institute' => 'required|min:10',
-            'nipnim' => 'required|min:9',
-            'purpose' => 'required|min:8',
-            'data' => 'required|min:5',
+        // $this->validate($request,[
+        //     'hp' => 'required|min:10',
+        //     'name' => 'required|min:5',
+        //     'email' => 'required|email|max:255|unique:users',
+        //     'address' => 'required|min:5',
+        //     'age' => 'required|min:1|max:2',
+        //     'institute' => 'required|min:10',
+        //     'nipnim' => 'required|min:9',
+        //     'purpose' => 'required|min:8',
+        //     'data' => 'required|min:5',
 
-        ]);
+        // ]);
         // dd ($request->all());
 
         // Tahap 1 - 2
@@ -63,6 +63,7 @@ class GuestController extends Controller
         $nipnim= $request->nipnim;
         $institute= $request->institute;
         $education = $request->education;
+        $purpose = $request->purpose;
         $sub_categories =$request->sub_categories;
 
         $data = new Customer();

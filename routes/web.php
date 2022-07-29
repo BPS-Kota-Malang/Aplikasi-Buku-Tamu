@@ -33,7 +33,7 @@ Route::get('/', [GuestController::class, 'formTamu'])->name('/');
 Route::resource('formTamu', GuestController::class);
 
 // User Page
-Route::post('simpan-bukutamu', [GuestController::class, 'saveGuest'])->name('simpan-bukutamu');
+Route::post('/simpan-bukutamu', [GuestController::class, 'saveGuest'])->name('simpan-bukutamu');
 
 // Customer Page - Admin
 Route::get('admin/tamu', [CustomerController::class, 'index'])->name('admin-tamu');

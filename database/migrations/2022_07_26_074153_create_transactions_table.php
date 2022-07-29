@@ -21,7 +21,8 @@ return new class extends Migration
             $table->foreign('id_media')->references('id')->on('media');
             $table->unsignedBigInteger('id_service');
             $table->foreign('id_service')->references('id')->on('service');
-            $table->string('purpose');
+            $table->unsignedBigInteger('id_purpose');
+            $table->foreign('id_purpose')->references('id')->on('purpose');
             $table->string('data');
             $table->unsignedBigInteger('id_sub_categories');
             $table->foreign('id_sub_categories')->references('id')->on('sub_categories');

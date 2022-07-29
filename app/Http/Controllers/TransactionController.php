@@ -8,6 +8,9 @@ use App\Models\Customer;
 use App\Models\Media;
 use App\Models\Service;
 use App\Models\SubCategory;
+use App\Models\Category;
+use App\Models\Purpose;
+
 
 class TransactionController extends Controller
 {
@@ -52,6 +55,7 @@ class TransactionController extends Controller
         $transaction->purpose=$request->purpose;
         $transaction->data=$request->data;
         $transaction->id_sub_categories=$request->sub_categories;
+        $transaction->id_categories=$request->categories;
         $transaction->save();
 
         return redirect('transaction')->with('status', 'Data Transaksi Berhasil Disimpan');
@@ -63,8 +67,10 @@ class TransactionController extends Controller
         $customer = Customer::all();
         $media= Media::all();
         $service= Service::all();
+        $sub_categories= SubCategory::all();
+        $purpose= Purpose::all();
 
-        return view('Transaction.editForm', compact('transaction','customer','media','service'));
+        return view('Transaction.editForm', compact('transaction','customer','media','service','sub_categories','purpose'));
     }
 
     public function update(Request $request,$id){
@@ -72,12 +78,15 @@ class TransactionController extends Controller
         $transaction=Transaction::with('Customer')->find($id);
         $transaction=Transaction::with('Media')->find($id);
         $transaction=Transaction::with('Service')->find($id);
+        $transaction=Transaction::with('SubCategory')->find($id);
+        $transaction=Transaction::with('Purpose')->find($id);
 
         $transaction->id_customer=$request->customer;
         $transaction->id_media=$request->media;
         $transaction->id_service=$request->service;
-        $transaction->purpose=$request->purpose;
+        $transaction->id_purpose=$request->purpose;
         $transaction->data=$request->data;
+        $transaction->id_sub_categories=$request->sub_categories;
 
         $transaction->save();
 

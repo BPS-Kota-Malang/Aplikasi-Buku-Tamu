@@ -35,15 +35,28 @@
                 </div>
                 <div class="form-group">
                   <label for="purpose">Tujuan</label>
-                  <input type="text" class="form-control" name="purpose" id="purpose" aria-describedby="purpose" value="{{$transaction->purpose}}">
+                  <select class="custom-select my-1 mr-sm-2" name="purpose" >
+                    <option disabled value>Pilih Tujuan</option>
+                    <option value="{{$transaction->id_purpose}}">{{$transaction->purpose->purpose_type}}</option>
+                    @foreach ($purpose as $m)
+                    <option value="{{ $m->id }}">{{$m->purpose_type}}</option>
+                    @endforeach
+                  </select>
                 </div>
                 <div class="form-group">
                   <label for="data">Data</label>
                   <input type="text" class="form-control" name="data" id="data" aria-describedby="data" value="{{$transaction->data}}">
                 </div>
-                <div class="form-group">
-                  <label for="data">Kebutuhan Data</label>
-                  <input type="text" class="form-control" name="id_sub_categories" id="id_sub_categories" aria-describedby="id_sub_categories" value="{{$transaction->id_sub_categories}}">
+                <div class="form-group mb-3">
+                  <label class="label" for="media">Kebutuhan Data</label>
+                  <select class="custom-select my-1 mr-sm-2" name="sub_categories" >
+                    <option disabled value>Pilih Kebutuhan Data</option>
+                    <option value="{{$transaction->id_sub_categories}}">{{$transaction->id_sub_categories}}</option>
+                    @foreach ($sub_categories as $c)
+                    <option value="{{ $c->id }}">{{$c->sub_categories_type}}</option>
+                    @endforeach
+                  </select>
+                  </select>
                 </div>
 
                 <button type="submit" class="btn btn-success">Simpan</button>

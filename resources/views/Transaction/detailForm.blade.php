@@ -24,7 +24,7 @@
                     <tr>
                         <td>Tujuan</td>
                         <td>:</td>
-                        <td>{{ $transaction->purpose }}</td>
+                        <td>{{ $transaction->purpose->purpose_type }}</td>
                     </tr>
                     <tr>
                         <td>Data</td>

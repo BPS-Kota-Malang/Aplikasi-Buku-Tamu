@@ -57,10 +57,11 @@
             <thead class="thead-dark text-center">
                 <tr text-align="center">
                     <th scope="col" >No</th>
-                    <th scope="col">Id Cust </th>
+                    <th scope="col">Id <br>Customer </th>
                     <th scope="col">Id Media</th>
-                    <th scope="col">Id Pelayanan</th>
-                    <th scope="col">Kebutuhan Data</th>
+                    <th scope="col">Id <br> Pelayanan</th>
+                    <th scope="col">Tujuan</th>
+                     <th scope="col">Kebutuhan Data</th>
                     <th scope="col">Tanggal</th>
                     <th scope="col">Aksi</th>
                 </tr>
@@ -72,6 +73,7 @@
                     <td>{{ $item->customer->name }}</td>
                     <td>{{ $item->media->media_type}}</td>
                     <td>{{ $item->service->service_type }}</td>
+                    <td>{{ $item->purpose->purpose_type}}</td>
                     <td>{{ $item->id_sub_categories}}</td>
                     <td>{{ $item->created_at }}</td>
 
