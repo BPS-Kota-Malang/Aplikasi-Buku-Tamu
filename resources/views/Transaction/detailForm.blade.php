@@ -34,7 +34,7 @@
                     <tr>
                         <td>Kebutuhan Data</td>
                         <td>:</td>
-                        <td>{{ $transaction->id_sub_categories }}</td>
+                        <td>{{ $transaction->subcategory->sub_categories_type }}</td>
                     </tr>
 
 

@@ -45,7 +45,7 @@
                 </div>
                 <div class="form-group">
                   <label for="data">Data</label>
-                  <input type="text" class="form-control" name="data" id="data" aria-describedby="data" value="{{$transaction->data}}">
+                  <textarea type="text" class="form-control" name="data" id="data" aria-describedby="data" value="{{$transaction->data}}">{{$transaction->data}}</textarea>
                 </div>
                 <div class="form-group mb-3">
                   <label class="label" for="media">Kebutuhan Data</label>
