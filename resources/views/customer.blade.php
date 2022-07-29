@@ -35,6 +35,21 @@
         }
     </style>
 </head>
+
+<table>
+    <tr>
+    <td><img src="{{public_path('/assets/img/logo.png')}}" style="width: 100px; height: 100px"></td>
+    <td>
+        <h2 style="text-align: center">Badan Pusat Statistik (BPS)</h2>
+        <h3 style="text-align: center"><b>Kota Malang<b></h3>  
+        <h4 style="text-align: center"><i>Jl. Janti Bar. No.47, Bandungrejosari, Kec. Sukun, Kota Malang, Jawa Timur 65148<i></h4>  
+    </td>
+    </tr>
+    <tr>
+        <td colspan="10"><hr> </td>
+    </tr>
+</table>
+<br>
 <body>
     <div class="card-header">
         <h2>Data Buku Tamu</h2><br>
