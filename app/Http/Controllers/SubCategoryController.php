@@ -15,8 +15,9 @@ class SubCategoryController extends Controller
      */
     public function index()
     {
-        $sub_categories = SubCategory::with('guestCategory')->paginate(0);
-        return view('SubCategory.index',compact('sub_categories'));
+        $sub_categories = SubCategory::all();
+        $categories = Category::all();
+        return view('SubCategory.index',compact('sub_categories','categories'));
     }
 
     /**
