@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,6 +35,7 @@
         }
     </style>
 </head>
+
 <table>
     <tr>
     <td><img src="{{public_path('/assets/img/logo.png')}}" style="width: 100px; height: 100px"></td>
@@ -44,7 +46,7 @@
     </td>
     </tr>
     <tr>
-        <td colspan="10"><hr></td>
+        <td colspan="10"><hr> </td>
     </tr>
 </table>
 <body>
@@ -53,20 +55,27 @@
         <p style="text-align: justify">Buku tamu <strong>BPS - Kota Malang</strong> merupakan buku yang berisi daftar pelanggan yang bertujuan dalam pemenuhan kebutuhan data. 
             Buku tamu ini bisa menjadi patokan dalam evaluasi BPS Kota Malang dalam melayani masyarakat. Berikut ini ringkasan data buku tamu:</p>
     </div>
-
-    <p style="text-align: center">Total Pengunjung : <strong>{{$customer}}</strong></p>
-
+    <div class="card-header">
+        <p style="text-align: center">Total Pengunjung : <strong>{{$customer}}</strong></p>
+    </div>
     <h4>1. Data Customer - Berdasarkan Pekerjaan</h4> 
-    <p>a. ASN (Aparatur Sipil Negara) : <strong>{{$asn}}</strong> pengunjung</p> 
-    <p>b. Pelajar/Mahasiswa           : <strong>{{$student}}</strong> pengunjung</p> 
-    <p>c. Dosen/Peneliti              : <strong>{{$lecturer}}</strong> pengunjung</p> 
-
-    <h4>2. Data Customer - Berdasarkan Pendidikan</h4> 
-    <p>a. SMP/Dibawahnya : <strong>{{$smp}}</strong> pengunjung</p> 
-    <p>b. SMA/SMK : <strong>{{$sma}}</strong> pengunjung</p>
-    <p>c. Diploma (D1/D2/D3) : <strong>{{$diploma}}</strong> pengunjung</p>
-    <p>d. Sarjana (S1) : <strong>{{$sarjana}}</strong> pengunjung</p>
-    <p>e. Magister (S2) : <strong>{{$magister}}</strong> pengunjung</p>
-    <p>f. Doktor (D3) : <strong>{{$doktor}}</strong> pengunjung</p>
+    <table id="emp" border="2">
+        <title>Customer - BPS</title>
+        <thead class="thead-dark">
+            <tr>
+                <th>Aparatur Sipil Negara</th>
+                <th>Pelajar/Mahasiswa</th>
+                <th>Dosen/Peneliti</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{$asn}}</td>
+                <td>{{$student}}</td>
+                <td>{{$lecturer}}</td>
+            </tr> 
+        </tbody>
+    </table>
 </body>
+
 </html>
