@@ -25,13 +25,13 @@ class Customer extends Model
     }
 
     public static function getCustomer(){
-        $records = DB::table('customer')->select(
-            'name',
-            'hp',
-            'gender',
-            'id_education',
-            'id_job')->get()->toArray();
+        $records = DB::table('customer')
+        ->join('education', 'customer.id_education', '=', 'education.id')
+        ->join('job', 'customer.id_job', '=', 'job.id')
+        ->select('customer.name', 'customer.hp', 'customer.gender','education.education_type','job.job_type')
+        ->get()->toArray();
+
         return $records;
-    } 
+    }    
     }
 
