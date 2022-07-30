@@ -9,12 +9,48 @@
     <div class="card-header">
         <h5 class="mb-0 text-center">Data Tamu</h5>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+        <a href="{{ url('admin/tamu')}}" class="btn btn-success btn-refresh"><i class="fa fa-retweet"></i>Refresh</a>
+        <a href="#" class="btn btn-primary btn-filter" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <i class="fa fa-filter"></i> Filter Tanggal</a>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        aria-hidden="true">X
+                </div>
+                <div class="modal-body">
+                    <form action="{{ route ('filterCustomer')}}" method="post">
+                        @csrf
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Dari Tanggal</label>
+                                <input type="date" class="form-control datepicker"  placeholder="Dari Tanggal"
+                                    name="dari" value="{{ date('Y-m-d') }}">
+                            </div>
+                             <div class="form-group">
+                                <label for="exampleInputEmail1">Sampai Tanggal</label>
+                                <input type="date" class="form-control datepicker" placeholder="Sampai Tanggal"
+                                    name="sampai"  value="{{ date('Y-m-d') }}">
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                </div>
+            </div>
+            </div>
     </div>
     <div class="card-body">
         <a href="{{url('admin/form-tambah')}}" class="btn btn-success border">Add Data</a>
         <a href="{{('/download-pdf')}}" class="btn btn-danger border">PDF Data</a>
-        <a href="{{('/export-excel')}}" class="btn btn-dark border">Excel Data</a>
-        <a href="{{('/export-csv')}}" class="btn btn-info border">CSV Data</a>
+        <a href="{{('/export-excel')}}" class="btn btn-info border">Excel Data</a>
+        <a href="{{('/export-csv')}}" class="btn btn-dark border">CSV Data</a>
         <table class="table" id="myTable">
             <thead class="thead-dark text-center">
                 <tr>
@@ -35,7 +71,7 @@
                     <td>{{ $item->hp }}</td>
                     <td>{{ $item->gender }}</td>
                     <td>{{ $item->guestEducation->education_type}}</td>        
-                    <td>{{ $item->guestJob->job_type}}</td>        
+                    <td>{{ $item->guestJob->job_type}}</td>   
                     <td>
                         <div class="row">
                             <div class="col-4">

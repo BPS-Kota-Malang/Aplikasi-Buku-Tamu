@@ -27,6 +27,15 @@ class CustomerController extends Controller
         return view('Admin.Tamu.index', compact('customer','education','job'));
     }
 
+    public function filterCustomer(Request $request){
+        $dari = $request->dari;
+        $sampai = $request->sampai;
+
+        $customer = Customer::whereDate('created_at' ,'>=', $dari)->whereDate('created_at','<=', $sampai)->orderBy('created_at','desc')->get();
+
+        return view('Admin.Tamu.index', compact('customer'));
+    }
+
     public function formTambah() {
         $customer = Customer::all();
         $education = Education::all();

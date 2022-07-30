@@ -44,6 +44,7 @@ Route::post('admin/update-data/{id}', [CustomerController::class, 'updateTamu'])
 Route::get('admin/show/{id}', [CustomerController::class, 'show'])->name('admin-show');
 Route::post('admin/hapus-data', [CustomerController::class, 'hapusTamu'])->name('admin-hapus-data');
 Route::post('/register', [CustomerController::class, 'register'])->name('register-admin');
+Route::post('filterCustomer', [CustomerController::class, 'filterCustomer'])->name('filterCustomer');
 
 // Dashboard Page
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
