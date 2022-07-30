@@ -2,12 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programming di RumahRafif.</title>
-    <link rel="stylesheet" href="{{ asset('pengguna/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ url ('pengguna/assets/css/style.css') }}">
+
 </head>
 <body>
     <nav>
+        @include('sweetalert::alert')
         <div class="wrapper">
             <img src="{{ asset('pengguna/assets/images/1726px-lambang-badan-pusat-statistik-bps-indonesia.svg-123x95.png') }}" style="float:left; height: 50px; padding: 10px 10px">
             <div class="logo"><a href=''>Badan Pusat Statistik<br>Kota Malang</a></div>

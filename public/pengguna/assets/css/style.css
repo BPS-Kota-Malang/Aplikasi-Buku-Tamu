@@ -1,12 +1,24 @@
+:root {
+    --primary-color: rgb(11, 78, 179);
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
 * {
   text-decoration: none;
   margin: 0px;
   padding: 0px;
 }
 
+
 body {
   margin: 0px;
   padding: 0px;
+   place-items: center;
   font-family: 'Open Sans',sans-serif;
 }
 
@@ -41,6 +53,7 @@ nav {
     background-color: rgb(98, 149, 245);
     padding: 20px 10px;
     justify-content: space-between;
+    margin: 0 auto;
 
 
     /* width: 100%;
@@ -60,6 +73,7 @@ nav {
     list-style: none;
     width: 40%;
     justify-content: space-between;
+    padding: 1.5rem;
     /* list-style-type: none;
     margin: 0;
     padding: 0;
@@ -107,8 +121,9 @@ section {
 }
 
 h2 {
-  font-family: 'comic sans ms';
+  font-family: 'Arial, Helvetica, sans-serif';
   font-weight: 800;
+  place-items: center;
   font-size: 50px;
   margin-bottom: 20px;
   color: #364f6b;
@@ -236,6 +251,7 @@ h3 {
 @media screen and (max-width: 991.98px) {
   .wrapper {
       width: 90%;
+      text-align: center;
   }
 
   .logo a {

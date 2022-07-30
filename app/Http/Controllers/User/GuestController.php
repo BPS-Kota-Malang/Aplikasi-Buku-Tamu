@@ -30,7 +30,7 @@ class GuestController extends Controller
         $categories = Category::all();
 
         return view('/index', compact('job','education','media','service','sub_categories','categories','purpose'));
-
+        return dd(Session::all()); 
         // $purpose = Purpose::all();
 
         // return view('/index', compact('job','education','media','service','sub_categories','purpose'));
@@ -101,8 +101,8 @@ class GuestController extends Controller
         $transaction->id_sub_categories=$request->sub_categories;
         $transaction->save();
 
-        Alert::success("Success", "Terimakasih  $name  Telah Mengisi Data");
-        return redirect('/')->with('status', 'Data Tamu Berhasil Disimpan');
+        Alert::success("Success", "Terimakasih  $name  Sudah menggunakan layanan kami");
+        return redirect('/pelanggan');
 
     }
 }
