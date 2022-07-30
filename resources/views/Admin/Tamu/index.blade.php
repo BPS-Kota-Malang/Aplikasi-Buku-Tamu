@@ -10,6 +10,7 @@
         <h5 class="mb-0 text-center">Data Tamu</h5>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
         <a href="{{ url('admin/tamu')}}" class="btn btn-success btn-refresh"><i class="fa fa-retweet"></i>Refresh</a>
+
         <a href="#" class="btn btn-primary btn-filter" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <i class="fa fa-filter"></i> Filter Tanggal</a>
             <!-- Modal -->
@@ -17,7 +18,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Filter Tanggal Customer</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
                         aria-hidden="true">X
                 </div>
@@ -60,18 +61,20 @@
                     <th scope="col">Gender</th>
                     <th scope="col">Pendidikan</th>
                     <th scope="col">Pekerjaan</th>
+                    <th scope="col">Tanggal</th>
                     <th scope="col" width="25%">Aksi</th>
                 </tr>
             </thead>
-            <tbody> 
+            <tbody>
                 @foreach ($customer as $key => $item)
                 <tr>
                     <th scope="row">{{$key+ 1}}</th>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->hp }}</td>
                     <td>{{ $item->gender }}</td>
-                    <td>{{ $item->guestEducation->education_type}}</td>        
-                    <td>{{ $item->guestJob->job_type}}</td>   
+                    <td>{{ $item->guestEducation->education_type}}</td>
+                    <td>{{ $item->guestJob->job_type}}</td>
+                     <td>{{ $item->created_at }}</td>
                     <td>
                         <div class="row">
                             <div class="col-4">
@@ -104,12 +107,27 @@
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+<script src="extensions/auto-refresh/bootstrap-table-auto-refresh.js"></script>
 
-<script>
+<script type="text/javascript">
     $(document).ready( function () {
-    $('#myTable').DataTable({
-        dom: 'Bfrtip'
-    });
+        $('#myTable').DataTable({
+            dom: 'Bfrtip'
+        });
+
+        $('.btn-filter').click(function(e){
+            e.preventDefault();
+
+            $('$modal-filter').modal();
+        })
+
+        const myModal = document.getElementById('myModal')
+        const myInput = document.getElementById('myInput')
+
+        myModal.addEventListener('shown.bs.modal', () => {
+        myInput.focus()
+})
     });
 </script>
 @endsection
