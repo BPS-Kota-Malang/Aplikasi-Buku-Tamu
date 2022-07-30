@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Transaction extends Model
 {
@@ -37,6 +38,19 @@ class Transaction extends Model
 
     public function Category(){
         return $this->belongsTo(Category::class, 'id_categories');
+    }
+
+    public static function getTransaction(){
+        $records = DB::table('transactions')
+        ->join('customer', 'transactions.id_customer', '=', 'customer.id')
+        ->join('media', 'transactions.id_media', '=', 'media.id')
+        ->join('service', 'transactions.id_service', '=', 'service.id')
+        ->join('purpose', 'transactions.id_purpose', '=', 'purpose.id')
+        ->join('sub_categories', 'transactions.id_sub_categories', '=', 'sub_categories.id')
+        ->select('customer.name', 'media.media_type', 'service.service_type','purpose.purpose_type','sub_categories.sub_categories_type')
+        ->get()->toArray();
+
+        return $records;
     }
 
 }

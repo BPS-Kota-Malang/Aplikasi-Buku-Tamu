@@ -53,6 +53,9 @@
     </div>
 
     <div class="card-body">
+        <a href="{{('/download-pdf-transaction')}}" class="btn btn-danger border">PDF Data</a>
+        <a href="{{('/export-excel-transaction')}}" class="btn btn-info border">Excel Data</a>
+        <a href="{{('export-csv-transaction')}}" class="btn btn-dark border">CSV Data</a>
         <table class="table" id="myTable">
             <thead class="thead-dark text-center">
                 <tr text-align="center">

@@ -10,6 +10,9 @@ use App\Models\Service;
 use App\Models\SubCategory;
 use App\Models\Category;
 use App\Models\Purpose;
+use Illuminate\Support\Facades\Hash;
+use App\Exports\TransactionExport;
+use Excel;
 
 
 class TransactionController extends Controller
@@ -105,5 +108,13 @@ class TransactionController extends Controller
         $transaction ->delete();
 
         return redirect()->route('transaction.index')->with('status', 'Data Transaksi Berhasil Dihapus');
+    }
+
+    public function exportIntoExcelTransaction(){
+        return Excel::download(new TransactionExport, 'transaction.xlsx');
+    }
+
+    public function exportIntoCSVTransaction(){
+        return Excel::download(new TransactionExport, 'transaction.csv');
     }
 }

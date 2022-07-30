@@ -17,6 +17,7 @@ use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\PurposeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CustController;
+use App\Http\Controllers\TransController;
 
 /*
 |--------------------------------------------------------------------------
@@ -120,4 +121,12 @@ Route::get('/download-pdf-report',[CustController::class, 'downloadPDFReport']);
 // Customer - Excel dan CSV
 Route::get('/export-excel',[CustomerController::class, 'exportIntoExcel']);
 Route::get('/export-csv',[CustomerController::class, 'exportIntoCSV']);
+
+// Transaction - PDF
+Route::get('/get-all-transaction',[TransController::class, 'getAllTransaction']);
+Route::get('/download-pdf-transaction',[TransController::class, 'downloadPDFTransaction']);
+
+// Transaction - Excel dan CSV
+Route::get('/export-excel-transaction',[TransactionController::class, 'exportIntoExcelTransaction']);
+Route::get('/export-csv-transaction',[TransactionController::class, 'exportIntoCSVTransaction']);
 
