@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Customer;
 use App\Models\Transaction;
+use Alert;
 
 
 class GuestController extends Controller
@@ -29,7 +30,7 @@ class GuestController extends Controller
         $categories = Category::all();
 
         return view('/index', compact('job','education','media','service','sub_categories','categories','purpose'));
-
+        return dd(Session::all()); 
         // $purpose = Purpose::all();
 
         // return view('/index', compact('job','education','media','service','sub_categories','purpose'));
@@ -100,7 +101,8 @@ class GuestController extends Controller
         $transaction->id_sub_categories=$request->sub_categories;
         $transaction->save();
 
-        return redirect('/')->with('status', 'Data Tamu Berhasil Disimpan');
+        Alert::success("Success", "Terimakasih  $name  Sudah menggunakan layanan kami");
+        return redirect('/pelanggan');
 
     }
 }

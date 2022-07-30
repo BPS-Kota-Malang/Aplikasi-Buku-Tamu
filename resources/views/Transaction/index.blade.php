@@ -18,7 +18,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Filter Tanggal Transaksi</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
                         aria-hidden="true">X
                 </div>
@@ -90,7 +90,11 @@
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger"
+<<<<<<< HEAD
                                             onclick="return confirm('Apakah anda yakin ingin menghapus Jenis Transaksi ini ?')">Delete</button>
+=======
+                                            onclick="return confirm('Apakah anda yakin ingin menghapus Data Transaksi ini ?')">Delete</button>
+>>>>>>> 24534aac3df208032bf35fa99505c4dacb76d999
                                     </form>
                                 </div>
                         </div>

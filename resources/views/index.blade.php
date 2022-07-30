@@ -206,6 +206,7 @@
             <input type="submit" value="Submit" class="btn" />
             </div>
         </div>
+        @include('sweetalert::alert')
     </form>
 </body>
 </html>

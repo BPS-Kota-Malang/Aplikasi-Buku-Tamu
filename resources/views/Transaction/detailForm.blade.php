@@ -36,6 +36,16 @@
                         <td>:</td>
                         <td>{{ $transaction->subcategory->sub_categories_type }}</td>
                     </tr>
+                    <tr>
+                        <td>Dibuat Tanggal</td>
+                        <td>:</td>
+                        <td>{{ $transaction->created_at }}</td>
+                    </tr>
+                    <tr>
+                        <td>Diupdate Tanggal</td>
+                        <td>:</td>
+                        <td>{{ $transaction->updated_at }}</td>
+                    </tr>
 
 
                 </tbody>
