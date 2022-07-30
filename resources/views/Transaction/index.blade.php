@@ -60,7 +60,6 @@
                     <th scope="col">Id <br>Customer </th>
                     <th scope="col">Id Media</th>
                     <th scope="col">Id <br> Pelayanan</th>
-                    <th scope="col">Tujuan</th>
                     <th scope="col">Kebutuhan Data</th>
                     <th scope="col">Tanggal</th>
                     <th scope="col">Aksi</th>
@@ -73,7 +72,6 @@
                     <td>{{ $item->customer->name }}</td>
                     <td>{{ $item->media->media_type}}</td>
                     <td>{{ $item->service->service_type }}</td>
-                    <td>{{ $item->purpose->purpose_type}}</td>
                     <td>{{ $item->subcategory->sub_categories_type}}</td>
                     <td>{{ $item->created_at }}</td>
 
@@ -90,11 +88,7 @@
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger"
-<<<<<<< HEAD
-                                            onclick="return confirm('Apakah anda yakin ingin menghapus Jenis Transaksi ini ?')">Delete</button>
-=======
                                             onclick="return confirm('Apakah anda yakin ingin menghapus Data Transaksi ini ?')">Delete</button>
->>>>>>> 24534aac3df208032bf35fa99505c4dacb76d999
                                     </form>
                                 </div>
                         </div>
