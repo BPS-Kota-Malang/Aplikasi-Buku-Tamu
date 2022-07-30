@@ -9,9 +9,9 @@
     <div class="card-header">
         <h5 class="mb-0 text-center">Data Transaksi</h5>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-        <a href="{{ route('transaction.index')}}" class="btn btn-warning btn-refresh"><i class="fa fa-retweet"></i>Refresh</a>
+        <a href="{{ route('transaction.index')}}" class="btn btn-success btn-refresh"><i class="fa fa-retweet"></i>Refresh</a>
 
-        <a href="#" class="btn btn-success  btn-filter" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <a href="#" class="btn btn-primary  btn-filter" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <i class="fa fa-filter"></i> Filter Tanggal</a>
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -60,9 +60,10 @@
                     <th scope="col">Id <br>Customer </th>
                     <th scope="col">Id Media</th>
                     <th scope="col">Id <br> Pelayanan</th>
+                    <th scope="col">Tujuan</th>
                     <th scope="col">Kebutuhan Data</th>
                     <th scope="col">Tanggal</th>
-                    <th scope="col">Aksi</th>
+                    <th scope="col" width="25%">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -72,6 +73,7 @@
                     <td>{{ $item->customer->name }}</td>
                     <td>{{ $item->media->media_type}}</td>
                     <td>{{ $item->service->service_type }}</td>
+                    <td>{{ $item->purpose->purpose_type}}</td>
                     <td>{{ $item->subcategory->sub_categories_type}}</td>
                     <td>{{ $item->created_at }}</td>
 
@@ -89,6 +91,7 @@
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger"
                                             onclick="return confirm('Apakah anda yakin ingin menghapus Data Transaksi ini ?')">Delete</button>
+
                                     </form>
                                 </div>
                         </div>
