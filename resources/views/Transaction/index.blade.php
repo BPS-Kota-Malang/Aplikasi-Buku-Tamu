@@ -90,7 +90,7 @@
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger"
-                                            onclick="return confirm('Apakah anda yakin ingin menghapus Jenis Pendidikan ini ?')">Delete</button>
+                                            onclick="return confirm('Apakah anda yakin ingin menghapus Jenis Transaksi ini ?')">Delete</button>
                                     </form>
                                 </div>
                         </div>
