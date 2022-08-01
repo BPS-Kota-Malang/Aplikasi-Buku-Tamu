@@ -28,12 +28,12 @@
             <tbody>
               @foreach ($transaction as $tran)
               <tr>
-                <th scope="row">{{ $tran->id }}</th>
+                <td scope="row">{{ $tran->id }}</td>
                 <td>{{ $tran->customer->name }}</td>
                 <td>{{ $tran->data}}</td>
                 <td>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-sm feedbackBtn btn-primary" data-toggle="modal"data-target="">
+                <button type="button" class="btn btn-sm feedbackBtn btn-primary" data-toggle="modal">
                   Update
                 </button>
               </td>
@@ -43,7 +43,8 @@
         </table>
 
                 <!-- Modal -->
-                <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">                  <div class="modal-dialog">
+                <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
                         <h5 class="modal-title" id="staticBackdropLabel">feedback</h5>
@@ -51,8 +52,8 @@
                       </div>
                       <div class="modal-body">
                         <form method="post" action="feedback"  class="sigin-form">
-                          @csrf
-                        
+                        @csrf
+                        <input type="hidden" name="id" id="id">
                         <col-md-10>
                         <div class="col-md-8">
                           <h6 id="transactionID"></h6>
@@ -144,29 +145,33 @@
 
                 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
-              
 
-           
+
+                <script>
+                    $(document).ready(function(){
+                        $('.feedbackBtn').on('click', function(){
+
+                            $('#feedbackModal').modal('show');
+
+                            $tr =$(this).closest('tr');
+                            var data= $tr.children("td").map(function(){
+                            return $(this).text();
+                            }).get();
+
+                            $(".modal-body #id").val( data[0] );
+
+                            alert(
+                            "id : " + data[0] + "\n"
+                            + "Nama :" + data[1] + "\n"
+                            + "Data Layanan :" + data[2]
+                            );
+                        });
+                    });
+                </script>
+
 
           <!-- Button trigger modal -->
 
-          <script>
-            $(document).ready(function(){
-                $('.feedbackBtn').on('click', function(){
-        
-                    $('#feedbackModal').modal('show');
-                    $tr =$(this).closest('tr');
-                    var data= $tr.children("td").map(function(){
-                      return $(this).text();
-                    }).get();
-        
-                    
-                    alert(data[0]);
-                    
-                    
-                });
-            });
-          </script>
 </body>
 
 
