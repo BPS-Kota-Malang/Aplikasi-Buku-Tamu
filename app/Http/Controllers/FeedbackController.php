@@ -16,6 +16,8 @@ class FeedbackController extends Controller
      */
     public function index()
     {
+        $feedback= Feedback::all();
+
         return view ('feedback.in');
     }
 
@@ -57,14 +59,15 @@ class FeedbackController extends Controller
 
         $feedback = new Feedback();
 
-        $feedback->id_transaction=$request->transaction;
+
+        $feedback->id_transaction=$request->id;
         $feedback->service = $request->service;
         $feedback->facility = $request->facility;
-        $feedback -> dataqualities = $request->dataqualities;
+        $feedback ->dataqualities = $request->dataqualities;
 
         $feedback->save();
 
-        return redirect()->route('feedback.index')->with('status', 'Data Feddback Berhasil Disimpan');
+        return redirect('feedback')->with('status', 'Data Feddback Berhasil Disimpan');
 
     }
 
@@ -78,8 +81,8 @@ class FeedbackController extends Controller
      */
     public function show($id, Request $request)
     {
-        $transaction= Transaction::find($id);
-        return view('Transaction.detailForm', compact('transaction'));
+        // $transaction= Transaction::find($id);
+        // return view('Transaction.detailForm', compact('transaction'));
 
 
         $feedback = new feedback;
@@ -135,7 +138,9 @@ class FeedbackController extends Controller
      */
     public function edit($id)
     {
-        //
+        // $transaction = Transaction::find($id);
+
+        // return view('Transaction.editForm', compact('transaction'));
     }
 
     /**
