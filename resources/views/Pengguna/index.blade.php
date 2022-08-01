@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programming di RumahRafif.</title>
     <link rel="stylesheet" href="{{ url ('pengguna/assets/css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
 </head>
 <body>
     <nav>
         @include('sweetalert::alert')
         <div class="wrapper">
-            <img src="{{ asset('pengguna/assets/images/1726px-lambang-badan-pusat-statistik-bps-indonesia.svg-123x95.png') }}" style="float:left; height: 50px; padding: 10px 10px">
+            <img src="{{ asset('pengguna/assets/images/1726px-lambang-badan-pusat-statistik-bps-indonesia.svg-123x95.png') }}" style="float:left; height: 59px; width: 76px; margin-top: 23px; padding: 10px 10px">
             <div class="logo"><a href=''>Badan Pusat Statistik<br>Kota Malang</a></div>
             <div class="menu">
                 <ul>
@@ -27,13 +28,13 @@
     <div class="wrapper">
         <!-- untuk home -->
         <section id="home">
-            <img src="https://img.freepik.com/free-vector/web-development-programmer-engineering-coding-website-augmented-reality-interface-screens-developer-project-engineer-programming-software-application-design-cartoon-illustration_107791-3863.jpg?size=626&ext=jpg&ga=GA1.2.1769275626.1605867161"/>
             <div class="kolom">
                 <p class="deskripsi"><br></p>
                 <h2> BUKU TAMU</h2>
                 <p>Melayani dengan Profesional, integritas, dan Amanah</p>
-                <p><a href="/" class="tbl-pink">Form &xrarr;</a></p>
+                <p><a href="/" class="tbl-blue">FORM &xrarr;</a></p>
             </div>
+            <img src="{{ asset('pengguna/assets/images/img-home.png') }}" style="float:left; height: 470px; padding: 10px 10px; margin-left: 180px; filter: drop-shadow(10px 10px 15px rgba(0, 0, 0, 0.15));"/>
         </section>
     </div>
 </body>
