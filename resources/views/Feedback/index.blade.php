@@ -11,8 +11,8 @@
 
 <body>
     <div class="form-step form-step-active">
-       
-          
+
+
 
         <table class="table table-striped">
             <thead>
@@ -44,9 +44,9 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
-                        <form method="post" action="showtransaction"  class="sigin-form">
+                        <form method="post" action="feedback"  class="sigin-form">
                           @csrf
-                          
+
                         <col-md-10>
                         <div class="col-md-8">
                           <label>pelayanan</label>
@@ -123,7 +123,7 @@
                         </div>
                         </col-md-10>
 
-                        
+
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -138,15 +138,14 @@
                 </td>
               </tr>
               @endforeach
-              
+
             </tbody>
           </table>
 
           <!-- Button trigger modal -->
-         
 
-         
+
+
 </body>
 
 
-  

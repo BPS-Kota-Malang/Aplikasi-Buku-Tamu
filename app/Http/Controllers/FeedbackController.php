@@ -26,23 +26,23 @@ class FeedbackController extends Controller
      */
     public function create()
     {
-        
+
     }
     public function showTransaction(Request $request)
     {
-        
+
 
         $customer_id = Customer::where('hp', $request->hp)
                                 ->take(1)
                                 // ->get();
                                 ->value('id');
 
-        
+
         $transaction = Transaction::where('id_customer', $customer_id)
                                     ->get();
 
-        return view ('feedback.index', compact('transaction'));    
-        
+        return view ('feedback.index', compact('transaction'));
+
 
     }
     /**
@@ -52,11 +52,23 @@ class FeedbackController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {    
-       
+    {
+        // dd ($request->all());
+
+        $feedback = new Feedback();
+
+        $feedback->id_transaction=$request->transaction;
+        $feedback->service = $request->service;
+        $feedback->facility = $request->facility;
+        $feedback -> dataqualities = $request->dataqualities;
+
+        $feedback->save();
+
+        return redirect()->route('feedback.index')->with('status', 'Data Feddback Berhasil Disimpan');
+
     }
 
-    
+
 
     /**
      * Display the specified resource.
@@ -76,15 +88,15 @@ class FeedbackController extends Controller
         $feedback -> dataqualities = $request->dataqualities;
         $feedback -> id_transaction = $transaction;
         $feedback -> save();
-        
+
         return redirect('feedback');
 
-        
+
         dd($feedback);
     }
 
     public function formFeedback() {
-        
+
         $customer = Customer::all();
         $transaction = Transaction::all();
         return view('in', compact( 'customer', 'transaction'));
@@ -95,14 +107,14 @@ class FeedbackController extends Controller
         $service = $request->service;
         $facility = $request->facility;
         $dataqualities = $request->dataqualities;
-        
-        
+
+
 
         $idcustomer = Customer::find(1)
                     ->where('hp', $request->customer)
                     ->get();
-        
-                    
+
+
         $transaction = new Transaction();
         $transaction->id_customer =$idcustomer;
 
@@ -112,7 +124,7 @@ class FeedbackController extends Controller
         $data->dataqualities= $dataqualities;
 
         $data->save();
-       
+
     }
 
     /**
@@ -149,5 +161,5 @@ class FeedbackController extends Controller
         //
     }
 
-    
+
 }
