@@ -63,6 +63,7 @@ Route::resource('media', MediaController::class);
 Route::resource('service', ServiceController::class);
 
 //Feedback Page
+Route::resource('feedback', FeedbackController::class);
 Route::get('feedback', function()
 {
     return view ('feedback.in');
