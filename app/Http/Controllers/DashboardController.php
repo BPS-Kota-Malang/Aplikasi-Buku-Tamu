@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Customer;
 use App\Models\Education;
+use App\Models\Service;
+use App\Models\Transaction;
 
 class DashboardController extends Controller
 {
@@ -32,7 +34,12 @@ class DashboardController extends Controller
         $sarjana = Customer::where('id_education', '=', 5)->count();
         $magister = Customer::where('id_education', '=', 6)->count();
         $doktor = Customer::where('id_education', '=', 7)->count();
-        return view('dashboard', compact('customer','asn','student','lecturer','education','smp','sma','diploma','sarjana','magister','doktor'));
+
+        $service = Transaction::count();
+        $service1 = Transaction::where('id_service', '=', 4)->count();
+        $service2 = Transaction::where('id_service', '=', 5)->count();
+        $service3 = Transaction::where('id_service', '=', 6)->count();
+        return view('dashboard', compact('customer','asn','student','lecturer','education','smp','sma','diploma','sarjana','magister','doktor','service','service1','service2','service3'));
     }
 
     /**

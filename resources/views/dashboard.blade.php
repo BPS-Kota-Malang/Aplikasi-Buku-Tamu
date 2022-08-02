@@ -101,11 +101,11 @@
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script type="text/javascript">
 
+// Menampilkan visualisasi Data Customer - Berdasarkan Pendidikan
 window.onload = function () {
 	var chart = new CanvasJS.Chart("chartContainer", {
 		data: [              
 		{
-			// Change type to "doughnut", "line", "splineArea", etc.
 			type: "column",
 			dataPoints: [
 				{ label: "SMP/Dibawahnya",  y: {{$smp}}  },
@@ -119,6 +119,8 @@ window.onload = function () {
 		]
 	});
 	chart.render();
+
+// Menampilkan visualisasi Data Customer - Berdasarkan Jenis Pelayanan
 
     var charta = new CanvasJS.Chart("chartaContainer", {
 	exportEnabled: true,
@@ -136,14 +138,15 @@ window.onload = function () {
 		toolTipContent: "{name}: <strong>{y}%</strong>",
 		indexLabel: "{name} - {y}%",
 		dataPoints: [
-			{ y: 35, name: "Permintaan Data", exploded: true },
-			{ y: 25, name: "Konsultasi Data" },
-			{ y: 40, name: "Rekomendasi Data Sektoral", exploded: true },
+			{ y: ({{$service1}}/({{$service1}}+{{$service2}}+{{$service3}}))*100, name: "Permintaan Data", exploded: true },
+			{ y: ({{$service2}}/({{$service1}}+{{$service2}}+{{$service3}}))*100, name: "Konsultasi Data" },
+			{ y: ({{$service3}}/({{$service1}}+{{$service2}}+{{$service3}}))*100, name: "Rekomendasi Data Sektoral", exploded: true },
 		]
 	}]
 });
 charta.render();
 
+// Menampilkan visualisasi Data Customer - Berdasarkan Media Layanan
 
 var chartb = new CanvasJS.Chart("chartbContainer", {
 	animationEnabled: true,
@@ -186,18 +189,18 @@ function explodePie (e) {
 	}
 	e.charta.render();
 }
-
 </script>
 </head>
+
+<!-- Menampilkan judul untuk setiap visualisasi data pada chart -->
 <body>
 <div id="chartContainer" style="height: 340px; width: 100%;"></div>
 <h4 class="mb-0 text-center"><br>Data Customer - Berdasarkan Jenis Pelayanan</h4><br>
 <div id="chartaContainer" style="height: 340px; width: 100%;"></div>
-<h4 class="mb-0 text-center"><br>Data Customer - Berdasarkan Media Pelayanan</h4><br>
+<h4 class="mb-0 text-center"><br>Data Customer - Berdasarkan Media Layanan</h4><br>
 <div id="chartbContainer" style="height: 300px; width: 100%;"></div>
 </body>
+
 </html>
-
 @endsection
-
 </div>
