@@ -8,6 +8,7 @@ use App\Models\Education;
 use App\Models\Service;
 use App\Models\Transaction;
 use App\Models\Media;
+use App\Models\Purpose;
 
 class DashboardController extends Controller
 {
@@ -47,8 +48,15 @@ class DashboardController extends Controller
         $media3 = Transaction::where('id_media', '=', 4)->count();
         $media4 = Transaction::where('id_media', '=', 5)->count();
         $media5 = Transaction::where('id_media', '=', 6)->count();
+
+        $purpose = Purpose::count();
+        $purpose1 = Transaction::where('id_purpose', '=', 2)->count();
+        $purpose2 = Transaction::where('id_purpose', '=', 3)->count();
+        $purpose3 = Transaction::where('id_purpose', '=', 4)->count();
+        $purpose4 = Transaction::where('id_purpose', '=', 5)->count();
+        $purpose5 = Transaction::where('id_purpose', '=', 6)->count();
         
-        return view('dashboard', compact('customer','asn','student','lecturer','education','smp','sma','diploma','sarjana','magister','doktor','service','service1','service2','service3','media','media1','media2','media3','media4','media5'));
+        return view('dashboard', compact('customer','asn','student','lecturer','education','smp','sma','diploma','sarjana','magister','doktor','service','service1','service2','service3','media','media1','media2','media3','media4','media5','purpose','purpose1','purpose2','purpose3','purpose4','purpose5'));
     }
 
     /**

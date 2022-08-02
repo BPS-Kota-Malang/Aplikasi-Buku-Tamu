@@ -179,6 +179,34 @@ var chartb = new CanvasJS.Chart("chartbContainer", {
 	}]
 });
 chartb.render();
+
+// Menampilkan visualisasi Data Customer - Berdasarkan Tujuan
+
+var chartc = new CanvasJS.Chart("chartcContainer", {
+	animationEnabled: true,
+	exportEnabled: true,
+	theme: "light1",
+	title:{
+		text: ""
+	},
+	data: [{
+		type: "pyramid",
+		yValueFormatString: "#\"%\"",
+		indexLabelFontColor: "black",
+		indexLabelFontSize: 16,
+		indexLabel: "{label} - {y}",
+		//reversed: true, // Reverses the pyramid
+		dataPoints: [
+			{ y: ({{$purpose1}}/({{$purpose1}}+{{$purpose2}}+{{$purpose3}}+{{$purpose4}}+{{$purpose5}}))*100, label: "Tugas Sekolah/Universitas" },
+			{ y: ({{$purpose2}}/({{$purpose1}}+{{$purpose2}}+{{$purpose3}}+{{$purpose4}}+{{$purpose5}}))*100, label: "Skripsi" },
+			{ y: ({{$purpose3}}/({{$purpose1}}+{{$purpose2}}+{{$purpose3}}+{{$purpose4}}+{{$purpose5}}))*100, label: "Tesis" },
+			{ y: ({{$purpose4}}/({{$purpose1}}+{{$purpose2}}+{{$purpose3}}+{{$purpose4}}+{{$purpose5}}))*100, label: "Perumusan Kebijakan" },
+			{ y: ({{$purpose5}}/({{$purpose1}}+{{$purpose2}}+{{$purpose3}}+{{$purpose4}}+{{$purpose5}}))*100, label: "Yang Lainnya" }
+		]
+	}]
+});
+chartc.render();
+
 }
 
 function explodePie (e) {
@@ -189,6 +217,7 @@ function explodePie (e) {
 	}
 	e.charta.render();
 }
+
 </script>
 </head>
 
@@ -199,6 +228,8 @@ function explodePie (e) {
 <div id="chartaContainer" style="height: 340px; width: 100%;"></div>
 <h4 class="mb-0 text-center"><br>Data Customer - Berdasarkan Media Layanan</h4><br>
 <div id="chartbContainer" style="height: 300px; width: 100%;"></div>
+<h4 class="mb-0 text-center"><br>Data Customer - Berdasarkan Tujuan</h4><br>
+<div id="chartcContainer" style="height: 300px; width: 100%;"></div>
 </body>
 
 </html>
