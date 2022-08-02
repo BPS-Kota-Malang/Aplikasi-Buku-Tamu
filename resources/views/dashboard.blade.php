@@ -156,7 +156,7 @@ var chartb = new CanvasJS.Chart("chartbContainer", {
 		interval: 1
 	},
 	axisY: {
-		title: "Jumlah Pengunjung BPS Kota Malang",
+		title: "Jumlah Pengunjung",
 		includeZero: true,
 		scaleBreaks: {
 			type: "wavy",
@@ -170,11 +170,11 @@ var chartb = new CanvasJS.Chart("chartbContainer", {
 		type: "bar",
 		toolTipContent: "<b>{label}</b><br>Jumlah: {y} orang",
 		dataPoints: [
-			{ label: "Add-Stat-Whatsapp", y: 10},
-			{ label: "Email", y: 15},
-			{ label: "Social Media - Facebook", y: 20},
-			{ label: "Social Media - Instagram", y: 25},
-			{ label: "Pelayanan Statistik Terpadu", y: 30}
+			{ label: "Add-Stat-Whatsapp", y: {{$media1}}},
+			{ label: "Email", y:  {{$media2}}},
+			{ label: "Social Media - Facebook", y:  {{$media3}}},
+			{ label: "Social Media - Instagram", y: {{$media4}}},
+			{ label: "Pelayanan Statistik Terpadu", y: {{$media5}}}
 		]
 	}]
 });
