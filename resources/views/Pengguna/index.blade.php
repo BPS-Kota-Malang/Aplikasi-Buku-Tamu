@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programming di RumahRafif.</title>
+    <title>Badan Pusat Statistik</title>
     <link rel="stylesheet" href="{{ url ('pengguna/assets/css/style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
