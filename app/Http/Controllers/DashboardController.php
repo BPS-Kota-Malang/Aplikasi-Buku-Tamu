@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Customer;
 use App\Models\Education;
+use App\Models\Service;
+use App\Models\Transaction;
+use App\Models\Media;
 
 class DashboardController extends Controller
 {
@@ -32,7 +35,20 @@ class DashboardController extends Controller
         $sarjana = Customer::where('id_education', '=', 5)->count();
         $magister = Customer::where('id_education', '=', 6)->count();
         $doktor = Customer::where('id_education', '=', 7)->count();
-        return view('dashboard', compact('customer','asn','student','lecturer','education','smp','sma','diploma','sarjana','magister','doktor'));
+
+        $service = Transaction::count();
+        $service1 = Transaction::where('id_service', '=', 4)->count();
+        $service2 = Transaction::where('id_service', '=', 5)->count();
+        $service3 = Transaction::where('id_service', '=', 6)->count();
+
+        $media = Media::count();
+        $media1 = Transaction::where('id_media', '=', 2)->count();
+        $media2 = Transaction::where('id_media', '=', 3)->count();
+        $media3 = Transaction::where('id_media', '=', 4)->count();
+        $media4 = Transaction::where('id_media', '=', 5)->count();
+        $media5 = Transaction::where('id_media', '=', 6)->count();
+        
+        return view('dashboard', compact('customer','asn','student','lecturer','education','smp','sma','diploma','sarjana','magister','doktor','service','service1','service2','service3','media','media1','media2','media3','media4','media5'));
     }
 
     /**
