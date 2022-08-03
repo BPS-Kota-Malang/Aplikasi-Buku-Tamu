@@ -77,9 +77,27 @@
                     <td>{{ $item->customer->name }}</td>
                     <td>{{ $item->media->media_type}}</td>
                     <td>{{ $item->service->service_type }}</td>
-                    <td>{{ $item->feedback->service}}</td>
-                    <td>{{ $item->feedback->facility}}</td>
-                    <td>{{ $item->feedback->dataqualities}}</td>
+                    <td>
+                        <script>
+                            if  ($item->feedback->service === null){
+                                return "0";
+                            }
+                        </script>
+                    </td>
+                    <td>
+                        <script>
+                            if  ($item->feedback->facility === null){
+                                return "0";
+                            }
+                        </script>
+                    </td>
+                    <td>
+                        <script>
+                            if  ($item->feedback->dataqualities === null){
+                                return "0";
+                            }
+                        </script>
+                    </td>
                     <td>{{ $item->created_at }}</td>
 
                     <td>

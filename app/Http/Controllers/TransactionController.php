@@ -25,12 +25,30 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        $transaction = Transaction::all();
-        $feedback = new Feedback();
+        
+        /**
+         * Default Value for Feedback
+         * $transaction->service=$request->feedback;
+         * $transaction->facility=$request->feedback;
+         * $transaction->dataqualities=$request->feedback;
+         * 
+         */
 
-        // $transaction ->dd();
-        // dd($transactions);
-        return view('Transaction.index', compact('transaction','feedback'));
+        $service = "";
+        $facility = "";
+        $data = "";
+
+        
+        $transaction = Transaction::all();
+
+        // $data = [
+        //     'id' => $transaction->id,
+        //     ''
+        // ];
+        // $data->id = $transaction->id;
+
+        // dd($data);
+        return view('Transaction.index', compact('transaction'));
     }
 
     public function filter(Request $request){
@@ -54,16 +72,16 @@ class TransactionController extends Controller
          */
         $transaction = new Transaction();
 
-        $transaction->id_customer =$idcustomer;
+        $transaction->id_customer = $idcustomer;
         $transaction->id_media=$request->media;
         $transaction->id_service=$request->service;
         $transaction->purpose=$request->purpose;
         $transaction->data=$request->data;
         $transaction->id_sub_categories=$request->sub_categories;
         $transaction->id_categories=$request->categories;
-        $transaction->service=$request->feedback;
-        $transaction->facility=$request->feedback;
-        $transaction->dataqualities=$request->feedback;
+        // $transaction->service=$request->feedback;
+        // $transaction->facility=$request->feedback;
+        // $transaction->dataqualities=$request->feedback;
         $transaction->save();
 
         return redirect('transaction')->with('status', 'Data Transaksi Berhasil Disimpan');

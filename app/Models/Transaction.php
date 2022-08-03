@@ -40,9 +40,18 @@ class Transaction extends Model
         return $this->belongsTo(Category::class, 'id_categories');
     }
 
-    public function Feedback(){
-        return $this->belongsTo(Feedback::class, 'service' , 'facility', 'dataqualities');
-    }
+    // public function Feedback(){
+    //     return $this->belongsTo(Feedback::class, 'service' , 'facility', 'dataqualities');
+    // }
+
+    /**
+     * Declaring One to One Relationship
+     * 1 Transaction has 1 Feedback
+     */
+
+     public function Feedback(){
+        return $this->belongsTo(Feedback::class);
+     }
 
     public static function getTransaction(){
         $records = DB::table('transactions')

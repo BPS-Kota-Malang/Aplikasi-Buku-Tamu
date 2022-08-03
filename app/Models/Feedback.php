@@ -12,10 +12,10 @@ class Feedback extends Model
     protected $table = "feedback";
     protected $fillable = ['id_transaction','service','facility','dataqualities'];
 
-    public function guestTransaction(){
+    public function Transaction(){
         return $this->belongsTo(Transaction::class, 'id_transaction');
     }
-    public function guestCustomer() {
+    public function Customer() {
         return $this->belongsTo(Customer::class, 'id_customer');
     }
 }
