@@ -25,21 +25,22 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        
+
         /**
          * Default Value for Feedback
          * $transaction->service=$request->feedback;
          * $transaction->facility=$request->feedback;
          * $transaction->dataqualities=$request->feedback;
-         * 
+         *
          */
 
-        $service = "";
-        $facility = "";
-        $data = "";
+        // $service = "";
+        // $facility = "";
+        // $data = "";
 
-        
-        $transaction = Transaction::all();
+
+        $transaction = Transaction::with('Feedback')->get();
+        // dd($transaction);
 
         // $data = [
         //     'id' => $transaction->id,

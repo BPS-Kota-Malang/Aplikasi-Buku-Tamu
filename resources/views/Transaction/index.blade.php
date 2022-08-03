@@ -77,7 +77,16 @@
                     <td>{{ $item->customer->name }}</td>
                     <td>{{ $item->media->media_type}}</td>
                     <td>{{ $item->service->service_type }}</td>
-                    <td>
+                    @if ($item->Feedback != null)
+                        <td>{{ $item->Feedback->service }}</td>
+                        <td>{{ $item->Feedback->facility }}</td>
+                        <td>{{ $item->Feedback->dataqualities }}</td>
+                        @else
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    @endif
+                    {{-- <td>
                         <script>
                             if  ($item->feedback->service === null){
                                 return "0";
@@ -97,7 +106,7 @@
                                 return "0";
                             }
                         </script>
-                    </td>
+                    </td> --}}
                     <td>{{ $item->created_at }}</td>
 
                     <td>
