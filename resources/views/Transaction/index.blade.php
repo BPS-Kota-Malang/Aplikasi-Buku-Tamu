@@ -63,8 +63,9 @@
                     <th scope="col">Id <br>Customer </th>
                     <th scope="col">Id Media</th>
                     <th scope="col">Id <br> Pelayanan</th>
-                    <th scope="col">Tujuan</th>
-                    <th scope="col">Kebutuhan Data</th>
+                    <th scope="col">Feedback <br>Pelayanan</th>
+                    <th scope="col">Feedback <br>Sarana & Prasarana</th>
+                     <th scope="col">Feedback <br>Kualitas Data</th>
                     <th scope="col">Tanggal</th>
                     <th scope="col" width="25%">Aksi</th>
                 </tr>
@@ -76,8 +77,9 @@
                     <td>{{ $item->customer->name }}</td>
                     <td>{{ $item->media->media_type}}</td>
                     <td>{{ $item->service->service_type }}</td>
-                    <td>{{ $item->purpose->purpose_type}}</td>
-                    <td>{{ $item->subcategory->sub_categories_type}}</td>
+                    <td>{{ $item->feedback->service}}</td>
+                    <td>{{ $item->feedback->facility}}</td>
+                    <td>{{ $item->feedback->dataqualities}}</td>
                     <td>{{ $item->created_at }}</td>
 
                     <td>

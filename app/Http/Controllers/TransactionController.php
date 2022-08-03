@@ -9,6 +9,7 @@ use App\Models\Media;
 use App\Models\Service;
 use App\Models\SubCategory;
 use App\Models\Category;
+use App\Models\Feedback;
 use App\Models\Purpose;
 use Illuminate\Support\Facades\Hash;
 use App\Exports\TransactionExport;
@@ -25,10 +26,11 @@ class TransactionController extends Controller
     public function index()
     {
         $transaction = Transaction::all();
+        $feedback = new Feedback();
 
         // $transaction ->dd();
-        // dd($customer);
-        return view('Transaction.index', compact('transaction'));
+        // dd($transactions);
+        return view('Transaction.index', compact('transaction','feedback'));
     }
 
     public function filter(Request $request){
@@ -59,6 +61,9 @@ class TransactionController extends Controller
         $transaction->data=$request->data;
         $transaction->id_sub_categories=$request->sub_categories;
         $transaction->id_categories=$request->categories;
+        $transaction->service=$request->feedback;
+        $transaction->facility=$request->feedback;
+        $transaction->dataqualities=$request->feedback;
         $transaction->save();
 
         return redirect('transaction')->with('status', 'Data Transaksi Berhasil Disimpan');
@@ -73,8 +78,9 @@ class TransactionController extends Controller
         $sub_categories= SubCategory::all();
         $purpose= Purpose::all();
         $categories= Category::all();
+        $feedback= Feedback::all();
 
-        return view('Transaction.editForm', compact('transaction','customer','media','service','sub_categories','purpose','categories'));
+        return view('Transaction.editForm', compact('transaction','customer','media','service','sub_categories','purpose','categories','feedback'));
     }
 
     public function update(Request $request,$id){
@@ -84,6 +90,7 @@ class TransactionController extends Controller
         $transaction=Transaction::with('Service')->find($id);
         $transaction=Transaction::with('SubCategory')->find($id);
         $transaction=Transaction::with('Purpose')->find($id);
+        $transaction=Transaction::with('Feedback')->find($id);
 
         $transaction->id_customer=$request->customer;
         $transaction->id_media=$request->media;
@@ -91,6 +98,9 @@ class TransactionController extends Controller
         $transaction->id_purpose=$request->purpose;
         $transaction->data=$request->data;
         $transaction->id_sub_categories=$request->sub_categories;
+        $transaction->service=$request->feedback;
+        $transaction->facility=$request->feedback;
+        $transaction->dataqualities=$request->feedback;
 
         $transaction->save();
 
