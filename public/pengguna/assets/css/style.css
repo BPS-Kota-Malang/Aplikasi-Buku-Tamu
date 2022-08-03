@@ -349,20 +349,24 @@ h4{
 
 /* contact */
 .table-contact{
-  display: flex;
+  display: inline-flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  margin-top: 50px;
+  margin-bottom: 50px;
   max-width: 1300px;
+  font-family: 'Poppins';
 }
 .table-contact .text-wrapper{
   position: relative;
-  width: 270px;
-  height: 200px;
-  background:  rgb(132, 163, 221);
+  width: 290px;
+  font-family: 'Poppins';
+  height: 290px;
+  background: rgba(92, 148, 255, 0.11);
   margin: 0 20px;
-  display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
 }
+

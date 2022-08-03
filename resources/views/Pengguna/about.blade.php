@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buku Tamu Badan Pusat Statistik Kota Malang</title>
+    <title>About</title>
     <link rel="stylesheet" href="{{ asset('pengguna/assets/css/style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
