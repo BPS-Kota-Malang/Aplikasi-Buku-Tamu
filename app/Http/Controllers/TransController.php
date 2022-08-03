@@ -16,7 +16,7 @@ class TransController extends Controller
     public function downloadPDFTransaction() {
         $transaction = Transaction::all();
         $pdf = PDF::loadView('transaction',compact('transaction'));
-        return $pdf->download('transaction.pdf');
+        return $pdf->stream('transaction.pdf');
     }
 
 }

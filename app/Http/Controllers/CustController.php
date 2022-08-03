@@ -18,7 +18,7 @@ class CustController extends Controller
     public function downloadPDF() {
         $pelanggan = Customer::all();
         $pdf = PDF::loadView('customer',compact('pelanggan'));
-        return $pdf->download('customer.pdf');
+        return $pdf->stream('customer.pdf');
     }
 
     public function getAllReport(){
@@ -57,7 +57,7 @@ class CustController extends Controller
         $magister = Customer::where('id_education', '=', 6)->count();
         $doktor = Customer::where('id_education', '=', 7)->count();
         $pdf = PDF::loadView('report',compact('pelanggan','job','customer','asn','student','lecturer','pendidikan','education','smp','sma','diploma','sarjana','magister','doktor'));
-        return $pdf->download('report.pdf');
+        return $pdf->stream('report.pdf');
     }
 
 }
