@@ -19,16 +19,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CustController;
 use App\Http\Controllers\TransController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
 // Customer Page - User
 Route::get('/', [GuestController::class, 'formTamu'])->name('/');
 Route::resource('formTamu', GuestController::class);
@@ -84,11 +75,28 @@ Route::resource('subcategory', SubCategoryController::class);
 Route::resource('purpose', PurposeController::class);
 
 //Login Page
-Route::get('/login', [LoginController::class, 'login'])->name('login');
-Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
-Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
-Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
-Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+Route::group(['prefix'=>config('admin.prefix'),'namespace'=>'App\\Http\\Controllers',],function (){
+// Route::group(['middleware' => ['auth','admin']], function () {
+
+    Route::get('/login', [LoginController::class, 'login'])->name('admin.login');
+    Route::post('/login', [LoginController::class, 'login']);
+    Route::post('/logout',[LoginController::class, 'logout'])->name('admin.logout');
+
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    // Route::middleware(['auth:admin'])->group(function () {
+
+    //     Route::view('/dashboard','dashboard')->name('dashboard');
+    //     Route::view('/post','data-post')->name('post')->middleware('can:role,"admin","editor"');
+    //     Route::view('/admin','data-admin')->name('admin')->middleware('can:role,"admin"');
+    // });
+});
+// Route::get('/login', [LoginController::class, 'login'])->middleware('guest');
+// Route::post('/login', [LoginController::class, 'authenticate']);
+// // Route::get('/login', [LoginController::class, 'login'])->name('login');
+// // Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
+// // Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+// Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
+// // Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 
 // Autentikasi Page
 Auth::routes();

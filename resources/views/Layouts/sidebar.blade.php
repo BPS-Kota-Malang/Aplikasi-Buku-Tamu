@@ -28,18 +28,29 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
         <!-- Nav Item - Charts -->
+        @can('role',['Super Admin'])
         <li class="nav-item">
             <a class="nav-link" href="{{route('data-admin.index')}}">
                <i class="fa fa-user-circle"></i>
                <span>Menu Admin</span></a>
        </li>
-
+       @endcan
+       {{-- <ul class="nav nav-treeview">
+        <li class="nav-item">
+            <a href="{{route('') }}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Register</p>
+            </a>
+        </li>
+       </ul> --}}
+       @can('role',['Super Admin','Admin'])
         <li class="nav-item">
             <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
                 aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-fw fa-cog"></i>
                 <span>Menu Utama</span>
             </a>
+
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Daftar Menu</h6>
@@ -58,9 +69,11 @@
             </div>
         </li>
 
+
        <li class="nav-item">
              <a class="nav-link" href="{{route('transaction.index')}}">
                 <i class="fas fa-sync-alt"></i>
                 <span>Menu Transaksi</span></a>
         </li>
 </ul>
+@endcan

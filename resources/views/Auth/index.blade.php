@@ -18,6 +18,7 @@
                     <th scope="col">No</th>
                     <th scope="col">Nama</th>
                     <th scope="col">Email</th>
+                    <th scope="col">Role</th>
                     <th scope="col" width="20%">Aksi</th>
                 </tr>
             </thead>
@@ -28,6 +29,7 @@
                     <td>{{ $loop->iteration}}
                     <td>{{ $item->name}}
                     <td>{{ $item->email}}
+                    <td>{{ $item->role }}</td>
                     <td>
                         <div class="row">
                                 <div class="col-4">
