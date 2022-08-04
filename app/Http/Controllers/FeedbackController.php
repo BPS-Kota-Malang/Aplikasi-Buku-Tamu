@@ -64,6 +64,7 @@ class FeedbackController extends Controller
         $feedback->service = $request->service;
         $feedback->facility = $request->facility;
         $feedback ->dataqualities = $request->dataqualities;
+        $feedback ->suggestions= $request->suggestions;
 
         $feedback->save();
 
@@ -95,7 +96,7 @@ class FeedbackController extends Controller
         return redirect('feedback');
 
 
-        dd($feedback);
+        // dd($feedback);
     }
 
     public function formFeedback() {
@@ -110,7 +111,7 @@ class FeedbackController extends Controller
         $service = $request->service;
         $facility = $request->facility;
         $dataqualities = $request->dataqualities;
-
+        $suggestions = $request->suggestions;
 
 
         $idcustomer = Customer::find(1)
@@ -125,6 +126,7 @@ class FeedbackController extends Controller
         $data->service= $service;
         $data->facility= $facility;
         $data->dataqualities= $dataqualities;
+        $data->suggestions= $suggestions;
 
         $data->save();
 

@@ -14,6 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link href="assets/css/cover.css" rel="stylesheet">
+
   </head>
 
 <body class="d-flex h-100 ">
@@ -80,83 +81,75 @@
                         <div class="col-md-8">
                           <label>Pelayanan</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="service" id="1" value="1">
-                          <label class="form-check-label" for="1">1</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="service" id="2" value="2">
-                          <label class="form-check-label" for="2">2</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="service" id="3" value="3">
-                          <label class="form-check-label" for="3">3</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="service" id="4" value="4">
-                          <label class="form-check-label" for="4">4</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="service" id="5" value="5">
-                          <label class="form-check-label" for="5">5</label>
-                        </div>
+                            <div class="form-check form-check-inline">
+                                <div class="rating">
+                                    <input class="form-check-input" type="radio" name="service" id="1" value="5">
+                                    <label class="form-check-label" for="1"></label>
+
+                                    <input class="form-check-input" type="radio" name="service" id="2" value="4">
+                                    <label class="form-check-label" for="2"></label>
+
+                                    <input class="form-check-input" type="radio" name="service" id="3" value="3">
+                                    <label class="form-check-label" for="3"></label>
+
+                                    <input class="form-check-input" type="radio" name="service" id="4" value="2">
+                                    <label class="form-check-label" for="4"></label>
+
+                                    <input class="form-check-input" type="radio" name="service" id="5" value="1">
+                                    <label class="form-check-label" for="5"></label>
+                                </div>
+                            </div>
                         </col-md-10>
                         <col-md-10>
-                         <br><br>
                         <div class="col-md-8">
                           <label>Sarana dan Prasarana</label>
                         </div>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="facility" id="1" value="1">
-                          <label class="form-check-label" for="1">1</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="facility" id="2" value="2">
-                          <label class="form-check-label" for="2">2</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="facility" id="3" value="3">
-                          <label class="form-check-label" for="3">3</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="facility" id="4" value="4">
-                          <label class="form-check-label" for="4">4</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="facility" id="5" value="5">
-                          <label class="form-check-label" for="5">5</label>
+                            <div class="rating">
+                                <input class="form-check-input" type="radio" name="facility" id="6" value="5">
+                                <label class="form-check-label" for="6"></label>
+
+                                <input class="form-check-input" type="radio" name="facility" id="7" value="4">
+                                <label class="form-check-label" for="7"></label>
+
+                                 <input class="form-check-input" type="radio" name="facility" id="8" value="3">
+                                <label class="form-check-label" for="8"></label>
+
+                                <input class="form-check-input" type="radio" name="facility" id="9" value="2">
+                                <label class="form-check-label" for="9"></label>
+
+                                 <input class="form-check-input" type="radio" name="facility" id="10" value="1">
+                                <label class="form-check-label" for="10"></label>
+                            </div>
                         </div>
                         </col-md-10>
                         <col-md-10>
-                        <br><br>
                         <div class="col-md-8">
-                          <label>Kualitas Data</label>
+                          <label>Kualitas data</label>
                         </div>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="dataqualities" id="1" value="1">
-                          <label class="form-check-label" for="1">1</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="dataqualities" id="2" value="2">
-                          <label class="form-check-label" for="2">2</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="dataqualities" id="3" value="3">
-                          <label class="form-check-label" for="3">3</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="dataqualities" id="4" value="4">
-                          <label class="form-check-label" for="4">4</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="dataqualities" id="5" value="5">
-                          <label class="form-check-label" for="5">5</label>
+                            <div class="rating">
+                                <input class="form-check-input" type="radio" name="dataqualities" id="11" value="5">
+                                <label class="form-check-label" for="11"></label>
+
+                                <input class="form-check-input" type="radio" name="dataqualities" id="12" value="4">
+                                <label class="form-check-label" for="12"></label>
+
+                                <input class="form-check-input" type="radio" name="dataqualities" id="13" value="3">
+                                <label class="form-check-label" for="13"></label>
+
+                                <input class="form-check-input" type="radio" name="dataqualities" id="14" value="2">
+                                <label class="form-check-label" for="14"></label>
+
+                                <input class="form-check-input" type="radio" name="dataqualities" id="15" value="1">
+                                <label class="form-check-label" for="15"></label>
+                            </div>
                         </div>
                         </col-md-10>
-                         <br><br>
+
                         <div class="form-group">
                             <label>Kritik dan Saran</label>
-                            <textarea name="description" class="textarea form-control" id="description" cols="40" rows="5" placeholder="Silahkan berikan kritik dan saran "></textarea>
+                            <textarea name="suggestions" class="textarea form-control" id="suggestions" cols="40" rows="5" placeholder="Silahkan berikan kritik dan saran "></textarea>
                         </div>
 
                       </div>
