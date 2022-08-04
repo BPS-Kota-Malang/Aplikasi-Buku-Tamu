@@ -11,7 +11,7 @@ class Transaction extends Model
     use HasFactory;
     protected $guarded=['id'];
     protected $table = "transactions";
-    protected $fillable = ['id_customer','id_media','id_service','id_purpose','data','id_sub_categories','service' , 'facility', 'dataqualities'];
+    protected $fillable = ['id_customer','id_media','id_service','id_purpose','data','id_sub_categories'];
 
     // public function Customer(){
     //     return $this->belongsTo(Customer::class);
@@ -49,8 +49,8 @@ class Transaction extends Model
      * 1 Transaction has 1 Feedback
      */
 
-     public function Feedback(){
-        return $this->belongsTo(Feedback::class);
+    public function Feedback(){
+        return $this->hasOne(Feedback::class, 'id_transaction');
      }
 
     public static function getTransaction(){

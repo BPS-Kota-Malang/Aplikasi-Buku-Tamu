@@ -4,34 +4,34 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    
+
+
     <meta name="generator" content="Hugo 0.101.0">
     <title>FEEDBACK</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/cover/">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link href="assets/css/cover.css" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="assets/css/cover.css" rel="stylesheet">
   </head>
 
 <body class="d-flex h-100 ">
-  
-  
+
+
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
     <header class="mb-5">
       <div>
         <h3 class="float-md-start mb-0">FeedBack</h3>
         <nav class="nav nav-masthead justify-content-center float-md-end">
-          
+
         </nav>
       </div>
     </header>
-  
+
     <main class="px-3">
       <h1>Selamat Datang</h1>
-      <p class="lead">silahkan mengisi penilaian anda pada tombol feedback pada tabel sebelah kanan 
+      <p class="lead">silahkan mengisi penilaian anda pada tombol feedback pada tabel sebelah kanan
                       kami mengucapkan terima kasih telah menggunakan layanan kami</p>
       <p class="lead">
       <div class="form-step form-step-active">
@@ -66,7 +66,7 @@
                     <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">feedback</h5>
+                        <h5 class="modal-title" id="staticBackdropLabel">Feedback</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
@@ -78,7 +78,7 @@
                           <h6 id="transactionID"></h6>
                         </div>
                         <div class="col-md-8">
-                          <label>pelayanan</label>
+                          <label>Pelayanan</label>
                         </div>
                         <div class="form-check form-check-inline">
                           <input class="form-check-input" type="radio" name="service" id="1" value="1">
@@ -102,8 +102,9 @@
                         </div>
                         </col-md-10>
                         <col-md-10>
+                         <br><br>
                         <div class="col-md-8">
-                          <label>sarana dan prasarana</label>
+                          <label>Sarana dan Prasarana</label>
                         </div>
                         <div class="form-check form-check-inline">
                           <input class="form-check-input" type="radio" name="facility" id="1" value="1">
@@ -127,8 +128,9 @@
                         </div>
                         </col-md-10>
                         <col-md-10>
+                        <br><br>
                         <div class="col-md-8">
-                          <label>kualitas data</label>
+                          <label>Kualitas Data</label>
                         </div>
                         <div class="form-check form-check-inline">
                           <input class="form-check-input" type="radio" name="dataqualities" id="1" value="1">
@@ -151,7 +153,11 @@
                           <label class="form-check-label" for="5">5</label>
                         </div>
                         </col-md-10>
-
+                         <br><br>
+                        <div class="form-group">
+                            <label>Kritik dan Saran</label>
+                            <textarea name="description" class="textarea form-control" id="description" cols="40" rows="5" placeholder="Silahkan berikan kritik dan saran "></textarea>
+                        </div>
 
                       </div>
                       <div class="modal-footer">
@@ -191,10 +197,10 @@
 
           <!-- Button trigger modal -->
     </main>
-  
-    
+
+
   </div>
-  
+
 
 </body>
 
