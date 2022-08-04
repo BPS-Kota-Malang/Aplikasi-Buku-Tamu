@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en"> 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,9 +55,9 @@
             Buku tamu ini bisa menjadi patokan dalam evaluasi BPS Kota Malang dalam melayani masyarakat. Berikut ini ringkasan data buku tamu:</p>
     </div>
     <div class="card-header">
-        <p style="text-align: center">Total Pengunjung : <strong>{{$customer}}</strong></p>
+        <p style="text-align: center">Total Pengunjung : <strong>{{$customer}}</strong> orang</p>
     </div>
-    <h4>1. Data Customer - Berdasarkan Pekerjaan</h4> 
+    <h4>1. Jumlah Customer - Berdasarkan Pekerjaan</h4> 
     <table id="emp" border="2">
         <title>Customer - BPS</title>
         <thead class="thead-dark">
@@ -73,6 +72,85 @@
                 <td>{{$asn}}</td>
                 <td>{{$student}}</td>
                 <td>{{$lecturer}}</td>
+            </tr> 
+        </tbody>
+    </table>
+    <h4>2. Jumlah Customer - Berdasarkan Pendidikan</h4> 
+    <table id="emp" border="2">
+        <thead class="thead-dark">
+            <tr>
+                <th>SMP/Dibawahnya</th>
+                <th>SMA</th>
+                <th>Diploma(D1/D2/D3)</th>
+                <th>Sarjana (S1)</th>
+                <th>Magister(S2)</th>
+                <th>Doktor(S3)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{$smp}}</td>
+                <td>{{$sma}}</td>
+                <td>{{$diploma}}</td>
+                <td>{{$sarjana}}</td>
+                <td>{{$magister}}</td>
+                <td>{{$doktor}}</td>
+            </tr> 
+        </tbody>
+    </table>
+    <h4>3. Jumlah Customer - Berdasarkan Layanan</h4> 
+    <table id="emp" border="2">
+        <thead class="thead-dark">
+            <tr>
+                <th>Permintaan Data</th>
+                <th>Konsultasi Data</th>
+                <th>Rekomendasi Data Sektoral</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{$service1}}</td>
+                <td>{{$service2}}</td>
+                <td>{{$service3}}</td>
+            </tr> 
+        </tbody>
+    </table>
+    <h4>4. Jumlah Customer - Berdasarkan Media</h4> 
+    <table id="emp" border="2">
+        <thead class="thead-dark">
+            <tr>
+                <th>WA</th>
+                <th>Email</th>
+                <th>Facebook</th>
+                <th>Instagram</th>
+                <th>PST</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{$media1}}</td>
+                <td>{{$media2}}</td>
+                <td>{{$media3}}</td>
+                <td>{{$media4}}</td>
+                <td>{{$media5}}</td>
+            </tr> 
+        </tbody>
+    </table>
+    <h4>5. Jumlah Customer - Berdasarkan Tujuan</h4> 
+    <table id="emp" border="2">
+        <thead class="thead-dark">
+            <tr>
+                <th>Tugas</th>
+                <th>Skripsi</th>
+                <th>Tesis</th>
+                <th>Perumusan Kebijakan</th>
+                <th>Lainnya</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{$purpose1}}</td>
+                <td>{{$purpose2}}</td>
+                <td>{{$purpose3}}</td>
+                <td>{{$purpose4}}</td>
+                <td>{{$purpose5}}</td>
             </tr> 
         </tbody>
     </table>
