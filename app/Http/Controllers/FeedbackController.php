@@ -5,6 +5,7 @@ use App\Models\Feedback;
 use App\Models\Customer;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Alert;
 
 
 class FeedbackController extends Controller
@@ -67,8 +68,9 @@ class FeedbackController extends Controller
         $feedback ->suggestions= $request->suggestions;
 
         $feedback->save();
-
-        return redirect('feedback')->with('status', 'Data Feddback Berhasil Disimpan');
+        
+        Alert::success('Success','Terimakasih Telah Mengisi Feedback');
+        return redirect('/pelanggan');
 
     }
 

@@ -26,9 +26,6 @@ return new class extends Migration
             $table->string('data');
             $table->unsignedBigInteger('id_sub_categories');
             $table->foreign('id_sub_categories')->references('id')->on('sub_categories');
-            $table->integer('service');
-            $table->integer('facility');
-            $table->integer('dataqualities');
             $table->timestamps();
         });
     }

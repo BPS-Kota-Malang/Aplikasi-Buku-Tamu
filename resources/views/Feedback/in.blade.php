@@ -34,6 +34,7 @@
       <h1>Selamat Datang</h1>
       <div class="form-step form-step-active">
         <form action="{{'showtransaction'}}" method="post" class="sigin-form">
+          @include('sweetalert::alert')
           @csrf
           <div class="mb-3">
             <label for="hp" class="form-label">Tolong isi nomor hp anda</label>
