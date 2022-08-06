@@ -17,40 +17,48 @@
         <span class="step" id = "step-3">3</span>
         <span class="step" id = "step-4">4</span>
       </div>
-
+      <h2>Informasi Pribadi</h2>
       <div class="tab" id = "tab-1">
-        <p>Informasi Pribadi</p>
+        <p>No Handphone</p>
         <div class="input-group">
-            <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda"/>
+<<<<<<< HEAD
+            <input type="text" name="hp" id="hp" class="form-control" onkeyup="autofill()" placeholder="Silahkan isi no handphone anda"/>
+=======
+          <label for="name" style="color:#000000">No Handphone</label>
+            <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda"
+            onkeypress="return event.charCode >= 48 && event.charCode <=57"/>
+>>>>>>> b4cb36813668db1cb0a5d12cacb7656422bb0d03
         </div>
 
         <div class="input-group">
-            <label for="name">Nama Lengkap</label>
-            <input type="text" name="name" id="name" placeholder="Silahkan isi nama anda"/>
+            <label for="name" style="color:#000000">Nama Lengkap</label>
+            <input type="text" name="name" id="name" placeholder="Silahkan isi nama anda" 
+            onkeypress="return event.charCode < 48 || event.charCode  >57"/>
         </div>
 
         <div class="form-group mb-3">
-            <label class="gender" for="gender">Jenis Kelamin</label>
-            <select class="custom-select my-1 mr-sm-2" name="gender" id="inlineFormCustomSelectPref">
-            <option selected="true" disabled="disabled" >Pilih Jenis Kelamin</option>
+            <label class="gender" for="gender" style="color:#000000">Jenis Kelamin</label>
+            <select class="custom-select my-1 mr-sm-2" name="gender" id="inlineFormCustomSelectPref"  required>
+            <option selected="false" disabled="disabled" >Silahkan Pilih Jenis Kelamin
             <option value="lakilaki">Pria</option>
             <option value="perempuan">Wanita</option>
             </select>
         </div>
 
         <div class="input-group">
-            <label for="email">Email</label>
+            <label for="email" style="color:#000000">Email</label>
             <input type="text" name="email" id="email" class="form-control" placeholder="Silahkan isi email anda"/>
         </div>
 
         <div class="input-group">
-            <label for="address">Alamat</label>
+            <label for="address" style="color:#000000">Alamat</label>
             <input type="text" name="address" id="address" class="form-control" placeholder="Silahkan isi alamat anda"/>
         </div>
 
         <div class="input-group">
-            <label for="age">Usia</label>
-            <input type="text" name="age" id="age" class="form-control" placeholder="Silahkan isi umur anda (contoh: 27)"/>
+            <label for="age" style="color:#000000">Usia</label>
+            <input type="text" name="age" id="age" class="form-control" placeholder="Silahkan isi umur anda (contoh: 27)"
+            onkeypress="return event.charCode >= 48 && event.charCode <=57"/>
         </div>
 
         <div class="index-btn-wrapper">
@@ -62,19 +70,21 @@
         <p>Riwayat</p>
       
         <div class="input-group">
-            <label for="institute">Nama instansi</label>
-            <input type="text" name="institute" id="institute" class="form-control" placeholder="Silahkan isi nama instansi anda"/>
+            <label for="institute" style="color:#000000">Nama instansi</label>
+            <input type="text" name="institute" id="institute" class="form-control" placeholder="Silahkan isi nama instansi anda"
+            onkeypress="return event.charCode < 48 || event.charCode  >57"/>
         </div>
 
         <div class="input-group">
-            <label for="nipnim">NIP/NIM</label>
-            <input type="text" name="nipnim" id="nipnim" class="form-control" placeholder="Silahkan isi nip/nim anda"/>
+            <label for="nipnim" style="color:#000000">NIP/NIM</label>
+            <input type="text" name="nipnim" id="nipnim" class="form-control" placeholder="Silahkan isi nip/nim anda"
+            onkeypress="return event.charCode >= 48 && event.charCode <=57"/>
         </div>
 
         <div class="form-group mb-3">
-            <label class="label" for="job">Pekerjaan</label>
-            <select class="custom-select my-1 mr-sm-2" name="job" id="inlineFormCustomSelectPref">
-                <option selected="true" disabled="disabled">Pilih Pekerjaan</option>
+            <label class="label" for="job" style="color:#000000">Pekerjaan</label>
+            <select class="custom-select my-1 mr-sm-2" name="job" id="inlineFormCustomSelectPref" required>
+                <option selected="false" disabled="disabled">Silahkan Pilih Pekerjaan</option>
                 @foreach ($job as $p)
                 <option value="{{ $p->id }}">{{$p->job_type}}</option>
                 @endforeach
@@ -82,9 +92,9 @@
         </div><br><br>
 
         <div class="form-group mb-3">
-            <label class="label" for="education">Pendidikan</label>
-            <select class="custom-select my-1 mr-sm-2" name="education" id="inlineFormCustomSelectPref">
-                <option selected="true" disabled="disabled">Pilih Jenis Pendidikan</option>
+            <label class="label" for="education" style="color:#000000">Pendidikan</label>
+            <select class="custom-select my-1 mr-sm-2" name="education" id="inlineFormCustomSelectPref" required>
+                <option selected="false" disabled="disabled">Silahkan Pilih Pendidikan</option>
                 @foreach ($education as $p)
                 <option value="{{ $p->id }}">{{$p->education_type}}</option>
                 @endforeach
@@ -102,9 +112,9 @@
 
         <div class="input-group">
             <div class="form-group mb-3">
-                <label class="label" for="media">Media Pelayanan</label>
-                <select class="custom-select my-1 mr-sm-2" name="media" id="inlineFormCustomSelectPref">
-                <option selected="true" disabled="disabled">Pilih Media Pelayanan</option>
+                <label class="label" for="media" style="color:#000000" >Media Pelayanan</label>
+                <select class="custom-select my-1 mr-sm-2" name="media" id="inlineFormCustomSelectPref" required>
+                <option selected="false" disabled="disabled">Silahkan Pilih Media Pelayanan</option>
                 @foreach ($media as $p)
                 <option value="{{ $p->id }}">{{$p->media_type}}</option>
                 @endforeach
@@ -114,9 +124,9 @@
 
         <div class="input-group">
             <div class="form-group mb-3">
-                <label class="label" for="media">Kebutuhan Data</label>
-                <select class="custom-select my-1 mr-sm-2" name="sub_categories" id="inlineFormCustomSelectPref">
-                    <option selected="true" disabled="disabled">Pilih Kebutuhan Data</option>
+                <label class="label" for="media"  style="color:#000000" >Kebutuhan Data</label>
+                <select class="custom-select my-1 mr-sm-2" name="sub_categories" id="inlineFormCustomSelectPref" required>
+                    <option selected="false" disabled="disabled">Silahkan Pilih Kebutuhan Data</option>
                     @foreach($categories as $group)
                         <optgroup label="{{$group->categories_type }}">
                             @foreach ($sub_categories as $s)
@@ -132,9 +142,9 @@
 
         <div class="input-group">
             <div class="form-group mb-3">
-                <label class="label" for="service">Jenis Pelayanan</label>
-                <select class="custom-select my-1 mr-sm-2" name="service" id="inlineFormCustomSelectPref">
-                <option selected="true" disabled="disabled">Pilih Jenis Pelayanan</option>
+                <label class="label" for="service"  style="color:#000000" >Jenis Pelayanan</label>
+                <select class="custom-select my-1 mr-sm-2" name="service" id="inlineFormCustomSelectPref" required>
+                <option selected="false" disabled="disabled">Silahkan Pilih Jenis Pelayanan</option>
                 @foreach ($service as $j)
                 <option value="{{ $j->id }}">{{$j->service_type}}</option>
                 @endforeach
@@ -153,9 +163,9 @@
 
         <div class="input-group">
             <div class="form-group mb-3">
-                <label class="label" for="purpose">Tujuan</label>
-                <select class="custom-select my-1 mr-sm-2" name="purpose" id="inlineFormCustomSelectPref">
-                <option selected="true" disabled="disabled">Pilih Tujuan</option>
+                <label class="label" for="purpose" style="color:#000000">Tujuan</label>
+                <select class="custom-select my-1 mr-sm-2" name="purpose" id="inlineFormCustomSelectPref" required>
+                <option selected="false" disabled="disabled">Silahkan Pilih Tujuan</option>
                 @foreach ($purpose as $p)
                 <option value="{{ $p->id }}">{{$p->purpose_type}}</option>
                 @endforeach
@@ -164,19 +174,13 @@
         </div>
 
         <div class="input-group">
-            <label for="data">Data</label>
-            <textarea type="text" name="data" id="data" placeholder="Silahkan isi data spesifik yang anda perlukan" class="form-control" rows="10" cols="55"></textarea>
+            <label for="data" style="color:#000000">Data</label>
+            <textarea type="text" name="data" id="data" placeholder="Silahkan isi data spesifik yang anda perlukan" class="form-control" rows="10" cols="55" required
+            onkeypress="return event.charCode < 48 || event.charCode  >57"></textarea>
         </div>
 
         <div class="index-btn-wrapper">
           <div class="index-btn" onclick="run(4, 3);">Previous</div>
-          <div class="index-btn" onclick="run(4, 5);">Next</div>
-        </div>
-      </div>
-
-      <div class="tab" id = "tab-5">
-        <div class="index-btn-wrapper">
-          <div class="index-btn" onclick="run(5, 4);">Previous</div>
           <button class = "index-btn" type="submit" name="submit" style = "background: blue;">Submit</button>
         </div>
       </div>
@@ -193,9 +197,16 @@
           var currentTab = 0;
           x = $('#tab-'+hideTab);
           y = $(x).find("input")
+          z = $(x).find("select")
           for (i = 0; i < y.length; i++){
             if (y[i].value == ""){
               $(y[i]).css("background", "#ffdddd");
+              return false;
+            }
+          }
+          for (i = 0; i < z.length; i++){
+            if (z[i].value == ""){
+              $(z[i]).css("background", "#ffdddd");
               return false;
             }
           }
@@ -210,6 +221,23 @@
         $("#tab-"+hideTab).css("display", "none");
         $("#tab-"+showTab).css("display", "block");
         $("input").css("background", "#fff");
+      }
+
+      function autofill(){
+        var number = $("#hp").val();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        // $.ajax({
+        //     type:'post',
+        //     url: {{ route('cekcustomer') }},
+        //     data: 'hp :' + handphone,
+        // }).success(function(data){
+        //    alert('sasas');
+        // });
+        alert (number);
       }
     </script>
   </body>

@@ -70,7 +70,7 @@ class FeedbackController extends Controller
         $feedback->save();
         
         Alert::success('Success','Terimakasih Telah Mengisi Feedback');
-        return redirect('feedback')->with('status', 'Data Feddback Berhasil Disimpan');
+        return redirect('/pelanggan');
 
     }
 

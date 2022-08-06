@@ -31,6 +31,7 @@ use App\Http\Controllers\TransController;
 */
 // Customer Page - User
 Route::get('/', [GuestController::class, 'formTamu'])->name('/');
+Route::post('/cekcustomer', [GuestController::class, 'cekcustomer'])->name('cekcustomer');
 Route::resource('formTamu', GuestController::class);
 
 // User Page
