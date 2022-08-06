@@ -28,12 +28,9 @@
         <div class="form-step form-step-active">
             <div class="input-group">
                 <label for="hp">No Handphone</label>
-                <input type="text" name="hp" id="hp" onkeypress="return event.charCode >= 48 && event.charCode <=57" class="form-control @error('hp') is-invalid @enderror" placeholder="Silahkan isi no handphone anda" />
-                @error('hp')
-                <span class="invalid-feedback" role="alert">
-                    <p style="color: rgb(249, 133, 133)">Harap mengisi password minimal 10 karakter</p>
-                </span>
-                @enderror
+                <input type="text" name="hp" id="hp" onkeypress="checkcustomer()" class="form-control"  placeholder="Silahkan isi no handphone anda" />
+
+
             </div>
             <div class="input-group">
                 <label for="name">Nama Lengkap</label>
@@ -207,6 +204,29 @@
             </div>
         </div>
         @include('sweetalert::alert')
+
     </form>
+    {{-- <script src="{{ asset('/admin/vendor/jquery-easing/jquery.easing.min.js') }}"></script> --}}
+    <script src="{{ asset('pengguna/assets/js/jquery-3.6.0.min.js') }}"></script>
+    <script type='text/javascript'>
+        function checkcustomer(){
+            $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+            }
+        });
+            // alert ('tekan');
+            var handphone = $('#hp').val();
+            $.ajax({
+                type:'post',
+                url: '/checkcustomer',
+                data: 'hp :' + handphone,
+            }).success(function(data){
+                alert('sasas');
+            });
+        }
+    </script>
+
+
 </body>
 </html>

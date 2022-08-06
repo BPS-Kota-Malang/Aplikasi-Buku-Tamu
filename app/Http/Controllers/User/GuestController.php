@@ -30,7 +30,7 @@ class GuestController extends Controller
         $categories = Category::all();
 
         return view('/index', compact('job','education','media','service','sub_categories','categories','purpose'));
-        return dd(Session::all()); 
+        return dd(Session::all());
         // $purpose = Purpose::all();
 
         // return view('/index', compact('job','education','media','service','sub_categories','purpose'));
@@ -104,5 +104,10 @@ class GuestController extends Controller
         Alert::success("Success", "Terimakasih  $name  Sudah menggunakan layanan kami");
         return redirect('/pelanggan');
 
+    }
+
+    public function checkcustomer (){
+
+        return 'berhasil';
     }
 }
