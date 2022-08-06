@@ -23,12 +23,19 @@
       <div class="tab" id = "tab-1">
         <label for="name" style="color:#000000">No Handphone</label>
         <div class="input-group">
+<<<<<<< HEAD
             <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda"/>
+=======
+            <input type="text" name="hp" id="hp" class="form-control" onkeyup="autofill()" placeholder="Silahkan isi no handphone anda"/>
+          <label for="name" style="color:#000000">No Handphone</label>
+            <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda"
+            onkeypress="return event.charCode >= 48 && event.charCode <=57"/>
+>>>>>>> 9d36809d07d3feb995aebe7efa93339a7dd4b43c
         </div>
 
         <div class="input-group">
             <label for="name" style="color:#000000">Nama Lengkap</label>
-            <input type="text" name="name" id="name" placeholder="Silahkan isi nama anda" 
+            <input type="text" name="name" id="name" placeholder="Silahkan isi nama anda"
             onkeypress="return event.charCode < 48 || event.charCode  >57"/>
         </div>
 
@@ -64,7 +71,7 @@
 
       <div class="tab" id = "tab-2">
         <p>Riwayat</p>
-      
+
         <div class="input-group">
             <label for="institute" style="color:#000000">Nama instansi</label>
             <input type="text" name="institute" id="institute" class="form-control" placeholder="Silahkan isi nama instansi anda"

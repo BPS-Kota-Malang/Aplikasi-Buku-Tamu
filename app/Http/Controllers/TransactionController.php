@@ -109,7 +109,6 @@ class TransactionController extends Controller
         $transaction=Transaction::with('Service')->find($id);
         $transaction=Transaction::with('SubCategory')->find($id);
         $transaction=Transaction::with('Purpose')->find($id);
-        $transaction=Transaction::with('Feedback')->find($id);
 
         $transaction->id_customer=$request->customer;
         $transaction->id_media=$request->media;
@@ -117,9 +116,6 @@ class TransactionController extends Controller
         $transaction->id_purpose=$request->purpose;
         $transaction->data=$request->data;
         $transaction->id_sub_categories=$request->sub_categories;
-        $transaction->service=$request->feedback;
-        $transaction->facility=$request->feedback;
-        $transaction->dataqualities=$request->feedback;
 
         $transaction->save();
 
