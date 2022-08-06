@@ -21,7 +21,7 @@
       <div class="tab" id = "tab-1">
         <p>Informasi Pribadi</p>
         <div class="input-group">
-            <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda"/>
+            <input type="text" name="hp" id="hp" class="form-control" onkeyup="autofill()" placeholder="Silahkan isi no handphone anda"/>
         </div>
 
         <div class="input-group">
@@ -217,6 +217,23 @@
         $("#tab-"+hideTab).css("display", "none");
         $("#tab-"+showTab).css("display", "block");
         $("input").css("background", "#fff");
+      }
+
+      function autofill(){
+        var number = $("#hp").val();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        // $.ajax({
+        //     type:'post',
+        //     url: {{ route('cekcustomer') }},
+        //     data: 'hp :' + handphone,
+        // }).success(function(data){
+        //    alert('sasas');
+        // });
+        alert (number);
       }
     </script>
   </body>

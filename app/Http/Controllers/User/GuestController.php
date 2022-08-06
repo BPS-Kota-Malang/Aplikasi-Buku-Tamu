@@ -105,4 +105,11 @@ class GuestController extends Controller
         return redirect('/pelanggan');
 
     }
+
+    public function cekcustomer(Request $request){
+        $customer = Customer::where('hp', $request->hp)
+                                -> get();
+
+        return $customer;
+    }
 }
