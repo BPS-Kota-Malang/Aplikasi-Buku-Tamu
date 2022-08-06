@@ -5,6 +5,8 @@
     <title>Buku Tamu - BPS Kota Malang</title>
     <link rel="stylesheet" href="{{url('/form/css/style.css')}}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
   </head>
   <body>
     <form id="myForm" action="{{ url ('/simpan-bukutamu')}}" method="POST" autocomplete = "off">
@@ -19,15 +21,9 @@
       </div>
       <h2>Informasi Pribadi</h2>
       <div class="tab" id = "tab-1">
-        <p>No Handphone</p>
+        <label for="name" style="color:#000000">No Handphone</label>
         <div class="input-group">
-<<<<<<< HEAD
-            <input type="text" name="hp" id="hp" class="form-control" onkeyup="autofill()" placeholder="Silahkan isi no handphone anda"/>
-=======
-          <label for="name" style="color:#000000">No Handphone</label>
-            <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda"
-            onkeypress="return event.charCode >= 48 && event.charCode <=57"/>
->>>>>>> b4cb36813668db1cb0a5d12cacb7656422bb0d03
+            <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda"/>
         </div>
 
         <div class="input-group">
@@ -223,22 +219,30 @@
         $("input").css("background", "#fff");
       }
 
-      function autofill(){
-        var number = $("#hp").val();
+
+      $('#hp').on('keyup', function (){
+
+        $value = $(this).val();
+        // alert ($value); 
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
             }
         });
-        // $.ajax({
-        //     type:'post',
-        //     url: {{ route('cekcustomer') }},
-        //     data: 'hp :' + handphone,
-        // }).success(function(data){
-        //    alert('sasas');
-        // });
-        alert (number);
-      }
+        alert ($value);
+        $.ajax({
+
+          type  : 'post',
+          url   : '{{ URL::to('cekcustomer') }}',
+          data  : {'search':$value},
+          success:function(data)
+          {
+              console.log(data);
+              
+          }
+        });
+      })
+      
     </script>
   </body>
 </html>

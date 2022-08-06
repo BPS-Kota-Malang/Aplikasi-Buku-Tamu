@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\Customer;
 use App\Models\Transaction;
 use Alert;
+use Illuminate\Support\Facades\DB;
+
 
 
 class GuestController extends Controller
@@ -106,10 +108,21 @@ class GuestController extends Controller
 
     }
 
-    public function cekcustomer(Request $request){
-        $customer = Customer::where('hp', $request->hp)
-                                -> get();
+    public static function cekcustomer(Request $request){
+        // DB::enableQueryLog();
+        // $customer = Customer::where('hp', $request->hp)
+        //                     ->get();
+        $customer = DB::table('customer')
+                    ->where('hp', 'LIKE', '%', $request->hp ,'%')
+                    ->get();
 
-        return $customer;
+        // return $customer;
+        // console($request->hp);
+        // dd(DB::getQueryLog()); // Show results of log
+        return response()->json([
+            'customer'=> $customer,
+        ]);
+        
+
     }
 }
