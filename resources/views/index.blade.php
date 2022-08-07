@@ -5,11 +5,13 @@
     <title>Buku Tamu - BPS Kota Malang</title>
     <link rel="stylesheet" href="{{url('/form/css/style.css')}}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
   </head>
   <body>
-    <form id="myForm" action="{{ url ('/simpan-bukutamu')}}" method="POST" autocomplete = "off">
+    <form id="myForm" action="{{ url ('/simpan-bukutamu')}}" method="POST" autocomplete = "off" name="formInput">
         @csrf
       <h1 align = center>Buku Tamu - BPS Kota Malang</h1>
 
@@ -48,9 +50,14 @@
             </select>
         </div>
 
-        <div class="input-group">
+        {{-- <div class="input-group">
             <label for="email" style="color:#000000">Email</label>
-            <input type="text" name="email" id="email" class="form-control" placeholder="Silahkan isi email anda"/>
+            <input type="email" name="email" id="email" class="form-control" placeholder="Silahkan isi email anda"/>
+        </div> --}}
+
+         <div class="input-group">
+            <label for="email" style="color:#000000">Email</label>
+            <input type="text" name="emailUser" id="emailUser" onchange="ValidateEmail()" placeholder="example@mail.com" class="form-control">
         </div>
 
         <div class="input-group">
@@ -189,7 +196,7 @@
       </div>
     </form>
 
-    <script>
+    <script type="text/javascript">
       // Default tab
       $(".tab").css("display", "none");
       $("#tab-1").css("display", "block");
@@ -230,7 +237,7 @@
       $('#hp').on('keyup', function (){
 
         $value = $(this).val();
-        // alert ($value); 
+        // alert ($value);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
@@ -245,11 +252,46 @@
           success:function(data)
           {
               console.log(data);
-              
+
           }
         });
       })
-      
+
+
+      $(document).ready (function() {
+        $('#myForm').formValidation({
+        framework: 'bootstrap',
+        excluded: 'disabled',
+        icon: {
+        valid: 'glyphicon glyphicon-ok',
+        invalid: 'glyphicon glyphicon-remove',
+        validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            emailUser: {
+            validators: {
+            notEmpty: {
+            message: 'Email Tidak Boleh Kosong'
+            },
+            emailAddress: {
+            message: 'Email Tidak Valid'
+            }
+            }
+            },
+        }
+        })
+        });
+
+        function ValidateEmail(mail)
+        {
+        if (/mysite@ourearth.com/.test(emailUser))
+        {
+        return (true)
+        }
+        alert("Masukkan e-Mail Dengan Benar")
+        return (false)
+        }
+
     </script>
   </body>
 </html>
