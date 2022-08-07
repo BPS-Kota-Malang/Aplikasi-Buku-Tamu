@@ -1,5 +1,5 @@
 body{
-    background: #eaeaea;
+    background: #7DADFF;
   }
   
   form{
@@ -8,7 +8,10 @@ body{
     padding: 15px 40px 40px 40px;
     width: 70%;
   }
-  
+  h1{
+    font-family: "Times New Roman", Times, serif;
+    
+  }
   .tab p{
     font-size: 20px;
     margin: 0 0 10px 0;
@@ -29,7 +32,7 @@ body{
   
   .index-btn{
     margin: 20px 15px 0 0;
-    background: #04AA6D;
+    background: rgb(124, 162, 237);
     color: #ffffff;
     border: none;
     padding: 10px 20px;
@@ -48,7 +51,7 @@ body{
     line-height: 30px;
     margin: 0 2px;
     color: white;
-    background: green;
+    background-color: rgb(0, 76, 255);
     border-radius: 50%;
     display: inline-block;
     opacity: 0.25;

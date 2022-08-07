@@ -11,7 +11,8 @@
   <body>
     <form id="myForm" action="{{ url ('/simpan-bukutamu')}}" method="POST" autocomplete = "off">
         @csrf
-      <h1 align = center>Buku Tamu - BPS Kota Malang</h1>
+      <h1 id="judul" align = center>Buku Tamu</h1>
+      <h1 id="judul" align = center>Badan Pusat Statistik Kota Malang</h1>
 
       <div style="text-align:center;">
         <span class="step" id = "step-1">1</span>
@@ -19,18 +20,18 @@
         <span class="step" id = "step-3">3</span>
         <span class="step" id = "step-4">4</span>
       </div>
-      <h2>Informasi Pribadi</h2>
+      <br>
+      <h3>Step 1 - Informasi Pribadi</h3>
+      
       <div class="tab" id = "tab-1">
-        <label for="name" style="color:#000000">No Handphone</label>
+        
         <div class="input-group">
-<<<<<<< HEAD
-            <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda"/>
-=======
-            <input type="text" name="hp" id="hp" class="form-control" onkeyup="autofill()" placeholder="Silahkan isi no handphone anda"/>
           <label for="name" style="color:#000000">No Handphone</label>
+            {{-- <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda"/> --}}
+            <input type="text" name="hp" id="hp" class="form-control" onkeyup="autofill()" placeholder="Silahkan isi no handphone anda" onkeypress="return event.charCode >= 48 && event.charCode <=57"/>
+          {{-- <label for="name" style="color:#000000">No Handphone</label>
             <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda"
-            onkeypress="return event.charCode >= 48 && event.charCode <=57"/>
->>>>>>> 9d36809d07d3feb995aebe7efa93339a7dd4b43c
+            onkeypress="return event.charCode >= 48 && event.charCode <=57"/> --}}
         </div>
 
         <div class="input-group">
@@ -70,7 +71,7 @@
       </div>
 
       <div class="tab" id = "tab-2">
-        <p>Riwayat</p>
+        <h3>Step 2 - Riwayat</h3>
 
         <div class="input-group">
             <label for="institute" style="color:#000000">Nama instansi</label>
@@ -111,7 +112,7 @@
       </div>
 
       <div class="tab" id = "tab-3">
-        <p>Pelayanan</p>
+        <h3>Step 3 - Pelayanan</h3>
 
         <div class="input-group">
             <div class="form-group mb-3">
@@ -162,7 +163,7 @@
       </div>
 
       <div class="tab" id = "tab-4">
-        <p>Tujuan</p>
+        <h2>Step 4 - Tujuan</h2>
 
         <div class="input-group">
             <div class="form-group mb-3">
