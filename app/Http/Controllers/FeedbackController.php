@@ -5,6 +5,7 @@ use App\Models\Feedback;
 use App\Models\Customer;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Alert;
 
 
@@ -56,7 +57,7 @@ class FeedbackController extends Controller
      */
     public function store(Request $request)
     {
-        // $this->validate($request,[
+        //  $validated = $request->validate([
         //     'service'=>'required',
         //     'facility'=>'required',
         //     'dataqualities'=>'required',
@@ -72,7 +73,7 @@ class FeedbackController extends Controller
         $feedback->facility = $request->facility;
         $feedback ->dataqualities = $request->dataqualities;
         $feedback ->suggestions= $request->suggestions;
-
+       
         $feedback->save();
         
         Alert::success('Success','Terimakasih Telah Mengisi Feedback');

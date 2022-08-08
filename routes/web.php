@@ -60,7 +60,7 @@ Route::get('feedback', function()
 {
     return view ('feedback.in');
 });
-
+//Route::get('showtransaction/form', [FeedbackController::class, 'store']);
 Route::post('showtransaction', [FeedbackController::class, 'showTransaction'])->name('showtransaction');
 
 //Transaction Page
