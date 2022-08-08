@@ -5,26 +5,35 @@
     <title>Buku Tamu - BPS Kota Malang</title>
     <link rel="stylesheet" href="{{url('/form/css/style.css')}}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
   </head>
   <body>
-    <form id="myForm" action="{{ url ('/simpan-bukutamu')}}" method="POST" autocomplete = "off">
+    <form id="myForm" action="{{ url ('/simpan-bukutamu')}}" method="POST" autocomplete = "off" name="formInput">
         @csrf
-      <h1 align = center>Buku Tamu - BPS Kota Malang</h1>
+      <h1 id="judul" align = center>Buku Tamu</h1>
+      <h1 id="judul" align = center>Badan Pusat Statistik Kota Malang</h1>
 
       <div style="text-align:center;">
-        <span class="step" id = "step-1">1</span>
-        <span class="step" id = "step-2">2</span>
-        <span class="step" id = "step-3">3</span>
-        <span class="step" id = "step-4">4</span>
+        <span class="step" id = "step-1">1</span>&nbsp;&nbsp;
+        <span class="step" id = "step-2">2</span>&nbsp;&nbsp;
+        <span class="step" id = "step-3">3</span>&nbsp;&nbsp;
+        <span class="step" id = "step-4">4</span>&nbsp;&nbsp;
       </div>
-      <h2>Informasi Pribadi</h2>
+      <br>
+      <h3>Informasi Pribadi</h3>
+
       <div class="tab" id = "tab-1">
-        <p>No Handphone</p>
+
         <div class="input-group">
-            <input type="text" name="hp" id="hp" class="form-control" onkeyup="autofill()" placeholder="Silahkan isi no handphone anda"/>
           <label for="name" style="color:#000000">No Handphone</label>
+            {{-- <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda"/> --}}
+            <input type="text" name="hp" id="hp" class="form-control" onkeyup="autofill()" placeholder="Silahkan isi no handphone anda" onkeypress="return event.charCode >= 48 && event.charCode <=57"/>
+          {{-- <label for="name" style="color:#000000">No Handphone</label>
             <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda"
-            onkeypress="return event.charCode >= 48 && event.charCode <=57"/>
+            onkeypress="return event.charCode >= 48 && event.charCode <=57"/> --}}
         </div>
 
         <div class="input-group">
@@ -42,9 +51,14 @@
             </select>
         </div>
 
-        <div class="input-group">
+        {{-- <div class="input-group">
             <label for="email" style="color:#000000">Email</label>
-            <input type="text" name="email" id="email" class="form-control" placeholder="Silahkan isi email anda"/>
+            <input type="email" name="email" id="email" class="form-control" placeholder="Silahkan isi email anda"/>
+        </div> --}}
+
+         <div class="input-group">
+            <label for="email" style="color:#000000">Email</label>
+            <input type="text" name="emailUser" id="emailUser" onchange="ValidateEmail()" placeholder="example@mail.com" class="form-control">
         </div>
 
         <div class="input-group">
@@ -64,7 +78,7 @@
       </div>
 
       <div class="tab" id = "tab-2">
-        <p>Riwayat</p>
+        <h3>Riwayat</h3>
 
         <div class="input-group">
             <label for="institute" style="color:#000000">Nama instansi</label>
@@ -105,7 +119,7 @@
       </div>
 
       <div class="tab" id = "tab-3">
-        <p>Pelayanan</p>
+        <h3>Pelayanan</h3>
 
         <div class="input-group">
             <div class="form-group mb-3">
@@ -156,7 +170,7 @@
       </div>
 
       <div class="tab" id = "tab-4">
-        <p>Tujuan</p>
+        <h2>Tujuan</h2>
 
         <div class="input-group">
             <div class="form-group mb-3">
@@ -183,7 +197,7 @@
       </div>
     </form>
 
-    <script>
+    <script type="text/javascript">
       // Default tab
       $(".tab").css("display", "none");
       $("#tab-1").css("display", "block");
@@ -220,23 +234,65 @@
         $("input").css("background", "#fff");
       }
 
-      function autofill(){
-        var number = $("#hp").val();
+
+      $('#hp').on('keyup', function (){
+
+        $value = $(this).val();
+        // alert ($value);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
             }
         });
-            // alert ('tekan');
-            // var handphone = $('#hp').val();
-            // $.ajax({
-            //     type:'post',
-            //     url: '/checkcustomer',
-            //     data: 'hp :' + handphone,
-            // }).success(function(data){
-            //     alert('sasas');
-            // });
+        alert ($value);
+        $.ajax({
+
+          type  : 'post',
+          url   : '{{ URL::to('cekcustomer') }}',
+          data  : {'search':$value},
+          success:function(data)
+          {
+              console.log(data);
+
+          }
+        });
+      })
+
+
+      $(document).ready (function() {
+        $('#myForm').formValidation({
+        framework: 'bootstrap',
+        excluded: 'disabled',
+        icon: {
+        valid: 'glyphicon glyphicon-ok',
+        invalid: 'glyphicon glyphicon-remove',
+        validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            emailUser: {
+            validators: {
+            notEmpty: {
+            message: 'Email Tidak Boleh Kosong'
+            },
+            emailAddress: {
+            message: 'Email Tidak Valid'
+            }
+            }
+            },
         }
+        })
+        });
+
+        function ValidateEmail(mail)
+        {
+        if (/mysite@ourearth.com/.test(emailUser))
+        {
+        return (true)
+        }
+        alert("Masukkan e-Mail Dengan Benar")
+        return (false)
+        }
+
     </script>
 
 

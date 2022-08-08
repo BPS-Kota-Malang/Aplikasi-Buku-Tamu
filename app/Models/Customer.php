@@ -24,6 +24,11 @@ class Customer extends Model
     return $this->hasMany(Transaction::class);
     }
 
+    /**
+     *  Kalau Pakai Eloquent tinggal 
+     *  $record = Customer::all();
+     * 
+     */
     public static function getCustomer(){
         $records = DB::table('customer')
         ->join('education', 'customer.id_education', '=', 'education.id')
