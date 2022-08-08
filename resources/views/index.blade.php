@@ -236,7 +236,7 @@
       }
 
 
-      $('#').on('keyup', function (){
+      $('#hp').on('keyup', function (){
 
         $value = $(this).val();
         // alert ($value);
@@ -245,16 +245,30 @@
                 'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
             }
         });
-        alert ($value);
+        // alert ($value);
         $.ajax({
 
-          type  : 'post',
-          url   : '{{ URL::to('cekcustomer') }}',
-          data  : {'search':$value},
-          success:function(data)
+          type      : 'post',
+          url       : '{{ URL::to('cekcustomer') }}',
+          dataType  : 'json',
+          data      : {'search':$value},
+          success   :function(data)
           {
-              console.log(data);
+            
+              // dataconv = JSON.parse(data);
+            $.each(data, function (i, id) { 
+              // var $dataString = JSON.stringify(data)
+              // console.log(data[0].name);
+              // alert(data[0].address);
 
+              $('#name').val(data[0].name);
+              /**
+               * Gender harus Kode
+              */
+              // $("#select option[value="+data[0].]").attr('selected', 'selected');
+              $('#email').val(data[0].email);
+            });
+              
           }
         });
       })
@@ -290,7 +304,7 @@
         // {
         // return (true)
         // }
-        // alert("Masukkan e-Mail Dengan Benar")
+        // alert("Masukkan e-Mail Dengan Ben0ar")
         // return (false)
         // }
 
