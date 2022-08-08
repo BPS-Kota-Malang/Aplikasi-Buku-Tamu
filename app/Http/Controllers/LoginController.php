@@ -10,31 +10,53 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('guest:admin',['except'=>'logout']);
+    }
     public function login()
     {
         if (Auth::check()) {
-            return redirect('dashboard');
+            return redirect('/dashboard');
         }else{
-            return view('v_login');
+            return view('Auth.login');
         }
     }
 
     public function actionlogin(Request $request)
     {
-        $data = [
-            'email' => $request->input('email'),
-            'password' => $request->input('password'),
-        ];
+        $credentials = $request->validate([
+            'email'=>'required|email|exists:admins',
+            'password'=>'required'
+        ]);
 
-        if (Auth::Attempt($data)) {
-            return view('dashboard');
-        }else{
-            Session::flash('error', 'Email Atau Password Salah');
-            return redirect('v_login');
+        if (Auth::guard('admin')->attempt($credentials, $request->remember)) {
+            $request->session()->regenerate();
+            return redirect()->intended(config('admin.prefix'));
         }
+
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ]);
+        // $data = $request->validate([
+        //     'email' => 'required|email:dns',
+        //     'password' => 'required'
+        // ]);
+
+        // if (Auth::Attempt($data)) {
+        //     $request->session()->regenerate();
+
+        //     return redirect()->intended('/dashboard');
+        // }
+        // return back()->with('loginError', 'Login Failed!');
+        // //     return view('dashboard');
+        // // }else{
+        // //     Session::flash('error', 'Email Atau Password Salah');
+        // //     return redirect('Auth.login');
+        // // }
     }
 
-    public function actionlogout()
+    public function logout()
     {
         Auth::logout();
         return redirect('login');

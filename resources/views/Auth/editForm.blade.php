@@ -24,6 +24,16 @@
                   <input type="text" class="form-control" name="password" id="email" aria-describedby="email" value="{{$pengguna->password}}">
                 </div>
 
+                <label for="admin">Role</label>
+          {{-- <input type="text" class="form-control" name="role" id="name" aria-describedby="role"> --}}
+                <div class="form-group">
+                    <select class="form-control select2bs4" style="width: 100%;">
+
+                        <option>Super admin</option>
+                        <option>Admin</option>
+                    </select>
+                </div>
+
                 <button type="submit" class="btn btn-success">Simpan</button>
               </form>
               <br>

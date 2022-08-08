@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -41,7 +42,7 @@ class UserController extends Controller
 
         $pengguna->name=$request->name;
         $pengguna->email=$request->email;
-        $pengguna->password=$request->password;
+        $pengguna->password=Hash::make($request->password);
         $pengguna->save();
 
         return redirect()->route('data-admin.index')->with('status', 'Data Admin Berhasil Disimpan');
@@ -56,7 +57,7 @@ class UserController extends Controller
     public function show($id)
     {
         $pengguna = User::find($id);
-        return view('Auth.detailForm', compact('pengguna')); 
+        return view('Auth.detailForm', compact('pengguna'));
     }
 
     /**

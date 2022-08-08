@@ -32,7 +32,7 @@ class GuestController extends Controller
         $categories = Category::all();
 
         return view('/index', compact('job','education','media','service','sub_categories','categories','purpose'));
-        return dd(Session::all()); 
+        return dd(Session::all());
         // $purpose = Purpose::all();
 
         // return view('/index', compact('job','education','media','service','sub_categories','purpose'));
