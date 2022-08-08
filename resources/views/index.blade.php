@@ -13,8 +13,8 @@
   <body>
     <form id="myForm" action="{{ url ('/simpan-bukutamu')}}" method="POST" autocomplete = "off" name="formInput">
         @csrf
-      <h1 id="judul" align = center>Buku Tamu</h1>
-      <h1 id="judul" align = center>Badan Pusat Statistik Kota Malang</h1>
+      <h1 id="judul" style="text-align: center">Buku Tamu</h1>
+      <h1 id="judul" style="text-align: center">Badan Pusat Statistik Kota Malang</h1>
 
       <div style="text-align:center;">
         <span class="step" id = "step-1">1</span>
@@ -30,7 +30,8 @@
         <div class="input-group">
           <label for="name" style="color:#000000">No Handphone</label>
             {{-- <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda"/> --}}
-            <input type="text" name="hp" id="hp" class="form-control" onkeyup="autofill()" placeholder="Silahkan isi no handphone anda" onkeypress="return event.charCode >= 48 && event.charCode <=57"/>
+            {{-- <input type="text" name="hp" id="hp" class="form-control" onkeyup="autofill()" placeholder="Silahkan isi no handphone anda" onkeypress="return event.charCode >= 48 && event.charCode <=57"/> --}}
+            <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda" onkeypress="return event.charCode >= 48 && event.charCode <=57"/>
           {{-- <label for="name" style="color:#000000">No Handphone</label>
             <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda"
             onkeypress="return event.charCode >= 48 && event.charCode <=57"/> --}}
@@ -58,7 +59,7 @@
 
          <div class="input-group">
             <label for="email" style="color:#000000">Email</label>
-            <input type="text" name="emailUser" id="emailUser" onchange="ValidateEmail()" placeholder="example@mail.com" class="form-control">
+            <input type="text" name="email" id="email" class="form-control">
         </div>
 
         <div class="input-group">
@@ -235,7 +236,7 @@
       }
 
 
-      $('#hp').on('keyup', function (){
+      $('#').on('keyup', function (){
 
         $value = $(this).val();
         // alert ($value);
@@ -283,15 +284,15 @@
         })
         });
 
-        function ValidateEmail(mail)
-        {
-        if (/mysite@ourearth.com/.test(emailUser))
-        {
-        return (true)
-        }
-        alert("Masukkan e-Mail Dengan Benar")
-        return (false)
-        }
+        // function ValidateEmail(mail)
+        // {
+        // if (/mysite@ourearth.com/.test(emailUser))
+        // {
+        // return (true)
+        // }
+        // alert("Masukkan e-Mail Dengan Benar")
+        // return (false)
+        // }
 
     </script>
   </body>
