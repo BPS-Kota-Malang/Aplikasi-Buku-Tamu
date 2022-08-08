@@ -17,16 +17,16 @@
       <h1 id="judul" style="text-align: center">Badan Pusat Statistik Kota Malang</h1>
 
       <div style="text-align:center;">
-        <span class="step" id = "step-1">1</span>
-        <span class="step" id = "step-2">2</span>
-        <span class="step" id = "step-3">3</span>
-        <span class="step" id = "step-4">4</span>
+        <span class="step" id = "step-1">1</span>&nbsp;&nbsp;
+        <span class="step" id = "step-2">2</span>&nbsp;&nbsp;
+        <span class="step" id = "step-3">3</span>&nbsp;&nbsp;
+        <span class="step" id = "step-4">4</span>&nbsp;&nbsp;
       </div>
       <br>
-      <h3>Step 1 - Informasi Pribadi</h3>
-      
+      <h3>Informasi Pribadi</h3>
+
       <div class="tab" id = "tab-1">
-        
+
         <div class="input-group">
           <label for="name" style="color:#000000">No Handphone</label>
             {{-- <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda"/> --}}
@@ -79,7 +79,7 @@
       </div>
 
       <div class="tab" id = "tab-2">
-        <h3>Step 2 - Riwayat</h3>
+        <h3>Riwayat</h3>
 
         <div class="input-group">
             <label for="institute" style="color:#000000">Nama instansi</label>
@@ -120,7 +120,7 @@
       </div>
 
       <div class="tab" id = "tab-3">
-        <h3>Step 3 - Pelayanan</h3>
+        <h3>Pelayanan</h3>
 
         <div class="input-group">
             <div class="form-group mb-3">
@@ -171,7 +171,7 @@
       </div>
 
       <div class="tab" id = "tab-4">
-        <h2>Step 4 - Tujuan</h2>
+        <h2>Tujuan</h2>
 
         <div class="input-group">
             <div class="form-group mb-3">
@@ -295,5 +295,7 @@
         // }
 
     </script>
-  </body>
+
+
+</body>
 </html>

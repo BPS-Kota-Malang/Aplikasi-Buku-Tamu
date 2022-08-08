@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html dir="ltr">
 
@@ -49,6 +48,21 @@
                         <div class="text-center">
 
                             <img src="{{ ('assets/img/icon.png') }}"  alt="wrapkit">
+
+                            {{-- @if (session()->has('success'))
+                            <div class="alert alert-success alert-dismissable fade show" role="alert">{{ senssion('success') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                            </button>
+                            </div>
+                            @endif
+
+                            @if (session()->has('loginError'))
+                            <div class="alert alert-danger alert-dismissable fade show" role="alert">
+                                {{ senssion('loginError') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                            </button>
+                            </div>
+                            @endif --}}
 
                         </div>
                         <h2 class="mt-3 text-center">Login</h2>

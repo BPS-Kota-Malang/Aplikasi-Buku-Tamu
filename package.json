@@ -16,6 +16,7 @@
         "vite": "^3.0.0"
     },
     "dependencies": {
-        "bootstrap-icons": "^1.9.1"
+        "bootstrap-icons": "^1.9.1",
+        "jquery": "^3.6.0"
     }
 }
