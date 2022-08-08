@@ -113,16 +113,37 @@ class GuestController extends Controller
         // $customer = Customer::where('hp', $request->hp)
         //                     ->get();
         $customer = DB::table('customer')
-                    ->where('hp', 'LIKE', '%', $request->hp ,'%')
+                    ->where('hp', '=', $request->search)
                     ->get();
 
-        // return $customer;
-        // console($request->hp);
-        // dd(DB::getQueryLog()); // Show results of log
-        return response()->json([
-            'customer'=> $customer,
-        ]);
+       
+        /**
+         * 
+         *  Return #1 plain response()
+         */
+        // return response()->json([
+        //     'customer'=> $customer,
+        // ]);
         
+        /**
+         * Return #2 make manual collection
+         */
+        // $response = [
+        //     'id'    = $customer->id,
+        //     'name'  = $customer->name,
+        //     'hp'    = $customer->hp,
+        // ];
 
+        // return response()->json($response);
+        
+         /**
+         * Return #3 make use toJson()
+         */
+        $customerArray = $customer->toArray();
+        // $customerJson = $customerArray->toJson();
+
+
+        // return $customerJson;
+        return $customerArray;
     }
 }
