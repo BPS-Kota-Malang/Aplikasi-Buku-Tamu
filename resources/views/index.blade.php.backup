@@ -5,7 +5,6 @@
     <title>Buku Tamu - BPS Kota Malang</title>
     <link rel="stylesheet" href="{{url('/form/css/style.css')}}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src={{ asset("/pengguna/assets/js/parsley.js")}}></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
@@ -30,23 +29,18 @@
 
         <div class="input-group">
           <label for="name" style="color:#000000">No Handphone</label>
-          <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda"
-            data-parsley-pattern="(\()?(\+62|62|0)(\d{2,3})?\)?[ .-]?\d{2,4}[ .-]?\d{2,4}[ .-]?\d{2,4}"
-            data-parsley-trigger="keyup"
-            required
-          />
-          @error('hp')
-              <div class="alert alert-danger">{{ $message }}</div>
-          @enderror
+            {{-- <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda"/> --}}
+            {{-- <input type="text" name="hp" id="hp" class="form-control" onkeyup="autofill()" placeholder="Silahkan isi no handphone anda" onkeypress="return event.charCode >= 48 && event.charCode <=57"/> --}}
+            <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda" onkeypress="return event.charCode >= 48 && event.charCode <=57"/>
+          {{-- <label for="name" style="color:#000000">No Handphone</label>
+            <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda"
+            onkeypress="return event.charCode >= 48 && event.charCode <=57"/> --}}
         </div>
 
         <div class="input-group">
             <label for="name" style="color:#000000">Nama Lengkap</label>
             <input type="text" name="name" id="name" placeholder="Silahkan isi nama anda"
-            data-parsley-pattern="/(^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$)/"
-            data-parsley-trigger="keyup"
-            required
-            />
+            onkeypress="return event.charCode < 48 || event.charCode  >57"/>
         </div>
 
         <div class="form-group mb-3">
@@ -205,10 +199,6 @@
     </form>
 
     <script type="text/javascript">
-
-    $(function(){
-      $("#myForm").parsley();
-    })
       // Default tab
       $(".tab").css("display", "none");
       $("#tab-1").css("display", "block");
