@@ -56,8 +56,14 @@ class FeedbackController extends Controller
      */
     public function store(Request $request)
     {
+        // $this->validate($request,[
+        //     'service'=>'required',
+        //     'facility'=>'required',
+        //     'dataqualities'=>'required',
+        //     'suggestions'=>'required|min:5|max:50',
+        // ]);
         // dd ($request->all());
-
+        
         $feedback = new Feedback();
 
 
@@ -110,6 +116,8 @@ class FeedbackController extends Controller
 
     public function saveFeedback(Request $request)
     {
+       
+        
         $service = $request->service;
         $facility = $request->facility;
         $dataqualities = $request->dataqualities;

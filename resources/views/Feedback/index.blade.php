@@ -83,19 +83,19 @@
                         </div>
                             <div class="form-check form-check-inline">
                                 <div class="rating">
-                                    <input class="form-check-input" type="radio" name="service" id="1" value="5">
+                                    <input class="form-check-input" type="radio" name="service" id="1" value="5" required>
                                     <label class="form-check-label" for="1"></label>
 
-                                    <input class="form-check-input" type="radio" name="service" id="2" value="4">
+                                    <input class="form-check-input" type="radio" name="service" id="2" value="4" required>
                                     <label class="form-check-label" for="2"></label>
 
-                                    <input class="form-check-input" type="radio" name="service" id="3" value="3">
+                                    <input class="form-check-input" type="radio" name="service" id="3" value="3" required>
                                     <label class="form-check-label" for="3"></label>
 
-                                    <input class="form-check-input" type="radio" name="service" id="4" value="2">
+                                    <input class="form-check-input" type="radio" name="service" id="4" value="2" required>
                                     <label class="form-check-label" for="4"></label>
 
-                                    <input class="form-check-input" type="radio" name="service" id="5" value="1">
+                                    <input class="form-check-input" type="radio" name="service" id="5" value="1" required>
                                     <label class="form-check-label" for="5"></label>
                                 </div>
                             </div>
@@ -106,21 +106,23 @@
                         </div>
                         <div class="form-check form-check-inline">
                             <div class="rating">
-                                <input class="form-check-input" type="radio" name="facility" id="6" value="5">
+                                <input class="form-check-input" type="radio" name="facility" id="6" value="5" required>
                                 <label class="form-check-label" for="6"></label>
 
-                                <input class="form-check-input" type="radio" name="facility" id="7" value="4">
+                                <input class="form-check-input" type="radio" name="facility" id="7" value="4" required>
                                 <label class="form-check-label" for="7"></label>
 
-                                 <input class="form-check-input" type="radio" name="facility" id="8" value="3">
+                                 <input class="form-check-input" type="radio" name="facility" id="8" value="3" required>
                                 <label class="form-check-label" for="8"></label>
 
-                                <input class="form-check-input" type="radio" name="facility" id="9" value="2">
+                                <input class="form-check-input" type="radio" name="facility" id="9" value="2" required>
                                 <label class="form-check-label" for="9"></label>
 
-                                 <input class="form-check-input" type="radio" name="facility" id="10" value="1">
-                                <label class="form-check-label" for="10"></label>
+                                 <input class="form-check-input" type="radio" name="facility" id="10" value="1" required>
+                                <label class="form-check-label" for="10"></label>  
+                                
                             </div>
+                            
                         </div>
                         </col-md-10>
                         <col-md-10>
@@ -129,29 +131,38 @@
                         </div>
                         <div class="form-check form-check-inline">
                             <div class="rating">
-                                <input class="form-check-input" type="radio" name="dataqualities" id="11" value="5">
+                                <input class="form-check-input" type="radio" name="dataqualities" id="11" value="5" required>
                                 <label class="form-check-label" for="11"></label>
 
-                                <input class="form-check-input" type="radio" name="dataqualities" id="12" value="4">
+                                <input class="form-check-input" type="radio" name="dataqualities" id="12" value="4" required>
                                 <label class="form-check-label" for="12"></label>
 
-                                <input class="form-check-input" type="radio" name="dataqualities" id="13" value="3">
+                                <input class="form-check-input" type="radio" name="dataqualities" id="13" value="3"required>
                                 <label class="form-check-label" for="13"></label>
 
-                                <input class="form-check-input" type="radio" name="dataqualities" id="14" value="2">
+                                <input class="form-check-input" type="radio" name="dataqualities" id="14" value="2" required>
                                 <label class="form-check-label" for="14"></label>
 
-                                <input class="form-check-input" type="radio" name="dataqualities" id="15" value="1">
+                                <input class="form-check-input" type="radio" name="dataqualities" id="15" value="1" required>
                                 <label class="form-check-label" for="15"></label>
-                            </div>
+                                
+                              </div>
                         </div>
                         </col-md-10>
 
                         <div class="form-group">
                             <label>Kritik dan Saran</label>
-                            <textarea name="suggestions" class="textarea form-control" id="suggestions" cols="40" rows="5" placeholder="Silahkan berikan kritik dan saran "></textarea>
+                            <textarea name="suggestions" class="textarea form-control" id="suggestions" cols="40" rows="5" placeholder="Silahkan berikan kritik dan saran " required></textarea>
+                            <div class="invalid-feedback">
+                              Please enter a message in the textarea.
+                            </div>
                         </div>
 
+                        {{-- @error('feedback')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror --}}
                       </div>
                       <div class="modal-button">
                         <input type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="Close">
@@ -161,17 +172,7 @@
                     </div>
                   </div>
                 </div>
-                <script type="text/javascript">
                 
-                    $("#btnmodal").click(
-                      function () {
-                        $("#feedbackmodal").show();
-                      }
-
-
-                    )
-
-                </script>
                 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
 
