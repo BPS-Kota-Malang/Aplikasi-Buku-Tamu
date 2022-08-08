@@ -261,7 +261,7 @@
               // console.log(data[0].name);
               // alert(data[0].address);
 
-              $('#name').val(data[0].name).attr('readonly', true).css('background-color' , '#DEDEDE');
+              $('#name').val(data[0].name).attr('readonly', true).css('background-color' , '#DEDEDE').attr('disabled', true);
               $("#gender option[value="+data[0].gender).attr('selected', 'true');
               $("#gender").attr('disabled', true);
               $('#email').val(data[0].email).attr('readonly', true).css('background-color' , '#DEDEDE');
@@ -269,9 +269,9 @@
               $('#age').val(data[0].age).attr('readonly', true).css('background-color' , '#DEDEDE');
               $('#institute').val(data[0].institute).attr('readonly', true).css('background-color' , '#DEDEDE');
               $('#nipnim').val(data[0].nipnim).attr('readonly', true).css('background-color' , '#DEDEDE');
-              $("#job option[value="+data[0].id_job).attr('selected', 'true');
+              $("#job option[value='"+data[0].id_job).attr('selected', 'true');
               $("#job").attr('disabled', true);
-              $("#education option[value="+data[0].id_education).attr('selected', 'true');
+              $("#education option[value='"+data[0].id_education).attr('selected', 'true');
               $("#education").attr('disabled', true);
             });
           }

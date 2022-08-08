@@ -56,6 +56,7 @@ class GuestController extends Controller
         // dd ($request->all());
 
         // Tahap 1 - 2
+
         $name   = $request->name;
         $hp = $request->hp;
         $email   = $request->email;
@@ -68,45 +69,73 @@ class GuestController extends Controller
         $education = $request->education;
         $purpose = $request->purpose;
         $sub_categories =$request->sub_categories;
+        
+        if (Customer::where('hp', $hp)->exist()){
+             /**
+             * Get ID Customer
+             */
+            
+            $idcustomer = Customer::where('hp', $hp)
+            ->value('id');
+            
+            /**
+             * Fetch request to data transaction
+             */
+            $transaction = new Transaction();
+            $transaction->id_customer =$idcustomer;
+            $transaction->id_media=$request->media;
+            $transaction->id_service=$request->service;
+            $transaction->id_purpose=$request->purpose;
+            $transaction->data=$request->data;
+            $transaction->id_sub_categories=$request->sub_categories;
+            $transaction->save();
+        } else {
+            $data = new Customer();
+            $data->name = $name;
+            $data->hp = $hp;
+            $data->gender= $gender;
+            $data->age= $age;
+            $data->nipnim= $nipnim;
+            $data->institute= $institute;
+            $data->email = $email;
+            $data->address = $address;
+            $data->id_job = $job;
+            $data->id_education = $education;
+            $data->save();
+            /**
+             * Get ID Customer
+             */
+            
+             $idcustomer = Customer::where('hp', $hp)
+                            ->value('id');
 
-        $data = new Customer();
-        $data->name = $name;
-        $data->hp = $hp;
-        $data->gender= $gender;
-        $data->age= $age;
-        $data->nipnim= $nipnim;
-        $data->institute= $institute;
-        $data->email = $email;
-        $data->address = $address;
-        $data->id_job = $job;
-        $data->id_education = $education;
-        $data->save();
+            /**
+             * Fetch request to data transaction
+             */
 
+            // $sub_categories = $request->sub_categories;
 
-       /**
-         * Get ID Customer
-         */
-        $idcustomer = Customer::where('name', $name)
-                    ->value('id');
-        /**
-         * Fetch request to data transaction
-         */
+            $transaction = new Transaction();
+            $transaction->id_customer =$idcustomer;
+            $transaction->id_media=$request->media;
+            $transaction->id_service=$request->service;
+            $transaction->id_purpose=$request->purpose;
+            $transaction->data=$request->data;
+            $transaction->id_sub_categories=$request->sub_categories;
+            $transaction->save();
 
-        // $sub_categories = $request->sub_categories;
+            Alert::success("Success", "Terimakasih  $name  Sudah menggunakan layanan kami");
+            return redirect('/pelanggan');
+        }
+        
+        
 
-        $transaction = new Transaction();
-        $transaction->id_customer =$idcustomer;
-        $transaction->id_media=$request->media;
-        $transaction->id_service=$request->service;
-        $transaction->id_purpose=$request->purpose;
-        $transaction->data=$request->data;
-        $transaction->id_sub_categories=$request->sub_categories;
-        $transaction->save();
-
-        Alert::success("Success", "Terimakasih  $name  Sudah menggunakan layanan kami");
-        return redirect('/pelanggan');
+       
+        
 
     }
+
+    
 
     public static function cekcustomer(Request $request){
         // DB::enableQueryLog();
