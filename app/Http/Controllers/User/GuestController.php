@@ -106,8 +106,10 @@ class GuestController extends Controller
 
     }
 
-    public function checkcustomer (){
+    public function cekcustomer(Request $request){
+        $customer = Customer::where('hp', $request->hp)
+                                -> get();
 
-        return 'berhasil';
+        return $customer;
     }
 }

@@ -13,7 +13,7 @@
           <input type="text" class="form-control" name="name" id="name" aria-describedby="name">
 
           <label for="admin">Email</label>
-          <input type="text" class="form-control" name="email" id="email" aria-describedby="email">
+          <input type="email" class="form-control" name="email" id="email" aria-describedby="email">
           <label for="admin">Password</label>
           <input type="password" class="form-control" name="password" id="password" aria-describedby="password">
           <label for="admin">Role</label>

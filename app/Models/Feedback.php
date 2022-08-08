@@ -10,7 +10,7 @@ class Feedback extends Model
     use HasFactory;
     protected $guarded=['id'];
     protected $table = "feedback";
-    protected $fillable = ['id_transaction','service','facility','dataqualities'];
+    protected $fillable = ['id_transaction','service','facility','dataqualities','suggestions'];
 
     public function Transaction(){
         return $this->belongsTo(Transaction::class, 'id_transaction');

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 01, 2022 at 06:30 AM
+-- Generation Time: Aug 04, 2022 at 10:22 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -20,6 +20,23 @@ SET time_zone = "+00:00";
 --
 -- Database: `buku_tamu`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admins`
+--
+
+CREATE TABLE `admins` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `role` enum('admin','editor','operator') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'operator',
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -70,8 +87,7 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`id`, `hp`, `name`, `gender`, `email`, `age`, `nipnim`, `institute`, `address`, `id_job`, `id_education`, `created_at`, `updated_at`) VALUES
-(117, '08123456721', 'Mutiara rahmanda tri rizkia', 'perempuan', 'mutiararizkia18@gmail.com', '22', '1941720189', 'Politeknik Negeri Malang', 'Jakarta', 1, 1, '2022-08-01 03:14:52', '2022-08-01 03:14:52'),
-(118, '08123456721', 'Darman', 'lakilaki', 'mutiararizkia18@gmail.com', 'aaaaaaaaaa', 'aaaaaaaaa', 'Politeknik Negeri Malang', 'aaaaaaaaaaaaaa', 1, 1, '2022-08-01 04:06:09', '2022-08-01 04:06:09');
+(144, '083848991656', 'Mutiara rahmanda tri rizkia', 'perempuan', 'mutiararahmanda18@gmail.com', '21', '1941720189', 'Politeknik Negeri Malang', 'Jakarta', 1, 1, '2022-08-04 00:58:00', '2022-08-04 00:58:00');
 
 -- --------------------------------------------------------
 
@@ -122,9 +138,18 @@ CREATE TABLE `feedback` (
   `service` int(11) NOT NULL,
   `facility` int(11) NOT NULL,
   `dataqualities` int(11) NOT NULL,
+  `suggestions` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`id`, `id_transaction`, `service`, `facility`, `dataqualities`, `suggestions`, `created_at`, `updated_at`) VALUES
+(2, 8, 5, 4, 4, 'ya', '2022-08-04 07:04:10', '2022-08-04 07:04:10'),
+(8, 8, 2, 2, 5, 'oooooo', '2022-08-04 08:16:03', '2022-08-04 08:16:03');
 
 -- --------------------------------------------------------
 
@@ -207,7 +232,15 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (23, '2022_07_26_081932_create_feedback_table', 5),
 (24, '2022_07_26_081933_create_feedback_table', 6),
 (25, '2022_07_26_081934_create_feedback_table', 7),
-(27, '2022_07_26_081935_create_feedback_table', 8);
+(27, '2022_07_26_081935_create_feedback_table', 8),
+(28, '2022_07_26_081937_create_feedback_table', 9),
+(29, '2022_07_30_074154_create_transactions_table', 10),
+(30, '2022_07_26_081938_create_feedback_table', 11),
+(31, '2022_07_30_074155_create_transactions_table', 11),
+(32, '2022_07_30_081931_create_feedback_table', 12),
+(33, '2022_08_02_091037_create_admins_table', 12),
+(34, '2022_08_03_204932_delete_column_at_transactions_table', 13),
+(35, '2022_07_30_081932_create_feedback_table', 14);
 
 -- --------------------------------------------------------
 
@@ -324,8 +357,7 @@ CREATE TABLE `transactions` (
 --
 
 INSERT INTO `transactions` (`id`, `id_customer`, `id_media`, `id_service`, `id_purpose`, `data`, `id_sub_categories`, `created_at`, `updated_at`) VALUES
-(1, 117, 1, 1, 1, 'fbffbb', 1, '2022-08-01 03:14:52', '2022-08-01 03:14:52'),
-(2, 117, 1, 1, 1, 'asdasdasdasdas', 1, '2022-08-01 04:06:09', '2022-08-01 04:06:09');
+(8, 144, 2, 1, 1, 'fvfvfvf', 1, '2022-08-04 00:58:00', '2022-08-04 00:58:00');
 
 -- --------------------------------------------------------
 
@@ -354,6 +386,13 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `admins_email_unique` (`email`);
 
 --
 -- Indexes for table `categories`
@@ -463,6 +502,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `admins`
+--
+ALTER TABLE `admins`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
@@ -472,7 +517,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
 
 --
 -- AUTO_INCREMENT for table `education`
@@ -490,7 +535,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `job`
@@ -508,7 +553,7 @@ ALTER TABLE `media`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -538,7 +583,7 @@ ALTER TABLE `sub_categories`
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`

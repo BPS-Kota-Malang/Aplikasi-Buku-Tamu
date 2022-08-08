@@ -25,7 +25,7 @@
         <div class="menu">
               <ul>
                   <li><a href="pelanggan">Home</a></li>
-                  <li><a href="#courses">Feedback</a></li>
+                  <li><a href="feedback">Feedback</a></li>
                   <li><a href="about">About</a></li>
                   <li><a href="contact">Contact</a></li>
               </ul>

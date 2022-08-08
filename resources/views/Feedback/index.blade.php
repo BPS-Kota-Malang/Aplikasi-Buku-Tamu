@@ -11,55 +11,52 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/cover/">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link href="assets/css/cover.css" rel="stylesheet">
+
   </head>
 
 <body class="d-flex h-100 ">
-
-
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-    <header class="mb-5">
-      <div>
-        <h3 class="float-md-start mb-0">FeedBack</h3>
-        <nav class="nav nav-masthead justify-content-center float-md-end">
 
-        </nav>
-      </div>
-    </header>
+    <div class="px-3">
+        <header class="mb-5">
+            <div>
+                <img src="https://img.icons8.com/fluency/48/000000/feedback.png" style="float:left"/>
+                <h1><b>FeedBack</b></h1>
+            </div>
+        </header>
+        <p class="lead">Silahkan Berikan Feedback bagi perusahaan kami agar menjadi lebih baik lagi kedepannya</p>
 
-    <main class="px-3">
-      <h1>Selamat Datang</h1>
-      <p class="lead">silahkan mengisi penilaian anda pada tombol feedback pada tabel sebelah kanan
-                      kami mengucapkan terima kasih telah menggunakan layanan kami</p>
-      <p class="lead">
-      <div class="form-step form-step-active">
-        <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">no</th>
-                <th scope="col">nama</th>
-                <th scope="col">data layanan</th>
-                <th scope="col">action</th>
-              </tr>
-            </thead>
-            <tbody>
-              @foreach ($transaction as $tran)
-              <tr>
-                <td scope="row">{{ $tran->id }}</td>
-                <td>{{ $tran->customer->name }}</td>
-                <td>{{ $tran->data}}</td>
-                <td>
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-sm feedbackBtn btn-primary" data-toggle="modal">
-                  Update
-                </button>
-              </td>
-            </tr>
-            @endforeach
-          </tbody>
-        </table>
+        <div class="form-step form-step-active">
+            <div id="formFeedback">
+                <table class="table table-striped text-center">
+                    <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Data Layanan</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach ($transaction as $tran)
+                    <tr>
+                        <td scope="row">{{ $tran->id }}</td>
+                        <td>{{ $tran->customer->name }}</td>
+                        <td>{{ $tran->data}}</td>
+                        <td>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-sm feedbackBtn btn-primary" data-toggle="modal">
+                        Update
+                        </button>
+                    </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+                </table>
 
                 <!-- Modal -->
                 <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -77,93 +74,86 @@
                         <div class="col-md-8">
                           <h6 id="transactionID"></h6>
                         </div>
-                        <div class="col-md-8">
-                          <label>Pelayanan</label>
+                        <div>
+                          <label>Apakah anda puas dengan pelayanan yang kami berikan?</label>
+                        </div>
+                            <div class="form-check form-check-inline">
+                                <div class="rating">
+                                    <input class="form-check-input" type="radio" name="service" id="1" value="5">
+                                    <label class="form-check-label" for="1"></label>
+
+                                    <input class="form-check-input" type="radio" name="service" id="2" value="4">
+                                    <label class="form-check-label" for="2"></label>
+
+                                    <input class="form-check-input" type="radio" name="service" id="3" value="3">
+                                    <label class="form-check-label" for="3"></label>
+
+                                    <input class="form-check-input" type="radio" name="service" id="4" value="2">
+                                    <label class="form-check-label" for="4"></label>
+
+                                    <input class="form-check-input" type="radio" name="service" id="5" value="1">
+                                    <label class="form-check-label" for="5"></label>
+                                </div>
+                            </div>
+                        </col-md-10>
+                        <col-md-10>
+                        <div>
+                          <label>Apakah anda puas dengan sarana dan fasilitas yang kami sediakan?</label>
                         </div>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="service" id="1" value="1">
-                          <label class="form-check-label" for="1">1</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="service" id="2" value="2">
-                          <label class="form-check-label" for="2">2</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="service" id="3" value="3">
-                          <label class="form-check-label" for="3">3</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="service" id="4" value="4">
-                          <label class="form-check-label" for="4">4</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="service" id="5" value="5">
-                          <label class="form-check-label" for="5">5</label>
+                            <div class="rating">
+                                <input class="form-check-input" type="radio" name="facility" id="6" value="5">
+                                <label class="form-check-label" for="6"></label>
+
+                                <input class="form-check-input" type="radio" name="facility" id="7" value="4">
+                                <label class="form-check-label" for="7"></label>
+
+                                 <input class="form-check-input" type="radio" name="facility" id="8" value="3">
+                                <label class="form-check-label" for="8"></label>
+
+                                <input class="form-check-input" type="radio" name="facility" id="9" value="2">
+                                <label class="form-check-label" for="9"></label>
+
+                                 <input class="form-check-input" type="radio" name="facility" id="10" value="1">
+                                <label class="form-check-label" for="10"></label>
+                            </div>
                         </div>
                         </col-md-10>
                         <col-md-10>
-                         <br><br>
-                        <div class="col-md-8">
-                          <label>Sarana dan Prasarana</label>
+                        <div>
+                          <label>Apakah anda puas dengan kualitas data yang kami berikan?</label>
                         </div>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="facility" id="1" value="1">
-                          <label class="form-check-label" for="1">1</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="facility" id="2" value="2">
-                          <label class="form-check-label" for="2">2</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="facility" id="3" value="3">
-                          <label class="form-check-label" for="3">3</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="facility" id="4" value="4">
-                          <label class="form-check-label" for="4">4</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="facility" id="5" value="5">
-                          <label class="form-check-label" for="5">5</label>
+                            <div class="rating">
+                                <input class="form-check-input" type="radio" name="dataqualities" id="11" value="5">
+                                <label class="form-check-label" for="11"></label>
+
+                                <input class="form-check-input" type="radio" name="dataqualities" id="12" value="4">
+                                <label class="form-check-label" for="12"></label>
+
+                                <input class="form-check-input" type="radio" name="dataqualities" id="13" value="3">
+                                <label class="form-check-label" for="13"></label>
+
+                                <input class="form-check-input" type="radio" name="dataqualities" id="14" value="2">
+                                <label class="form-check-label" for="14"></label>
+
+                                <input class="form-check-input" type="radio" name="dataqualities" id="15" value="1">
+                                <label class="form-check-label" for="15"></label>
+                            </div>
                         </div>
                         </col-md-10>
-                        <col-md-10>
-                        <br><br>
-                        <div class="col-md-8">
-                          <label>Kualitas Data</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="dataqualities" id="1" value="1">
-                          <label class="form-check-label" for="1">1</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="dataqualities" id="2" value="2">
-                          <label class="form-check-label" for="2">2</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="dataqualities" id="3" value="3">
-                          <label class="form-check-label" for="3">3</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="dataqualities" id="4" value="4">
-                          <label class="form-check-label" for="4">4</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="dataqualities" id="5" value="5">
-                          <label class="form-check-label" for="5">5</label>
-                        </div>
-                        </col-md-10>
-                         <br><br>
+
                         <div class="form-group">
                             <label>Kritik dan Saran</label>
-                            <textarea name="description" class="textarea form-control" id="description" cols="40" rows="5" placeholder="Silahkan berikan kritik dan saran "></textarea>
+                            <textarea name="suggestions" class="textarea form-control" id="suggestions" cols="40" rows="5" placeholder="Silahkan berikan kritik dan saran "></textarea>
                         </div>
 
                       </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <div class="modal-button">
+                        <input type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="Close">
                         <input class="btn btn-primary" type="submit" value="Submit">
                       </div>
+                      @include('sweetalert::alert')
                     </div>
                   </div>
                 </div>
@@ -184,24 +174,13 @@
                             }).get();
 
                             $(".modal-body #id").val( data[0] );
-
-                            alert(
-                            "id : " + data[0] + "\n"
-                            + "Nama :" + data[1] + "\n"
-                            + "Data Layanan :" + data[2]
-                            );
                         });
                     });
                 </script>
-
-
-          <!-- Button trigger modal -->
-    </main>
-
-
+            </div>
+        </div>
+    </div>
   </div>
-
-
 </body>
 
 

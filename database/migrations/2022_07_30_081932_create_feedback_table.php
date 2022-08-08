@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('service');
             $table->integer('facility');
             $table->integer('dataqualities');
+            $table->string('suggestions');
             $table->timestamps();
         });
     }

@@ -37,7 +37,7 @@ class DashboardController extends Controller
         $magister = Customer::where('id_education', '=', 6)->count();
         $doktor = Customer::where('id_education', '=', 7)->count();
 
-        $service = Transaction::count();
+        $service = Service::count();
         $service1 = Transaction::where('id_service', '=', 4)->count();
         $service2 = Transaction::where('id_service', '=', 5)->count();
         $service3 = Transaction::where('id_service', '=', 6)->count();
