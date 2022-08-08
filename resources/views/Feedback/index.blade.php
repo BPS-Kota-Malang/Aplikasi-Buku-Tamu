@@ -12,9 +12,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link href="assets/css/cover.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
   </head>
 
@@ -49,9 +50,12 @@
                         <td>{{ $tran->data}}</td>
                         <td>
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-sm feedbackBtn btn-primary" data-toggle="modal">
-                        Update
+                        <button type="button" id="btnmodal" class="btn btn-sm feedbackBtn btn-primary" data-toggle="modal">
+                        submit
                         </button>
+                        {{-- @if ()
+                          
+                        @endif --}}
                     </td>
                     </tr>
                     @endforeach
@@ -157,7 +161,17 @@
                     </div>
                   </div>
                 </div>
+                <script type="text/javascript">
+                
+                    $("#btnmodal").click(
+                      function () {
+                        $("#feedbackmodal").show();
+                      }
 
+
+                    )
+
+                </script>
                 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
 
