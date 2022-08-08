@@ -45,7 +45,7 @@
 
         <div class="form-group mb-3">
             <label class="gender" for="gender" style="color:#000000">Jenis Kelamin</label>
-            <select class="custom-select my-1 mr-sm-2" name="gender" id="inlineFormCustomSelectPref"  required>
+            <select class="custom-select my-1 mr-sm-2" name="gender" id="gender"  required>
             <option selected="false" disabled="disabled" >Silahkan Pilih Jenis Kelamin
             <option value="lakilaki">Pria</option>
             <option value="perempuan">Wanita</option>
@@ -95,7 +95,7 @@
 
         <div class="form-group mb-3">
             <label class="label" for="job" style="color:#000000">Pekerjaan</label>
-            <select class="custom-select my-1 mr-sm-2" name="job" id="inlineFormCustomSelectPref" required>
+            <select class="custom-select my-1 mr-sm-2" name="job" id="job" required>
                 <option selected="false" disabled="disabled">Silahkan Pilih Pekerjaan</option>
                 @foreach ($job as $p)
                 <option value="{{ $p->id }}">{{$p->job_type}}</option>
@@ -105,7 +105,7 @@
 
         <div class="form-group mb-3">
             <label class="label" for="education" style="color:#000000">Pendidikan</label>
-            <select class="custom-select my-1 mr-sm-2" name="education" id="inlineFormCustomSelectPref" required>
+            <select class="custom-select my-1 mr-sm-2" name="education" id="education" required>
                 <option selected="false" disabled="disabled">Silahkan Pilih Pendidikan</option>
                 @foreach ($education as $p)
                 <option value="{{ $p->id }}">{{$p->education_type}}</option>
@@ -261,14 +261,19 @@
               // console.log(data[0].name);
               // alert(data[0].address);
 
-              $('#name').val(data[0].name);
-              /**
-               * Gender harus Kode
-              */
-              // $("#select option[value="+data[0].]").attr('selected', 'selected');
-              $('#email').val(data[0].email);
+              $('#name').val(data[0].name).attr('readonly', true).css('background-color' , '#DEDEDE');
+              $("#gender option[value="+data[0].gender).attr('selected', 'true');
+              $("#gender").attr('disabled', true);
+              $('#email').val(data[0].email).attr('readonly', true).css('background-color' , '#DEDEDE');
+              $('#address').val(data[0].address).attr('readonly', true).css('background-color' , '#DEDEDE');
+              $('#age').val(data[0].age).attr('readonly', true).css('background-color' , '#DEDEDE');
+              $('#institute').val(data[0].institute).attr('readonly', true).css('background-color' , '#DEDEDE');
+              $('#nipnim').val(data[0].nipnim).attr('readonly', true).css('background-color' , '#DEDEDE');
+              $("#job option[value="+data[0].id_job).attr('selected', 'true');
+              $("#job").attr('disabled', true);
+              $("#education option[value="+data[0].id_education).attr('selected', 'true');
+              $("#education").attr('disabled', true);
             });
-              
           }
         });
       })
