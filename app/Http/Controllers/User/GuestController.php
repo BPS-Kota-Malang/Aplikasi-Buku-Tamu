@@ -127,105 +127,92 @@ class GuestController extends Controller
     }
 
     public function saveGuest(Request $request){
-
-        // 
-        //     'institute' => 'required|min:10',
-        //     'nipnim' => 'required|min:9',
-        //     'purpose' => 'required|min:8',
-        //     'data' => 'required|min:5',
-
-        // ]);
-        // dd ($request->all());
-        
         /**
          * Validate - Laravel Basic - bimasakti.kr
-         * #1 Define validate
+         * #1 Define validate Submit Button
          */
-        // $validated = $request->validate([
-        //     'hp' => 'required|min:10',
-        //     'name' => 'required|min:5',
-        //     'email' => 'required|email|max:255|unique:users',
-        //     'address' => 'required|min:5',
-        //     'age' => 'required|min:1|max:2',
-        //     'institute' => 'required|min:10',
-        //     'nipnim' => 'required|min:9',
-        //     'purpose' => 'required|min:8',
-        //     'data' => 'required|min:5',
-        // ]);
-
-
-        $name   = $request->name;
-        $hp = $request->hp;
-        $email   = $request->email;
-        $address = $request->address;
-        $job  = $request->job;
-        $gender = $request->gender;
-        $age = $request->age;
-        $nipnim= $request->nipnim;
-        $institute= $request->institute;
-        $education = $request->education;
-        $purpose = $request->purpose;
-        $sub_categories =$request->sub_categories;
+        $validator = Validator::make($request->all(), [
+            'purpose' => 'required|min:1',
+            'data' => 'required|min:25',
+        ]);
         
-        if (Customer::where('hp', $hp)->exists()){
-             /**
-             * Get ID Customer
-             */
-            
-            $idcustomer = Customer::where('hp', $hp)
-            ->value('id');
-            
-            /**
-             * Fetch request to data transaction
-             */
-            $transaction = new Transaction();
-            $transaction->id_customer =$idcustomer;
-            $transaction->id_media=$request->media;
-            $transaction->id_service=$request->service;
-            $transaction->id_purpose=$request->purpose;
-            $transaction->data=$request->data;
-            $transaction->id_sub_categories=$request->sub_categories;
-            $transaction->save();
-        } else {
-            /**
-             * Add a New Customer
-             */
-            $data = new Customer();
-            $data->name = $name;
-            $data->hp = $hp;
-            $data->gender= $gender;
-            $data->age= $age;
-            $data->nipnim= $nipnim;
-            $data->institute= $institute;
-            $data->email = $email;
-            $data->address = $address;
-            $data->id_job = $job;
-            $data->id_education = $education;
-            $data->save();
+        if($validator->passes()){
+            $name   = $request->name;
+            $hp = $request->hp;
+            $email   = $request->email;
+            $address = $request->address;
+            $job  = $request->job;
+            $gender = $request->gender;
+            $age = $request->age;
+            $nipnim= $request->nipnim;
+            $institute= $request->institute;
+            $education = $request->education;
+            $purpose = $request->purpose;
+            $sub_categories =$request->sub_categories;
 
-
-            /**
-             * Get ID Customer
-             */
-            
-            $idcustomer = Customer::where('hp', $hp)
-                            ->value('id');
-
-            /**
-             * Fetch request to data transaction
-             */
-
-            $transaction = new Transaction();
-            $transaction->id_customer =$idcustomer;
-            $transaction->id_media=$request->media;
-            $transaction->id_service=$request->service;
-            $transaction->id_purpose=$request->purpose;
-            $transaction->data=$request->data;
-            $transaction->id_sub_categories=$request->sub_categories;
-            $transaction->save();
-
-            Alert::success("Success", "Terimakasih  $name  Sudah menggunakan layanan kami");
-            return redirect('/pelanggan');
+            if (Customer::where('hp', $hp)->exists()){
+                /**
+                * Get ID Customer
+                */
+               
+               $idcustomer = Customer::where('hp', $hp)
+               ->value('id');
+               
+               /**
+                * Fetch request to data transaction
+                */
+               $transaction = new Transaction();
+               $transaction->id_customer =$idcustomer;
+               $transaction->id_media=$request->media;
+               $transaction->id_service=$request->service;
+               $transaction->id_purpose=$request->purpose;
+               $transaction->data=$request->data;
+               $transaction->id_sub_categories=$request->sub_categories;
+               $transaction->save();
+   
+               Alert::success("Success", "Terimakasih  $name  Sudah menggunakan layanan kami");
+               return redirect('/pelanggan');
+           } else {
+               /**
+                * Add a New Customer
+                */
+               $data = new Customer();
+               $data->name = $name;
+               $data->hp = $hp;
+               $data->gender= $gender;
+               $data->age= $age;
+               $data->nipnim= $nipnim;
+               $data->institute= $institute;
+               $data->email = $email;
+               $data->address = $address;
+               $data->id_job = $job;
+               $data->id_education = $education;
+               $data->save();
+   
+   
+               /**
+                * Get ID Customer
+                */
+               
+               $idcustomer = Customer::where('hp', $hp)
+                               ->value('id');
+   
+               /**
+                * Fetch request to data transaction
+                */
+   
+               $transaction = new Transaction();
+               $transaction->id_customer =$idcustomer;
+               $transaction->id_media=$request->media;
+               $transaction->id_service=$request->service;
+               $transaction->id_purpose=$request->purpose;
+               $transaction->data=$request->data;
+               $transaction->id_sub_categories=$request->sub_categories;
+               $transaction->save();
+   
+               Alert::success("Success", "Terimakasih  $name  Sudah menggunakan layanan kami");
+               return redirect('/pelanggan');
+           }
         }
     }
 

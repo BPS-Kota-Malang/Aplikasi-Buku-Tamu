@@ -186,7 +186,7 @@
         <div class="input-group">
             <div class="form-group mb-3">
                 <label class="label" for="purpose" style="color:#000000">Tujuan</label>
-                <select class="custom-select my-1 mr-sm-2" name="purpose" id="purpose" required>
+                <select class="custom-select my-1 mr-sm-2" name="purpose" id="purpose">
                 <option selected="false" disabled="disabled">Silahkan Pilih Tujuan</option>
                 @foreach ($purpose as $p)
                 <option value="{{ $p->id }}">{{$p->purpose_type}}</option>
@@ -413,17 +413,6 @@
         }
         })
         });
-
-        // function ValidateEmail(mail)
-        // {
-        // if (/mysite@ourearth.com/.test(emailUser))
-        // {
-        // return (true)
-        // }
-        // alert("Masukkan e-Mail Dengan Ben0ar")
-        // return (false)
-        // }
-
     </script>
 
 
