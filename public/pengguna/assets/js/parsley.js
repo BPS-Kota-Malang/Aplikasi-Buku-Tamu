@@ -2382,29 +2382,29 @@
 
   // This is included with the Parsley library itself,
   Parsley.addMessages('en', {
-    defaultMessage: "This value seems to be invalid.",
+    defaultMessage: "Nilai ini tampaknya tidak valid.",
     type: {
-      email: "This value should be a valid email.",
-      url: "This value should be a valid url.",
-      number: "This value should be a valid number.",
-      integer: "This value should be a valid integer.",
-      digits: "This value should be digits.",
-      alphanum: "This value should be alphanumeric."
+      email: "Nilai ini harus berupa email yang valid.",
+      url: "Nilai ini harus berupa url yang valid.",
+      number: "Nilai ini harus berupa angka yang valid.",
+      integer: "Nilai ini harus berupa bilangan bulat yang valid.",
+      digits: "Nilai ini harus berupa angka.",
+      alphanum: "Nilai ini harus berupa alfanumerik."
     },
-    notblank: "This value should not be blank.",
-    required: "This value is required.",
-    pattern: "This value seems to be invalid.",
-    min: "This value should be greater than or equal to %s.",
-    max: "This value should be lower than or equal to %s.",
-    range: "This value should be between %s and %s.",
-    minlength: "This value is too short. It should have %s characters or more.",
-    maxlength: "This value is too long. It should have %s characters or fewer.",
-    length: "This value length is invalid. It should be between %s and %s characters long.",
-    mincheck: "You must select at least %s choices.",
-    maxcheck: "You must select %s choices or fewer.",
-    check: "You must select between %s and %s choices.",
-    equalto: "This value should be the same.",
-    euvatin: "It's not a valid VAT Identification Number."
+    notblank: "Nilai ini wajib diisi.",
+    required: "Nilai ini diperlukan",
+    pattern: "Nilai ini tampaknya tidak valid.",
+    min: "Nilai ini harus lebih besar dari atau sama dengan %s.",
+    max: "Nilai ini harus lebih rendah dari atau sama dengan %s.",
+    range: "Nilai ini harus antara %s dan %s.",
+    minlength: "Nilai ini terlalu pendek. Ini harus memiliki %s karakter atau lebih.",
+    maxlength: "Nilai ini terlalu panjang. Ini harus memiliki %s karakter atau kurang.",
+    length: "Panjang nilai ini tidak valid. Panjangnya harus antara %s sampai %s karakter.",
+    mincheck: "Anda harus memilih setidaknya %s pilihan.",
+    maxcheck: "Anda harus memilih %s pilihan atau kurang.",
+    check: "Anda harus memilih antara %s dan %s pilihan.",
+    equalto: "Nilai ini harus sama.",
+    euvatin: "Ini bukan Nomor Pokok PPN yang valid."
   });
   Parsley.setLocale('en');
 
