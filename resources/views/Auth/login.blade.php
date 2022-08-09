@@ -47,7 +47,7 @@
                     <div class="p-3">
                         <div class="text-center">
 
-                            <img src="{{ ('assets/img/icon.png') }}"  alt="wrapkit">
+                            <img src="{{ asset('assets/img/icon.png') }}"  alt="wrapkit">
 
                             {{-- @if (session()->has('success'))
                             <div class="alert alert-success alert-dismissable fade show" role="alert">{{ senssion('success') }}
@@ -119,10 +119,10 @@
     <!-- ============================================================== -->
     <!-- All Required js -->
     <!-- ============================================================== -->
-    <script src="assets/libs/jquery/dist/jquery.min.js "></script>
+    <script src="{{ asset('assets/libs/jquery/dist/jquery.min.js') }} "></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="assets/libs/popper.js/dist/umd/popper.min.js "></script>
-    <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js "></script>
+    <script src="{{ asset('assets/libs/popper.js/dist/umd/popper.min.js.map') }} "></script>
+    <script src="{{ asset('assets/libs/bootstrap/dist/js/bootstrap.min.js ') }}"></script>
     <!-- ============================================================== -->
     <!-- This page plugin js -->
     <!-- ============================================================== -->

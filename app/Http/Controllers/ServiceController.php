@@ -7,6 +7,11 @@ use App\Models\Service;
 
 class ServiceController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -54,7 +59,7 @@ class ServiceController extends Controller
     public function show($id)
     {
         $service = Service::find($id);
-        return view('Service.detailForm', compact('service'));  
+        return view('Service.detailForm', compact('service'));
     }
 
     /**
