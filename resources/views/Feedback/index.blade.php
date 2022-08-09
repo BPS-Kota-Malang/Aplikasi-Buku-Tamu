@@ -82,20 +82,20 @@
                           <label>Apakah anda puas dengan pelayanan yang kami berikan?</label>
                         </div>
                             <div class="form-check form-check-inline">
-                                <div class="rating"required>
-                                    <input class="form-check-input" type="radio" name="service" id="1" value="5" required>
+                                <div class="rating">
+                                    <input class="form-check-input" type="radio" name="service" id="1" value="5" >
                                     <label class="form-check-label" for="1"></label>
 
-                                    <input class="form-check-input" type="radio" name="service" id="2" value="4" required>
+                                    <input class="form-check-input" type="radio" name="service" id="2" value="4" >
                                     <label class="form-check-label" for="2"></label>
 
-                                    <input class="form-check-input" type="radio" name="service" id="3" value="3" required>
+                                    <input class="form-check-input" type="radio" name="service" id="3" value="3" >
                                     <label class="form-check-label" for="3"></label>
 
-                                    <input class="form-check-input" type="radio" name="service" id="4" value="2" required>
+                                    <input class="form-check-input" type="radio" name="service" id="4" value="2" >
                                     <label class="form-check-label" for="4"></label>
 
-                                    <input class="form-check-input" type="radio" name="service" id="5" value="1" required>
+                                    <input class="form-check-input" type="radio" name="service" id="5" value="1" >
                                     <label class="form-check-label" for="5"></label>
                                 </div>
                             </div>
@@ -105,20 +105,20 @@
                           <label>Apakah anda puas dengan sarana dan fasilitas yang kami sediakan?</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <div class="rating" required>
-                                <input class="form-check-input" type="radio" name="facility" id="6" value="5" required>
+                            <div class="rating" >
+                                <input class="form-check-input" type="radio" name="facility" id="6" value="5" >
                                 <label class="form-check-label" for="6"></label>
 
-                                <input class="form-check-input" type="radio" name="facility" id="7" value="4" required>
+                                <input class="form-check-input" type="radio" name="facility" id="7" value="4" >
                                 <label class="form-check-label" for="7"></label>
 
-                                 <input class="form-check-input" type="radio" name="facility" id="8" value="3" required>
+                                 <input class="form-check-input" type="radio" name="facility" id="8" value="3" >
                                 <label class="form-check-label" for="8"></label>
 
-                                <input class="form-check-input" type="radio" name="facility" id="9" value="2" required>
+                                <input class="form-check-input" type="radio" name="facility" id="9" value="2" >
                                 <label class="form-check-label" for="9"></label>
 
-                                 <input class="form-check-input" type="radio" name="facility" id="10" value="1" required>
+                                 <input class="form-check-input" type="radio" name="facility" id="10" value="1" >
                                 <label class="form-check-label" for="10"></label>  
                                 
                             </div>
@@ -130,20 +130,20 @@
                           <label>Apakah anda puas dengan kualitas data yang kami berikan?</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <div class="rating"required>
-                                <input class="form-check-input" type="radio" name="dataqualities" id="11" value="5" required>
+                            <div class="rating">
+                                <input class="form-check-input" type="radio" name="dataqualities" id="11" value="5" >
                                 <label class="form-check-label" for="11"></label>
 
-                                <input class="form-check-input" type="radio" name="dataqualities" id="12" value="4" required>
+                                <input class="form-check-input" type="radio" name="dataqualities" id="12" value="4" >
                                 <label class="form-check-label" for="12"></label>
 
-                                <input class="form-check-input" type="radio" name="dataqualities" id="13" value="3" required>
+                                <input class="form-check-input" type="radio" name="dataqualities" id="13" value="3" >
                                 <label class="form-check-label" for="13"></label>
 
-                                <input class="form-check-input" type="radio" name="dataqualities" id="14" value="2" required>
+                                <input class="form-check-input" type="radio" name="dataqualities" id="14" value="2" >
                                 <label class="form-check-label" for="14"></label>
 
-                                <input class="form-check-input" type="radio" name="dataqualities" id="15" value="1" required>
+                                <input class="form-check-input" type="radio" name="dataqualities" id="15" value="1" >
                                 <label class="form-check-label" for="15"></label>
                                 
                               </div>
@@ -152,7 +152,7 @@
 
                         <div class="form-group">
                             <label>Kritik dan Saran</label>
-                            <textarea name="suggestions" class="textarea form-control" id="suggestions" cols="40" rows="5" placeholder="Silahkan berikan kritik dan saran " required></textarea>
+                            <textarea name="suggestions" class="textarea form-control" id="suggestions" cols="40" rows="5" placeholder="Silahkan berikan kritik dan saran " ></textarea>
                             {{-- <div class="invalid-feedback">
                               Please enter a message in the textarea.
                             </div> --}}
