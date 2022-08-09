@@ -82,7 +82,7 @@
                           <label>Apakah anda puas dengan pelayanan yang kami berikan?</label>
                         </div>
                             <div class="form-check form-check-inline">
-                                <div class="rating">
+                                <div class="rating"required>
                                     <input class="form-check-input" type="radio" name="service" id="1" value="5" required>
                                     <label class="form-check-label" for="1"></label>
 
@@ -105,7 +105,7 @@
                           <label>Apakah anda puas dengan sarana dan fasilitas yang kami sediakan?</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <div class="rating">
+                            <div class="rating" required>
                                 <input class="form-check-input" type="radio" name="facility" id="6" value="5" required>
                                 <label class="form-check-label" for="6"></label>
 
@@ -130,14 +130,14 @@
                           <label>Apakah anda puas dengan kualitas data yang kami berikan?</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <div class="rating">
+                            <div class="rating"required>
                                 <input class="form-check-input" type="radio" name="dataqualities" id="11" value="5" required>
                                 <label class="form-check-label" for="11"></label>
 
                                 <input class="form-check-input" type="radio" name="dataqualities" id="12" value="4" required>
                                 <label class="form-check-label" for="12"></label>
 
-                                <input class="form-check-input" type="radio" name="dataqualities" id="13" value="3"required>
+                                <input class="form-check-input" type="radio" name="dataqualities" id="13" value="3" required>
                                 <label class="form-check-label" for="13"></label>
 
                                 <input class="form-check-input" type="radio" name="dataqualities" id="14" value="2" required>
@@ -153,9 +153,9 @@
                         <div class="form-group">
                             <label>Kritik dan Saran</label>
                             <textarea name="suggestions" class="textarea form-control" id="suggestions" cols="40" rows="5" placeholder="Silahkan berikan kritik dan saran " required></textarea>
-                            <div class="invalid-feedback">
+                            {{-- <div class="invalid-feedback">
                               Please enter a message in the textarea.
-                            </div>
+                            </div> --}}
                         </div>
 
                         {{-- @error('feedback')

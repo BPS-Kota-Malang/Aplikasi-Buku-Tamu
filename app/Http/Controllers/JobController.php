@@ -7,6 +7,11 @@ use App\Models\Job;
 
 class JobController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -96,6 +101,6 @@ class JobController extends Controller
         $job = Job::find($id);
         $job->delete();
 
-        return redirect()->route('job.index')->with('status', 'Data Jenis Pekerjaan Berhasil Dihapus'); 
+        return redirect()->route('job.index')->with('status', 'Data Jenis Pekerjaan Berhasil Dihapus');
     }
 }

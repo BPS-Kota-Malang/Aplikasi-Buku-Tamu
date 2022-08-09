@@ -1,5 +1,7 @@
 @extends('app')
+
 @section('content')
+
 <div class="d-flex justify-content-center">
   <div class="card" style="width: 40%">
     <div class="card-header">
@@ -20,7 +22,7 @@
           {{-- <input type="text" class="form-control" name="role" id="name" aria-describedby="role"> --}}
                 <div class="form-group">
                     <select class="form-control select2bs4" style="width: 100%;">
-                        <option>Super admin</option>
+
                         <option>Admin</option>
                     </select>
                 </div>

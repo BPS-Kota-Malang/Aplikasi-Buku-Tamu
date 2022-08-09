@@ -66,7 +66,7 @@ Route::get('feedback', function()
 {
     return view ('feedback.in');
 });
-
+//Route::get('showtransaction/form', [FeedbackController::class, 'store']);
 Route::post('showtransaction', [FeedbackController::class, 'showTransaction'])->name('showtransaction');
 
 //Transaction Page
@@ -90,7 +90,7 @@ Route::group(['prefix'=>config('admin.prefix'),'namespace'=>'App\\Http\\Controll
     Route::post('/login', [LoginController::class, 'login']);
     Route::post('/logout',[LoginController::class, 'logout'])->name('admin.logout');
 
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     // Route::middleware(['auth:admin'])->group(function () {
 
     //     Route::view('/dashboard','dashboard')->name('dashboard');
