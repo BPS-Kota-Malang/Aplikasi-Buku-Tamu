@@ -33,7 +33,8 @@
           <label for="name" style="color:#000000">No Handphone</label>
             {{-- <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda"/> --}}
             {{-- <input type="text" name="hp" id="hp" class="form-control" onkeyup="autofill()" placeholder="Silahkan isi no handphone anda" onkeypress="return event.charCode >= 48 && event.charCode <=57"/> --}}
-            <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda" onkeypress="return event.charCode >= 48 && event.charCode <=57"/>
+            <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda"
+            />
           {{-- <label for="name" style="color:#000000">No Handphone</label>
             <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda"
             onkeypress="return event.charCode >= 48 && event.charCode <=57"/> --}}
@@ -42,7 +43,7 @@
         <div class="input-group">
             <label for="name" style="color:#000000">Nama Lengkap</label>
             <input type="text" name="name" id="name" placeholder="Silahkan isi nama anda"
-            onkeypress="return event.charCode < 48 || event.charCode  >57"/>
+            />
         </div>
 
         <div class="form-group mb-3">
@@ -72,7 +73,7 @@
         <div class="input-group">
             <label for="age" style="color:#000000">Usia</label>
             <input type="text" name="age" id="age" class="form-control" placeholder="Silahkan isi umur anda (contoh: 27)"
-            onkeypress="return event.charCode >= 48 && event.charCode <=57"/>
+            />
         </div>
 
         <div class="index-btn-wrapper">
@@ -206,25 +207,25 @@
       $("#tab-1").css("display", "block");
 
       function run(hideTab, showTab){
-        if(hideTab < showTab){ // If not press previous button
-          // Validation if press next button
-          var currentTab = 0;
-          x = $('#tab-'+hideTab);
-          y = $(x).find("input")
-          z = $(x).find("select")
-          for (i = 0; i < y.length; i++){
-            if (y[i].value == ""){
-              $(y[i]).css("background", "#ffdddd");
-              return false;
-            }
-          }
-          for (i = 0; i < z.length; i++){
-            if (z[i].value == ""){
-              $(z[i]).css("background", "#ffdddd");
-              return false;
-            }
-          }
-        }
+        // if(hideTab < showTab){ // If not press previous button
+        //   // Validation if press next button
+        //   var currentTab = 0;
+        //   x = $('#tab-'+hideTab);
+        //   y = $(x).find("input")
+        //   z = $(x).find("select")
+        //   for (i = 0; i < y.length; i++){
+        //     if (y[i].value == ""){
+        //       $(y[i]).css("background", "#ffdddd");
+        //       return false;
+        //     }
+        //   }
+        //   for (i = 0; i < z.length; i++){
+        //     if (z[i].value == ""){
+        //       $(z[i]).css("background", "#ffdddd");
+        //       return false;
+        //     }
+        //   }
+        // }
 
         // Progress bar
         for (i = 1; i < showTab; i++){
@@ -257,6 +258,15 @@
             'age'     : $("#age").val(),
           }
           break;
+        case 2:
+          var dataTab = {
+            'idtab'     : hideTab,
+            'institute' : $("#institute").val(),
+            'nipnim'    : $("#nipnim").val(),
+            'job'       : $("#job").val(), 
+            'education' : $("#education").val(),
+          }
+          break;
         }
         $.ajax({
           type      : 'post',
@@ -265,12 +275,28 @@
           data      : dataTab,
           success   : function (data){
                         if($.isEmptyObject(data.error)){
-                            alert(data.success);
-                            // Switch tab
-                            $("#tab-"+hideTab).css("display", "none");
-                            $("#tab-"+showTab).css("display", "block");
-                            $("input").css("background", "#fff");
+                          /**
+                           *  If untuk skip ke Tab Pelayanan
+                           */  
+                          if (data.status == 'Customer Telah terdaftar'){
+                              $("#tab-"+hideTab).css("display", "none");
+                              $("#tab-2").css("display", "none");
+                              $("#tab-3").css("display", "block");
+                              $("input").css("background", "#fff");
+                          }
+                           /**
+                             * Jika Berhasil Ditambahkan baru bisa ganti tab
+                            */
+                            alert(data.status);
+                        //     // Switch tab
+                        //     $("#tab-"+hideTab).css("display", "none");
+                        //     $("#tab-"+showTab).css("display", "block");
+                        //     $("input").css("background", "#fff");
                         }else{
+                          /**
+                           * Jika Gagal Validasi  print error message
+                           * bisa dimodifikasi tiap input
+                          */
                             printErrorMsg(data.error);
                         }
                       } 

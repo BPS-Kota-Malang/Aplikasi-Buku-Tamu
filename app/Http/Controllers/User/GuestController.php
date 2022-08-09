@@ -44,23 +44,39 @@ class GuestController extends Controller
      *  Function untuk validasi Ajax
      */
     public function validationForm(Request $request){
-        switch($request->idtab)
-        {
-            case 1  :
-                $validator = Validator::make($request->all(), [
-                        'hp' => 'required|min:10|max:13|numeric',
-                        'name' => 'required|min:5',
-                        'email' => 'required|email|max:255|unique:users',
-                        'address' => 'required|min:15',
-                        'age' => 'required|min:1|max:2',
-                ]);
-                if ($validator->passes()) {
-                    return response()->json(['success'=>'Added new records.']);
+        $validator = Validator::make($request->all(), [
+                    'hp' => [   'required', 'between:10,15','unique:customer',
+                                'regex:/^(\+62|62|0)8[1-9][0-9]{6,11}$/'
+                            ],
+                    ]);
+
+        if ($validator->passes()) {
+            if (Customer::where('hp', $request->hp)->exists()){
+                return response()->json(['status'=>'Customer Telah terdaftar']);
+            } else {
+                switch($request->idtab)
+                {   
+                case 1  :
+                    $validator = Validator::make($request->all(), [
+                            'name' => 'required|min:5',
+                            'email' => 'required|email|max:255|unique:customer',
+                            'address' => 'required|min:15',
+                            'age' => 'required|min:1|max:2|numeric',
+                    ]);
+    
+                    if ($validator->passes()) {
+                        return response()->json(['success'=>'Added new records.']);
+                    }
+    
+                    return response()->json(['error'=>$validator->errors()->all()]);
                 }
-
-                return response()->json(['error'=>$validator->errors()->all()]);
+    
+            }
+        } else {
+            return response()->json(['error'=>$validator->errors()->all()]);
         }
-
+        
+        
         
     }
 
