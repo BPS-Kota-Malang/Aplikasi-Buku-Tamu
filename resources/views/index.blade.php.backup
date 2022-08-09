@@ -23,15 +23,19 @@
         <span class="step" id = "step-4">4</span>&nbsp;&nbsp;
       </div>
       <br>
-      <h3>Informasi Pribadi</h3>
+      
 
       <div class="tab" id = "tab-1">
-
+        <h3>Informasi Pribadi</h3>
+        <div class="alert alert-danger print-error-msg" style="display:none">
+          <ul></ul>
+        </div>
         <div class="input-group">
           <label for="name" style="color:#000000">No Handphone</label>
             {{-- <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda"/> --}}
             {{-- <input type="text" name="hp" id="hp" class="form-control" onkeyup="autofill()" placeholder="Silahkan isi no handphone anda" onkeypress="return event.charCode >= 48 && event.charCode <=57"/> --}}
-            <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda" onkeypress="return event.charCode >= 48 && event.charCode <=57"/>
+            <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda"
+            />
           {{-- <label for="name" style="color:#000000">No Handphone</label>
             <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda"
             onkeypress="return event.charCode >= 48 && event.charCode <=57"/> --}}
@@ -40,7 +44,7 @@
         <div class="input-group">
             <label for="name" style="color:#000000">Nama Lengkap</label>
             <input type="text" name="name" id="name" placeholder="Silahkan isi nama anda"
-            onkeypress="return event.charCode < 48 || event.charCode  >57"/>
+            />
         </div>
 
         <div class="form-group mb-3">
@@ -70,7 +74,7 @@
         <div class="input-group">
             <label for="age" style="color:#000000">Usia</label>
             <input type="text" name="age" id="age" class="form-control" placeholder="Silahkan isi umur anda (contoh: 27)"
-            onkeypress="return event.charCode >= 48 && event.charCode <=57"/>
+            />
         </div>
 
         <div class="index-btn-wrapper">
@@ -80,17 +84,19 @@
 
       <div class="tab" id = "tab-2">
         <h3>Riwayat</h3>
-
+        <div class="alert alert-danger print-error-msg" style="display:none">
+          <ul></ul>
+        </div>
         <div class="input-group">
             <label for="institute" style="color:#000000">Nama instansi</label>
             <input type="text" name="institute" id="institute" class="form-control" placeholder="Silahkan isi nama instansi anda"
-            onkeypress="return event.charCode < 48 || event.charCode  >57"/>
+            />
         </div>
 
         <div class="input-group">
             <label for="nipnim" style="color:#000000">NIP/NIM</label>
             <input type="text" name="nipnim" id="nipnim" class="form-control" placeholder="Silahkan isi nip/nim anda"
-            onkeypress="return event.charCode >= 48 && event.charCode <=57"/>
+            />
         </div>
 
         <div class="form-group mb-3">
@@ -121,11 +127,13 @@
 
       <div class="tab" id = "tab-3">
         <h3>Pelayanan</h3>
-
+        <div class="alert alert-danger print-error-msg" style="display:none">
+          <ul></ul>
+        </div>
         <div class="input-group">
             <div class="form-group mb-3">
                 <label class="label" for="media" style="color:#000000" >Media Pelayanan</label>
-                <select class="custom-select my-1 mr-sm-2" name="media" id="inlineFormCustomSelectPref" required>
+                <select class="custom-select my-1 mr-sm-2" name="media" id="media" required>
                 <option selected="false" disabled="disabled">Silahkan Pilih Media Pelayanan</option>
                 @foreach ($media as $p)
                 <option value="{{ $p->id }}">{{$p->media_type}}</option>
@@ -137,7 +145,7 @@
         <div class="input-group">
             <div class="form-group mb-3">
                 <label class="label" for="media"  style="color:#000000" >Kebutuhan Data</label>
-                <select class="custom-select my-1 mr-sm-2" name="sub_categories" id="inlineFormCustomSelectPref" required>
+                <select class="custom-select my-1 mr-sm-2" name="sub_categories" id="sub_categories" required>
                     <option selected="false" disabled="disabled">Silahkan Pilih Kebutuhan Data</option>
                     @foreach($categories as $group)
                         <optgroup label="{{$group->categories_type }}">
@@ -155,7 +163,7 @@
         <div class="input-group">
             <div class="form-group mb-3">
                 <label class="label" for="service"  style="color:#000000" >Jenis Pelayanan</label>
-                <select class="custom-select my-1 mr-sm-2" name="service" id="inlineFormCustomSelectPref" required>
+                <select class="custom-select my-1 mr-sm-2" name="service" id="service" required>
                 <option selected="false" disabled="disabled">Silahkan Pilih Jenis Pelayanan</option>
                 @foreach ($service as $j)
                 <option value="{{ $j->id }}">{{$j->service_type}}</option>
@@ -172,7 +180,9 @@
 
       <div class="tab" id = "tab-4">
         <h2>Tujuan</h2>
-
+        <div class="alert alert-danger print-error-msg" style="display:none">
+          <ul></ul>
+        </div>
         <div class="input-group">
             <div class="form-group mb-3">
                 <label class="label" for="purpose" style="color:#000000">Tujuan</label>
@@ -204,38 +214,129 @@
       $("#tab-1").css("display", "block");
 
       function run(hideTab, showTab){
-        if(hideTab < showTab){ // If not press previous button
-          // Validation if press next button
-          var currentTab = 0;
-          x = $('#tab-'+hideTab);
-          y = $(x).find("input")
-          z = $(x).find("select")
-          for (i = 0; i < y.length; i++){
-            if (y[i].value == ""){
-              $(y[i]).css("background", "#ffdddd");
-              return false;
-            }
-          }
-          for (i = 0; i < z.length; i++){
-            if (z[i].value == ""){
-              $(z[i]).css("background", "#ffdddd");
-              return false;
-            }
-          }
-        }
+        // if(hideTab < showTab){ // If not press previous button
+        //   // Validation if press next button
+        //   var currentTab = 0;
+        //   x = $('#tab-'+hideTab);
+        //   y = $(x).find("input")
+        //   z = $(x).find("select")
+        //   for (i = 0; i < y.length; i++){
+        //     if (y[i].value == ""){
+        //       $(y[i]).css("background", "#ffdddd");
+        //       return false;
+        //     }
+        //   }
+        //   for (i = 0; i < z.length; i++){
+        //     if (z[i].value == ""){
+        //       $(z[i]).css("background", "#ffdddd");
+        //       return false;
+        //     }
+        //   }
+        // }
 
         // Progress bar
         for (i = 1; i < showTab; i++){
           $("#step-"+i).css("opacity", "1");
         }
+        /**
+         *  Function Ajax untuk Case data dikirim
+         * 
+        */
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+            }
+        });
 
-        // Switch tab
-        $("#tab-"+hideTab).css("display", "none");
-        $("#tab-"+showTab).css("display", "block");
-        $("input").css("background", "#fff");
+        /**
+         * Switch untuk mengambil data tab active
+         * 
+        */
+
+        switch (hideTab)
+        {
+        case 1:
+          var dataTab = {
+            'idtab'   : hideTab,
+            'hp'      : $("#hp").val(),
+            'name'    : $("#name").val(),
+            'gender'  : $("#gender").val(), 
+            'email'   : $("#email").val(),
+            'address' : $("#address").val(),
+            'age'     : $("#age").val(),
+          }
+          break;
+        case 2:
+          var dataTab = {
+            'idtab'     : hideTab,
+            'hp'      : $("#hp").val(),
+            'institute' : $("#institute").val(),
+            'nipnim'    : $("#nipnim").val(),
+            'job'       : $("#job").val(), 
+            'education' : $("#education").val(),
+          }
+          break;
+        case 3:
+          var dataTab = {
+            'idtab'       : hideTab,
+            'hp'          : $("#hp").val(),
+            'media'       : $("#media").val(),
+            'sub_categories'    : $("#sub_categories").val(),
+            'service'     : $("#service").val(), 
+          }
+          break;
+        }
+        $.ajax({
+          type      : 'post',
+          url       : '{{ URL::to('validationForm') }}',
+          dataType  : 'json',
+          data      : dataTab,
+          success   : function (data){
+                        if($.isEmptyObject(data.error)){
+                          /**
+                           *  If untuk skip ke Tab Pelayanan
+                           */  
+                          if (data.status == 'Customer Telah terdaftar'){
+                              $("#tab-"+hideTab).css("display", "none");
+                              $("#tab-2").css("display", "none");
+                              $("#tab-3").css("display", "block");
+                              $("input").css("background", "#fff");
+                          } 
+                          
+                          if(data.success == 'Lolos Validasi #1') {
+                              $("#tab-"+hideTab).css("display", "none");
+                              $("#tab-"+showTab).css("display", "block");
+                          }
+                           /**
+                             * Jika Berhasil Ditambahkan baru bisa ganti tab
+                            */
+                            // alert(data.status);
+                        //     // Switch tab
+                        //     $("#tab-"+hideTab).css("display", "none");
+                        //     $("#tab-"+showTab).css("display", "block");
+                        //     $("input").css("background", "#fff");
+                        }else{
+                          /**
+                           * Jika Gagal Validasi  print error message
+                           * bisa dimodifikasi tiap input
+                          */
+                            printErrorMsg(data.error);
+                        }
+                      } 
+        });
+
+        function printErrorMsg (msg) {
+            $(".print-error-msg").find("ul").html('');
+            $(".print-error-msg").css('display','block');
+            $.each( msg, function( key, value ) {
+                $(".print-error-msg").find("ul").append('<li>'+value+'</li>');
+            });
+        }
+                
+        
       }
 
-
+  
       $('#hp').on('keyup', function (){
 
         $value = $(this).val();

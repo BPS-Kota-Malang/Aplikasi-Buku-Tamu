@@ -44,17 +44,11 @@ class GuestController extends Controller
      *  Function untuk validasi Ajax
      */
     public function validationForm(Request $request){
-        if ($request->status == ""){
-            $validator = Validator::make($request->all(), [
-                'hp' => [   'required', 'between:10,15',
-                            'regex:/^(\+62|62|0)8[1-9][0-9]{6,11}$/'
-                        ],
-                ]);
-        } else {
-            $validator = Validator::make($request->all(), [
-                ]);
-        }
-        
+        $validator = Validator::make($request->all(), [
+                    'hp' => [   'required', 'between:10,15',
+                                'regex:/^(\+62|62|0)8[1-9][0-9]{6,11}$/'
+                            ],
+                    ]);
 
         if ($validator->passes()) {
             if (Customer::where('hp', $request->hp)->exists()){
@@ -103,18 +97,6 @@ class GuestController extends Controller
     
                     return response()->json(['error'=>$validator->errors()->all()]);
                     break;
-                case 4 :
-                    $validator = Validator::make($request->all(), [
-                            'purpose' => 'required|min:1',
-                            'data' => 'required|min:30',
-                    ]);
-    
-                    if ($validator->passes()) {
-                        return response()->json(['success'=>'Lolos Validasi #1']);
-                    }
-    
-                    return response()->json(['error'=>$validator->errors()->all()]);
-                    break;
                 }
     
             }
@@ -128,15 +110,6 @@ class GuestController extends Controller
 
     public function saveGuest(Request $request){
 
-        // 
-        //     'institute' => 'required|min:10',
-        //     'nipnim' => 'required|min:9',
-        //     'purpose' => 'required|min:8',
-        //     'data' => 'required|min:5',
-
-        // ]);
-        // dd ($request->all());
-        
         /**
          * Validate - Laravel Basic - bimasakti.kr
          * #1 Define validate
@@ -186,6 +159,9 @@ class GuestController extends Controller
             $transaction->data=$request->data;
             $transaction->id_sub_categories=$request->sub_categories;
             $transaction->save();
+
+            Alert::success("Success", "Terimakasih  $name  Sudah menggunakan layanan kami");
+            return redirect('/pelanggan');
         } else {
             /**
              * Add a New Customer

@@ -23,10 +23,11 @@
         <span class="step" id = "step-4">4</span>&nbsp;&nbsp;
       </div>
       <br>
-      <h3>Informasi Pribadi</h3>
+      
 
       <div class="tab" id = "tab-1">
-        <div class="alert alert-danger print-error-msg" style="display:none">
+        <h3>Informasi Pribadi</h3>
+        <div class="alert alert-danger print-error-msg-1" style="display:none">
           <ul></ul>
         </div>
         <div class="input-group">
@@ -83,17 +84,19 @@
 
       <div class="tab" id = "tab-2">
         <h3>Riwayat</h3>
-
+        <div class="alert alert-danger print-error-msg-2" style="display:none">
+          <ul></ul>
+        </div>
         <div class="input-group">
             <label for="institute" style="color:#000000">Nama instansi</label>
             <input type="text" name="institute" id="institute" class="form-control" placeholder="Silahkan isi nama instansi anda"
-            onkeypress="return event.charCode < 48 || event.charCode  >57"/>
+            />
         </div>
 
         <div class="input-group">
             <label for="nipnim" style="color:#000000">NIP/NIM</label>
             <input type="text" name="nipnim" id="nipnim" class="form-control" placeholder="Silahkan isi nip/nim anda"
-            onkeypress="return event.charCode >= 48 && event.charCode <=57"/>
+            />
         </div>
 
         <div class="form-group mb-3">
@@ -124,11 +127,13 @@
 
       <div class="tab" id = "tab-3">
         <h3>Pelayanan</h3>
-
+        <div class="alert alert-danger print-error-msg-3" style="display:none">
+          <ul></ul>
+        </div>
         <div class="input-group">
             <div class="form-group mb-3">
                 <label class="label" for="media" style="color:#000000" >Media Pelayanan</label>
-                <select class="custom-select my-1 mr-sm-2" name="media" id="inlineFormCustomSelectPref" required>
+                <select class="custom-select my-1 mr-sm-2" name="media" id="media" required>
                 <option selected="false" disabled="disabled">Silahkan Pilih Media Pelayanan</option>
                 @foreach ($media as $p)
                 <option value="{{ $p->id }}">{{$p->media_type}}</option>
@@ -140,7 +145,7 @@
         <div class="input-group">
             <div class="form-group mb-3">
                 <label class="label" for="media"  style="color:#000000" >Kebutuhan Data</label>
-                <select class="custom-select my-1 mr-sm-2" name="sub_categories" id="inlineFormCustomSelectPref" required>
+                <select class="custom-select my-1 mr-sm-2" name="sub_categories" id="sub_categories" required>
                     <option selected="false" disabled="disabled">Silahkan Pilih Kebutuhan Data</option>
                     @foreach($categories as $group)
                         <optgroup label="{{$group->categories_type }}">
@@ -158,7 +163,7 @@
         <div class="input-group">
             <div class="form-group mb-3">
                 <label class="label" for="service"  style="color:#000000" >Jenis Pelayanan</label>
-                <select class="custom-select my-1 mr-sm-2" name="service" id="inlineFormCustomSelectPref" required>
+                <select class="custom-select my-1 mr-sm-2" name="service" id="service" required>
                 <option selected="false" disabled="disabled">Silahkan Pilih Jenis Pelayanan</option>
                 @foreach ($service as $j)
                 <option value="{{ $j->id }}">{{$j->service_type}}</option>
@@ -175,11 +180,13 @@
 
       <div class="tab" id = "tab-4">
         <h2>Tujuan</h2>
-
+        <div class="alert alert-danger print-error-msg" style="display:none">
+          <ul></ul>
+        </div>
         <div class="input-group">
             <div class="form-group mb-3">
                 <label class="label" for="purpose" style="color:#000000">Tujuan</label>
-                <select class="custom-select my-1 mr-sm-2" name="purpose" id="inlineFormCustomSelectPref" required>
+                <select class="custom-select my-1 mr-sm-2" name="purpose" id="purpose" required>
                 <option selected="false" disabled="disabled">Silahkan Pilih Tujuan</option>
                 @foreach ($purpose as $p)
                 <option value="{{ $p->id }}">{{$p->purpose_type}}</option>
@@ -191,7 +198,7 @@
         <div class="input-group">
             <label for="data" style="color:#000000">Data</label>
             <textarea type="text" name="data" id="data" placeholder="Silahkan isi data spesifik yang anda perlukan" class="form-control" rows="10" cols="55" required
-            onkeypress="return event.charCode < 48 || event.charCode  >57"></textarea>
+            ></textarea>
         </div>
 
         <div class="index-btn-wrapper">
@@ -240,6 +247,7 @@
                 'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
             }
         });
+
         /**
          * Switch untuk mengambil data tab active
          * 
@@ -256,6 +264,7 @@
             'email'   : $("#email").val(),
             'address' : $("#address").val(),
             'age'     : $("#age").val(),
+            'status'  : "",
           }
           break;
         case 2:
@@ -265,6 +274,24 @@
             'nipnim'    : $("#nipnim").val(),
             'job'       : $("#job").val(), 
             'education' : $("#education").val(),
+            'status'    : "hp validated",
+          }
+          break;
+        case 3:
+          var dataTab = {
+            'idtab'       : hideTab,
+            'media'       : $("#media").val(),
+            'sub_categories'    : $("#sub_categories").val(),
+            'service'     : $("#service").val(), 
+            'status'      : "hp validated",
+          }
+          break;
+        case 4:
+          var dataTab = {
+            'idtab'   : hideTab,
+            'purpose' : $("#purpose").val(),
+            'data'    : $("#data").val(),
+            'status'  : "hp validated",
           }
           break;
         }
@@ -283,11 +310,16 @@
                               $("#tab-2").css("display", "none");
                               $("#tab-3").css("display", "block");
                               $("input").css("background", "#fff");
+                          } 
+                          
+                          if(data.success == 'Lolos Validasi #1') {
+                              $("#tab-"+hideTab).css("display", "none");
+                              $("#tab-"+showTab).css("display", "block");
                           }
                            /**
                              * Jika Berhasil Ditambahkan baru bisa ganti tab
                             */
-                            alert(data.status);
+                            // alert(data.status);
                         //     // Switch tab
                         //     $("#tab-"+hideTab).css("display", "none");
                         //     $("#tab-"+showTab).css("display", "block");
@@ -297,16 +329,16 @@
                            * Jika Gagal Validasi  print error message
                            * bisa dimodifikasi tiap input
                           */
-                            printErrorMsg(data.error);
+                            printErrorMsg(data.error, hideTab);
                         }
                       } 
         });
 
-        function printErrorMsg (msg) {
-            $(".print-error-msg").find("ul").html('');
-            $(".print-error-msg").css('display','block');
-            $.each( msg, function( key, value ) {
-                $(".print-error-msg").find("ul").append('<li>'+value+'</li>');
+        function printErrorMsg (msg, idtab) {
+            $(".print-error-msg-"+idtab).find("ul").html('');
+            $(".print-error-msg-"+idtab).css('display','block');
+            $.each( msg, function( key, value) {
+                $(".print-error-msg-"+idtab).find("ul").append('<li>'+value+'</li>');
             });
         }
                 
