@@ -5,6 +5,7 @@
     <title>Buku Tamu - BPS Kota Malang</title>
     <link rel="stylesheet" href="{{url('/form/css/style.css')}}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src={{ asset("/pengguna/assets/js/parsley.js")}}></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
@@ -26,23 +27,26 @@
       <h3>Informasi Pribadi</h3>
 
       <div class="tab" id = "tab-1">
-        <div class="alert alert-danger print-error-msg" style="display:none">
-          <ul></ul>
-        </div>
+
         <div class="input-group">
           <label for="name" style="color:#000000">No Handphone</label>
-            {{-- <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda"/> --}}
-            {{-- <input type="text" name="hp" id="hp" class="form-control" onkeyup="autofill()" placeholder="Silahkan isi no handphone anda" onkeypress="return event.charCode >= 48 && event.charCode <=57"/> --}}
-            <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda" onkeypress="return event.charCode >= 48 && event.charCode <=57"/>
-          {{-- <label for="name" style="color:#000000">No Handphone</label>
-            <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda"
-            onkeypress="return event.charCode >= 48 && event.charCode <=57"/> --}}
+          <input type="text" name="hp" id="hp" class="form-control" placeholder="Silahkan isi no handphone anda"
+            data-parsley-pattern="(\()?(\+62|62|0)(\d{2,3})?\)?[ .-]?\d{2,4}[ .-]?\d{2,4}[ .-]?\d{2,4}"
+            data-parsley-trigger="keyup"
+            required
+          />
+          @error('hp')
+              <div class="alert alert-danger">{{ $message }}</div>
+          @enderror
         </div>
 
         <div class="input-group">
             <label for="name" style="color:#000000">Nama Lengkap</label>
             <input type="text" name="name" id="name" placeholder="Silahkan isi nama anda"
-            onkeypress="return event.charCode < 48 || event.charCode  >57"/>
+            data-parsley-pattern="/(^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$)/"
+            data-parsley-trigger="keyup"
+            required
+            />
         </div>
 
         <div class="form-group mb-3">
@@ -201,6 +205,10 @@
     </form>
 
     <script type="text/javascript">
+
+    $(function(){
+      $("#myForm").parsley();
+    })
       // Default tab
       $(".tab").css("display", "none");
       $("#tab-1").css("display", "block");
@@ -230,64 +238,14 @@
         for (i = 1; i < showTab; i++){
           $("#step-"+i).css("opacity", "1");
         }
-        /**
-         *  Function Ajax untuk Case data dikirim
-         * 
-        */
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        /**
-         * Switch untuk mengambil data tab active
-         * 
-        */
 
-        switch (hideTab)
-        {
-        case 1:
-          var dataTab = {
-            'idtab'   : hideTab,
-            'hp'      : $("#hp").val(),
-            'name'    : $("#name").val(),
-            'gender'  : $("#gender").val(), 
-            'email'   : $("#email").val(),
-            'address' : $("#address").val(),
-            'age'     : $("#age").val(),
-          }
-          break;
-        }
-        $.ajax({
-          type      : 'post',
-          url       : '{{ URL::to('validationForm') }}',
-          dataType  : 'json',
-          data      : dataTab,
-          success   : function (data){
-                        if($.isEmptyObject(data.error)){
-                            alert(data.success);
-                            // Switch tab
-                            $("#tab-"+hideTab).css("display", "none");
-                            $("#tab-"+showTab).css("display", "block");
-                            $("input").css("background", "#fff");
-                        }else{
-                            printErrorMsg(data.error);
-                        }
-                      } 
-        });
-
-        function printErrorMsg (msg) {
-            $(".print-error-msg").find("ul").html('');
-            $(".print-error-msg").css('display','block');
-            $.each( msg, function( key, value ) {
-                $(".print-error-msg").find("ul").append('<li>'+value+'</li>');
-            });
-        }
-                
-        
+        // Switch tab
+        $("#tab-"+hideTab).css("display", "none");
+        $("#tab-"+showTab).css("display", "block");
+        $("input").css("background", "#fff");
       }
 
-  
+
       $('#hp').on('keyup', function (){
 
         $value = $(this).val();

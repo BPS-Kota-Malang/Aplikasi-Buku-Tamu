@@ -25,7 +25,13 @@ Route::get('/', [GuestController::class, 'formTamu'])->name('/');
 Route::post('/cekcustomer', [GuestController::class, 'cekcustomer'])->name('cekcustomer');
 Route::resource('formTamu', GuestController::class);
 
-// User Page
+/**
+ * Route Uji Coba Validasi
+ */
+Route::post('/validationForm', [GuestController::class, 'validationForm'])->name('validationForm');
+
+
+ // User Page
 Route::post('/simpan-bukutamu', [GuestController::class, 'saveGuest'])->name('simpan-bukutamu');
 
 // Customer Page - Admin

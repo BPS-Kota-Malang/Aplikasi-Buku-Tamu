@@ -17,6 +17,8 @@ use App\Models\Customer;
 use App\Models\Transaction;
 use Alert;
 use Illuminate\Support\Facades\DB;
+use Validator;
+
 
 
 
@@ -38,15 +40,33 @@ class GuestController extends Controller
         // return view('/index', compact('job','education','media','service','sub_categories','purpose'));
 
     }
+    /**
+     *  Function untuk validasi Ajax
+     */
+    public function validationForm(Request $request){
+        switch($request->idtab)
+        {
+            case 1  :
+                $validator = Validator::make($request->all(), [
+                        'hp' => 'required|min:10|max:13|numeric',
+                        'name' => 'required|min:5',
+                        'email' => 'required|email|max:255|unique:users',
+                        'address' => 'required|min:15',
+                        'age' => 'required|min:1|max:2',
+                ]);
+                if ($validator->passes()) {
+                    return response()->json(['success'=>'Added new records.']);
+                }
+
+                return response()->json(['error'=>$validator->errors()->all()]);
+        }
+
+        
+    }
 
     public function saveGuest(Request $request){
 
-        // $this->validate($request,[
-        //     'hp' => 'required|min:10',
-        //     'name' => 'required|min:5',
-        //     'email' => 'required|email|max:255|unique:users',
-        //     'address' => 'required|min:5',
-        //     'age' => 'required|min:1|max:2',
+        // 
         //     'institute' => 'required|min:10',
         //     'nipnim' => 'required|min:9',
         //     'purpose' => 'required|min:8',
