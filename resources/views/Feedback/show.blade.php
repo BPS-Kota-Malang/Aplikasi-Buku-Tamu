@@ -152,7 +152,10 @@
 
                         <div class="form-group">
                             <label>Kritik dan Saran</label>
-                            <textarea name="suggestions" class="textarea form-control" id="suggestions" cols="40" rows="5" placeholder="Silahkan berikan kritik dan saran " ></textarea>
+                            <textarea name="suggestions" class="textarea form-control" id="suggestions" cols="40" rows="5" placeholder="Silahkan berikan kritik dan saran" required="required"
+                            oninvalid="this.setCustomValidity('Silahkan isi data yang anda inginkan')"
+                            onvalid="this.setCustomValidity('')"></textarea>
+
                             {{-- <div class="invalid-feedback">
                               Please enter a message in the textarea.
                             </div> --}}

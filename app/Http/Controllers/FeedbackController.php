@@ -104,8 +104,6 @@ class FeedbackController extends Controller
         return redirect('/pelanggan');
     }
 
-
-
     /**
      * Display the specified resource.
      *
@@ -116,7 +114,6 @@ class FeedbackController extends Controller
     {
         // $transaction= Transaction::find($id);
         // return view('Transaction.detailForm', compact('transaction'));
-
 
         $feedback = new feedback;
         $feedback -> service = $request->service;
