@@ -62,11 +62,8 @@ Route::resource('service', ServiceController::class);
 
 //Feedback Page
 Route::resource('feedback', FeedbackController::class);
-Route::get('feedback', function()
-{
-    return view ('feedback.in');
-});
-Route::get('showtransaction/form', [FeedbackController::class, 'store']);
+
+// Route::get('showtransaction/form', [FeedbackController::class, 'store']);
 Route::post('showtransaction', [FeedbackController::class, 'showTransaction'])->name('showtransaction');
 
 //Transaction Page

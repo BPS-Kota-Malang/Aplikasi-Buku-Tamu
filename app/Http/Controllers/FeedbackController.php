@@ -35,7 +35,6 @@ class FeedbackController extends Controller
     public function showTransaction(Request $request)
     {
 
-
         $customer_id = Customer::where('hp', $request->hp)
                                 ->take(1)
                                 // ->get();
@@ -59,19 +58,22 @@ class FeedbackController extends Controller
     public function store(Request $request)
     {
          
-         dd ($request->all());
+        //  dd ($request->all());
         
         $feedback = new Feedback();
-
+        $validated = $request->validate([
+                    'service'=>'required',
+                    'facility'=>'required',
+                    'dataqualities'=>'required',
+                    'suggestions'=>'required',
+                ]);
 
         $feedback->id_transaction=$request->id;
         $feedback->service = $request->service;
         $feedback->facility = $request->facility;
         $feedback ->dataqualities = $request->dataqualities;
         $feedback ->suggestions= $request->suggestions;
-        $validated = $feedback([
-            'feedback'=>'required',
-        ]);
+        
         $feedback->save();
         
         Alert::success('Success','Terimakasih Telah Mengisi Feedback');

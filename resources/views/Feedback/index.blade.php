@@ -71,7 +71,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
-                        <form method="post" action="feedback"  class="sigin-form">
+                        <form method="post" action= "{{ 'feedback' }}" class="sigin-form">
                         @csrf
                         <input type="hidden" name="id" id="id">
                         <col-md-10>
