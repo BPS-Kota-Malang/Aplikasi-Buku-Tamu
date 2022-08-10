@@ -20,7 +20,7 @@ class FeedbackController extends Controller
     {
         $feedback= Feedback::all();
 
-        return view ('feedback.in');
+        return view ('feedback.index');
     }
 
     /**
@@ -35,6 +35,7 @@ class FeedbackController extends Controller
     public function showTransaction(Request $request)
     {
 
+        $transaction= Transaction::all();
 
         $customer_id = Customer::where('hp', $request->hp)
                                 ->take(1)
@@ -46,7 +47,7 @@ class FeedbackController extends Controller
                                     ->get();
         // if ($transaction)
 
-        return view ('feedback.index', compact('transaction'));
+        return view ('feedback.show', compact('transaction'));
 
 
     }
@@ -59,7 +60,7 @@ class FeedbackController extends Controller
     public function store(Request $request)
     {
          
-         dd ($request->all());
+        //  dd ($request->all());
         
         $feedback = new Feedback();
 
@@ -69,14 +70,33 @@ class FeedbackController extends Controller
         $feedback->facility = $request->facility;
         $feedback ->dataqualities = $request->dataqualities;
         $feedback ->suggestions= $request->suggestions;
-        $validated = $feedback([
-            'feedback'=>'required',
-        ]);
+        // $validated = $feedback([
+        //     'feedback'=>'required',
+        // ]);
         $feedback->save();
         
         Alert::success('Success','Terimakasih Telah Mengisi Feedback');
         return redirect('/pelanggan');
 
+    }
+
+    public function simpanfeed(Request $request)
+    {
+                 
+        $feedback = new Feedback();
+
+        // dd ($request->all());
+
+        $feedback->id_transaction=$request->id;
+        $feedback->service = $request->service;
+        $feedback->facility = $request->facility;
+        $feedback ->dataqualities = $request->dataqualities;
+        $feedback ->suggestions= $request->suggestions;
+
+        $feedback->save();
+        
+        Alert::success('Success','Terimakasih Telah Mengisi Feedback');
+        return redirect('/pelanggan');
     }
 
 
@@ -110,7 +130,7 @@ class FeedbackController extends Controller
 
         $customer = Customer::all();
         $transaction = Transaction::all();
-        return view('in', compact( 'customer', 'transaction'));
+        return view('index', compact( 'customer', 'transaction'));
     }
 
     // public function saveFeedback(Request $request)
