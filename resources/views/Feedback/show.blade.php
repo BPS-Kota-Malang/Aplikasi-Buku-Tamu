@@ -7,7 +7,7 @@
 
 
     <meta name="generator" content="Hugo 0.101.0">
-    <title>FEEDBACK</title>
+    <title>Feedback</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/cover/">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -39,6 +39,7 @@
                         <th scope="col">No</th>
                         <th scope="col">Nama</th>
                         <th scope="col">Data Layanan</th>
+                        <th scope="col">Status</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
@@ -48,10 +49,11 @@
                         <td scope="row">{{ $tran->id }}</td>
                         <td>{{ $tran->customer->name }}</td>
                         <td>{{ $tran->data}}</td>
+                        <td>{{ $tran->status}}</td>
                         <td>
                         <!-- Button trigger modal -->
                         <button type="button" id="btnmodal" class="btn btn-sm feedbackBtn btn-primary" data-toggle="modal">
-                        submit
+                        Submit
                         </button>
                         {{-- @if ()
                           
@@ -104,7 +106,7 @@
                         <div>
                           <label>Apakah anda puas dengan sarana dan fasilitas yang kami sediakan?</label>
                         </div>
-                        <div class="form-check form-check-inline">
+                        <div class="form-check form-check-inline" >
                             <div class="rating" >
                                 <input class="form-check-input" type="radio" name="facility" id="6" value="5" >
                                 <label class="form-check-label" for="6"></label>
@@ -112,13 +114,13 @@
                                 <input class="form-check-input" type="radio" name="facility" id="7" value="4" >
                                 <label class="form-check-label" for="7"></label>
 
-                                 <input class="form-check-input" type="radio" name="facility" id="8" value="3" >
+                                <input class="form-check-input" type="radio" name="facility" id="8" value="3" >
                                 <label class="form-check-label" for="8"></label>
 
                                 <input class="form-check-input" type="radio" name="facility" id="9" value="2" >
                                 <label class="form-check-label" for="9"></label>
 
-                                 <input class="form-check-input" type="radio" name="facility" id="10" value="1" >
+                                <input class="form-check-input" type="radio" name="facility" id="10" value="1" >
                                 <label class="form-check-label" for="10"></label>  
                                 
                             </div>
