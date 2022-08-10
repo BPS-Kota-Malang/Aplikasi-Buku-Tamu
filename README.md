@@ -33,8 +33,6 @@ Aplikasi Buku Tamu - Badan Pusat Statistik (Malang)
    
 ## Progress - Qorina Anindhita Prameswari
 
-## Progress - Moch Abizar Daffa Wijdan			
-
 ## Progress - Wahyu Fajar Robyansyah						
 
 ## Progress - Wildan Achmad Fachrurozi			
