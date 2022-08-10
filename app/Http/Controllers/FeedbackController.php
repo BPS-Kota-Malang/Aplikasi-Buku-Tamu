@@ -34,12 +34,7 @@ class FeedbackController extends Controller
     }
     public function showTransaction(Request $request)
     {
-
-<<<<<<< HEAD
         $transaction= Transaction::all();
-
-=======
->>>>>>> 968ea07b9f5f34b3634bdd416efffd6a262a2d3d
         $customer_id = Customer::where('hp', $request->hp)
                                 ->take(1)
                                 // ->get();
@@ -62,9 +57,9 @@ class FeedbackController extends Controller
      */
     public function store(Request $request)
     {
-         
+
         //  dd ($request->all());
-        
+
         $feedback = new Feedback();
         $validated = $request->validate([
                     'service'=>'required',
@@ -78,15 +73,13 @@ class FeedbackController extends Controller
         $feedback->facility = $request->facility;
         $feedback ->dataqualities = $request->dataqualities;
         $feedback ->suggestions= $request->suggestions;
-<<<<<<< HEAD
+
         // $validated = $feedback([
         //     'feedback'=>'required',
         // ]);
-=======
-        
->>>>>>> 968ea07b9f5f34b3634bdd416efffd6a262a2d3d
+
         $feedback->save();
-        
+
         Alert::success('Success','Terimakasih Telah Mengisi Feedback');
         return redirect('/pelanggan');
 
@@ -94,7 +87,7 @@ class FeedbackController extends Controller
 
     public function simpanfeed(Request $request)
     {
-                 
+
         $feedback = new Feedback();
 
         // dd ($request->all());
@@ -106,7 +99,7 @@ class FeedbackController extends Controller
         $feedback ->suggestions= $request->suggestions;
 
         $feedback->save();
-        
+
         Alert::success('Success','Terimakasih Telah Mengisi Feedback');
         return redirect('/pelanggan');
     }
@@ -153,7 +146,7 @@ class FeedbackController extends Controller
     //         'dataqualities'=>'required',
     //         'suggestions'=>'required|min:5|max:50',
     //     ]);
-        
+
     //     $service = $request->service;
     //     $facility = $request->facility;
     //     $dataqualities = $request->dataqualities;

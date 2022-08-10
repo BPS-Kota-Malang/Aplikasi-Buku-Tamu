@@ -13,7 +13,6 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<<<<<<< HEAD
     <!-- Custom styles for this template -->
     <link href="assets/css/cover.css" rel="stylesheet">
 </head>
@@ -31,18 +30,6 @@
                 <div class="form-step form-step-active">
                     <form action="{{'showtransaction'}}" method="post" >
                         @include('sweetalert::alert')
-=======
-                <!-- Modal -->
-                <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                    <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Feedback</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <form method="post" action= "{{ 'feedback' }}" class="sigin-form">
->>>>>>> 968ea07b9f5f34b3634bdd416efffd6a262a2d3d
                         @csrf
                         <div class="mb-3">
                             <input type="text" class="form-control" name ='hp' id="hp" placeholder="Silahkan isi no handphone anda">

@@ -62,10 +62,9 @@ Route::resource('service', ServiceController::class);
 
 //Feedback Page
 Route::resource('feedback', FeedbackController::class);
-<<<<<<< HEAD
+
 Route::post('/simpanfeed', [FeedbackController::class, 'simpanfeed'])->name('simpanfeed');
-=======
->>>>>>> 968ea07b9f5f34b3634bdd416efffd6a262a2d3d
+
 
 // Route::get('showtransaction/form', [FeedbackController::class, 'store']);
 Route::post('showtransaction', [FeedbackController::class, 'showTransaction'])->name('showtransaction');
