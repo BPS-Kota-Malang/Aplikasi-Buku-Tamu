@@ -131,12 +131,12 @@ class GuestController extends Controller
          * Validate - Laravel Basic - bimasakti.kr
          * #1 Define validate Submit Button
          */
-        $validator = Validator::make($request->all(), [
-            'purpose' => 'required|min:1',
-            'data' => 'required|min:25',
-        ]);
+        // $validator = Validator::make($request->all(), [
+        //     'purpose' => 'required|min:1',
+        //     'data' => 'required|min:25',
+        // ]);
         
-        if($validator->passes()){
+        // if($validator->passes()){
             $name   = $request->name;
             $hp = $request->hp;
             $email   = $request->email;
@@ -213,7 +213,7 @@ class GuestController extends Controller
                Alert::success("Success", "Terimakasih  $name  Sudah menggunakan layanan kami");
                return redirect('/pelanggan');
            }
-        }
+        // }
     }
 
     
