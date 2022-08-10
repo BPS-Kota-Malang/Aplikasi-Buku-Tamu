@@ -35,8 +35,11 @@ class FeedbackController extends Controller
     public function showTransaction(Request $request)
     {
 
+<<<<<<< HEAD
         $transaction= Transaction::all();
 
+=======
+>>>>>>> 968ea07b9f5f34b3634bdd416efffd6a262a2d3d
         $customer_id = Customer::where('hp', $request->hp)
                                 ->take(1)
                                 // ->get();
@@ -63,16 +66,25 @@ class FeedbackController extends Controller
         //  dd ($request->all());
         
         $feedback = new Feedback();
-
+        $validated = $request->validate([
+                    'service'=>'required',
+                    'facility'=>'required',
+                    'dataqualities'=>'required',
+                    'suggestions'=>'required',
+                ]);
 
         $feedback->id_transaction=$request->id;
         $feedback->service = $request->service;
         $feedback->facility = $request->facility;
         $feedback ->dataqualities = $request->dataqualities;
         $feedback ->suggestions= $request->suggestions;
+<<<<<<< HEAD
         // $validated = $feedback([
         //     'feedback'=>'required',
         // ]);
+=======
+        
+>>>>>>> 968ea07b9f5f34b3634bdd416efffd6a262a2d3d
         $feedback->save();
         
         Alert::success('Success','Terimakasih Telah Mengisi Feedback');
