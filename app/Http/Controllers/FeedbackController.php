@@ -35,28 +35,26 @@ class FeedbackController extends Controller
     public function showTransaction(Request $request)
     {
 
-        $transaction= Transaction::all();
         $customer_id = Customer::where('hp', $request->hp)
                                 ->take(1)
                                 ->value('id');
 
 
-        $transaction = Transaction::where('id_customer', $customer_id)
+        $transaction = Transaction::with('Feedback')->where('id_customer', $customer_id)
                                     ->get();
 
-        // Pak Bima
-        foreach( $transaction as $trans){
-            $idTrans =  $trans->id;
-            if (Feedback::where('id_transaction', $idTrans)->exists()){
-                $transaction['status'] ='Sudah ada';
-            } else {
-                $transaction['status'] = 'Belum ada';
+        // foreach( $transaction as $trans){
+        //     $idTrans =  $trans->id;
+        //     if (Feedback::where('id_transaction', $idTrans)->exists()){
+        //         $transaction['status'] ='Sudah ada';
+        //     } else {
+        //         $transaction['status'] = 'Belum ada';
 
-            }
-        }
+        //     }
+        // }
         // if ($transaction)
-        dd($transaction);
-        // return view ('feedback.show', compact('transaction'));
+        // dd($transaction);
+        return view ('feedback.show', compact('transaction'));
 
 
     }
@@ -123,7 +121,7 @@ class FeedbackController extends Controller
      */
     public function show($id, Request $request)
     {
-      
+
         // $transaction= Transaction::find($id);
         // return view('Transaction.detailForm', compact('transaction'));
 
