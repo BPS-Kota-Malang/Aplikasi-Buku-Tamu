@@ -52,9 +52,16 @@
                         <td>{{ $tran->Feedback != null ? 'Sudah Mengisi' : 'Belum Mengisi'}}</td>
                         <td>
                         <!-- Button trigger modal -->
-                        <button type="button" id="btnmodal" class="btn btn-sm feedbackBtn btn-primary" data-toggle="modal">
-                        Submit
+                        @if ( $tran->Feedback != null )
+                          <button type="button" id="btnmodal" class="btn btn-sm feedbackBtn btn-primary " disabled data-toggle="modal">
+                            Submit
+                          </button>
+                        @else
+                        <button type="button" id="btnmodal" class="btn btn-sm feedbackBtn btn-primary "  data-toggle="modal">
+                          Submit
                         </button>
+                        @endif
+                        
                         {{-- @if ()
 
                         @endif --}}
@@ -195,7 +202,10 @@
 
                             $(".modal-body #id").val( data[0] );
                         });
+
+                        
                     });
+                    
                 </script>
             </div>
         </div>
