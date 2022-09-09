@@ -41,3 +41,6 @@ Link Desain Figma : https://www.figma.com/file/JMnjTKktFVVOADLR7sH4Ml/BUKU-TAMU?
 
 Link Import Database Localhost PHPMyAdmin : 
 
+Link Laporan Website Buku Tamu : https://docs.google.com/document/d/1EqEiLs67CKUTkPXnkH245DE0Q2pvXDIDiVIStzVMGRQ/edit?usp=sharing
+
+
