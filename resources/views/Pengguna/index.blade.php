@@ -17,7 +17,7 @@
             <div class="logo"><a href=''>Badan Pusat Statistik<br>Kota Malang</a></div>
             <div class="menu">
                 <ul>
-                    <li><a href="pelanggan">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="feedback">Feedback</a></li>
                     <li><a href="about">About</a></li>
                     <li><a href="contact">Contact</a></li>
@@ -32,7 +32,7 @@
                 <p class="deskripsi"><br></p>
                 <h2> BUKU TAMU</h2>
                 <p>Melayani dengan Profesional, integritas, dan Amanah</p>
-                <p><a href="/" class="tbl-blue">FORM &xrarr;</a></p>
+                <p><a href="/bukutamu" class="tbl-blue">FORM &xrarr;</a></p>
             </div>
             <img src="{{ asset('pengguna/assets/images/img-home.png') }}" style="float:left; height: 470px; padding: 10px 10px; margin-left: 180px; filter: drop-shadow(10px 10px 15px rgba(0, 0, 0, 0.15));"/>
         </section>

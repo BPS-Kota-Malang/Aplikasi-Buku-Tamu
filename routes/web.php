@@ -21,7 +21,7 @@ use App\Http\Controllers\TransController;
 
 
 // Customer Page - User
-Route::get('/', [GuestController::class, 'formTamu'])->name('/');
+Route::get('/bukutamu', [GuestController::class, 'formTamu'])->name('/');
 Route::post('/cekcustomer', [GuestController::class, 'cekcustomer'])->name('cekcustomer');
 Route::resource('formTamu', GuestController::class);
 
@@ -113,7 +113,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Home Page
-Route::get('/pelanggan', function() {
+Route::get('/', function() {
     return view('Pengguna/index');
 });
 
