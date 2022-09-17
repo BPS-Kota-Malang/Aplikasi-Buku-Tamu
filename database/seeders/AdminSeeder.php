@@ -39,6 +39,11 @@ class AdminSeeder extends Seeder
             'email'    => 'wildan123@gmail.com',
             'role'     => 'Super Admin',
             'password' => bcrypt('admin1234'),
+
+            'name'     => 'orin',
+            'email'    => 'orin123@gmail.com',
+            'role'     => 'Super Admin',
+            'password' => bcrypt('admin1234'),
         ]);
     }
 }
