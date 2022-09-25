@@ -54,14 +54,14 @@ class GuestController extends Controller
             $validator = Validator::make($request->all(), [
                 ]);
         }
-        
+
 
         if ($validator->passes()) {
             if (Customer::where('hp', $request->hp)->exists()){
                 return response()->json(['status'=>'Customer Telah terdaftar']);
             } else {
                 switch($request->idtab)
-                {   
+                {
                 case 1  :
                     $validator = Validator::make($request->all(), [
                             'name' => 'required|min:5',
@@ -69,11 +69,11 @@ class GuestController extends Controller
                             'address' => 'required|min:15',
                             'age' => 'required|min:1|max:2',
                     ]);
-    
+
                     if ($validator->passes()) {
                         return response()->json(['success'=>'Lolos Validasi #1']);
                     }
-    
+
                     return response()->json(['error'=>$validator->errors()->all()]);
                     break;
                 case 2  :
@@ -83,11 +83,11 @@ class GuestController extends Controller
                             'job' => 'required|min:1',
                             'education' => 'required|min:1',
                     ]);
-    
+
                     if ($validator->passes()) {
                         return response()->json(['success'=>'Lolos Validasi #1']);
                     }
-    
+
                     return response()->json(['error'=>$validator->errors()->all()]);
                     break;
                 case 3  :
@@ -96,11 +96,11 @@ class GuestController extends Controller
                             'sub_categories' => 'required|min:1',
                             'service' => 'required|min:1',
                     ]);
-    
+
                     if ($validator->passes()) {
                         return response()->json(['success'=>'Lolos Validasi #1']);
                     }
-    
+
                     return response()->json(['error'=>$validator->errors()->all()]);
                     break;
                 case 4 :
@@ -108,22 +108,22 @@ class GuestController extends Controller
                             'purpose' => 'required|min:1',
                             'data' => 'required|min:30',
                     ]);
-    
+
                     if ($validator->passes()) {
                         return response()->json(['success'=>'Lolos Validasi #1']);
                     }
-    
+
                     return response()->json(['error'=>$validator->errors()->all()]);
                     break;
                 }
-    
+
             }
         } else {
             return response()->json(['error'=>$validator->errors()->all()]);
         }
-        
-        
-        
+
+
+
     }
 
     public function saveGuest(Request $request){
@@ -135,7 +135,7 @@ class GuestController extends Controller
         //     'purpose' => 'required|min:1',
         //     'data' => 'required|min:25',
         // ]);
-        
+
         // if($validator->passes()){
             $name   = $request->name;
             $hp = $request->hp;
@@ -154,10 +154,10 @@ class GuestController extends Controller
                 /**
                 * Get ID Customer
                 */
-               
+
                $idcustomer = Customer::where('hp', $hp)
                ->value('id');
-               
+
                /**
                 * Fetch request to data transaction
                 */
@@ -169,7 +169,7 @@ class GuestController extends Controller
                $transaction->data=$request->data;
                $transaction->id_sub_categories=$request->sub_categories;
                $transaction->save();
-   
+
                Alert::success("Success", "Terimakasih  $name  Sudah menggunakan layanan kami");
                return redirect('/pelanggan');
            } else {
@@ -188,19 +188,19 @@ class GuestController extends Controller
                $data->id_job = $job;
                $data->id_education = $education;
                $data->save();
-   
-   
+
+
                /**
                 * Get ID Customer
                 */
-               
+
                $idcustomer = Customer::where('hp', $hp)
                                ->value('id');
-   
+
                /**
                 * Fetch request to data transaction
                 */
-   
+
                $transaction = new Transaction();
                $transaction->id_customer =$idcustomer;
                $transaction->id_media=$request->media;
@@ -209,14 +209,14 @@ class GuestController extends Controller
                $transaction->data=$request->data;
                $transaction->id_sub_categories=$request->sub_categories;
                $transaction->save();
-   
+
                Alert::success("Success", "Terimakasih  $name  Sudah menggunakan layanan kami");
-               return redirect('/pelanggan');
+               return redirect('/');
            }
         // }
     }
 
-    
+
 
     public static function cekcustomer(Request $request){
         // DB::enableQueryLog();
@@ -226,15 +226,15 @@ class GuestController extends Controller
                     ->where('hp', '=', $request->search)
                     ->get();
 
-       
+
         /**
-         * 
+         *
          *  Return #1 plain response()
          */
         // return response()->json([
         //     'customer'=> $customer,
         // ]);
-        
+
         /**
          * Return #2 make manual collection
          */
@@ -245,7 +245,7 @@ class GuestController extends Controller
         // ];
 
         // return response()->json($response);
-        
+
          /**
          * Return #3 make use toJson()
          */
