@@ -90,7 +90,7 @@ class FeedbackController extends Controller
         $feedback->save();
 
         Alert::success('Success','Terimakasih Telah Mengisi Feedback');
-        return redirect('/pelanggan');
+        return redirect('/');
 
     }
 
@@ -110,7 +110,7 @@ class FeedbackController extends Controller
         $feedback->save();
 
         Alert::success('Success','Terimakasih Telah Mengisi Feedback');
-        return redirect('/pelanggan');
+        return redirect('/');
     }
 
     /**
