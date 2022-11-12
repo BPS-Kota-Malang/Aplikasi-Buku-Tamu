@@ -7,17 +7,17 @@
             <table class="table">
                 <tbody>
                     <tr>
-                        <td>Id Cust</td>
+                        <td>Nama Tamu</td>
                         <td>:</td>
                         <td>{{ $transaction->customer->name }}</td>
                     </tr>
                     <tr>
-                        <td>Id Media</td>
+                        <td>Media</td>
                         <td>:</td>
                         <td>{{ $transaction->media->media_type}}</td>
                     </tr>
                     <tr>
-                        <td>Id Pelayanan</td>
+                        <td>Pelayanan</td>
                         <td>:</td>
                         <td>{{ $transaction->service->service_type }}</td>
                     </tr>
