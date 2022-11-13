@@ -56,9 +56,9 @@
         <a href="{{('/download-pdf-transaction')}}" class="btn btn-danger border">PDF Data</a>
         <a href="{{('/export-excel-transaction')}}" class="btn btn-info border">Excel Data</a>
         <a href="{{('export-csv-transaction')}}" class="btn btn-dark border">CSV Data</a>
-        <table class="table" id="myTable">
+        <table class="table table-striped border" id="myTable">
             <thead class="thead-dark text-center">
-                <tr text-align="center">
+                <tr style="text-align: center">
                     <th scope="col" >No</th>
                     <th scope="col"><br>Customer </th>
                     {{-- <th scope="col">Id Media</th>
@@ -73,7 +73,7 @@
             </thead>
             <tbody>
                 @foreach ($transaction as $item)
-                <tr>
+                <tr style="text-align: center">
                     <td>{{ $loop->iteration}}</td>
                     <td>{{ $item->customer->name }}</td>
                     {{-- <td>{{ $item->media->media_type}}</td>
@@ -97,14 +97,14 @@
                       </td>
 
                     <td>
-                        <div class="row">
-                                <div class="col-4">
+                        <div class="row justify-content-center">
+                                <div class="">
                                     <a href="{{ route('transaction.edit', $item->id)}}" class="btn btn-warning">Edit</a>
                                 </div>
-                                <div class="col-4">
+                                <div class="ml-2">
                                     <a href="{{ route('transaction.show', $item->id)}}" class="btn btn-info">Show</a>
                                 </div>
-                                <div class="col-4">
+                                <div class="ml-2">
                                     <form action="{{route('transaction.destroy', $item->id)}}" method="post">
                                         @csrf
                                         @method('delete')
