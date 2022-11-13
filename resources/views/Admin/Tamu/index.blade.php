@@ -67,7 +67,7 @@
             </thead>
             <tbody>
                 @foreach ($customer as $key => $item)
-                <tr>
+                <tr style="text-align: center">
                     <th scope="row">{{$key+ 1}}</th>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->hp }}</td>
@@ -76,10 +76,10 @@
                     <td>{{ $item->guestJob->job_type}}</td>
                      <td>{{ $item->created_at }}</td>
                     <td>
-                        <div class="row">
-                            <div class="col-4">
+                        <div class="row justify-content-center">
+                            {{-- <div class="col-4">
                                 <a href="{{url('admin/form-edit', $item->id)}}" class="btn btn-warning">Edit</a>
-                            </div>
+                            </div> --}}
                             <div class="col-4">
                                 <a href="{{ url('admin/show', $item->id)}}" class="btn btn-primary">Show</a>
                             </div>
@@ -87,8 +87,8 @@
                                 <form action="{{url('admin/hapus-data')}}" method="post">
                                     @csrf
                                     <input type="hidden" name="id" value="{{$item->id}}">
-                                    <button type="submit" class="btn btn-danger"
-                                        onclick="return confirm('Apakah anda yakin ingin menghapus Data Tamu ini ?')">Hapus</button>
+                                    {{-- <button type="submit" class="btn btn-danger"
+                                        onclick="return confirm('Apakah anda yakin ingin menghapus Data Tamu ini ?')">Hapus</button> --}}
                                 </form>
                             </div>
                         </div>
