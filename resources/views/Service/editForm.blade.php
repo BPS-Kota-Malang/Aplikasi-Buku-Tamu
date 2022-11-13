@@ -11,7 +11,10 @@
                 <input type="hidden" name="_method" value="patch">
                 <div class="form-group">
                     <label for="service">Pelayanan</label>
-                    <input type="text" class="form-control" name="service" id="service" aria-describedby="service" value="{{$service->service_type}}">
+                    <input type="text" class="form-control @error('service_type') is-invalid @enderror" name="service_type" id="service_type" aria-describedby="service" value="{{$service->service_type}}" placeholder="Silahkan isi jenis pelayanan...">
+                    @error('service_type')
+                    <small class="text-danger">Data pelayanan yang diedit sebelumnya masih kosong, silahkan diedit!</small>
+                    @enderror
                   </div>
                 <button type="submit" class="btn btn-success">Simpan</button>
               </form>

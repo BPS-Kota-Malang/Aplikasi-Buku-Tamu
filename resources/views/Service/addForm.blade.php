@@ -10,7 +10,10 @@
           <form action="{{route('service.store')}}" method="post">
             @csrf
           <label for="service">Pelayanan</label>
-          <input type="text" class="form-control" name="service" id="service" aria-describedby="service">
+          <input type="text" class="form-control @error('service_type') is-invalid @enderror" name="service_type" id="service_type" aria-describedby="service" placeholder="Silahkan isi jenis pelayanan...">
+          @error('service_type')
+          <small class="text-danger">Data pelayanan masih kosong, silahkan diisi!</small>
+          @enderror
         </div>
         <button type="submit" class="btn btn-success">Simpan</button>
       </form>

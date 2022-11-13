@@ -42,10 +42,11 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        $service = new Service();
+        $validate =  $request->validate([
+            'service_type' => 'required|string'
+        ]);
 
-        $service->service_type=$request->service;
-        $service->save();
+        Service::create($validate);
 
         return redirect()->route('service.index')->with('status', 'Data Jenis Layanan Berhasil Disimpan');
     }
@@ -84,8 +85,12 @@ class ServiceController extends Controller
     public function update(Request $request, $id)
     {
         $service = Service::find($id);
-        $service->service_type=$request->service;
-        $service->save();
+
+        $validate =  $request->validate([
+            'service_type' => 'required|string'
+        ]);
+
+        $service->update($validate);
 
         return redirect()->route('service.index')->with('status', 'Data Jenis Layanan Berhasil Diupdate');
     }
