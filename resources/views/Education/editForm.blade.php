@@ -10,8 +10,11 @@
                 @csrf
                 <input type="hidden" name="_method" value="patch">
                 <div class="form-group">
-                    <label for="education">Pendidikan</label>
-                    <input type="text" class="form-control" name="education" id="nama" aria-describedby="nama" value="{{$education->education_type}}">
+                    <label for="education_type">Pendidikan</label>
+                    <input type="text" class="form-control @error('education_type') is-invalid @enderror" name="education_type" id="nama" aria-describedby="nama" value="{{$education->education_type}}" placeholder="Silahkan isi jenis pendidikan...">
+                    @error('education_type')
+                    <small class="text-danger">Data pendidikan yang diedit sebelumnya masih kosong, silahkan diedit!</small>
+                    @enderror
                   </div>
                 <button type="submit" class="btn btn-success">Simpan</button>
               </form>

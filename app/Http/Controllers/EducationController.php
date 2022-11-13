@@ -43,10 +43,11 @@ class EducationController extends Controller
      */
     public function store(Request $request)
     {
-        $education = new Education();
+        $validate =  $request->validate([
+            'education_type' => 'required|string'
+        ]);
 
-        $education->education_type=$request->education;
-        $education->save();
+        Education::create($validate);
 
         return redirect()->route('education.index')->with('status', 'Data Jenis Pendidikan Berhasil Disimpan');
     }
@@ -85,8 +86,12 @@ class EducationController extends Controller
     public function update(Request $request, $id)
     {
         $education = Education::find($id);
-        $education->education_type=$request->education;
-        $education->save();
+
+        $validate =  $request->validate([
+            'education_type' => 'required|string'
+        ]);
+
+        $education->update($validate);
 
         return redirect()->route('education.index')->with('status', 'Data Jenis Pendidikan Berhasil Diupdate');
     }

@@ -9,8 +9,11 @@
         <div class="form-group">
           <form action="{{route('education.store')}}" method="post">
             @csrf
-          <label for="education">Pendidikan</label>
-          <input type="text" class="form-control" name="education" id="education" aria-describedby="nama">
+          <label for="education_type">Pendidikan</label>
+          <input type="text" class="form-control @error('education_type') is-invalid @enderror" name="education_type" id="education_type" aria-describedby="nama" placeholder="Silahkan isi jenis pendidikan...">
+          @error('education_type')
+          <small class="text-danger">Data pendidikan masih kosong, silahkan diisi!</small>
+          @enderror
         </div>
         <button type="submit" class="btn btn-success">Simpan</button>
       </form>
