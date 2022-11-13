@@ -44,8 +44,8 @@
                     <div class="row justify-content-center">
                         <div class="col-12 col-md-4 image-wrapper">
                             <br><br><br>
-                            <img class="w-100" src="{{ asset('pengguna/assets/images/bps-1076x1053.jpg') }}" style="float: left; width: 500px;
-                            height: 520px; margin-right: 40px; margin-left: 140px; width:500px; justify-content: space-ground;"  >
+                            <img class="w-100" src="{{ asset('pengguna/assets/images/tamu.jpg') }}" style="float: left; width: 600px;
+                            height: 520px; margin-right: 40px; margin-left: 140px; width:475px; justify-content: space-ground;"  >
                         </div>
                         <div class="col-12 col-md">
                             <div class="text-wrapper text-center">
@@ -54,13 +54,19 @@
                                 width: 1000px; justify-content: space-between;">
                                     {{-- <img src="{{ asset('pengguna/assets/images/right-arrow-angle.png') }}" style="width:15px; height:15px;"> --}}
                                     <strong class="judul">VISI</strong>
-                                    <br>Pelopor data statistik terpecaya untuk semua<br><br>
+                                    <br>Pelopor data statistik bagi semua kalangan dengan pendataan secara digital.<br><br>
 
                                     <strong class="judul">MISI</strong>
-                                    <br>Menyiapkan data statistik berkualitas melalui kegiatan statistik yang terintegrasi dan berstandar nasional maupun internasional Memperkuat Sistem Statistik Nasional yang berkesinambungan melalui pembinaan dan koordinasi di bidang statistik Membangun insan statistik yang profesional, integritas, dan amanah untuk kemajuan perstatistikan<br><br>
+                                    <br>Menjadi jembatan atau penghubung untuk mendapatkan data antara pengguna dan penyedia layanan data (BPS).<br><br>
 
                                     <strong class="judul">TUJUAN</strong>
-                                    <br>Peningkatkan kualitas data statistik melalui kerangka penjaminan kualitas Peningkatan kualitas pelayanan prima hasil kegiatan statistik Penguatan Sistem Statistik Nasional melalui koordinasi dan pembinaan yang efektif di bidang statistik Peningkatan birokrasi yang akuntabel<br>
+                                    <br>
+                                    Dalam memenuhi kebutuhan masyarakat akan data, buku tamu elektronik memiliki tujuan sebagai berikut:
+                                    <br>
+                                    a. Mengetahui data jumlah banyaknya tamu yang berkunjung.<br>
+                                    b. Mengetahui tujuan penggunaan data dan kunjungan tiap periode.<br>
+                                    c. Mendapat timbal balik antara pengunjung dengan layanan BPS.<br>
+                                    <br>
                                 </p>
                             </div>
                         </div>
