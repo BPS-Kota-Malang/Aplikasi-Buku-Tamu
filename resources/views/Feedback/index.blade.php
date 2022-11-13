@@ -32,12 +32,14 @@
                         @include('sweetalert::alert')
                         @csrf
                         <div class="mb-3">
-                            <input type="text" class="form-control" name ='hp' id="hp" placeholder="Silahkan isi no handphone anda">
-                            <input class="btn btn-primary fadeIn fourth" type="submit" value="Submit" style="margin-top: 20px; padding: 15px 80px;">
+                            <input type="text" class="form-control" name ='hp' id="hp" placeholder="Silahkan isi no handphone anda...">
+                            <input class="btn btn-success fadeIn fourth" type="submit" value="Submit" style="margin-top: 30px; padding: 15px 70px;">
+                            <br><marquee behavior="scroll" direction="left">Silahkan berikan penilaian anda tentang pelayanan data kami</marquee>
                         </div>
                     </form>
                 </div>
-            </div>
+            </div><br>
+            <a class="btn btn-light fadeIn fourth" style="margin-left: 15px; padding: 15px 30px;" href="{{ url('/') }}">&xlarr; Kembali</a><br>
         </div>
     {{-- </div> --}}
 
