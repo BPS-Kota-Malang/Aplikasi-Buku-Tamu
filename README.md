@@ -1,46 +1,39 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Website - Manajemen Mitra BPS Kota Malang
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+[![BPS Preview](https://cdn.antaranews.com/cache/730x487/2020/01/02/IMG_5862.jpg)
 
-# Aplikasi-Buku-Tamu
-Aplikasi Buku Tamu - Badan Pusat Statistik (Malang)
+## Langkah-langkah untuk menjalankan proyek:
 
-## Progress - Darman Saputra Saragih
+-   Clone repo: `git clone https://github.com/IPDS-BPS-Polinema/Manajemen-Mitra.git`
+-   Buka project mitra bps
+-   Jalankan perintah `composer update` 
+-   Jalakan perintah `npm install`
+-   Jalankan perintah `npm run dev`
+-   Copy isi `env.example` ke dalam file `.env`
+-   Jalankan `php artisan key:generate` command
+-   Jalankan `php artisan serve` command
+-   Done
 
-1) Dashboard - Admin
+# Magang Politeknik Negeri Malang
+Bidang :  Integrasi Pengolahan dan Diseminasi Statistik (IPDS)
 
-2) Menu Utama - Admin
-  * Sub Menu Customer - Admin
-  * Sub Menu Pendidikan - Admin
-  * Sub Menu Pekerjaan - Admin
-  * Sub Menu Media Pelayanan - Admin
-  * Sub Menu Jenis Pelayanan - Admin
-  * Sub Menu Kebutuhan Data (Sosial&Kependudukan, Ekonomi&Perdagangan, Pertanian&Pertambangan)
-  * Sub Menu Tujuan
-  
-## Progress - Mutiara Rahmanda Tri Rizkia
-   1) Menu Utama - Admin
-        - Sub Menu Kategori Kebutuhan Data
-        - Sub Menu Sub Kategori Kebutuhan Data
-   2) Menu Transaksi - Admin
-        - CRUD Transaksi
-        - Filtering Transaksi
-   
-## Progress - Qorina Anindhita Prameswari
+# Data Pembina
 
-## Progress - Wahyu Fajar Robyansyah						
+| Data Pembina | Nama Pembina |
+|--|--|
+| Pembina I | Bima Sakti Krisdianto |
+| Pembina II | Satria Candra Wibawa |
 
-## Progress - Wildan Achmad Fachrurozi			
+## Data Mahasiswa - Kelompok 1
 
-Link Desain Figma : https://www.figma.com/file/JMnjTKktFVVOADLR7sH4Ml/BUKU-TAMU?node-id=0%3A1
+| NIM | Nama |
+|--|--|
+| 1941720060 | Darman Saputra Saragih |
+| 1941720189 | Mutiara Rahmanda Tri Rizkia |
+| 1941720049 | Qorina Anindhita Prameswari |
+| 1941720136 | Achmad Wildan | 
 
-Link Import Database Localhost PHPMyAdmin : 
+## Pernyataan Kelompok
+Kami menyatakan isi tugas, kode program, dan laporan kegiatan magang dibuat oleh Kami. Kami tidak melakukan plagiasi, kecurangan, menyalin/menggandakan milik orang lain.
 
-Link Laporan Website Buku Tamu : https://docs.google.com/document/d/1GVN17T9aFApmKnpAzS65giafvk4NMjtS/edit?usp=sharing&ouid=113843467722404920595&rtpof=true&sd=true
-
-
+Jika Kami melakukan plagiasi, kecurangan, atau melanggar hak kekayaan intelektual, Kami siap untuk mendapat sanksi atau hukuman sesuai peraturan perundang-undangan yang berlaku.
