@@ -52,9 +52,9 @@
         <a href="{{('/download-pdf')}}" class="btn btn-danger border">PDF Data</a>
         <a href="{{('/export-excel')}}" class="btn btn-info border">Excel Data</a>
         <a href="{{('/export-csv')}}" class="btn btn-dark border">CSV Data</a>
-        <table class="table" id="myTable">
+        <table class="table table-striped border" id="myTable">
             <thead class="thead-dark text-center">
-                <tr>
+                <tr style="text-align: center">
                     <th scope="col">No</th>
                     <th scope="col">Nama</th>
                     <th scope="col">Telepon</th>
@@ -80,10 +80,10 @@
                             {{-- <div class="col-4">
                                 <a href="{{url('admin/form-edit', $item->id)}}" class="btn btn-warning">Edit</a>
                             </div> --}}
-                            <div class="col-4">
+                            <div class="ml-2">
                                 <a href="{{ url('admin/show', $item->id)}}" class="btn btn-primary">Show</a>
                             </div>
-                            <div class="col-3">
+                            <div class="ml-2">
                                 <form action="{{url('admin/hapus-data')}}" method="post">
                                     @csrf
                                     <input type="hidden" name="id" value="{{$item->id}}">
