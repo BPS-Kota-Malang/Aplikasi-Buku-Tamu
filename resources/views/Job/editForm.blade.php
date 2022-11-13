@@ -11,7 +11,10 @@
                 <input type="hidden" name="_method" value="patch">
                 <div class="form-group">
                     <label for="job">Pekerjaan</label>
-                    <input type="text" class="form-control" name="type" id="job" aria-describedby="job" value="{{$job->job_type}}">
+                    <input type="text" class="form-control @error('job_type') is-invalid @enderror" name="job_type" id="job_type" aria-describedby="job" value="{{$job->job_type}}" placeholder="Silahkan isi jenis pekerjaan...">
+                    @error('job_type')
+                    <small class="text-danger">Data pekerjaan yang diedit sebelumnya masih kosong, silahkan diedit!</small>
+                    @enderror
                   </div>
                 <button type="submit" class="btn btn-success">Simpan</button>
               </form>

@@ -42,10 +42,11 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        $job = new Job();
+        $validate =  $request->validate([
+            'job_type' => 'required|string'
+        ]);
 
-        $job->job_type=$request->type;
-        $job->save();
+        Job::create($validate);
 
         return redirect()->route('job.index')->with('status', 'Data Jenis Pekerjaan Berhasil Disimpan');
     }
@@ -84,8 +85,12 @@ class JobController extends Controller
     public function update(Request $request, $id)
     {
         $job = Job::find($id);
-        $job->job_type=$request->type;
-        $job->save();
+
+        $validate =  $request->validate([
+            'job_type' => 'required|string'
+        ]);
+
+        $job->update($validate);
 
         return redirect()->route('job.index')->with('status', 'Data Jenis Pekerjaan Berhasil Diupdate');
     }

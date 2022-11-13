@@ -10,7 +10,10 @@
           <form action="{{route('job.store')}}" method="post">
             @csrf
           <label for="job">Pekerjaan</label>
-          <input type="text" class="form-control" name="type" id="type" aria-describedby="nama">
+          <input type="text" class="form-control @error('job_type') is-invalid @enderror" name="job_type" id="type" aria-describedby="nama" placeholder="Silahkan isi jenis pekerjaan...">
+          @error('job_type')
+          <small class="text-danger">Data pekerjaan masih kosong, silahkan diisi!</small>
+          @enderror
         </div>
         <button type="submit" class="btn btn-success">Simpan</button>
       </form>
