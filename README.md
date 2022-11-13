@@ -1,4 +1,4 @@
-# Website - Manajemen Mitra BPS Kota Malang
+# Website - Aplikasi Buku Tamu BPS Kota Malang
 
 [![BPS Preview](https://cdn.antaranews.com/cache/730x487/2020/01/02/IMG_5862.jpg)
 
