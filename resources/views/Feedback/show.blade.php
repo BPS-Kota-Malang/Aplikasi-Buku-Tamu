@@ -49,23 +49,23 @@
                         <td scope="row">{{ $tran->id }}</td>
                         <td>{{ $tran->customer->name }}</td>
                         <td>{{ $tran->data}}</td>
-                        <td>{{ $tran->Feedback != null ? 'Sudah Mengisi' : 'Belum Mengisi'}}</td>
-                        <td>
-                        <!-- Button trigger modal -->
-                        @if ( $tran->Feedback != null )
-                          <button type="button" id="btnmodal" class="btn btn-sm feedbackBtn btn-primary " disabled data-toggle="modal">
-                            Submit
-                          </button>
-                        @else
-                        <button type="button" id="btnmodal" class="btn btn-sm feedbackBtn btn-primary "  data-toggle="modal">
-                          Submit
-                        </button>
-                        @endif
-                        
-                        {{-- @if ()
-
-                        @endif --}}
-                    </td>
+                        <td> 
+                          @if ($tran->Feedback!=null )
+                          <span class="badge bg-success">Sudah Mengisi</span>
+                          <td>
+                            <button type="button" id="btnmodal" class="btn btn-sm feedbackBtn btn-primary " disabled data-toggle="modal">
+                              Submit
+                            </button>
+                          </td>
+                          @else ()
+                          <span class="badge bg-danger">Belum Mengisi</span>
+                          <td>
+                            <button type="button" id="btnmodal" class="btn btn-sm feedbackBtn btn-primary "  data-toggle="modal">
+                              Submit
+                            </button>
+                          </td>
+                          @endif
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
