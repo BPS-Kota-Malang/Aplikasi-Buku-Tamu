@@ -43,10 +43,11 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $categories = new Category();
+        $validate =  $request->validate([
+            'categories_type' => 'required|string'
+        ]);
 
-        $categories->categories_type=$request->jenis;
-        $categories->save();
+        Category::create($validate);
 
         return redirect()->route('category.index')->with('status', 'Data Kategori Berhasil Disimpan');
     }
@@ -85,8 +86,13 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $categories = Category::find($id);
-        $categories->categories_type=$request->type;
-        $categories->save();
+
+        $validate =  $request->validate([
+            'categories_type' => 'required|string'
+        ]);
+
+        $categories->update($validate);
+        
 
         return redirect()->route('category.index')->with('status', 'Data Kategori Berhasil Diupdate');
     }

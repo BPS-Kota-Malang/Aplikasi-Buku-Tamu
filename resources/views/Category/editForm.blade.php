@@ -11,7 +11,10 @@
                 <input type="hidden" name="_method" value="patch">
                 <div class="form-group">
                     <label for="category">Kategori</label>
-                    <input type="text" class="form-control" name="type" id="category" aria-describedby="category" value="{{$categories->categories_type}}">
+                    <input type="text" class="form-control @error('categories_type') is-invalid @enderror" name="categories_type" id="categories_type" aria-describedby="categories_type" value="{{$categories->categories_type}}" placeholder="Silahkan isi kategori data...">
+                    @error('categories_type')
+                    <small class="text-danger">Data kategori yang diedit sebelumnya masih kosong, silahkan diedit!</small>
+                    @enderror
                   </div>
                 <button type="submit" class="btn btn-success">Simpan</button>
               </form>
