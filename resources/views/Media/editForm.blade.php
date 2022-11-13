@@ -11,7 +11,10 @@
                 <input type="hidden" name="_method" value="patch">
                 <div class="form-group">
                     <label for="media">Media</label>
-                    <input type="text" class="form-control" name="media" id="media" aria-describedby="media" value="{{$media->media_type}}">
+                    <input type="text" class="form-control @error('media_type') is-invalid @enderror" name="media_type" id="media_type" aria-describedby="media_type" value="{{$media->media_type}}" placeholder="Silahkan isi jenis media...">
+                    @error('media_type')
+                    <small class="text-danger">Data media pelayanan yang diedit sebelumnya masih kosong, silahkan diedit!</small>
+                    @enderror
                   </div>
                 <button type="submit" class="btn btn-success">Simpan</button>
               </form>

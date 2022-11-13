@@ -9,8 +9,11 @@
         <div class="form-group">
           <form action="{{route('media.store')}}" method="post">
             @csrf
-          <label for="job">Media Pelayanan</label>
-          <input type="text" class="form-control" name="media" id="type" aria-describedby="nama">
+          <label for="media">Media Pelayanan</label>
+          <input type="text" class="form-control @error('media_type') is-invalid @enderror" name="media_type" id="media_type" aria-describedby="nama" placeholder="Silahkan isi jenis media...">
+          @error('media_type')
+          <small class="text-danger">Data media pelayanan masih kosong, silahkan diisi!</small>
+          @enderror
         </div>
         <button type="submit" class="btn btn-success">Simpan</button>
       </form>

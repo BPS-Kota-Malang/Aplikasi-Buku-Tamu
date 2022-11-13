@@ -42,10 +42,11 @@ class MediaController extends Controller
      */
     public function store(Request $request)
     {
-        $media = new Media();
+        $validate =  $request->validate([
+            'media_type' => 'required|string'
+        ]);
 
-        $media->media_type=$request->media;
-        $media->save();
+        Media::create($validate);
 
         return redirect()->route('media.index')->with('status', 'Data Media Pelayanan Berhasil Disimpan');
     }
@@ -84,8 +85,12 @@ class MediaController extends Controller
     public function update(Request $request, $id)
     {
         $media = Media::find($id);
-        $media->media_type=$request->media;
-        $media->save();
+
+        $validate =  $request->validate([
+            'media_type' => 'required|string'
+        ]);
+
+        $media->update($validate);
 
         return redirect()->route('media.index')->with('status', 'Data Media Pelayanan Berhasil Diupdate');
     }
