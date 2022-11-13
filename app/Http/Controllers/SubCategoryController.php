@@ -45,10 +45,17 @@ class SubCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        SubCategory::create([
-            'sub_categories_type' => $request->sub_categories_type,
-            'id_categories' => $request->id_categories,
+        // SubCategory::create([
+        //     'sub_categories_type' => $request->sub_categories_type,
+        //     'id_categories' => $request->id_categories,
+        // ]);
+
+        $validate =  $request->validate([
+            'sub_categories_type' => 'required|string',
+            'id_categories' => 'required'
         ]);
+
+        SubCategory::create($validate);
 
         return redirect()->route('subcategory.index')->with('status', 'Data Sub Kategori Berhasil Disimpan');
     }
@@ -74,8 +81,8 @@ class SubCategoryController extends Controller
      */
     public function edit($id)
     {
-        $categories= Category::all();
         $sub_categories= SubCategory::find($id);
+        $categories= Category::all();
         return view('SubCategory.editForm', compact('sub_categories','categories'));
     }
 
@@ -88,11 +95,19 @@ class SubCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $sub_categories= SubCategory::with('guestCategory')->find($id);
-        $sub_categories->sub_categories_type=$request->sub_categories_type;
-        $sub_categories->id_categories=$request->id_categories;
+        // $sub_categories= SubCategory::with('guestCategory')->find($id);
+        // $sub_categories->sub_categories_type=$request->sub_categories_type;
+        // $sub_categories->id_categories=$request->id_categories;
 
-        $sub_categories->save();
+        // $sub_categories->save();
+        $sub_categories = SubCategory::with('guestCategory')->find($id);
+
+        $validate =  $request->validate([
+            'sub_categories_type' => 'required|string',
+            'id_categories' => 'required'
+        ]);
+
+        $sub_categories->update($validate);
 
         return redirect()->route('subcategory.index')->with('status', 'Data Sub Kategori Berhasil Diupdate');
     }

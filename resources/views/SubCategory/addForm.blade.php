@@ -10,16 +10,22 @@
           <form action="{{route('subcategory.store')}}" method="post">
             @csrf
           <label for="category">Sub Kategori</label>
-          <input type="text" class="form-control" name="sub_categories_type" id="sub_categories_type" aria-describedby="category">
+          <input type="text" class="form-control @error('sub_categories_type') is-invalid @enderror" name="sub_categories_type" id="sub_categories_type" aria-describedby="category" placeholder="Silahkan isi sub kategori data...">
+          @error('sub_categories_type')
+          <small class="text-danger">Data sub kategori masih kosong, silahkan diisi!</small>
+          @enderror
         </div>
         <div class="form-group mb-3">
           <label class="label" for="education">Jenis Kategori</label>
-          <select class="custom-select my-1 mr-sm-2" name="id_categories" id="id_categories">
+          <select class="form-control @error('id_categories') is-invalid @enderror" name="id_categories" id="id_categories" required>
             <option selected disabled>Pilih Jenis Kategori</option>
             @foreach ($categories as $item)
             <option value="{{ $item->id }}">{{$item->categories_type}}</option>
             @endforeach
           </select>
+          @error('id_categories')
+          <small class="text-danger">Data kategori data yang diedit sebelumnya masih kosong, silahkan diedit!</small>
+          @enderror
         </div>
         <button type="submit" class="btn btn-success">Simpan</button>
       </form>
