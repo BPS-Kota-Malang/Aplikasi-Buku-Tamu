@@ -12,9 +12,9 @@
     </div>
     <div class="card-body">
         <a href="{{route('subcategory.create')}}" class="btn btn-success">Add Data</a>
-        <table class="table" id="myTable">
+        <table class="table table-striped border" id="myTable">
             <thead class="thead-dark">
-                <tr>
+                <tr style="text-align: center">
                     <th scope="col">No</th>
                     <th scope="col">Sub Kategori</th>
                     <th scope="col">Jenis Kategori</th>
@@ -23,19 +23,19 @@
             </thead>
             <tbody>
                 @foreach ($sub_categories as $item)
-                <tr>
+                <tr style="text-align: center">
                     <td>{{ $loop->iteration}}
                     <td>{{ $item->sub_categories_type}}
                     <td>{{ $item->guestCategory->categories_type}}
                     <td>
-                        <div class="row">
-                                <div class="col-4">
+                        <div class="row justify-content-center">
+                                <div class="">
                                     <a href="{{ route('subcategory.edit', $item->id)}}" class="btn btn-warning">Edit</a>
                                 </div>
-                                <div class="col-4">
+                                <div class="ml-2">
                                     <a href="{{ route('subcategory.show', $item->id)}}" class="btn btn-info">Show</a>
                                 </div>
-                                <div class="col-4">
+                                <div class="ml-2">
                                     <form action="{{route('subcategory.destroy', $item->id)}}" method="post">
                                         @csrf
                                         @method('delete')
