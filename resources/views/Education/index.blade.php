@@ -12,9 +12,9 @@
     </div>
     <div class="card-body">
         <a href="{{route('education.create')}}" class="btn btn-success">Add Data</a>
-        <table class="table" id="myTable">
+        <table class="table table-striped border" id="myTable">
             <thead class="thead-dark">
-                <tr>
+                <tr style="text-align: center">
                     <th scope="col">No</th>
                     <th scope="col">Jenis Pendidikan</th>
                     <th scope="col" width="20%">Aksi</th>
@@ -22,19 +22,19 @@
             </thead>
             <tbody>
                 @foreach ($education as $item)
-                <tr>
+                <tr style="text-align: center">
 
                     <td>{{ $loop->iteration}}
                     <td>{{ $item->education_type}}
                     <td>
-                        <div class="row">
-                                <div class="col-4">
+                        <div class="row justify-content-center">
+                                <div class=""> 
                                     <a href="{{ route('education.edit', $item->id)}}" class="btn btn-warning">Edit</a>
                                 </div>
-                                <div class="col-4">
+                                <div class="ml-2">
                                     <a href="{{ route('education.show', $item->id)}}" class="btn btn-info">Show</a>
                                 </div>
-                                <div class="col-4">
+                                <div class="ml-2">
                                     <form action="{{route('education.destroy', $item->id)}}" method="post">
                                         @csrf
                                         @method('delete')
