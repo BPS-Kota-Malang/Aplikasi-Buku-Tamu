@@ -60,13 +60,14 @@
             <thead class="thead-dark text-center">
                 <tr text-align="center">
                     <th scope="col" >No</th>
-                    <th scope="col">Id <br>Customer </th>
-                    <th scope="col">Id Media</th>
-                    <th scope="col">Id <br> Pelayanan</th>
+                    <th scope="col"><br>Customer </th>
+                    {{-- <th scope="col">Id Media</th>
+                    <th scope="col">Id <br> Pelayanan</th> --}}
                     <th scope="col">Feedback <br>Pelayanan</th>
                     <th scope="col">Feedback <br>Sarana & Prasarana</th>
-                     <th scope="col">Feedback <br>Kualitas Data</th>
+                    <th scope="col">Feedback <br>Kualitas Data</th>
                     <th scope="col">Tanggal</th>
+                    <th scope="col">Status</th>
                     <th scope="col" width="25%">Aksi</th>
                 </tr>
             </thead>
@@ -75,8 +76,8 @@
                 <tr>
                     <td>{{ $loop->iteration}}</td>
                     <td>{{ $item->customer->name }}</td>
-                    <td>{{ $item->media->media_type}}</td>
-                    <td>{{ $item->service->service_type }}</td>
+                    {{-- <td>{{ $item->media->media_type}}</td>
+                    <td>{{ $item->service->service_type }}</td> --}}
                     @if ($item->Feedback != null)
                         <td>{{ $item->Feedback->service }}</td>
                         <td>{{ $item->Feedback->facility }}</td>
@@ -86,28 +87,14 @@
                         <td>-</td>
                         <td>-</td>
                     @endif
-                    {{-- <td>
-                        <script>
-                            if  ($item->feedback->service === null){
-                                return "0";
-                            }
-                        </script>
-                    </td>
-                    <td>
-                        <script>
-                            if  ($item->feedback->facility === null){
-                                return "0";
-                            }
-                        </script>
-                    </td>
-                    <td>
-                        <script>
-                            if  ($item->feedback->dataqualities === null){
-                                return "0";
-                            }
-                        </script>
-                    </td> --}}
                     <td>{{ $item->created_at }}</td>
+                    <td> 
+                        @if ($item->FeedBack!=null )
+                        <span class="badge badge-success">Sudah Dilayani</span>
+                        @else ()
+                        <span class="badge badge-danger">Belum Dilayani</span>
+                        @endif
+                      </td>
 
                     <td>
                         <div class="row">
