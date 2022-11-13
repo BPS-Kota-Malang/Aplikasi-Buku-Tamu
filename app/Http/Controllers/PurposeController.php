@@ -42,10 +42,16 @@ class PurposeController extends Controller
      */
     public function store(Request $request)
     {
-        $purpose = new Purpose();
+        // $purpose = new Purpose();
 
-        $purpose->purpose_type=$request->purpose;
-        $purpose->save();
+        // $purpose->purpose_type=$request->purpose;
+        // $purpose->save();
+
+        $validate =  $request->validate([
+            'purpose_type' => 'required|string'
+        ]);
+
+        Purpose::create($validate);
 
         return redirect()->route('purpose.index')->with('status', 'Data Jenis Tujuan Berhasil Disimpan');
     }
@@ -83,9 +89,17 @@ class PurposeController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // $purpose = Purpose::find($id);
+        // $purpose->purpose_type=$request->purpose;
+        // $purpose->save();
+
         $purpose = Purpose::find($id);
-        $purpose->purpose_type=$request->purpose;
-        $purpose->save();
+
+        $validate =  $request->validate([
+            'purpose_type' => 'required|string'
+        ]);
+
+        $purpose->update($validate);
 
         return redirect()->route('purpose.index')->with('status', 'Data Jenis Tujuan Berhasil Diupdate');
     }
