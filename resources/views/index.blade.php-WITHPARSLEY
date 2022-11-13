@@ -53,8 +53,8 @@
             <label class="gender" for="gender" style="color:#000000">Jenis Kelamin</label>
             <select class="custom-select my-1 mr-sm-2" name="gender" id="gender"  required>
             <option selected="false" disabled="disabled" >Silahkan Pilih Jenis Kelamin
-            <option value="lakilaki">Pria</option>
-            <option value="perempuan">Wanita</option>
+            <option value="Pria">Pria</option>
+            <option value="Wanita">Wanita</option>
             </select>
         </div>
 

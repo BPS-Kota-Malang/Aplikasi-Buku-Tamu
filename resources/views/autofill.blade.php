@@ -48,8 +48,8 @@
                 <label class="gender" for="gender">Jenis Kelamin</label>
                 <select class="custom-select my-1 mr-sm-2" name="gender" id="inlineFormCustomSelectPref">
                 <option selected="true" disabled="disabled" >Pilih Jenis Kelamin</option>
-                <option value="lakilaki">Pria</option>
-                <option value="perempuan">Wanita</option>
+                <option value="Pria">Pria</option>
+                <option value="Wanita">Wanita</option>
                 </select>
             </div>
             <div class="input-group">
