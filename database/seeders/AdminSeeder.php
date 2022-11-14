@@ -29,5 +29,12 @@ class AdminSeeder extends Seeder
             'role'     => 'Super Admin',
             'password' => bcrypt('admin1234'),
         ]);
+
+        User::create([
+            'name'     => 'Qorina Anindhita',
+            'email'    => 'orin123@gmail.com',
+            'role'     => 'Super Admin',
+            'password' => bcrypt('admin1234'),
+        ]);
     }
 }
