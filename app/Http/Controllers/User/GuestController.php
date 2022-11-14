@@ -171,7 +171,7 @@ class GuestController extends Controller
                $transaction->save();
 
                Alert::success("Success", "Terimakasih  $name  Sudah menggunakan layanan kami");
-               return redirect('/pelanggan');
+               return redirect('/');
            } else {
                /**
                 * Add a New Customer
