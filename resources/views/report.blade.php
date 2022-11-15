@@ -56,15 +56,18 @@
     </div>
     <div class="card-header">
         <p style="text-align: center">Total Pengunjung : <strong>{{$customer}}</strong> orang</p>
+        <p style="text-align: center">Total Transaksi : <strong>{{$transaction}}</strong> kali</p>
     </div>
     <h4>1. Jumlah Customer - Berdasarkan Pekerjaan</h4> 
     <table id="emp" border="2">
         <title>Customer - BPS</title>
         <thead class="thead-dark">
             <tr>
-                <th>Aparatur Sipil Negara</th>
+                <th>ASN</th>
                 <th>Pelajar/Mahasiswa</th>
-                <th>Dosen/Peneliti</th>
+                <th>Dosen/Guru</th>
+                <th>Peneliti</th>
+                <th>Umum/lain-lain</th>
             </tr>
         </thead>
         <tbody>
@@ -72,6 +75,8 @@
                 <td>{{$asn}}</td>
                 <td>{{$student}}</td>
                 <td>{{$lecturer}}</td>
+                <td>{{$researcher}}</td>
+                <td>{{$general_job}}</td>
             </tr> 
         </tbody>
     </table>
@@ -98,23 +103,25 @@
             </tr> 
         </tbody>
     </table>
-    <h4>3. Jumlah Customer - Berdasarkan Layanan</h4> 
+    <h4>3. Jumlah Transaksi - Berdasarkan Layanan</h4> 
     <table id="emp" border="2">
         <thead class="thead-dark">
             <tr>
                 <th>Permintaan Data</th>
                 <th>Konsultasi Data</th>
                 <th>Rekomendasi Data Sektoral</th>
+                <th>Umum (lain-lain)</th>
         </thead>
         <tbody>
             <tr>
                 <td>{{$service1}}</td>
                 <td>{{$service2}}</td>
                 <td>{{$service3}}</td>
+                <td>{{$service4}}</td>
             </tr> 
         </tbody>
     </table>
-    <h4>4. Jumlah Customer - Berdasarkan Media</h4> 
+    <h4>4. Jumlah Transaksi - Berdasarkan Media</h4> 
     <table id="emp" border="2">
         <thead class="thead-dark">
             <tr>
@@ -134,17 +141,17 @@
             </tr> 
         </tbody>
     </table>
-    <h4>5. Jumlah Customer - Berdasarkan Tujuan</h4> 
+    <h4>5. Jumlah Transaksi - Berdasarkan Tujuan</h4> 
     <table id="emp" border="2">
         <thead class="thead-dark">
             <tr>
-                <th>Tugas</th>
                 <th>Skripsi</th>
                 <th>Tesis</th>
-                <th>Perumusan Kebijakan</th>
-                <th>Lainnya</th>
+                <th>Disertasi</th>
+                <th>Penelitian</th>
+                <th>Umum (lain-lain)</th>
         </thead>
-        <tbody>
+        <tbody> 
             <tr>
                 <td>{{$purpose1}}</td>
                 <td>{{$purpose2}}</td>
@@ -155,5 +162,4 @@
         </tbody>
     </table>
 </body>
-
 </html>
