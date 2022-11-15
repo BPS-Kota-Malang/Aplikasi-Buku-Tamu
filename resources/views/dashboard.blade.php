@@ -12,17 +12,17 @@
 <h4 class="mb-0 text-center">Data Customer - Berdasarkan Pekerjaan</h4><br>
 <div class="row">
     <!-- Data Pengunjung -->
-    <div class="col-xl-3 col-md-6 mb-4">
+    <div class="col-xl-4 col-md-6 mb-4">
         <div class="card border-left-primary shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                        <div class="text-sm font-weight-bold text-primary text-uppercase mb-1">
                             Total Pengunjung</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$customer}}</div>
+                        <div class="h5 mb-0 font-weight text-gray-800"><strong>{{$customer}}</strong> orang</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        <i class="fas fa-users fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -30,60 +30,90 @@
     </div>
 
     <!-- Data ASN -->
-    <div class="col-xl-3 col-md-6 mb-4">
+    <div class="col-xl-4 col-md-6 mb-4">
         <div class="card border-left-success shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                        <div class="text-sm font-weight-bold text-success text-uppercase mb-1">
                             ASN</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$asn}}</div>
+                        <div class="h5 mb-0 font-weight text-gray-800"><strong>{{$asn}}</strong> orang</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        <i class="fas fa-user-circle fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Data Mahasiswa -->
-    <div class="col-xl-3 col-md-6 mb-4">
+    <!-- Data Pelajar/Mahasiswa-->
+    <div class="col-xl-4 col-md-6 mb-4">
         <div class="card border-left-info shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Mahasiswa
+                        <div class="text-sm font-weight-bold text-info text-uppercase mb-1">Pelajar/Mahasiswa
                         </div>
                         <div class="row no-gutters align-items-center">
                             <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$student}}</div>
-                            </div>
-                            <div class="col">
-                                <div class="progress progress-sm mr-2">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: 50%"
-                                        aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                                <div class="h5 mb-0 mr-3 font-weight text-gray-800"><strong>{{$student}}</strong> orang</div>
                             </div>
                         </div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        <i class="fas fa-address-card fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Data Dosen -->
-    <div class="col-xl-3 col-md-6 mb-4">
+    <!-- Data Guru/Dosen -->
+    <div class="col-xl-4 col-md-6 mb-4">
+        <div class="card border-left-dark shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-sm font-weight-bold text-dark text-uppercase mb-1">
+                            Guru/Dosen</div>
+                        <div class="h5 mb-0 font-weight text-gray-800"><strong>{{$lecturer}}</strong> orang</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-address-book fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<!-- Data Peneliti -->
+	<div class="col-xl-4 col-md-6 mb-4">
         <div class="card border-left-warning shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                            Dosen</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$lecturer}}</div>
+                        <div class="text-sm font-weight-bold text-warning text-uppercase mb-1">
+                            Peneliti</div>
+                        <div class="h5 mb-0 font-weight text-gray-800"><strong>{{$researcher}}</strong> orang</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-american-sign-language-interpreting fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<!-- General -->
+	<div class="col-xl-4 col-md-6 mb-4">
+        <div class="card border-left-secondary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-sm font-weight-bold text-secondary text-uppercase mb-1">
+                            Umum/lain-lain</div>
+                        <div class="h5 mb-0 font-weight text-gray-800"><strong>{{$general_job}}</strong> orang</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -107,8 +137,9 @@ window.onload = function () {
 		data: [              
 		{
 			type: "column",
+            toolTipContent: "<b>{label}</b><br>Jumlah: {y} orang",
 			dataPoints: [
-				{ label: "SMP/Dibawahnya",  y: {{$smp}}  },
+				{ label: "SMP/Dibawahnya",  y: {{$smp}} },
 				{ label: "SMA", y: {{$sma}}  },
 				{ label: "Diploma (D1/D2/D3)", y: {{$diploma}}  },
                 { label: "Sarjana (S1)",  y: {{$sarjana}} },
@@ -135,12 +166,13 @@ window.onload = function () {
 	data: [{
 		type: "pie",
 		showInLegend: true,
-		toolTipContent: "{name}: <strong>{y}%</strong>",
+		toolTipContent: "<b>{name}</b><br>Jumlah: {x} transaksi",
 		indexLabel: "{name} - {y}%",
 		dataPoints: [
-			{ y: ({{$service1}}/({{$service1}}+{{$service2}}+{{$service3}}))*100, name: "Permintaan Data", exploded: true },
-			{ y: ({{$service2}}/({{$service1}}+{{$service2}}+{{$service3}}))*100, name: "Konsultasi Data" },
-			{ y: ({{$service3}}/({{$service1}}+{{$service2}}+{{$service3}}))*100, name: "Rekomendasi Data Sektoral", exploded: true },
+			{ y: ({{$service1}}/({{$service1}}+{{$service2}}+{{$service3}}+{{$service4}}))*100, x: {{$service1}}, name: "Permintaan Data", exploded: true },
+			{ y: ({{$service2}}/({{$service1}}+{{$service2}}+{{$service3}}+{{$service4}}))*100, x: {{$service2}}, name: "Konsultasi Data" },
+			{ y: ({{$service3}}/({{$service1}}+{{$service2}}+{{$service3}}+{{$service4}}))*100, x: {{$service3}}, name: "Rekomendasi Data Sektoral", },
+            { y: ({{$service4}}/({{$service1}}+{{$service2}}+{{$service3}}+{{$service4}}))*100, x: {{$service4}}, name: "Umum (lain-lain)", exploded: true },
 		]
 	}]
 });
@@ -156,7 +188,7 @@ var chartb = new CanvasJS.Chart("chartbContainer", {
 		interval: 1
 	},
 	axisY: {
-		title: "Jumlah Pengunjung",
+		title: "Jumlah Transaksi",
 		includeZero: true,
 		scaleBreaks: {
 			type: "wavy",
@@ -164,11 +196,11 @@ var chartb = new CanvasJS.Chart("chartbContainer", {
 				startValue: 80,
 				endValue: 210
 				}
-		]}
+		] }
 	},
 	data: [{
 		type: "bar",
-		toolTipContent: "<b>{label}</b><br>Jumlah: {y} orang",
+		toolTipContent: "<b>{label}</b><br>Jumlah: {y} transaksi",
 		dataPoints: [
 			{ label: "Add-Stat-Whatsapp", y: {{$media1}}},
 			{ label: "Email", y:  {{$media2}}},
@@ -185,23 +217,23 @@ chartb.render();
 var chartc = new CanvasJS.Chart("chartcContainer", {
 	animationEnabled: true,
 	exportEnabled: true,
-	theme: "light1",
 	title:{
 		text: ""
 	},
 	data: [{
-		type: "pyramid",
-		yValueFormatString: "#\"%\"",
-		indexLabelFontColor: "black",
-		indexLabelFontSize: 16,
-		indexLabel: "{label} - {y}",
-		//reversed: true, // Reverses the pyramid
+        type: "pyramid",
+		indexLabelFontSize: 18,
+		valueRepresents: "area",
+		showInLegend: true,
+		legendText: "{label}",
+        toolTipContent: "<b>{label}</b><br>Jumlah: {x} transaksi",
+		indexLabel: "{label} - {y}%",
 		dataPoints: [
-			{ y: ({{$purpose1}}/({{$purpose1}}+{{$purpose2}}+{{$purpose3}}+{{$purpose4}}+{{$purpose5}}))*100, label: "Tugas Sekolah/Universitas" },
-			{ y: ({{$purpose2}}/({{$purpose1}}+{{$purpose2}}+{{$purpose3}}+{{$purpose4}}+{{$purpose5}}))*100, label: "Skripsi" },
-			{ y: ({{$purpose3}}/({{$purpose1}}+{{$purpose2}}+{{$purpose3}}+{{$purpose4}}+{{$purpose5}}))*100, label: "Tesis" },
-			{ y: ({{$purpose4}}/({{$purpose1}}+{{$purpose2}}+{{$purpose3}}+{{$purpose4}}+{{$purpose5}}))*100, label: "Perumusan Kebijakan" },
-			{ y: ({{$purpose5}}/({{$purpose1}}+{{$purpose2}}+{{$purpose3}}+{{$purpose4}}+{{$purpose5}}))*100, label: "Yang Lainnya" }
+			{ y: ({{$purpose1}}/({{$purpose1}}+{{$purpose2}}+{{$purpose3}}+{{$purpose4}}+{{$purpose5}}))*100, x: {{$purpose1}}, label: "Skripsi" },
+			{ y: ({{$purpose2}}/({{$purpose1}}+{{$purpose2}}+{{$purpose3}}+{{$purpose4}}+{{$purpose5}}))*100, x: {{$purpose2}}, label: "Tesis" },
+			{ y: ({{$purpose3}}/({{$purpose1}}+{{$purpose2}}+{{$purpose3}}+{{$purpose4}}+{{$purpose5}}))*100, x: {{$purpose3}}, label: "Disertasi" },
+			{ y: ({{$purpose4}}/({{$purpose1}}+{{$purpose2}}+{{$purpose3}}+{{$purpose4}}+{{$purpose5}}))*100, x: {{$purpose4}}, label: "Penelitian" },
+			{ y: ({{$purpose5}}/({{$purpose1}}+{{$purpose2}}+{{$purpose3}}+{{$purpose4}}+{{$purpose5}}))*100, x: {{$purpose5}}, label: "Umum (lain-lain)" }
 		]
 	}]
 });
@@ -224,11 +256,11 @@ function explodePie (e) {
 <!-- Menampilkan judul untuk setiap visualisasi data pada chart -->
 <body>
 <div id="chartContainer" style="height: 340px; width: 100%;"></div>
-<h4 class="mb-0 text-center"><br>Data Customer - Berdasarkan Jenis Pelayanan</h4><br>
+<h4 class="mb-0 text-center"><br>Data Transaksi - Berdasarkan Jenis Pelayanan</h4><br>
 <div id="chartaContainer" style="height: 340px; width: 100%;"></div>
-<h4 class="mb-0 text-center"><br>Data Customer - Berdasarkan Media Layanan</h4><br>
+<h4 class="mb-0 text-center"><br>Data Transaksi - Berdasarkan Media Layanan</h4><br>
 <div id="chartbContainer" style="height: 300px; width: 100%;"></div>
-<h4 class="mb-0 text-center"><br>Data Customer - Berdasarkan Tujuan</h4><br>
+<h4 class="mb-0 text-center"><br>Data Transaksi - Berdasarkan Tujuan</h4><br>
 <div id="chartcContainer" style="height: 300px; width: 100%;"></div>
 </body>
 
