@@ -48,7 +48,7 @@
             </div>
     </div>
     <div class="card-body">
-        <a href="{{url('admin/form-tambah')}}" class="btn btn-success border">Add Data</a>
+        {{-- <a href="{{url('admin/form-tambah')}}" class="btn btn-success border">Add Data</a> --}}
         <a href="{{('/download-pdf')}}" class="btn btn-danger border">PDF Data</a>
         <a href="{{('/export-excel')}}" class="btn btn-info border">Excel Data</a>
         <a href="{{('/export-csv')}}" class="btn btn-dark border">CSV Data</a>
