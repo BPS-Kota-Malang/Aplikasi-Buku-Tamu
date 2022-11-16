@@ -72,6 +72,7 @@ Route::post('showtransaction', [FeedbackController::class, 'showTransaction'])->
 //Transaction Page
 Route::resource('transaction', TransactionController::class);
 Route::post('filter', [TransactionController::class, 'filter'])->name('filter');
+Route::get('change-status/{id}', [TransactionController::class,'changeStatus']);
 
 //Category Page
 Route::resource('category', CategoryController::class);

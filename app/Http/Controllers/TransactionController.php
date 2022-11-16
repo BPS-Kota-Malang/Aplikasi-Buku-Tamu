@@ -146,4 +146,16 @@ class TransactionController extends Controller
     public function exportIntoCSVTransaction(){
         return Excel::download(new TransactionExport, 'transaction.csv');
     }
+
+    public function changeStatus($id){
+        $getStatus = Transaction::select('status')->where('id',$id)->first()  ;
+        if($getStatus->status==1){
+            $status = 0;
+        }else{
+            $status = 1;
+        }
+        Transaction::where('id',$id)->update(['status'=>$status]);
+        return redirect()->route('transaction.index')->with('status', 'Status berhasil diubah');
+        return $getStatus;
+    }
 }
