@@ -69,7 +69,7 @@
                     <th scope="col">Feedback <br>Sarana</th>
                     <th scope="col">Feedback <br>Kualitas</th>
                     <th scope="col">Tanggal</th>
-                    <th scope="col">Status</th>
+                    <th scope="col">Status Penilaian</th>
                     <th scope="col" width="25%">Aksi</th>
                 </tr>
             </thead>
