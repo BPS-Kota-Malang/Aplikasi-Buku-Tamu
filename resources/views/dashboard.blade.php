@@ -217,23 +217,23 @@ chartb.render();
 var chartc = new CanvasJS.Chart("chartcContainer", {
 	animationEnabled: true,
 	exportEnabled: true,
+	theme: "light1",
 	title:{
 		text: ""
 	},
 	data: [{
-        type: "pyramid",
-		indexLabelFontSize: 18,
-		valueRepresents: "area",
-		showInLegend: true,
-		legendText: "{label}",
-        toolTipContent: "<b>{label}</b><br>Jumlah: {x} transaksi",
-		indexLabel: "{label} - {y}%",
+		type: "pyramid",
+		yValueFormatString: "#\"%\"",
+		indexLabelFontColor: "black",
+		indexLabelFontSize: 16,
+		indexLabel: "{label} - {y}",
+		//reversed: true, // Reverses the pyramid
 		dataPoints: [
-			{ y: ({{$purpose1}}/({{$purpose1}}+{{$purpose2}}+{{$purpose3}}+{{$purpose4}}+{{$purpose5}}))*100, x: {{$purpose1}}, label: "Skripsi" },
-			{ y: ({{$purpose2}}/({{$purpose1}}+{{$purpose2}}+{{$purpose3}}+{{$purpose4}}+{{$purpose5}}))*100, x: {{$purpose2}}, label: "Tesis" },
-			{ y: ({{$purpose3}}/({{$purpose1}}+{{$purpose2}}+{{$purpose3}}+{{$purpose4}}+{{$purpose5}}))*100, x: {{$purpose3}}, label: "Disertasi" },
-			{ y: ({{$purpose4}}/({{$purpose1}}+{{$purpose2}}+{{$purpose3}}+{{$purpose4}}+{{$purpose5}}))*100, x: {{$purpose4}}, label: "Penelitian" },
-			{ y: ({{$purpose5}}/({{$purpose1}}+{{$purpose2}}+{{$purpose3}}+{{$purpose4}}+{{$purpose5}}))*100, x: {{$purpose5}}, label: "Umum (lain-lain)" }
+			{ y: ({{$purpose1}}/({{$purpose1}}+{{$purpose2}}+{{$purpose3}}+{{$purpose4}}+{{$purpose5}}))*100, label: "Tugas Sekolah/Universitas" },
+			{ y: ({{$purpose2}}/({{$purpose1}}+{{$purpose2}}+{{$purpose3}}+{{$purpose4}}+{{$purpose5}}))*100, label: "Skripsi" },
+			{ y: ({{$purpose3}}/({{$purpose1}}+{{$purpose2}}+{{$purpose3}}+{{$purpose4}}+{{$purpose5}}))*100, label: "Tesis" },
+			{ y: ({{$purpose4}}/({{$purpose1}}+{{$purpose2}}+{{$purpose3}}+{{$purpose4}}+{{$purpose5}}))*100, label: "Perumusan Kebijakan" },
+			{ y: ({{$purpose5}}/({{$purpose1}}+{{$purpose2}}+{{$purpose3}}+{{$purpose4}}+{{$purpose5}}))*100, label: "Yang Lainnya" }
 		]
 	}]
 });
