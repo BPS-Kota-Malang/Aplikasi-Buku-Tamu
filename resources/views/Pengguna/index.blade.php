@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<link rel="icon" href="{{ url('assets/img/logo.png') }}">
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
   <title>Home</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
@@ -374,8 +375,10 @@
         <div class="section-title">
           <h2>Pricing</h2>
           <p>
-            Gratis adalah layanan data BPS yang memungkinkan konsumen data untuk mendapatkan data atau publikasi secara gratis.
-            Sedangkan, Berbayar adalah layanan data BPS yang memberlakukan tarif pada produk BPS. Pada layanan berbayar ini 
+            Gratis adalah layanan data BPS yang memungkinkan konsumen data untuk mendapatkan data atau publikasi secara
+            gratis.
+            Sedangkan, Berbayar adalah layanan data BPS yang memberlakukan tarif pada produk BPS. Pada layanan berbayar
+            ini
             didasarkan kepada Peraturan <b>Pemerintah no.54 Tahun 2009</b>.
           </p>
         </div>
