@@ -18,7 +18,7 @@ use App\Http\Controllers\PurposeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CustController;
 use App\Http\Controllers\TransController;
-
+use App\Http\Controllers\RingkasanController;
 
 // Customer Page - User
 Route::get('/bukutamu', [GuestController::class, 'formTamu'])->name('/');
@@ -65,7 +65,6 @@ Route::resource('feedback', FeedbackController::class);
 
 Route::post('/simpanfeed', [FeedbackController::class, 'simpanfeed'])->name('simpanfeed');
 
-
 // Route::get('showtransaction/form', [FeedbackController::class, 'store']);
 Route::post('showtransaction', [FeedbackController::class, 'showTransaction'])->name('showtransaction');
 
@@ -92,20 +91,7 @@ Route::group(['prefix'=>config('admin.prefix'),'namespace'=>'App\\Http\\Controll
     Route::post('/logout',[LoginController::class, 'logout'])->name('admin.logout');
 
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    // Route::middleware(['auth:admin'])->group(function () {
-
-    //     Route::view('/dashboard','dashboard')->name('dashboard');
-    //     Route::view('/post','data-post')->name('post')->middleware('can:role,"admin","editor"');
-    //     Route::view('/admin','data-admin')->name('admin')->middleware('can:role,"admin"');
-    // });
 });
-// Route::get('/login', [LoginController::class, 'login'])->middleware('guest');
-// Route::post('/login', [LoginController::class, 'authenticate']);
-// // Route::get('/login', [LoginController::class, 'login'])->name('login');
-// // Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
-// // Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
-// Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
-// // Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 
 // Autentikasi Page
 Auth::routes();
@@ -113,20 +99,7 @@ Auth::routes();
 // Home Page
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Home Page
-Route::get('/', function() {
-    return view('Pengguna/index');
-});
-
-// About Page
-route::get('/about', function() {
-    return view('Pengguna/about');
-});
-
-// Contact Page
-route::get('/contact', function() {
-    return view('pengguna/contact');
-});
+Route::get('/', [App\Http\Controllers\RingkasanController::class, 'index'])->name('index');
 
 //Admin List Page
 Route::resource('data-admin', UserController::class);
@@ -150,4 +123,3 @@ Route::get('/download-pdf-transaction',[TransController::class, 'downloadPDFTran
 // Transaction - Excel dan CSV
 Route::get('/export-excel-transaction',[TransactionController::class, 'exportIntoExcelTransaction']);
 Route::get('/export-csv-transaction',[TransactionController::class, 'exportIntoCSVTransaction']);
-
