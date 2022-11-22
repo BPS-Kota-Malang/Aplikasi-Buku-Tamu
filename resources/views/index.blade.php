@@ -11,7 +11,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <meta name="csrf-token" content="{{ csrf_token() }}" />
-
 </head>
 
 <body>

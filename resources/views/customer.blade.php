@@ -7,22 +7,26 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Customer - BPS Kota Malang</title>
     <style>
-        #emp{
+        #emp {
             font-family: Arial, Helvetica, sans-serif;
             border-collapse: collapse;
             width: 100%;
             text-align: center;
         }
-        #emp td,#emp th{
+
+        #emp td,
+        #emp th {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: center;
         }
-        #emp tr:nth-child(even){
-            background-color: #0bfdfd; 
+
+        #emp tr:nth-child(even) {
+            background-color: #0bfdfd;
             text-align: center;
         }
-        #emp th{
+
+        #emp th {
             padding-top: 12px;
             padding-bottom: 12px;
             text-align: left;
@@ -30,6 +34,7 @@
             color: #fff;
             text-align: center;
         }
+
         h2 {
             text-align: center;
         }
@@ -38,18 +43,22 @@
 
 <table>
     <tr>
-    <td><img src="{{public_path('/assets/img/logo.png')}}" style="width: 100px; height: 100px"></td>
-    <td>
-        <h2 style="text-align: center">Badan Pusat Statistik (BPS)</h2>
-        <h3 style="text-align: center"><b>Kota Malang<b></h3>  
-        <h4 style="text-align: center"><i>Jl. Janti Bar. No.47, Bandungrejosari, Kec. Sukun, Kota Malang, Jawa Timur 65148<i></h4>  
-    </td>
+        <td><img src="{{public_path('/assets/img/logo.png')}}" style="width: 100px; height: 100px"></td>
+        <td>
+            <h2 style="text-align: center">Badan Pusat Statistik (BPS)</h2>
+            <h3 style="text-align: center"><b>Kota Malang<b></h3>
+            <h4 style="text-align: center"><i>Jl. Janti Bar. No.47, Bandungrejosari, Kec. Sukun, Kota Malang, Jawa Timur
+                    65148<i></h4>
+        </td>
     </tr>
     <tr>
-        <td colspan="10"><hr> </td>
+        <td colspan="10">
+            <hr>
+        </td>
     </tr>
 </table>
 <br>
+
 <body>
     <div class="card-header">
         <h2>Data Buku Tamu</h2><br>
@@ -75,7 +84,7 @@
                 <td>{{$emp->gender}}</td>
                 <td>{{$emp->guestEducation->education_type}}</td>
                 <td>{{$emp->guestJob->job_type}}</td>
-            </tr> 
+            </tr>
             @endforeach
         </tbody>
     </table>

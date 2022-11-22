@@ -67,13 +67,13 @@
 
                     </form> --}}
 
-            <form id="logout-form" action="{{ route('admin.logout') }}"  method="post">
-                @csrf
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a href="{{ route('admin.logout') }}"
-                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                class="btn btn-primary">Logout</a>
-            </form>
+                    <form id="logout-form" action="{{ route('admin.logout') }}" method="post">
+                        @csrf
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a href="{{ route('admin.logout') }}"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                            class="btn btn-primary">Logout</a>
+                    </form>
                     {{-- <a class="btn btn-primary" href="{{ route('actionlogout') }}">Logout</a> --}}
                 </div>
             </div>

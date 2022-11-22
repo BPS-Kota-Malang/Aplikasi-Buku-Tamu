@@ -8,9 +8,9 @@
       Form Tambah Data Admin
     </div>
     <div class="card-body">
-        <div class="form-group">
-          <form action="{{route('data-admin.store')}}" method="post">
-            @csrf
+      <div class="form-group">
+        <form action="{{route('data-admin.store')}}" method="post">
+          @csrf
           <label for="admin">Nama</label>
           <input type="text" class="form-control" name="name" id="name" aria-describedby="name">
 
@@ -19,25 +19,21 @@
           <label for="admin">Password</label>
           <input type="password" class="form-control" name="password" id="password" aria-describedby="password">
           <label for="admin">Role</label>
-          {{-- <input type="text" class="form-control" name="role" id="name" aria-describedby="role"> --}}
-                <div class="form-group">
-                    <select class="form-control select2bs4" style="width: 100%;">
+          <div class="form-group">
+            <select class="form-control select2bs4" style="width: 100%;">
 
-                        <option>Admin</option>
-                    </select>
-                </div>
-
-
+              <option>Admin</option>
+            </select>
+          </div>
+      </div>
     </div>
-
-        </div>
-        <button type="submit" class="btn btn-success">Simpan</button>
-      </form>
-      <br><br>
-      <div class="button-right">
-        <a href="{{ route('data-admin.index')}}" class="btn btn-primary">Kembali</a>
-    </div>
+    <button type="submit" class="btn btn-success">Simpan</button>
+    </form>
+    <br><br>
+    <div class="button-right">
+      <a href="{{ route('data-admin.index')}}" class="btn btn-primary">Kembali</a>
     </div>
   </div>
+</div>
 </div>
 @endsection

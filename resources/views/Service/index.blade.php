@@ -28,20 +28,20 @@
                     <td>{{ $item->service_type}}
                     <td>
                         <div class="row justify-content-center">
-                                <div class="">
-                                    <a href="{{ route('service.edit', $item->id)}}" class="btn btn-warning">Edit</a>
-                                </div>
-                                <div class="ml-2">
-                                    <a href="{{ route('service.show', $item->id)}}" class="btn btn-info">Show</a>
-                                </div>
-                                <div class="ml-2">
-                                    <form action="{{route('service.destroy', $item->id)}}" method="post">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-danger"
-                                            onclick="return confirm('Apakah anda yakin ingin menghapus Jenis Pelayanan ini ?')">Delete</button>
-                                    </form>
-                                </div>
+                            <div class="">
+                                <a href="{{ route('service.edit', $item->id)}}" class="btn btn-warning">Edit</a>
+                            </div>
+                            <div class="ml-2">
+                                <a href="{{ route('service.show', $item->id)}}" class="btn btn-info">Show</a>
+                            </div>
+                            <div class="ml-2">
+                                <form action="{{route('service.destroy', $item->id)}}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger"
+                                        onclick="return confirm('Apakah anda yakin ingin menghapus Jenis Pelayanan ini ?')">Delete</button>
+                                </form>
+                            </div>
                         </div>
                     </td>
                 </tr>

@@ -69,7 +69,7 @@
 
         <div class="form-group">
           <label for="institute">Nama Instansi</label>
-         <textarea name="institute" class="form-control"></textarea>
+          <textarea name="institute" class="form-control"></textarea>
         </div>
 
         <button type="submit" class="btn btn-success">Simpan</button>
@@ -77,7 +77,7 @@
       <br>
       <div class="button">
         <a href="{{ url('admin/tamu')}}" class="btn btn-primary">Kembali</a>
-    </div>
+      </div>
     </div>
   </div>
 </div>

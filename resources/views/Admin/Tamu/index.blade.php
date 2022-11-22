@@ -13,39 +13,39 @@
 
         <a href="#" class="btn btn-primary btn-filter" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <i class="fa fa-filter"></i> Filter Tanggal</a>
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Filter Tanggal Customer</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-                        aria-hidden="true">X
-                </div>
-                <div class="modal-body">
-                    <form action="{{ route ('filterCustomer')}}" method="post">
-                        @csrf
-                        <div class="box-body">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Dari Tanggal</label>
-                                <input type="date" class="form-control datepicker"  placeholder="Dari Tanggal"
-                                    name="dari" value="{{ date('Y-m-d') }}">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Filter Tanggal Customer</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                            aria-hidden="true">X
+                    </div>
+                    <div class="modal-body">
+                        <form action="{{ route ('filterCustomer')}}" method="post">
+                            @csrf
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Dari Tanggal</label>
+                                    <input type="date" class="form-control datepicker" placeholder="Dari Tanggal"
+                                        name="dari" value="{{ date('Y-m-d') }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Sampai Tanggal</label>
+                                    <input type="date" class="form-control datepicker" placeholder="Sampai Tanggal"
+                                        name="sampai" value="{{ date('Y-m-d') }}">
+                                </div>
                             </div>
-                             <div class="form-group">
-                                <label for="exampleInputEmail1">Sampai Tanggal</label>
-                                <input type="date" class="form-control datepicker" placeholder="Sampai Tanggal"
-                                    name="sampai"  value="{{ date('Y-m-d') }}">
+                            <!-- /.box-body -->
+                            <div class="box-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
-                        </div>
-                        <!-- /.box-body -->
-                        <div class="box-footer">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                    </form>
-                </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-            </div>
+        </div>
     </div>
     <div class="card-body">
         {{-- <a href="{{url('admin/form-tambah')}}" class="btn btn-success border">Add Data</a> --}}
@@ -74,7 +74,7 @@
                     <td>{{ $item->gender }}</td>
                     <td>{{ $item->guestEducation->education_type}}</td>
                     <td>{{ $item->guestJob->job_type}}</td>
-                     <td>{{ $item->created_at }}</td>
+                    <td>{{ $item->created_at }}</td>
                     <td>
                         <div class="row justify-content-center">
                             {{-- <div class="col-4">
@@ -88,7 +88,8 @@
                                     @csrf
                                     <input type="hidden" name="id" value="{{$item->id}}">
                                     {{-- <button type="submit" class="btn btn-danger"
-                                        onclick="return confirm('Apakah anda yakin ingin menghapus Data Tamu ini ?')">Hapus</button> --}}
+                                        onclick="return confirm('Apakah anda yakin ingin menghapus Data Tamu ini ?')">Hapus</button>
+                                    --}}
                                 </form>
                             </div>
                         </div>
@@ -107,7 +108,9 @@
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+    integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
+</script>
 <script src="extensions/auto-refresh/bootstrap-table-auto-refresh.js"></script>
 
 <script type="text/javascript">

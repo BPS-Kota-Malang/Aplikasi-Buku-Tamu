@@ -3,7 +3,7 @@
 <div class="col-sm-12">
     <div class="card">
         <div class="card-body">
-        <h4><i class="fa fa-pencil-alt"></i> Detail Data Admin</h4><br>
+            <h4><i class="fa fa-pencil-alt"></i> Detail Data Admin</h4><br>
             <table class="table">
                 <tbody>
                     <tr>

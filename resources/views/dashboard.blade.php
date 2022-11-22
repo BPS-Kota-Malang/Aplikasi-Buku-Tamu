@@ -57,7 +57,8 @@
                         </div>
                         <div class="row no-gutters align-items-center">
                             <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight text-gray-800"><strong>{{$student}}</strong> orang</div>
+                                <div class="h5 mb-0 mr-3 font-weight text-gray-800"><strong>{{$student}}</strong> orang
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -87,8 +88,8 @@
         </div>
     </div>
 
-	<!-- Data Peneliti -->
-	<div class="col-xl-4 col-md-6 mb-4">
+    <!-- Data Peneliti -->
+    <div class="col-xl-4 col-md-6 mb-4">
         <div class="card border-left-warning shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
@@ -105,8 +106,8 @@
         </div>
     </div>
 
-	<!-- General -->
-	<div class="col-xl-4 col-md-6 mb-4">
+    <!-- General -->
+    <div class="col-xl-4 col-md-6 mb-4">
         <div class="card border-left-secondary shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
@@ -126,12 +127,12 @@
 
 <!DOCTYPE HTML>
 <html>
-<head>
-<h4 class="mb-0 text-center">Data Customer - Berdasarkan Pendidikan</h4><br>
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-<script type="text/javascript">
 
-// Menampilkan visualisasi Data Customer - Berdasarkan Pendidikan
+<head>
+    <h4 class="mb-0 text-center">Data Customer - Berdasarkan Pendidikan</h4><br>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script type="text/javascript">
+        // Menampilkan visualisasi Data Customer - Berdasarkan Pendidikan
 window.onload = function () {
 	var chart = new CanvasJS.Chart("chartContainer", {
 		data: [              
@@ -250,18 +251,19 @@ function explodePie (e) {
 	e.charta.render();
 }
 
-</script>
+    </script>
 </head>
 
 <!-- Menampilkan judul untuk setiap visualisasi data pada chart -->
+
 <body>
-<div id="chartContainer" style="height: 340px; width: 100%;"></div>
-<h4 class="mb-0 text-center"><br>Data Transaksi - Berdasarkan Jenis Pelayanan</h4><br>
-<div id="chartaContainer" style="height: 340px; width: 100%;"></div>
-<h4 class="mb-0 text-center"><br>Data Transaksi - Berdasarkan Media Layanan</h4><br>
-<div id="chartbContainer" style="height: 300px; width: 100%;"></div>
-<h4 class="mb-0 text-center"><br>Data Transaksi - Berdasarkan Tujuan</h4><br>
-<div id="chartcContainer" style="height: 300px; width: 100%;"></div>
+    <div id="chartContainer" style="height: 340px; width: 100%;"></div>
+    <h4 class="mb-0 text-center"><br>Data Transaksi - Berdasarkan Jenis Pelayanan</h4><br>
+    <div id="chartaContainer" style="height: 340px; width: 100%;"></div>
+    <h4 class="mb-0 text-center"><br>Data Transaksi - Berdasarkan Media Layanan</h4><br>
+    <div id="chartbContainer" style="height: 300px; width: 100%;"></div>
+    <h4 class="mb-0 text-center"><br>Data Transaksi - Berdasarkan Tujuan</h4><br>
+    <div id="chartcContainer" style="height: 300px; width: 100%;"></div>
 </body>
 
 </html>

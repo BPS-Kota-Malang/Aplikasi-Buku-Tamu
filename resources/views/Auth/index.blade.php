@@ -32,20 +32,20 @@
                     <td>{{ $item->role }}</td>
                     <td>
                         <div class="row justify-content-center">
-                                <div class="">
-                                    <a href="{{ route('data-admin.edit', $item->id)}}" class="btn btn-warning">Edit</a>
-                                </div>
-                                <div class="ml-2">
-                                    <a href="{{ route('data-admin.show', $item->id)}}" class="btn btn-info">Show</a>
-                                </div>
-                                <div class="ml-2">
-                                    <form action="{{route('data-admin.destroy', $item->id)}}" method="post">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-danger"
-                                            onclick="return confirm('Apakah anda yakin ingin menghapus Jenis Tujuan ini ?')">Delete</button>
-                                    </form>
-                                </div>
+                            <div class="">
+                                <a href="{{ route('data-admin.edit', $item->id)}}" class="btn btn-warning">Edit</a>
+                            </div>
+                            <div class="ml-2">
+                                <a href="{{ route('data-admin.show', $item->id)}}" class="btn btn-info">Show</a>
+                            </div>
+                            <div class="ml-2">
+                                <form action="{{route('data-admin.destroy', $item->id)}}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger"
+                                        onclick="return confirm('Apakah anda yakin ingin menghapus Jenis Tujuan ini ?')">Delete</button>
+                                </form>
+                            </div>
                         </div>
                     </td>
                 </tr>

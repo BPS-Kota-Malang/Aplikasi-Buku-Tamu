@@ -28,20 +28,20 @@
                     <td>{{ $item->media_type}}
                     <td>
                         <div class="row row justify-content-center">
-                                <div class="">
-                                    <a href="{{ route('media.edit', $item->id)}}" class="btn btn-warning">Edit</a>
-                                </div>
-                                <div class="ml-2">
-                                    <a href="{{ route('media.show', $item->id)}}" class="btn btn-info">Show</a>
-                                </div>
-                                <div class="ml-2">
-                                    <form action="{{route('media.destroy', $item->id)}}" method="post">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-danger"
-                                            onclick="return confirm('Apakah anda yakin ingin menghapus Jenis Media Pelayanan ini ?')">Delete</button>
-                                    </form>
-                                </div>
+                            <div class="">
+                                <a href="{{ route('media.edit', $item->id)}}" class="btn btn-warning">Edit</a>
+                            </div>
+                            <div class="ml-2">
+                                <a href="{{ route('media.show', $item->id)}}" class="btn btn-info">Show</a>
+                            </div>
+                            <div class="ml-2">
+                                <form action="{{route('media.destroy', $item->id)}}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger"
+                                        onclick="return confirm('Apakah anda yakin ingin menghapus Jenis Media Pelayanan ini ?')">Delete</button>
+                                </form>
+                            </div>
                         </div>
                     </td>
                 </tr>
